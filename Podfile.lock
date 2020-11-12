@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (5.1.0)
+  - Apollo (0.36.0):
+    - Apollo/Core (= 0.36.0)
+  - Apollo/Core (0.36.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - SDWebImage (5.8.0):
+    - SDWebImage/Core (= 5.8.0)
+  - SDWebImage/Core (5.8.0)
+
+DEPENDENCIES:
+  - Apollo
+  - Moya
+  - SDWebImage
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Apollo
+    - Moya
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Apollo: a8dbf1a55e8860bfbe3e4274919721d102c85413
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
+
+PODFILE CHECKSUM: f8f611366f95e93cb40a6480e9a84deb15d8b86e
+
+COCOAPODS: 1.9.3

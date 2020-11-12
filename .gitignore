@@ -1,0 +1,26 @@
+build/
+docs/
+node_modules/
+Pods/
+Example/OneKeySDKDemo/Pods
+
+test-reports
+xcuserdata/
+*.gcda
+*.gcno
+
+xcodebuild.log
+
+.bundle
+## Gemfile.lock
+
+reports/
+
+docs/
+.jazzy.yaml
+
+.DS_Store
+
+## Sonar scanner
+.scannerwork
+bw_output
