@@ -10,6 +10,7 @@
 		107176D77F65A9E96CCB71AB /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2D0ED1E48D433143919C58 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
 		286C9CD222DA8E1D6FB8CC27 /* Pods_OneKeySDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A115E8F96F389C54AE39C74F /* Pods_OneKeySDKDemo.framework */; };
 		5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
+		58322BCF255E81FD00847919 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58322BCE255E81FD00847919 /* Keys.swift */; };
 		5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843945D25594D2B009D2306 /* MenuTableViewController.swift */; };
 		58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648C2555081E00C62479 /* AppDelegate.swift */; };
 		58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648E2555081E00C62479 /* SceneDelegate.swift */; };
@@ -19,6 +20,24 @@
 		58A364992555082000C62479 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364972555082000C62479 /* LaunchScreen.storyboard */; };
 		58A364A42555082000C62479 /* OneKeySDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364A32555082000C62479 /* OneKeySDKDemoTests.swift */; };
 		58A364AF2555082000C62479 /* OneKeySDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364AE2555082000C62479 /* OneKeySDKDemoUITests.swift */; };
+		58A8A56F25623A2900A11F88 /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */; };
+		58A8A574256241CF00A11F88 /* CustomFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A573256241CF00A11F88 /* CustomFontViewController.swift */; };
+		58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */; };
+		58A8A57E256270D000A11F88 /* CustomThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */; };
+		58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5822562750600A11F88 /* ConfigFont.swift */; };
+		58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961DA255CF7C2000B126D /* SettingsViewController.swift */; };
+		58B961E3255CFBE3000B126D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E2255CFBE3000B126D /* AppSettings.swift */; };
+		58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E7255CFDC9000B126D /* UIColor+Hex.swift */; };
+		58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */; };
+		58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */; };
+		58B9620E255D4BC3000B126D /* ColorPickerWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */; };
+		58BA6113255E459900696AA1 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6112255E459900696AA1 /* MenuSection.swift */; };
+		58D10D28255E47A1008471F3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D27255E47A1008471F3 /* Theme.swift */; };
+		58D10D2D255E4814008471F3 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D2C255E4814008471F3 /* Menu.swift */; };
+		58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */; };
+		58D10D37255E4931008471F3 /* SelectMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */; };
+		58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */; };
+		58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D51255E7354008471F3 /* CustomThemeViewController.swift */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
 		9627E519C0F8244AC735EE68 /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25518C32852F6B714A9BF22 /* Pods_OneKeySDKDemoTests.framework */; };
@@ -45,6 +64,7 @@
 		1D60A55A159E4C5B8D588024 /* Pods-OneKeySDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		436210AAE2E58C8D34AFEB2B /* Pods-OneKeySDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
+		58322BCE255E81FD00847919 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5843945D25594D2B009D2306 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		58A364892555081E00C62479 /* OneKeySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKeySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A3648C2555081E00C62479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +80,24 @@
 		58A364AA2555082000C62479 /* OneKeySDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneKeySDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A364AE2555082000C62479 /* OneKeySDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKeySDKDemoUITests.swift; sourceTree = "<group>"; };
 		58A364B02555082000C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58A8A573256241CF00A11F88 /* CustomFontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontViewController.swift; sourceTree = "<group>"; };
+		58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilyTableViewCell.swift; sourceTree = "<group>"; };
+		58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeDelegate.swift; sourceTree = "<group>"; };
+		58A8A5822562750600A11F88 /* ConfigFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFont.swift; sourceTree = "<group>"; };
+		58B961DA255CF7C2000B126D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		58B961E2255CFBE3000B126D /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		58B961E7255CFDC9000B126D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerWrapperViewController.swift; sourceTree = "<group>"; };
+		58BA6112255E459900696AA1 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		58D10D27255E47A1008471F3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		58D10D2C255E4814008471F3 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		58D10D51255E7354008471F3 /* CustomThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeViewController.swift; sourceTree = "<group>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		76839522F4AE97A39C3B9065 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +172,10 @@
 		58A3648B2555081E00C62479 /* OneKeySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				58D10D56255E735D008471F3 /* Settings */,
+				58D10D25255E4761008471F3 /* Models */,
+				58BA6117255E459D00696AA1 /* Menu */,
+				58B961FF255D449D000B126D /* Cells */,
 				58A3648C2555081E00C62479 /* AppDelegate.swift */,
 				58A3648E2555081E00C62479 /* SceneDelegate.swift */,
 				58A364902555081E00C62479 /* HomeViewController.swift */,
@@ -142,7 +184,7 @@
 				58A364952555082000C62479 /* Assets.xcassets */,
 				58A364972555082000C62479 /* LaunchScreen.storyboard */,
 				58A3649A2555082000C62479 /* Info.plist */,
-				5843945D25594D2B009D2306 /* MenuTableViewController.swift */,
+				58B961E7255CFDC9000B126D /* UIColor+Hex.swift */,
 			);
 			path = OneKeySDKDemo;
 			sourceTree = "<group>";
@@ -163,6 +205,53 @@
 				58A364B02555082000C62479 /* Info.plist */,
 			);
 			path = OneKeySDKDemoUITests;
+			sourceTree = "<group>";
+		};
+		58B961FF255D449D000B126D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */,
+				58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */,
+				58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */,
+				58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */,
+				58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */,
+				58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */,
+				58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		58BA6117255E459D00696AA1 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5843945D25594D2B009D2306 /* MenuTableViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		58D10D25255E4761008471F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58BA6112255E459900696AA1 /* MenuSection.swift */,
+				58D10D27255E47A1008471F3 /* Theme.swift */,
+				58D10D2C255E4814008471F3 /* Menu.swift */,
+				58322BCE255E81FD00847919 /* Keys.swift */,
+				58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58D10D56255E735D008471F3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */,
+				58B961DA255CF7C2000B126D /* SettingsViewController.swift */,
+				58D10D51255E7354008471F3 /* CustomThemeViewController.swift */,
+				58B961E2255CFBE3000B126D /* AppSettings.swift */,
+				58A8A573256241CF00A11F88 /* CustomFontViewController.swift */,
+				58A8A5822562750600A11F88 /* ConfigFont.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		5C25B71665839002B4EE617B /* Pods */ = {
@@ -428,11 +517,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D10D37255E4931008471F3 /* SelectMenuTableViewCell.swift in Sources */,
+				58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */,
+				58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */,
+				58A8A57E256270D000A11F88 /* CustomThemeDelegate.swift in Sources */,
 				58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */,
+				58B9620E255D4BC3000B126D /* ColorPickerWrapperViewController.swift in Sources */,
+				58A8A56F25623A2900A11F88 /* FontMenuTableViewCell.swift in Sources */,
+				58A8A574256241CF00A11F88 /* CustomFontViewController.swift in Sources */,
+				58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */,
+				58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */,
+				58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */,
+				58322BCF255E81FD00847919 /* Keys.swift in Sources */,
+				58D10D2D255E4814008471F3 /* Menu.swift in Sources */,
+				58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */,
+				58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */,
+				58D10D28255E47A1008471F3 /* Theme.swift in Sources */,
 				5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */,
+				58B961E3255CFBE3000B126D /* AppSettings.swift in Sources */,
 				58A364912555081E00C62479 /* HomeViewController.swift in Sources */,
 				58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */,
 				58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */,
+				58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */,
+				58BA6113255E459900696AA1 /* MenuSection.swift in Sources */,
+				58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

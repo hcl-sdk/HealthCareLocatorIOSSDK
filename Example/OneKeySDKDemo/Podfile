@@ -10,6 +10,8 @@ target 'OneKeySDKDemo' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'lottie-ios'
+  pod 'FlexColorPicker'
+  pod 'IQKeyboardManagerSwift'
   
   target 'OneKeySDKDemoTests' do
     inherit! :search_paths

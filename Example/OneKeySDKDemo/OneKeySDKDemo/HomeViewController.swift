@@ -58,6 +58,7 @@ class HomeViewController: UIViewController {
             case "EmbedMenuTableView":
                 if let menuVC = segue.destination as? MenuTableViewController {
                     menuVC.delegate = self
+                    menuVC.menus = [MenuSection(title: nil, menus: Menu.allMainMenus)]
                 }
             default:
                 return
@@ -67,10 +68,17 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: MenuTableViewControllerDelegate {
-    func didSelect(menu: MainMenu) {
+    func didSelect(menu: Menu) {
         switch menu {
-        case .newSearch:
-            handleStartNewSearch()
+        case .textMenu(let title, _):
+            switch title {
+            case "New Search":
+                handleStartNewSearch()
+            case "Settings":
+                showSettingsScreen()
+            default:
+                return
+            }
         default:
             return
         }
@@ -78,6 +86,10 @@ extension HomeViewController: MenuTableViewControllerDelegate {
     
     private func handleStartNewSearch() {
         performSegue(withIdentifier: "showSearchVC", sender: nil)
+    }
+    
+    private func showSettingsScreen() {
+        performSegue(withIdentifier: "showSettingsVC", sender: nil)
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {

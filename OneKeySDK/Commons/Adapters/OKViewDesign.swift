@@ -9,5 +9,5 @@ import Foundation
 
 protocol OKViewDesign {
     var theme: OKThemeConfigure? { get set }
-    func config(theme: OKThemeConfigure)
+    func layoutWith(theme: OKThemeConfigure)
 }

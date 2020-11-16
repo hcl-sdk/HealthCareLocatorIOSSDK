@@ -237,7 +237,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GRW-Oe-Mso">
                                                 <rect key="frame" x="48" y="64" width="304" height="84"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name, Speciality, Establishment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-87-cQa">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name, Speciality, Establishment..." textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-87-cQa">
                                                         <rect key="frame" x="0.0" y="0.0" width="304" height="38"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="38" id="YPH-CA-Dp8"/>
@@ -245,7 +245,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? (address, city...)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXx-YR-z5h">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? (address, city...)" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kXx-YR-z5h">
                                                         <rect key="frame" x="0.0" y="46" width="304" height="38"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -279,6 +279,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hvV-5P-RUx">
                                         <rect key="frame" x="0.0" y="220" width="398" height="628"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <inset key="separatorInset" minX="68" minY="0.0" maxX="12" maxY="0.0"/>
                                     </tableView>
                                 </subviews>
                             </stackView>
@@ -294,6 +295,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Y3-UY-85q"/>
                     <connections>
+                        <outlet property="categorySearchTextField" destination="O0N-87-cQa" id="JNF-mi-dS8"/>
+                        <outlet property="locationSearchTextField" destination="kXx-YR-z5h" id="mC6-7I-0uK"/>
+                        <outlet property="searchBtn" destination="rgK-uX-xmG" id="Jh0-A8-HOI"/>
+                        <outlet property="searchResultTableView" destination="hvV-5P-RUx" id="TKT-jB-jxM"/>
                         <segue destination="QWh-lL-KfX" kind="show" identifier="showResultVC" id="s83-iU-uQ7"/>
                     </connections>
                 </viewController>

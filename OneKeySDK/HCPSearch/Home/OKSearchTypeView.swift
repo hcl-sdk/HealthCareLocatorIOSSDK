@@ -25,10 +25,10 @@ class OKSearchTypeView: UIStackView {
         initialize()
     }
     
-    init(theme: OKIconTitleConfigure, primaryColor: UIColor, secondaryColor: UIColor) {
+    init(theme: OKThemeConfigure, image: UIImage?, title: String, description: String) {
         super.init(frame: CGRect.zero)
         initialize()
-        configWith(theme: theme, primaryColor: primaryColor, secondaryColor: secondaryColor)
+        configWith(theme: theme, image: image, title: title, description: description)
     }
     
     private func initialize() {
@@ -40,11 +40,13 @@ class OKSearchTypeView: UIStackView {
         }
     }
     
-    func configWith(theme: OKIconTitleConfigure, primaryColor: UIColor, secondaryColor: UIColor) {
-        iconBgView.backgroundColor = secondaryColor
-        icon.image = theme.image
-        icon.tintColor = primaryColor
-        titleLabel.text = theme.titleText
-        descriptionLabel.text = theme.descriptionText
+    func configWith(theme: OKThemeConfigure, image: UIImage?, title: String, description: String) {
+        iconBgView.backgroundColor = theme.secondaryColor
+        icon.image = image
+        icon.tintColor = theme.primaryColor
+        titleLabel.font = theme.titleFont
+        titleLabel.text = title
+        descriptionLabel.font = theme.defaultFont
+        descriptionLabel.text = description
     }
 }
