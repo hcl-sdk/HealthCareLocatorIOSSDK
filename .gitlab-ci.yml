@@ -67,6 +67,7 @@ build:dev:
   only:
     - develop
   script:
+    - ls
     - xcodebuild archive -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo -configuration Release -archivePath build/OneKeySDKDemo.xcarchive -derivedDataPath build -allowProvisioningUpdates | xcpretty -s;
     - xcodebuild -exportArchive -archivePath "build/OneKeySDKDemo.xcarchive" -exportOptionsPlist exportInHouseOptions.plist -exportPath build -allowProvisioningUpdates | xcpretty -s;
     - ditto -c -k -rsrc build/OneKeySDKDemo.xcarchive/dSYMs build/OneKeySDKDemo-dSYM.zip
