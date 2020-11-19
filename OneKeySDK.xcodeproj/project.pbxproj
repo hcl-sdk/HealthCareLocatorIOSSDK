@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */; };
+		5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
 		584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */; };
 		5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkManagerDelegate.swift; sourceTree = "<group>"; };
+		5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchInputViewController.swift; sourceTree = "<group>"; };
 		5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */,
 				58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */,
 				58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */,
+				5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */,
 			);
 			path = OKSegmentControlView;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
 				58B6A769255AA21100C1F6AF /* SearchHCPInput.swift in Sources */,
 				587D237B25652F7F0009EA01 /* API.swift in Sources */,
+				5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */,
 				5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,

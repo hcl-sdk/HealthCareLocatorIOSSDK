@@ -62,6 +62,11 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
+        performSearchingWith(criteria: nil, location: nil)
+    }
+    
+    
+    private func performSearchingWith(criteria: String?, location: CLLocationCoordinate2D?) {
         webService.searchHCPWith(input: SearchHCPInput(), manager: OKServiceManager.shared) {[weak self] (result, error) in
             guard let strongSelf = self else {return}
             if let error = error {
@@ -73,7 +78,6 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
             }
         }
     }
-    
     // MARK: - Navigation
 
     @IBAction func unwindToOKHCPSearchInputViewController(_ unwindSegue: UIStoryboardSegue) {
@@ -131,6 +135,21 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            performSearchingWith(criteria: nil, location: nil)
+        case 1:
+            if let criteria = categorySearchTextField.text, !criteria.isEmpty {
+                performSearchingWith(criteria: criteria, location: nil)
+            } else {
+                locationSearchTextField.text = "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)"
+                searchResult = []
+            }
+        default:
+            return
+        }
+    }
 }
 
 // MARK: Textfield delegate

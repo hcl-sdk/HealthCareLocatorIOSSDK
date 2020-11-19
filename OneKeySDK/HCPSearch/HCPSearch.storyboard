@@ -446,6 +446,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="oKX-lh-PZI"/>
                     <connections>
+                        <outlet property="activityCountLabel" destination="t4n-1j-QAe" id="v3z-hb-dtX"/>
                         <outlet property="displayModeSegmentView" destination="Sug-H4-QMC" id="BQw-bW-zK8"/>
                     </connections>
                 </viewController>

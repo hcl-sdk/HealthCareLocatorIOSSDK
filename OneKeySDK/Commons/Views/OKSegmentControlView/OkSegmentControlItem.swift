@@ -9,6 +9,8 @@ import UIKit
 
 class OkSegmentControlItem: UIView {
 
+    var index: Int = 0
+    
     var item: OkSegmentControlModel = OkSegmentControlModel(icon: nil,
                                                             title: "Item",
                                                             selectedBackgroundColor: UIColor.green,
@@ -16,13 +18,13 @@ class OkSegmentControlItem: UIView {
                                                             nonSelectedBackgroundColor: UIColor.white,
                                                             nonSelectedForcegroundColor: UIColor.darkGray) {
         didSet {
-            configWith(item: item, selected: selected)
+            configWith(item: item, index: index, selected: selected)
         }
     }
     
     var selected: Bool = false {
         didSet {
-            configWith(item: item, selected: selected)
+            configWith(item: item, index: index, selected: selected)
         }
     }
     
@@ -35,12 +37,12 @@ class OkSegmentControlItem: UIView {
         initialize()
     }
     
-    init(item: OkSegmentControlModel, selected: Bool) {
+    init(item: OkSegmentControlModel, index: Int, selected: Bool) {
         super.init(frame: CGRect.zero)
         initialize()
         self.item = item
         self.selected = selected
-        configWith(item: item, selected: selected)
+        configWith(item: item, index: index, selected: selected)
     }
     
     required init?(coder: NSCoder) {
@@ -64,7 +66,8 @@ class OkSegmentControlItem: UIView {
         }
     }
     
-    func configWith(item: OkSegmentControlModel, selected: Bool) {
+    func configWith(item: OkSegmentControlModel, index: Int, selected: Bool) {
+        self.index = index
         titleLabel.text = item.title
         titleLabel.textColor = selected ? item.selectedForcegroundColor : item.nonSelectedForcegroundColor
         bgView.backgroundColor = selected ? item.selectedBackgroundColor : UIColor.clear

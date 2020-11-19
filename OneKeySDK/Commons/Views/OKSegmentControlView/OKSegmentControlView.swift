@@ -89,7 +89,9 @@ class OKSegmentControlView: UIView {
         }
         
         for (index, item) in items.enumerated() {
-            wrapperStackView.addArrangedSubview(OkSegmentControlItem(item: item, selected: index == selectedIndex))
+            wrapperStackView.addArrangedSubview(OkSegmentControlItem(item: item,
+                                                                     index: index,
+                                                                     selected: index == selectedIndex))
         }
     }
     

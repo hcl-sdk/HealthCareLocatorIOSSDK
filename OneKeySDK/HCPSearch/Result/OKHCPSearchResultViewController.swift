@@ -14,9 +14,11 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     var result: [Activity] = []
     
     @IBOutlet weak var displayModeSegmentView: OKSegmentControlView!
+    @IBOutlet weak var activityCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityCountLabel.text = "\(result.count)"
         if let theme = theme {
             layoutWith(theme: theme)
         }
@@ -25,11 +27,12 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
             viewMapVC.result = result
             viewMapVC.theme = theme
-            resultNavigationVC.pushViewController(viewMapVC, animated: true)
+            resultNavigationVC.pushViewController(viewMapVC, animated: false)
         }
     }
     
     func layoutWith(theme: OKThemeConfigure) {
+        activityCountLabel.textColor = theme.primaryColor
         displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "ic-list"),
                                                               title: "List View",
                                                               selectedBackgroundColor: theme.primaryColor,
