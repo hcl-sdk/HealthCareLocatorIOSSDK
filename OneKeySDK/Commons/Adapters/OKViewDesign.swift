@@ -11,3 +11,7 @@ protocol OKViewDesign {
     var theme: OKThemeConfigure? { get set }
     func layoutWith(theme: OKThemeConfigure)
 }
+
+extension OKViewDesign {
+    func layoutWith(theme: OKThemeConfigure) {}
+}

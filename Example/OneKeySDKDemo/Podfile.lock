@@ -25,6 +25,7 @@ PODS:
   - SDWebImage/Core (5.8.0)
 
 DEPENDENCIES:
+  - Apollo
   - FlexColorPicker
   - IQKeyboardManagerSwift
   - lottie-ios
@@ -62,6 +63,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
-PODFILE CHECKSUM: 023392c993f4e14950fa1c05494536f44a4db098
+PODFILE CHECKSUM: d20d9c3120fa8ad46b0bf9e80eead19f72d4ff2e
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

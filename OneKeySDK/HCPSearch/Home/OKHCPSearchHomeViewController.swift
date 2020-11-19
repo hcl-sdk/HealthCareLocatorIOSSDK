@@ -68,7 +68,9 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         if let identifier = segue.identifier {
             switch identifier {
             case "showSearchInputVC":
-                break
+                if let desVC = segue.destination as? OKHCPSearchInputViewController {
+                    desVC.theme = theme
+                }
             default:
                 return
             }

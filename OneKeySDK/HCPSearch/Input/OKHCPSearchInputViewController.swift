@@ -45,6 +45,16 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categorySearchTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(false)
+    }
+    
     func layoutWith(theme: OKThemeConfigure) {
         searchBtn.backgroundColor = theme.primaryColor
         categorySearchTextField.font = theme.defaultFont
@@ -52,9 +62,15 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
-        webService.searchHCPWith(input: SearchHCPInput()) {[weak self] (result, error) in
-            guard let strongSelf = self, let unwrapResult = result else {return}
-            strongSelf.performSegue(withIdentifier: "showResultVC", sender: unwrapResult)
+        webService.searchHCPWith(input: SearchHCPInput(), manager: OKServiceManager.shared) {[weak self] (result, error) in
+            guard let strongSelf = self else {return}
+            if let error = error {
+                
+            } else if let unwrapResult = result {
+                strongSelf.performSegue(withIdentifier: "showResultVC", sender: unwrapResult)
+            } else {
+                
+            }
         }
     }
     
@@ -70,8 +86,9 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
             switch identifier {
             case "showResultVC":
                 if let desVC = segue.destination as? OKHCPSearchResultViewController,
-                   let result = sender as? [SearchResultModel] {
+                   let result = sender as? [Activity] {
                     desVC.result = result
+                    desVC.theme = theme
                 }
             default:
                 return
@@ -108,7 +125,7 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
             default:
                 cell.configWith(theme: theme,
                                 iconImage: (UIImage(named: "ic-search-marker", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))!,
-                                title: searchResult[indexPath.row].title)
+                                title: "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)")
             }
         }
         return cell

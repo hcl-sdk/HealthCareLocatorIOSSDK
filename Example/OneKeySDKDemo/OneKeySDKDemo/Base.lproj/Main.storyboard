@@ -80,9 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kxd-b7-v4q" secondAttribute="trailing" id="3PT-VJ-LND"/>
+                            <constraint firstAttribute="trailing" secondItem="kxd-b7-v4q" secondAttribute="trailing" id="3PT-VJ-LND"/>
                             <constraint firstItem="zSG-15-fl4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="J5c-Xh-f21"/>
-                            <constraint firstItem="kxd-b7-v4q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MNM-OR-Wbe"/>
+                            <constraint firstItem="kxd-b7-v4q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MNM-OR-Wbe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kxd-b7-v4q" secondAttribute="bottom" id="elV-cu-A56"/>
                             <constraint firstItem="zSG-15-fl4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p9f-EA-gPm"/>
                             <constraint firstItem="kxd-b7-v4q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tYS-x7-Bcu"/>
@@ -429,8 +429,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pBP-y2-UCS" firstAttribute="top" secondItem="NUa-ja-Ktg" secondAttribute="top" id="F8P-9t-yCp"/>
-                            <constraint firstItem="pBP-y2-UCS" firstAttribute="leading" secondItem="WeV-ai-HCO" secondAttribute="leading" id="VpI-rN-RsD"/>
-                            <constraint firstItem="WeV-ai-HCO" firstAttribute="trailing" secondItem="pBP-y2-UCS" secondAttribute="trailing" id="XI0-9X-cjv"/>
+                            <constraint firstItem="pBP-y2-UCS" firstAttribute="leading" secondItem="NUa-ja-Ktg" secondAttribute="leading" id="VpI-rN-RsD"/>
+                            <constraint firstAttribute="trailing" secondItem="pBP-y2-UCS" secondAttribute="trailing" id="XI0-9X-cjv"/>
                             <constraint firstItem="WeV-ai-HCO" firstAttribute="bottom" secondItem="pBP-y2-UCS" secondAttribute="bottom" id="icO-g2-1Ym"/>
                             <constraint firstItem="KDn-tQ-CCU" firstAttribute="top" secondItem="WeV-ai-HCO" secondAttribute="top" id="l7H-No-Uil"/>
                         </constraints>
@@ -499,8 +499,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9He-xC-U8i" firstAttribute="bottom" secondItem="m42-bI-tIG" secondAttribute="bottom" id="0mE-PN-0m9"/>
-                            <constraint firstItem="9He-xC-U8i" firstAttribute="trailing" secondItem="m42-bI-tIG" secondAttribute="trailing" id="FZ3-zL-BqO"/>
-                            <constraint firstItem="m42-bI-tIG" firstAttribute="leading" secondItem="9He-xC-U8i" secondAttribute="leading" id="Vpe-Nz-Q2n"/>
+                            <constraint firstAttribute="trailing" secondItem="m42-bI-tIG" secondAttribute="trailing" id="FZ3-zL-BqO"/>
+                            <constraint firstItem="m42-bI-tIG" firstAttribute="leading" secondItem="Pah-vP-Ld1" secondAttribute="leading" id="Vpe-Nz-Q2n"/>
                             <constraint firstItem="VsK-5F-d6N" firstAttribute="top" secondItem="9He-xC-U8i" secondAttribute="top" id="Xel-6w-bS6"/>
                             <constraint firstItem="m42-bI-tIG" firstAttribute="top" secondItem="Pah-vP-Ld1" secondAttribute="top" id="lpW-GE-N58"/>
                         </constraints>
@@ -629,7 +629,7 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="arrow.backward" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="a2y-Ba-gI5" kind="unwind" identifier="backToSettingVC" unwindAction="unwindToSettingsViewController:" id="Ycj-w2-ShT"/>
+                                                    <action selector="backAction:" destination="WfK-gP-8dc" eventType="touchUpInside" id="UFt-qK-byU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -684,8 +684,8 @@
                         <viewLayoutGuide key="safeArea" id="N3K-43-W4r"/>
                         <color key="backgroundColor" red="0.16322335600000001" green="0.36834239959999998" blue="0.41476839780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="N3K-43-W4r" firstAttribute="trailing" secondItem="xvl-gK-qct" secondAttribute="trailing" id="LVz-w5-CDe"/>
-                            <constraint firstItem="xvl-gK-qct" firstAttribute="leading" secondItem="N3K-43-W4r" secondAttribute="leading" id="SfN-ZI-k3l"/>
+                            <constraint firstAttribute="trailing" secondItem="xvl-gK-qct" secondAttribute="trailing" id="LVz-w5-CDe"/>
+                            <constraint firstItem="xvl-gK-qct" firstAttribute="leading" secondItem="sfn-0J-RHa" secondAttribute="leading" id="SfN-ZI-k3l"/>
                             <constraint firstItem="PVu-SE-QqG" firstAttribute="top" secondItem="N3K-43-W4r" secondAttribute="top" id="eYq-zf-Mtm"/>
                             <constraint firstItem="xvl-gK-qct" firstAttribute="top" secondItem="sfn-0J-RHa" secondAttribute="top" id="p6x-eO-JOk"/>
                             <constraint firstItem="N3K-43-W4r" firstAttribute="bottom" secondItem="xvl-gK-qct" secondAttribute="bottom" id="xx5-t9-QW8"/>
@@ -695,6 +695,7 @@
                     <connections>
                         <segue destination="jEe-dt-1r5" kind="show" identifier="showColorPickerVC" id="9oe-b4-BkT"/>
                         <segue destination="63e-K6-IsG" kind="show" identifier="showCustomFontVC" id="JKT-iv-NmH"/>
+                        <segue destination="a2y-Ba-gI5" kind="unwind" identifier="backToSettingVC" unwindAction="unwindToSettingsViewController:" id="S5s-Oo-gbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMc-01-xDK" sceneMemberID="firstResponder"/>
@@ -916,8 +917,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="iIe-ES-uyp" firstAttribute="top" secondItem="Oy4-32-YyB" secondAttribute="top" id="3Jf-ye-ePX"/>
-                            <constraint firstItem="Oy4-32-YyB" firstAttribute="trailing" secondItem="VHP-yn-OvE" secondAttribute="trailing" id="CTr-gt-eni"/>
-                            <constraint firstItem="VHP-yn-OvE" firstAttribute="leading" secondItem="Oy4-32-YyB" secondAttribute="leading" id="WmZ-gQ-NnZ"/>
+                            <constraint firstAttribute="trailing" secondItem="VHP-yn-OvE" secondAttribute="trailing" id="CTr-gt-eni"/>
+                            <constraint firstItem="VHP-yn-OvE" firstAttribute="leading" secondItem="kAx-TJ-qHb" secondAttribute="leading" id="WmZ-gQ-NnZ"/>
                             <constraint firstItem="VHP-yn-OvE" firstAttribute="top" secondItem="kAx-TJ-qHb" secondAttribute="top" id="pjr-4l-ogW"/>
                             <constraint firstItem="Oy4-32-YyB" firstAttribute="bottom" secondItem="VHP-yn-OvE" secondAttribute="bottom" id="t5A-oD-tNr"/>
                         </constraints>
@@ -939,7 +940,6 @@
         <designable name="55u-Lg-ZxV">
             <size key="intrinsicContentSize" width="70" height="45"/>
         </designable>
-        <designable name="U8V-XF-qGn"/>
         <designable name="bJg-Zy-YWN">
             <size key="intrinsicContentSize" width="30" height="41"/>
         </designable>

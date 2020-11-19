@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Apollo
 
 /**
  The manager class
@@ -21,7 +22,8 @@ import UIKit
  */
 public class OKManager: NSObject {
     static public let shared = OKManager()
-    
+    lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
+
     /**
      The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
      - Note:

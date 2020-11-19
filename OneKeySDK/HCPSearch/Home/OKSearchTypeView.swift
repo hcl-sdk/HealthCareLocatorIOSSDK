@@ -41,7 +41,7 @@ class OKSearchTypeView: UIStackView {
     }
     
     func configWith(theme: OKThemeConfigure, image: UIImage?, title: String, description: String) {
-        iconBgView.backgroundColor = theme.secondaryColor
+        iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.2)
         icon.image = image
         icon.tintColor = theme.primaryColor
         titleLabel.font = theme.titleFont

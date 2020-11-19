@@ -15,7 +15,7 @@ class SearchResultTableViewCell: UITableViewCell {
     
     
     func configWith(theme: OKThemeConfigure, iconImage: UIImage, title: String) {
-        iconBgView.backgroundColor = theme.secondaryColor
+        iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.2)
         resultTitleLabel.font = theme.defaultFont
         icon.tintColor = theme.primaryColor
         icon.image = iconImage

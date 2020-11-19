@@ -45,6 +45,25 @@ class CustomThemeViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @IBAction func backAction(_ sender: Any) {
+        if selectedTheme == AppSettings.selectedTheme {
+            performSegue(withIdentifier: "backToSettingVC", sender: nil)
+        } else {
+            let okAction = UIAlertAction(title: "Ok", style: .default) {[unowned self] (_) in
+                self.performSegue(withIdentifier: "backToSettingVC", sender: nil)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default) {[unowned self] (_) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            let alertVC = UIAlertController(title: "WARNING", message: "Do you want to discard your changes?", preferredStyle: .alert)
+            alertVC.addAction(okAction)
+            alertVC.addAction(cancelAction)
+            present(alertVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func applyCustomConfig(_ sender: Any) {
         AppSettings.selectedTheme = selectedTheme
         performSegue(withIdentifier: "backToSettingVC", sender: selectedTheme)

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OKHCPSearchWebServicesProtocol {
-    func searchHCPWith(input: SearchHCPInput, completionHandler: @escaping (([SearchResultModel]?, OKError?) -> Void))
+    func searchHCPWith(input: SearchHCPInput, manager: OKServiceManager, completionHandler: @escaping (([Activity]?, OKError?) -> Void))
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 public struct OKThemeConfigure {
+
     // MARK: Fonts
     public let defaultFont: UIFont!
     public let titleFont: UIFont!

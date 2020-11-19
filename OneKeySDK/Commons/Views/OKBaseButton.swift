@@ -15,4 +15,9 @@ class OKBaseButton: UIButton {
             layer.cornerRadius = cornerRadius
         }
     }
+    
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        layer.cornerRadius = cornerRadius
+    }
 }
