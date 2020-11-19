@@ -26,7 +26,8 @@ prepare:install-pods:
     name: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_SLUG}_dependencies"
     expire_in: 1 hour
     paths:
-      - Pods/
+      - ./Example/OneKeySDKDemo/Pods/
+      # - Pods/
 
 prepare:clean:
   interruptible: true
@@ -94,6 +95,7 @@ deploy:dev:
   tags:
     - ios
   before_script:
+    - cd ./Example/OneKeySDKDemo/
     - rm -rf container/*
     - /usr/bin/agvtool new-version -all $CI_PIPELINE_IID
   allow_failure: false
