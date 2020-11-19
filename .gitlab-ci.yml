@@ -113,8 +113,8 @@ deploy:dev:
   before_script:
     # Force to use SSH (for tags pushing)
     - git remote set-url origin git@gitlab.ekino.com:iqvia/OneKeySDK-iOS.git
+    - git fetch --all --tags
     - cd ./Example/OneKeySDKDemo/
     - bundle install
     - bundle update fastlane
-    - git fetch --all --tags
   allow_failure: false
