@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wDL-GE-aZy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -125,7 +126,7 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="lOa-Lh-JgS" customClass="MenuTableViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iAR-6B-tU0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.36841192839999998" blue="0.41068762539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -404,7 +405,7 @@
                                                     <constraint firstAttribute="width" constant="60" id="RAe-eT-xgs"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                                <state key="normal" image="iconBackGrey"/>
                                                 <connections>
                                                     <segue destination="5Fj-RL-yyO" kind="unwind" unwindAction="unwindToHomeViewController:" id="yh1-cq-jnR"/>
                                                 </connections>
@@ -472,7 +473,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="ffM-tv-j5N"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                                <state key="normal" image="iconBackGrey"/>
                                                 <connections>
                                                     <segue destination="7ih-Z4-Vsn" kind="unwind" unwindAction="unwindToHomeViewController:" id="if9-AD-ZXE"/>
                                                 </connections>
@@ -542,7 +543,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="yPM-RE-2gM"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                                <state key="normal" image="iconBackGrey"/>
                                                 <connections>
                                                     <segue destination="7fQ-v7-xDR" kind="unwind" unwindAction="unwindToCustomThemeViewController:" id="1ze-d0-p6f"/>
                                                 </connections>
@@ -627,7 +628,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="WEF-tl-YEX"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                                <state key="normal" image="iconBackGrey"/>
                                                 <connections>
                                                     <action selector="backAction:" destination="WfK-gP-8dc" eventType="touchUpInside" id="UFt-qK-byU"/>
                                                 </connections>
@@ -730,7 +731,7 @@
                                                     <constraint firstAttribute="width" constant="60" id="lU7-Kk-525"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                                <state key="normal" image="iconBackGrey"/>
                                                 <connections>
                                                     <segue destination="TT4-TR-j3z" kind="unwind" unwindAction="unwindToCustomThemeViewController:" id="9zh-gd-LYx"/>
                                                 </connections>
@@ -948,10 +949,10 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="7ZX-mv-ROS"/>
+        <segue reference="Lwl-ak-3aM"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="iconBackGrey" width="19" height="14"/>
         <image name="iconDetail" width="6.5" height="12.5"/>
         <image name="logo_iqvia.png" width="1200" height="211"/>
         <image name="select" width="26" height="26"/>
