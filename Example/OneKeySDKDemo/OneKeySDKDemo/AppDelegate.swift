@@ -7,11 +7,19 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        AppCenter.start(withAppSecret: "9b675fab-3d14-4e72-8778-8eacdbca704b", services:[
+          Analytics.self,
+          Crashes.self
+        ])
         
         IQKeyboardManager.shared.enable = true
         

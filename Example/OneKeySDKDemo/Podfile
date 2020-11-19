@@ -13,6 +13,7 @@ target 'OneKeySDKDemo' do
   pod 'FlexColorPicker'
   pod 'IQKeyboardManagerSwift'
   pod 'Apollo'
+  pod 'AppCenter'
 
   target 'OneKeySDKDemoTests' do
     inherit! :search_paths

@@ -3,6 +3,14 @@ PODS:
   - Apollo (0.36.0):
     - Apollo/Core (= 0.36.0)
   - Apollo/Core (0.36.0)
+  - AppCenter (4.0.0):
+    - AppCenter/Analytics (= 4.0.0)
+    - AppCenter/Crashes (= 4.0.0)
+  - AppCenter/Analytics (4.0.0):
+    - AppCenter/Core
+  - AppCenter/Core (4.0.0)
+  - AppCenter/Crashes (4.0.0):
+    - AppCenter/Core
   - FlexColorPicker (1.4.2)
   - IQKeyboardManagerSwift (6.5.5)
   - lottie-ios (3.1.8)
@@ -26,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - Apollo
+  - AppCenter
   - FlexColorPicker
   - IQKeyboardManagerSwift
   - lottie-ios
@@ -37,6 +46,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Apollo
+    - AppCenter
     - FlexColorPicker
     - IQKeyboardManagerSwift
     - lottie-ios
@@ -53,6 +63,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   Apollo: a8dbf1a55e8860bfbe3e4274919721d102c85413
+  AppCenter: 51351e0121e40ba75e28ecb7de5c2e69d480df5e
   FlexColorPicker: d7ed5cfd8ceb936f2930e4e30629f9448967a5f8
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
@@ -63,6 +74,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
-PODFILE CHECKSUM: d20d9c3120fa8ad46b0bf9e80eead19f72d4ff2e
+PODFILE CHECKSUM: 35a9b2584defd38b118a40faacc4ba2eb82f0721
 
 COCOAPODS: 1.10.0
