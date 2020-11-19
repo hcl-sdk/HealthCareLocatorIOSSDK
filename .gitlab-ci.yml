@@ -76,7 +76,7 @@ build:dev:
     expire_in: 30 days
     paths:
       - ./Example/OneKeySDKDemo/build/OneKeySDKDemo.ipa
-      - ./Example/OneKeySDKDemo/build/OneKeySDKDemo.zip
+      - ./Example/OneKeySDKDemo/build/OneKeySDKDemo-dSYM.zip
       - ./Example/OneKeySDKDemo/build/OneKeySDKDemo.xcarchive
 
 deploy:dev:
