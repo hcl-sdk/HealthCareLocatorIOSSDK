@@ -61,8 +61,8 @@ platform :ios do
     appcenter_upload(
       owner_name: "contact-c08l",
       app_name: "OneKeySDKDemo",
-      file: "./Example/OneKeySDKDemo/build/OneKeySDKDemo.ipa",
-      dsym: "./Example/OneKeySDKDemo/build/OneKeySDKDemo-dSYM.zip",
+      file: "./build/OneKeySDKDemo.ipa",
+      dsym: "./build/OneKeySDKDemo-dSYM.zip",
       release_notes: notes,
       destinations: "Ekino-IQVIA",
       destination_type: "group",
