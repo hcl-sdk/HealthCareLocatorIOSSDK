@@ -10,7 +10,7 @@ import UIKit
 
 struct Theme: Encodable, Decodable, Equatable {
     
-    private static let defaultSystemFont = UIFont.systemFont(ofSize: 14.0, weight: .regular)
+    private static let defaultSystemFont = UIFont(name: "Helvetica", size: 14.0)!
     
     // Fonts - Default
     let defaultFontName: String!
