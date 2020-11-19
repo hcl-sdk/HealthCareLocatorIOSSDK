@@ -84,6 +84,8 @@ deploy:dev:
   only:
     - develop
   script:
+    - ls
+    - ls ./build
     - VERSION=$(/usr/libexec/PlistBuddy -c "Print :ApplicationProperties:CFBundleShortVersionString" "${PWD}/build/OneKeySDKDemo.xcarchive/Info.plist") bundle exec fastlane dev_deploy
   needs:
     - job: build:dev
