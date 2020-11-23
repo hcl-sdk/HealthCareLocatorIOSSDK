@@ -77,6 +77,10 @@ extension OKHCPSearchResultViewController: OKSegmentControlViewProtocol {
         displayModeSegmentView.selectedIndex = item.index
         switch item.index {
         case 0:
+            if let resultListVC = resultNavigationVC.viewControllers.first as? OKHCPSearchResultListViewController {
+                resultListVC.result = result
+                resultListVC.theme = theme
+            }
             resultNavigationVC.popToRootViewController(animated: true)
         case 1:
             if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {

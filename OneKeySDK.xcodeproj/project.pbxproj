@@ -39,6 +39,8 @@
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
 		58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */; };
 		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
+		58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */; };
+		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
 		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
 		58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E73AA92562925100740548 /* SearchResultTableViewCell.xib */; };
 		58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* OKBaseButton.swift */; };
@@ -105,6 +107,8 @@
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
 		58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultListViewController.swift; sourceTree = "<group>"; };
+		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA92562925100740548 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		58E7797C255BDCF80051F1FA /* OKBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKBaseButton.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
 				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
 				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
+				58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				58E73AA82562925100740548 /* SearchResultTableViewCell.swift */,
 				58E73AA92562925100740548 /* SearchResultTableViewCell.xib */,
 				587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */,
+				58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -572,10 +578,12 @@
 				58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */,
 				5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */,
 				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
+				58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */,
 				58B6A769255AA21100C1F6AF /* SearchHCPInput.swift in Sources */,
 				587D237B25652F7F0009EA01 /* API.swift in Sources */,
 				5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */,
 				5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */,
+				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
