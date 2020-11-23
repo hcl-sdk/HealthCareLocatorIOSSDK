@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol OKSegmentControlViewProtocol {
-    
+protocol OKSegmentControlViewProtocol: class {
+    func didSelect(item: OkSegmentControlItem)
 }

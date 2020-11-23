@@ -14,7 +14,7 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var bodyContentWrapper: UIStackView!
-    @IBOutlet weak var topSearchBtn: OKBaseView!
+    @IBOutlet weak var topSearchBtn: OKBaseButton!
     @IBOutlet weak var bottomSearchBtn: OKBaseButton!
     
     override func viewDidLoad() {

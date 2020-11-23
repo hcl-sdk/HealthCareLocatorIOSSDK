@@ -16,7 +16,9 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign {
     
     var result: [Activity] = []
 
+    @IBOutlet weak var currentLocationBtn: OKBaseButton!
     @IBOutlet weak var mapView: MKMapView!
+    
     private var cardCollectionViewController: HCPCardCollectionViewController!
     
     override func viewDidLoad() {

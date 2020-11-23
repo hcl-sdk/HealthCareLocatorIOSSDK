@@ -22,7 +22,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         if let theme = theme {
             layoutWith(theme: theme)
         }
-        
+
         // NOTE: Display map by default for demo
         if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
             viewMapVC.result = result
@@ -46,21 +46,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                                                               nonSelectedBackgroundColor: UIColor.white,
                                                               nonSelectedForcegroundColor: UIColor.darkGray)]
         displayModeSegmentView.selectedIndex = 1
-    }
-    
-    @IBAction func didChangeViewMode(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            resultNavigationVC.popToRootViewController(animated: true)
-        case 1:
-            if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
-                viewMapVC.result = result
-                viewMapVC.theme = theme
-                resultNavigationVC.pushViewController(viewMapVC, animated: true)
-            }
-        default:
-            return
-        }
+        displayModeSegmentView.delegate = self
     }
 
     // MARK: - Navigation
@@ -84,4 +70,22 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         }
     }
 
+}
+
+extension OKHCPSearchResultViewController: OKSegmentControlViewProtocol {
+    func didSelect(item: OkSegmentControlItem) {
+        displayModeSegmentView.selectedIndex = item.index
+        switch item.index {
+        case 0:
+            resultNavigationVC.popToRootViewController(animated: true)
+        case 1:
+            if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
+                viewMapVC.result = result
+                viewMapVC.theme = theme
+                resultNavigationVC.pushViewController(viewMapVC, animated: true)
+            }
+        default:
+            return
+        }
+    }
 }

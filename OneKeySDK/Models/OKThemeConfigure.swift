@@ -20,8 +20,8 @@ public struct OKThemeConfigure {
     public let markerColor: UIColor!
     public let selectedMarkerColor: UIColor!
 
-    public init(defaultFont: UIFont? = UIFont.systemFont(ofSize: 14.0),
-                titleFont: UIFont? = UIFont.systemFont(ofSize: 20.0),
+    public init(defaultFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
+                titleFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
                 primaryColor: UIColor? = UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
                 secondaryColor: UIColor? = UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1),
                 markerColor: UIColor? = UIColor(red: 254/255, green: 138/255, blue: 18/255, alpha: 1),

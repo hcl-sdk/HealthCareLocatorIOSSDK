@@ -54,6 +54,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="plK-iS-ezl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5tf-Xo-Cqh"/>
                 <constraint firstItem="hK7-UL-nue" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Hrm-c1-689"/>
@@ -65,8 +66,16 @@
                 <constraint firstAttribute="bottom" secondItem="plK-iS-ezl" secondAttribute="bottom" id="szu-Vj-qOc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="UY5-5v-MEh" appends="YES" id="hO4-v5-76C"/>
+            </connections>
             <point key="canvasLocation" x="138" y="106"/>
         </view>
+        <tapGestureRecognizer id="UY5-5v-MEh">
+            <connections>
+                <action selector="onTapAction:" destination="-1" id="vvX-eP-Bkd"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemGreenColor">

@@ -11,26 +11,19 @@ class OkSegmentControlItem: UIView {
 
     var index: Int = 0
     
-    var item: OkSegmentControlModel = OkSegmentControlModel(icon: nil,
+    private var item: OkSegmentControlModel = OkSegmentControlModel(icon: nil,
                                                             title: "Item",
                                                             selectedBackgroundColor: UIColor.green,
                                                             selectedForcegroundColor: UIColor.white,
                                                             nonSelectedBackgroundColor: UIColor.white,
-                                                            nonSelectedForcegroundColor: UIColor.darkGray) {
-        didSet {
-            configWith(item: item, index: index, selected: selected)
-        }
-    }
+                                                            nonSelectedForcegroundColor: UIColor.darkGray)
     
-    var selected: Bool = false {
-        didSet {
-            configWith(item: item, index: index, selected: selected)
-        }
-    }
+    private var selected: Bool = false
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    weak var delegate: OKSegmentControlViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +35,9 @@ class OkSegmentControlItem: UIView {
         initialize()
         self.item = item
         self.selected = selected
-        configWith(item: item, index: index, selected: selected)
+        self.index = index
+        
+        layoutWith(item: item, selected: selected)
     }
     
     required init?(coder: NSCoder) {
@@ -66,8 +61,7 @@ class OkSegmentControlItem: UIView {
         }
     }
     
-    func configWith(item: OkSegmentControlModel, index: Int, selected: Bool) {
-        self.index = index
+    func layoutWith(item: OkSegmentControlModel, selected: Bool) {
         titleLabel.text = item.title
         titleLabel.textColor = selected ? item.selectedForcegroundColor : item.nonSelectedForcegroundColor
         bgView.backgroundColor = selected ? item.selectedBackgroundColor : UIColor.clear
@@ -75,4 +69,9 @@ class OkSegmentControlItem: UIView {
         icon.image = item.icon
         icon.isHidden = item.icon == nil
     }
+    
+    @IBAction func onTapAction(_ sender: Any) {
+        delegate?.didSelect(item: self)
+    }
+    
 }

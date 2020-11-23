@@ -14,6 +14,8 @@ import AppCenterCrashes
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         AppCenter.start(withAppSecret: "9b675fab-3d14-4e72-8778-8eacdbca704b", services:[

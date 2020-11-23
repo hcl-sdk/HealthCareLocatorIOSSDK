@@ -44,6 +44,15 @@ class OKSegmentControlView: UIView {
         }
     }
     
+    private var itemViews: [OkSegmentControlItem] = []
+    weak var delegate: OKSegmentControlViewProtocol? {
+        didSet {
+            for itemView in itemViews {
+                itemView.delegate = self.delegate
+            }
+        }
+    }
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
@@ -83,15 +92,19 @@ class OKSegmentControlView: UIView {
     
     private func layoutWith(items: [OkSegmentControlModel], selectedIndex: Int) {
         // Clean sub views
+        itemViews = []
         for subView in wrapperStackView.arrangedSubviews {
             wrapperStackView.removeArrangedSubview(subView)
             subView.removeFromSuperview()
         }
         
         for (index, item) in items.enumerated() {
-            wrapperStackView.addArrangedSubview(OkSegmentControlItem(item: item,
-                                                                     index: index,
-                                                                     selected: index == selectedIndex))
+            let itemView = OkSegmentControlItem(item: item,
+                                                index: index,
+                                                selected: index == selectedIndex)
+            itemView.delegate = self.delegate
+            wrapperStackView.addArrangedSubview(itemView)
+            itemViews.append(itemView)
         }
     }
     
