@@ -12,11 +12,25 @@ class ColorPickerWrapperViewController: UIViewController {
     
     var selectedMenu: Menu?
     @IBOutlet weak var topLabel: UILabel!
+    
+    
     var colorPickerVC: DefaultColorPickerViewController!
     weak var delegate: CustomThemeDelegate?
+    @IBOutlet weak var rSlider: UISlider!
+    @IBOutlet weak var rTextField: UITextField!
+    @IBOutlet weak var gSlider: UISlider!
+    @IBOutlet weak var gTextField: UITextField!
+    @IBOutlet weak var bSlider: UISlider!
+    @IBOutlet weak var bTextField: UITextField!
+    @IBOutlet weak var hexCodeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rTextField.delegate = self
+        gTextField.delegate = self
+        bTextField.delegate = self
+        hexCodeTextField.delegate = self
+        
         if let menu = selectedMenu {
             switch menu {
             case .colorMenu(let title, _):
@@ -27,6 +41,19 @@ class ColorPickerWrapperViewController: UIViewController {
         }
     }
     
+    private func layoutWith(color: UIColor) {
+        colorPickerVC.selectedColor = color
+        var redVal:CGFloat = 0
+        var greenVal:CGFloat = 0
+        var blueVal:CGFloat = 0
+        var alphaVal:CGFloat = 1
+        color.getRed(&redVal, green: &greenVal, blue: &blueVal, alpha: &alphaVal)
+        rTextField.text = "\(Int(255*redVal))"
+        gTextField.text = "\(Int(255*greenVal))"
+        bTextField.text = "\(Int(255*blueVal))"
+        hexCodeTextField.text = color.hexValue()
+        delegate?.didSelect(color: color, for: selectedMenu!)
+    }
     
     // MARK: - Navigation
     
@@ -37,15 +64,15 @@ class ColorPickerWrapperViewController: UIViewController {
             case "embedColorPicker":
                 if let colorPicker = segue.destination as? DefaultColorPickerViewController {
                     colorPicker.delegate = self
+                    self.colorPickerVC = colorPicker
                     if let menu = selectedMenu {
                         switch menu {
                         case .colorMenu(_, let color):
-                            colorPicker.selectedColor = color
+                            layoutWith(color: color)
                         default:
                             break
                         }
                     }
-                    self.colorPickerVC = colorPicker
                 }
             default:
                 return
@@ -57,9 +84,58 @@ class ColorPickerWrapperViewController: UIViewController {
 
 extension ColorPickerWrapperViewController: ColorPickerDelegate {
     func colorPicker(_ colorPicker: ColorPickerController, selectedColor: UIColor, usingControl: ColorControl) {
-        delegate?.didSelect(color: selectedColor, for: selectedMenu!)
+        layoutWith(color: selectedColor)
     }
     
     func colorPicker(_ colorPicker: ColorPickerController, confirmedColor: UIColor, usingControl: ColorControl) {
+    }
+}
+
+extension ColorPickerWrapperViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+            let newText = text.replacingCharacters(in: textRange, with: string)
+            switch textField {
+            case hexCodeTextField:
+                return newText.count <= 6
+            case rTextField, gTextField, bTextField:
+                let val = Int(newText) ?? 0
+                return val <= 255 && val >= 0
+            default:
+                return true
+            }
+            
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case hexCodeTextField:
+            if let code = textField.text {
+                let color = UIColor(hexString: code)
+                layoutWith(color: color)
+            } else {
+                let color = colorPickerVC.selectedColor
+                layoutWith(color: color)
+            }
+        case rTextField, gTextField, bTextField:
+            if let r = rTextField.text,
+               let g = gTextField.text,
+               let b = bTextField.text {
+                let rVal = CGFloat(Int(r) ?? 0)
+                let gVal = CGFloat(Int(g) ?? 0)
+                let bVal = CGFloat(Int(b) ?? 0)
+                let color = UIColor(red: rVal/255, green: gVal/255, blue: bVal/255, alpha: 1)
+                layoutWith(color: color)
+            } else {
+                let color = colorPickerVC.selectedColor
+                layoutWith(color: color)
+            }
+        default:
+            return
+        }
     }
 }

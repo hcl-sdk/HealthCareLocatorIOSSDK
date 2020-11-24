@@ -22,13 +22,6 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         if let theme = theme {
             layoutWith(theme: theme)
         }
-
-        // NOTE: Display map by default for demo
-        if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
-            viewMapVC.result = result
-            viewMapVC.theme = theme
-            resultNavigationVC.pushViewController(viewMapVC, animated: false)
-        }
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -45,7 +38,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                                                               selectedForcegroundColor: UIColor.white,
                                                               nonSelectedBackgroundColor: UIColor.white,
                                                               nonSelectedForcegroundColor: UIColor.darkGray)]
-        displayModeSegmentView.selectedIndex = 1
+        displayModeSegmentView.selectedIndex = 0
         displayModeSegmentView.delegate = self
     }
 
@@ -63,6 +56,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
             case "embedResultNavicationVC":
                 if let desVC = segue.destination as? UINavigationController {
                     resultNavigationVC = desVC
+                    resultNavigationVC.delegate = self
                 }
             default:
                 return
@@ -90,6 +84,15 @@ extension OKHCPSearchResultViewController: OKSegmentControlViewProtocol {
             }
         default:
             return
+        }
+    }
+}
+
+extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let resultListVC = viewController as? OKHCPSearchResultListViewController {
+            resultListVC.result = result
+            resultListVC.theme = theme
         }
     }
 }

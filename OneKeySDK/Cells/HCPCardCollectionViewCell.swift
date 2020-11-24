@@ -8,12 +8,18 @@
 import UIKit
 
 class HCPCardCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var wrapper: OKBaseView!
     @IBOutlet weak var drLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    func configWith(theme: OKThemeConfigure?, item: Activity) {
+    func configWith(theme: OKThemeConfigure?, item: Activity, selected: Bool) {
+        wrapper.setBorderWith(width: selected ? 2 : 0,
+                              cornerRadius: 8,
+                              borderColor: selected ? (theme?.selectedMarkerColor ?? UIColor.red) : UIColor.clear )
+        
         // Fonts
         drLabel.font = theme?.defaultFont
         categoryLabel.font = theme?.defaultFont

@@ -58,6 +58,11 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign {
         mapView.addAnnotations(annotations)
     }
     
+    private func reloadHorizontalListWith(selectedIndex: Int) {
+        cardCollectionViewController.selectedIndex = selectedIndex
+        cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: true)
+    }
+    
     @IBAction func currentLocationAction(_ sender: Any) {
         guard let coordinate = locationManager.location?.coordinate else {return}
         mapView.setCenter(coordinate, animated: true)
@@ -133,7 +138,7 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
             marker.markerTintColor = theme?.selectedMarkerColor
             let annotation = view.annotation
             if let index = result.firstIndex(where: {$0.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.workplace.address.location?.long == annotation?.coordinate.longitude}) {
-                cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .left, animated: true)
+                reloadHorizontalListWith(selectedIndex: index)
             }
         }
     }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */; };
+		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
+		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
 		5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
 		584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkManagerDelegate.swift; sourceTree = "<group>"; };
+		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
+		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
 		5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchInputViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */,
+				5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 			children = (
 				58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */,
 				58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */,
+				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
 				587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */,
 				58F104CC2563AF6300AFD4B3 /* OkSegmentControlModel.swift in Sources */,
+				5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */,
 				58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */,
 				587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */,
 				58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */,
@@ -589,6 +596,7 @@
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
+				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

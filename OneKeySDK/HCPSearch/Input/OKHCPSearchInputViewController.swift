@@ -62,12 +62,28 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
-        performSearchingWith(criteria: nil, location: nil)
+        let validator = SearchInputValidator()
+        let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
+        let isPlaceAddressValid = validator.isPlaceAddressValid(placeAddressText: locationSearchTextField.text)
+        
+        if !isCriteriaValid {
+            categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
+        }
+        
+        if !isPlaceAddressValid {
+            locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
+        }
+        
+        if isCriteriaValid && isPlaceAddressValid {
+            let searchInput = SearchHCPInput(criteriaText: categorySearchTextField.text,
+                                             placeAddressText: locationSearchTextField.text)
+            performSearchingWith(input: searchInput, location: nil)
+        }
     }
     
     
-    private func performSearchingWith(criteria: String?, location: CLLocationCoordinate2D?) {
-        webService.searchHCPWith(input: SearchHCPInput(), manager: OKServiceManager.shared) {[weak self] (result, error) in
+    private func performSearchingWith(input: SearchHCPInput, location: CLLocationCoordinate2D?) {
+        webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {[weak self] (result, error) in
             guard let strongSelf = self else {return}
             if let error = error {
                 
@@ -78,6 +94,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
             }
         }
     }
+    
     // MARK: - Navigation
 
     @IBAction func unwindToOKHCPSearchInputViewController(_ unwindSegue: UIStoryboardSegue) {
@@ -138,10 +155,10 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            performSearchingWith(criteria: nil, location: nil)
+            performSearchingWith(input: SearchHCPInput(criteriaText: "", placeAddressText: ""), location: nil)
         case 1:
             if let criteria = categorySearchTextField.text, !criteria.isEmpty {
-                performSearchingWith(criteria: criteria, location: nil)
+                performSearchingWith(input: SearchHCPInput(criteriaText: "", placeAddressText: ""), location: nil)
             } else {
                 locationSearchTextField.text = "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)"
                 searchResult = []
@@ -155,6 +172,7 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
 // MARK: Textfield delegate
 extension OKHCPSearchInputViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
         if textField == locationSearchTextField {
             if let text = textField.text,
                let textRange = Range(range, in: text) {

@@ -524,8 +524,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-10-AOc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vYM-10-AOc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoQ-gS-I3k">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
@@ -558,11 +558,139 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvj-YT-Gc4">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="96" width="414" height="494"/>
                                         <connections>
                                             <segue destination="BHx-8a-bXr" kind="embed" identifier="embedColorPicker" id="Ur7-wY-tJC"/>
                                         </connections>
                                     </containerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43b-UI-7q7">
+                                        <rect key="frame" x="0.0" y="598" width="414" height="254"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkY-R8-yOS">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="254"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="iI8-3s-fgL"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Pjc-BN-aGZ">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="254"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yu6-U2-ve0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="R:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zma-Q3-ATa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="44"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ap4-kf-drO">
+                                                                <rect key="frame" x="25" y="0.0" width="369" height="44"/>
+                                                                <subviews>
+                                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="GUW-3g-3h8">
+                                                                        <rect key="frame" x="-2" y="0.0" width="285" height="45"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </slider>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-Ko-vvX">
+                                                                        <rect key="frame" x="289" y="0.0" width="80" height="44"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="80" id="Y85-be-IfX"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-n0-aqt">
+                                                        <rect key="frame" x="0.0" y="70" width="394" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="G:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgW-W2-uWT">
+                                                                <rect key="frame" x="0.0" y="0.0" width="18" height="44"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mdw-wO-Q6e">
+                                                                <rect key="frame" x="26" y="0.0" width="368" height="44"/>
+                                                                <subviews>
+                                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="40w-P9-K2Q">
+                                                                        <rect key="frame" x="-2" y="0.0" width="284" height="45"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </slider>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3RI-X9-40S">
+                                                                        <rect key="frame" x="288" y="0.0" width="80" height="44"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="80" id="VYu-CM-fW3"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Zd-Su-s1L">
+                                                        <rect key="frame" x="0.0" y="140" width="394" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-Jb-WTI">
+                                                                <rect key="frame" x="0.0" y="0.0" width="17" height="44"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tBb-95-gIl">
+                                                                <rect key="frame" x="25" y="0.0" width="369" height="44"/>
+                                                                <subviews>
+                                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="Zp1-tZ-SID">
+                                                                        <rect key="frame" x="-2" y="0.0" width="285" height="45"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </slider>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSp-8P-agY">
+                                                                        <rect key="frame" x="289" y="0.0" width="80" height="44"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="80" id="jWt-Ie-0gv"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                                    </textField>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ans-C9-p4t">
+                                                        <rect key="frame" x="0.0" y="210" width="394" height="44"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Hex code #:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuK-pR-jse">
+                                                                <rect key="frame" x="0.0" y="0.0" width="95.5" height="44"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-Bd-fRs">
+                                                                <rect key="frame" x="103.5" y="0.0" width="290.5" height="44"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikj-ot-Jop">
+                                                <rect key="frame" x="404" y="0.0" width="10" height="254"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="EuM-UH-tUR"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -570,7 +698,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yDU-yY-Q3B" firstAttribute="trailing" secondItem="vYM-10-AOc" secondAttribute="trailing" id="39f-kD-icK"/>
-                            <constraint firstItem="yDU-yY-Q3B" firstAttribute="bottom" secondItem="vYM-10-AOc" secondAttribute="bottom" id="HiN-63-7gu"/>
+                            <constraint firstItem="yDU-yY-Q3B" firstAttribute="bottom" secondItem="vYM-10-AOc" secondAttribute="bottom" constant="10" id="HiN-63-7gu"/>
                             <constraint firstItem="vYM-10-AOc" firstAttribute="top" secondItem="eCS-5r-zTW" secondAttribute="top" id="ILI-E1-6md"/>
                             <constraint firstItem="vYM-10-AOc" firstAttribute="leading" secondItem="yDU-yY-Q3B" secondAttribute="leading" id="Rdx-g6-TTG"/>
                             <constraint firstItem="elz-jO-ovX" firstAttribute="top" secondItem="yDU-yY-Q3B" secondAttribute="top" id="YpI-XG-gqA"/>
@@ -578,6 +706,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="SPJ-PP-4EX"/>
                     <connections>
+                        <outlet property="bSlider" destination="Zp1-tZ-SID" id="0JN-JK-8Rf"/>
+                        <outlet property="bTextField" destination="wSp-8P-agY" id="LaC-Xw-mb6"/>
+                        <outlet property="gSlider" destination="40w-P9-K2Q" id="dpV-Go-HjG"/>
+                        <outlet property="gTextField" destination="3RI-X9-40S" id="ce5-TB-3ja"/>
+                        <outlet property="hexCodeTextField" destination="oHq-Bd-fRs" id="3fS-Tu-TsB"/>
+                        <outlet property="rSlider" destination="GUW-3g-3h8" id="M3P-Md-D7E"/>
+                        <outlet property="rTextField" destination="ubR-Ko-vvX" id="anZ-pX-tA2"/>
                         <outlet property="topLabel" destination="sO6-NF-HXo" id="ZJf-do-mOH"/>
                     </connections>
                 </viewController>
@@ -591,7 +726,7 @@
             <objects>
                 <viewController id="BHx-8a-bXr" customClass="DefaultColorPickerViewController" customModule="FlexColorPicker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1SD-nl-CQ1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="494"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="hgd-Qe-rCU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
