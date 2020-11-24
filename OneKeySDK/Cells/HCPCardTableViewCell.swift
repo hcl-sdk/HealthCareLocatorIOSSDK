@@ -1,25 +1,20 @@
 //
-//  HCPCardCollectionViewCell.swift
+//  HCPCardTableViewCell.swift
 //  OneKeySDK
 //
-//  Created by Truong Le on 11/18/20.
+//  Created by Truong Le on 11/23/20.
 //
 
 import UIKit
 
-class HCPCardCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var wrapper: OKBaseView!
+class HCPCardTableViewCell: UITableViewCell {
+
     @IBOutlet weak var drLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    func configWith(theme: OKThemeConfigure?, item: Activity, selected: Bool) {
-        wrapper.setBorderWith(width: selected ? 2 : 0,
-                              cornerRadius: 8,
-                              borderColor: selected ? (theme?.selectedMarkerColor ?? UIColor.red) : UIColor.clear )
-        
+    func configWith(theme: OKThemeConfigure?, item: Activity) {
         // Fonts
         drLabel.font = theme?.defaultFont
         categoryLabel.font = theme?.defaultFont
@@ -33,4 +28,5 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         addressLabel.text = item.workplace.address.longLabel
         distanceLabel.text = "500m"
     }
+
 }

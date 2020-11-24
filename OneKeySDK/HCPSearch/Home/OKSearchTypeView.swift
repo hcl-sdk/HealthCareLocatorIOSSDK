@@ -14,6 +14,7 @@ class OKSearchTypeView: UIStackView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    var backgroundView: UIView = UIView()
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -36,7 +37,15 @@ class OKSearchTypeView: UIStackView {
         alignment = .fill
         axis = .vertical
         if let nibView = Bundle.internalBundle().loadNibNamed("OKSearchTypeView", owner: self, options: nil)?.first as? UIView {
-            addArrangedSubview(nibView)
+            nibView.translatesAutoresizingMaskIntoConstraints = false
+            
+            backgroundView.addSubview(nibView)
+            backgroundView.backgroundColor = UIColor.clear
+            backgroundView.addConstraints([NSLayoutConstraint(item: nibView, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1, constant: 8),
+                                           NSLayoutConstraint(item: nibView, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 8),
+                                           NSLayoutConstraint(item: nibView, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: -8),
+                                           NSLayoutConstraint(item: nibView, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -8)])
+            addArrangedSubview(backgroundView)
         }
     }
     
@@ -48,5 +57,15 @@ class OKSearchTypeView: UIStackView {
         titleLabel.text = title
         descriptionLabel.font = theme.defaultFont
         descriptionLabel.text = description
+    }
+    
+    func layoutWith(traitCollection: UITraitCollection) {
+        switch traitCollection.verticalSizeClass {
+        case .regular:
+            // Hide border
+            backgroundView.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
+        default:
+            backgroundView.setBorderWith(width: 1, cornerRadius: 8, borderColor: .lightGray)
+        }
     }
 }

@@ -10,8 +10,15 @@ import UIKit
 private let reuseIdentifier = "HCPCard"
 
 class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign {
+    var selectedIndex: Int? {
+        didSet {
+            if isViewLoaded {
+                collectionView.reloadData()
+            }
+        }
+    }
+    
     var theme: OKThemeConfigure?
-
     var result: [Activity] = []
     
     override func viewDidLoad() {
@@ -47,7 +54,7 @@ class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign 
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as!  HCPCardCollectionViewCell
-        cell.configWith(theme: theme, item: result[indexPath.row])
+        cell.configWith(theme: theme, item: result[indexPath.row], selected: selectedIndex == indexPath.row)
         return cell
     }
 

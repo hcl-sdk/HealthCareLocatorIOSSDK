@@ -76,6 +76,14 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
             }
         }
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        for subview in bodyContentWrapper.arrangedSubviews {
+            if let searchTypeView = subview as? OKSearchTypeView {
+                searchTypeView.layoutWith(traitCollection: traitCollection)
+            }
+        }
+    }
 }
 
 extension OKHCPSearchHomeViewController: UITextFieldDelegate {
