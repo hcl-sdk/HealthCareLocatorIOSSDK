@@ -3,6 +3,16 @@ PODS:
   - Apollo (0.36.0):
     - Apollo/Core (= 0.36.0)
   - Apollo/Core (0.36.0)
+  - AppCenter (4.0.0):
+    - AppCenter/Analytics (= 4.0.0)
+    - AppCenter/Crashes (= 4.0.0)
+  - AppCenter/Analytics (4.0.0):
+    - AppCenter/Core
+  - AppCenter/Core (4.0.0)
+  - AppCenter/Crashes (4.0.0):
+    - AppCenter/Core
+  - FlexColorPicker (1.4.2)
+  - IQKeyboardManagerSwift (6.5.5)
   - lottie-ios (3.1.8)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
@@ -23,6 +33,10 @@ PODS:
   - SDWebImage/Core (5.8.0)
 
 DEPENDENCIES:
+  - Apollo
+  - AppCenter
+  - FlexColorPicker
+  - IQKeyboardManagerSwift
   - lottie-ios
   - OneKeySDK (from `../../`)
   - RxCocoa (~> 5)
@@ -32,6 +46,9 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Apollo
+    - AppCenter
+    - FlexColorPicker
+    - IQKeyboardManagerSwift
     - lottie-ios
     - Moya
     - RxCocoa
@@ -46,14 +63,17 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   Apollo: a8dbf1a55e8860bfbe3e4274919721d102c85413
+  AppCenter: 51351e0121e40ba75e28ecb7de5c2e69d480df5e
+  FlexColorPicker: d7ed5cfd8ceb936f2930e4e30629f9448967a5f8
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  OneKeySDK: ce5bee1bb8c375057030a84ac8a266841391142f
+  OneKeySDK: 0ed30fd7cbe378f474c32e3662ba5beb844d5923
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SDWebImage: 84000f962cbfa70c07f19d2234cbfcf5d779b5dc
 
-PODFILE CHECKSUM: a3d753c85b3d0a7827b07c31b795a6f8ac22ccfc
+PODFILE CHECKSUM: 7048ed602f44fed372fcf20b6cbb05e561890df6
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

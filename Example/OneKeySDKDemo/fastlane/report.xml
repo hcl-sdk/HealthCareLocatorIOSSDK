@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: ensure_bundle_exec" time="0.000457">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: update_fastlane" time="1.888723">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: default_platform" time="0.000307">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: Switch to ios verify lane" time="0.000208">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: analyze_commits" time="0.195022">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: conventional_changelog" time="0.172857">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

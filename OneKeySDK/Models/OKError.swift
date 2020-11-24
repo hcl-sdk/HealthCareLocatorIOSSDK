@@ -9,4 +9,5 @@ import Foundation
 
 public enum OKError: LocalizedError {
     case pageNotFound
+    case queryActivitiesFailed
 }

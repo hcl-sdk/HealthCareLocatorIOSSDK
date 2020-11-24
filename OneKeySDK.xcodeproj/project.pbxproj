@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */; };
+		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
+		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
+		5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
 		584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */; };
 		5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */; };
 		5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */; };
 		584394672559501C009D2306 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584394662559501C009D2306 /* MapKit.framework */; };
 		5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */; };
+		587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */; };
+		587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */; };
+		587D2307256515680009EA01 /* OKServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D2306256515680009EA01 /* OKServiceManager.swift */; };
+		587D234C256528480009EA01 /* Query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 587D234B256528480009EA01 /* Query.graphql */; };
+		587D237B25652F7F0009EA01 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D237A25652F7F0009EA01 /* API.swift */; };
+		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
 		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
 		587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */; };
 		58A3645E2554F64700C62479 /* OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A364542554F64700C62479 /* OneKeySDK.framework */; };
@@ -26,24 +35,31 @@
 		58A3647D2554F69C00C62479 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58A3647A2554F69C00C62479 /* README.md */; };
 		58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */; };
 		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
-		58B6A74F255A98BE00C1F6AF /* mock-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B6A74E255A98BE00C1F6AF /* mock-data.json */; };
-		58B6A754255A9D4200C1F6AF /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A753255A9D4200C1F6AF /* SearchResultModel.swift */; };
 		58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */; };
 		58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */; };
 		58B6A769255AA21100C1F6AF /* SearchHCPInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A768255AA21100C1F6AF /* SearchHCPInput.swift */; };
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
 		58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */; };
+		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
+		58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */; };
+		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
+		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
+		58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E73AA92562925100740548 /* SearchResultTableViewCell.xib */; };
 		58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* OKBaseButton.swift */; };
 		58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E77981255BE4740051F1FA /* OKViewDesign.swift */; };
+		58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */; };
+		58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */; };
+		58F104C42563917700AFD4B3 /* OkSegmentControlItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */; };
+		58F104C82563919B00AFD4B3 /* OkSegmentControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */; };
+		58F104CC2563AF6300AFD4B3 /* OkSegmentControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */; };
 		58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */; };
 		58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */; };
 		58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */; };
 		58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */; };
 		58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */; };
-		58F5EE37255BCA3B0029B0B4 /* OKHCPSearchConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE36255BCA3B0029B0B4 /* OKHCPSearchConfigure.swift */; };
-		58F5EE3D255BCD120029B0B4 /* OKIconTitleConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE3C255BCD120029B0B4 /* OKIconTitleConfigure.swift */; };
-		B8A05976B0520EE380B31BB6 /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6CE8E94AAD0495C6E60AAC /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
-		EF55FF12883C19ACA120FDA2 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A003BF6C11F32B5158F13413 /* Pods_OneKeySDK.framework */; };
+		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
+		9CE39F2686627FD0488ED9FA /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
+		B95DE34E6A85CBE22A674692 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,13 +73,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkManagerDelegate.swift; sourceTree = "<group>"; };
+		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
+		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
+		5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchInputViewController.swift; sourceTree = "<group>"; };
 		5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultViewController.swift; sourceTree = "<group>"; };
 		5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultMapViewController.swift; sourceTree = "<group>"; };
 		584394662559501C009D2306 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchHomeViewController.swift; sourceTree = "<group>"; };
+		587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewController.swift; sourceTree = "<group>"; };
+		587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		587D2306256515680009EA01 /* OKServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKServiceManager.swift; sourceTree = "<group>"; };
+		587D234B256528480009EA01 /* Query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = Query.graphql; path = GraphQL/Query.graphql; sourceTree = "<group>"; };
+		587D237A25652F7F0009EA01 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
 		587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
 		58A364542554F64700C62479 /* OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,28 +105,34 @@
 		58A3647A2554F69C00C62479 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchNavigationViewController.swift; sourceTree = "<group>"; };
 		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
-		58B6A74E255A98BE00C1F6AF /* mock-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mock-data.json"; sourceTree = "<group>"; };
-		58B6A753255A9D4200C1F6AF /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
 		58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesProtocol.swift; sourceTree = "<group>"; };
 		58B6A768255AA21100C1F6AF /* SearchHCPInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHCPInput.swift; sourceTree = "<group>"; };
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
 		58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOKHCPSearchWebServices.swift; sourceTree = "<group>"; };
+		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultListViewController.swift; sourceTree = "<group>"; };
+		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
+		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		58E73AA92562925100740548 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		58E7797C255BDCF80051F1FA /* OKBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKBaseButton.swift; sourceTree = "<group>"; };
 		58E77981255BE4740051F1FA /* OKViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKViewDesign.swift; sourceTree = "<group>"; };
+		58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OKSegmentControlView.xib; sourceTree = "<group>"; };
+		58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlView.swift; sourceTree = "<group>"; };
+		58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OkSegmentControlItem.xib; sourceTree = "<group>"; };
+		58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkSegmentControlItem.swift; sourceTree = "<group>"; };
+		58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkSegmentControlModel.swift; sourceTree = "<group>"; };
 		58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchTypeView.swift; sourceTree = "<group>"; };
 		58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OKSearchTypeView.xib; sourceTree = "<group>"; };
 		58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKBaseView.swift; sourceTree = "<group>"; };
 		58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additional.swift"; sourceTree = "<group>"; };
 		58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKThemeConfigure.swift; sourceTree = "<group>"; };
-		58F5EE36255BCA3B0029B0B4 /* OKHCPSearchConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchConfigure.swift; sourceTree = "<group>"; };
-		58F5EE3C255BCD120029B0B4 /* OKIconTitleConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIconTitleConfigure.swift; sourceTree = "<group>"; };
-		7C3161B453329B9571C857A3 /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
-		7E6CE8E94AAD0495C6E60AAC /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F9A8539640A980ABFF34A6F /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		A003BF6C11F32B5158F13413 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4310E3A9ED46F38CEDFD49E /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EAA9C7DDAFB94545F23B3BC4 /* Pods-OneKeySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.release.xcconfig"; sourceTree = "<group>"; };
+		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
+		6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.release.xcconfig"; sourceTree = "<group>"; };
+		B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
+		FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +142,7 @@
 			files = (
 				584394672559501C009D2306 /* MapKit.framework in Frameworks */,
 				584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */,
-				EF55FF12883C19ACA120FDA2 /* Pods_OneKeySDK.framework in Frameworks */,
+				B95DE34E6A85CBE22A674692 /* Pods_OneKeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,16 +151,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A3645E2554F64700C62479 /* OneKeySDK.framework in Frameworks */,
-				B8A05976B0520EE380B31BB6 /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */,
+				9CE39F2686627FD0488ED9FA /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		587D21432564C4030009EA01 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */,
+				5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */,
+				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
+				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
+				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
+				58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		587D23AC256538D30009EA01 /* GraphQLAPI */ = {
+			isa = PBXGroup;
+			children = (
+				587D237A25652F7F0009EA01 /* API.swift */,
+				587D23A8256538CB0009EA01 /* APIModels.swift */,
+			);
+			path = GraphQLAPI;
+			sourceTree = "<group>";
+		};
 		58A3644A2554F64700C62479 = {
 			isa = PBXGroup;
 			children = (
+				587D234B256528480009EA01 /* Query.graphql */,
 				58A364782554F69C00C62479 /* LICENSE */,
 				58A364792554F69C00C62479 /* OneKeySDK.podspec */,
 				58A3647A2554F69C00C62479 /* README.md */,
@@ -152,6 +207,9 @@
 		58A364562554F64700C62479 /* OneKeySDK */ = {
 			isa = PBXGroup;
 			children = (
+				587D23AC256538D30009EA01 /* GraphQLAPI */,
+				58E73AA72562923400740548 /* Cells */,
+				58B96224255D5C02000B126D /* Resources */,
 				58F5EE19255BADC40029B0B4 /* Commons */,
 				58B6A75B255AA12000C1F6AF /* Mock */,
 				58B6A752255A9D2100C1F6AF /* Models */,
@@ -161,6 +219,7 @@
 				58A364702554F66800C62479 /* OkManagerProtocol.swift */,
 				58A364572554F64700C62479 /* OneKeySDK.h */,
 				58A364582554F64700C62479 /* Info.plist */,
+				587D2306256515680009EA01 /* OKServiceManager.swift */,
 			);
 			path = OneKeySDK;
 			sourceTree = "<group>";
@@ -177,29 +236,33 @@
 		58A364D72555436000C62479 /* HCPSearch */ = {
 			isa = PBXGroup;
 			children = (
+				587D21432564C4030009EA01 /* Result */,
+				58A8A587256286FC00A11F88 /* Input */,
 				58F5EE10255BAC5E0029B0B4 /* Home */,
 				58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */,
 				58A364D82555437B00C62479 /* HCPSearch.storyboard */,
-				584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */,
-				5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */,
-				5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */,
-				58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */,
-				58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */,
-				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
-				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
 			);
 			path = HCPSearch;
+			sourceTree = "<group>";
+		};
+		58A8A587256286FC00A11F88 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */,
+				5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */,
+			);
+			path = Input;
 			sourceTree = "<group>";
 		};
 		58B6A752255A9D2100C1F6AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				58B6A753255A9D4200C1F6AF /* SearchResultModel.swift */,
+				58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */,
+				58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */,
 				58B6A768255AA21100C1F6AF /* SearchHCPInput.swift */,
 				58B6A76E255AA2CB00C1F6AF /* OKError.swift */,
 				58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */,
-				58F5EE36255BCA3B0029B0B4 /* OKHCPSearchConfigure.swift */,
-				58F5EE3C255BCD120029B0B4 /* OKIconTitleConfigure.swift */,
+				58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,10 +270,28 @@
 		58B6A75B255AA12000C1F6AF /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				58B6A74E255A98BE00C1F6AF /* mock-data.json */,
 				58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		58B96224255D5C02000B126D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58B96225255D5C14000B126D /* icons.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		58E73AA72562923400740548 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				58E73AA82562925100740548 /* SearchResultTableViewCell.swift */,
+				58E73AA92562925100740548 /* SearchResultTableViewCell.xib */,
+				587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */,
+				58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		58E77980255BE43A0051F1FA /* Adapters */ = {
@@ -219,6 +300,18 @@
 				58E77981255BE4740051F1FA /* OKViewDesign.swift */,
 			);
 			path = Adapters;
+			sourceTree = "<group>";
+		};
+		58F104BA2563902400AFD4B3 /* OKSegmentControlView */ = {
+			isa = PBXGroup;
+			children = (
+				58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */,
+				58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */,
+				58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */,
+				58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */,
+				5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */,
+			);
+			path = OKSegmentControlView;
 			sourceTree = "<group>";
 		};
 		58F5EE10255BAC5E0029B0B4 /* Home */ = {
@@ -244,6 +337,7 @@
 		58F5EE20255BC54E0029B0B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58F104BA2563902400AFD4B3 /* OKSegmentControlView */,
 				58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */,
 				58E7797C255BDCF80051F1FA /* OKBaseButton.swift */,
 			);
@@ -254,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */,
+				58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */,
+				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,8 +359,8 @@
 			children = (
 				584394662559501C009D2306 /* MapKit.framework */,
 				584393FC255906F8009D2306 /* CoreLocation.framework */,
-				A003BF6C11F32B5158F13413 /* Pods_OneKeySDK.framework */,
-				7E6CE8E94AAD0495C6E60AAC /* Pods_OneKeySDK_OneKeySDKTests.framework */,
+				C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */,
+				5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -272,10 +368,10 @@
 		A0B0A026CE3C0EB6B2894D5B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7C3161B453329B9571C857A3 /* Pods-OneKeySDK.debug.xcconfig */,
-				EAA9C7DDAFB94545F23B3BC4 /* Pods-OneKeySDK.release.xcconfig */,
-				D4310E3A9ED46F38CEDFD49E /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */,
-				8F9A8539640A980ABFF34A6F /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */,
+				C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */,
+				6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */,
+				FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */,
+				B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -298,7 +394,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364682554F64700C62479 /* Build configuration list for PBXNativeTarget "OneKeySDK" */;
 			buildPhases = (
-				3505E810611603947FA40EBA /* [CP] Check Pods Manifest.lock */,
+				A22514AAA0640282271EF556 /* [CP] Check Pods Manifest.lock */,
 				58A3644F2554F64700C62479 /* Headers */,
 				58A364502554F64700C62479 /* Sources */,
 				58A364512554F64700C62479 /* Frameworks */,
@@ -317,11 +413,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A3646B2554F64700C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKTests" */;
 			buildPhases = (
-				AB8C5F8D127430FD9A8EB9B8 /* [CP] Check Pods Manifest.lock */,
+				69BA866A4373CDCAD772FD58 /* [CP] Check Pods Manifest.lock */,
 				58A364592554F64700C62479 /* Sources */,
 				58A3645A2554F64700C62479 /* Frameworks */,
 				58A3645B2554F64700C62479 /* Resources */,
-				4855DADD44C7E49448F5AD01 /* [CP] Embed Pods Frameworks */,
+				F615B2E2B444350BBD4653BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,9 +473,13 @@
 			files = (
 				58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */,
 				58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */,
-				58B6A74F255A98BE00C1F6AF /* mock-data.json in Resources */,
+				58B96226255D5C14000B126D /* icons.xcassets in Resources */,
 				58A3647D2554F69C00C62479 /* README.md in Resources */,
+				587D234C256528480009EA01 /* Query.graphql in Resources */,
 				58A3647C2554F69C00C62479 /* OneKeySDK.podspec in Resources */,
+				58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */,
+				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
+				58F104C42563917700AFD4B3 /* OkSegmentControlItem.xib in Resources */,
 				58A3647B2554F69C00C62479 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,46 +494,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3505E810611603947FA40EBA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneKeySDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4855DADD44C7E49448F5AD01 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AB8C5F8D127430FD9A8EB9B8 /* [CP] Check Pods Manifest.lock */ = {
+		69BA866A4373CDCAD772FD58 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,6 +516,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A22514AAA0640282271EF556 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneKeySDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F615B2E2B444350BBD4653BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -467,24 +567,36 @@
 				58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */,
 				58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */,
 				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
-				58B6A754255A9D4200C1F6AF /* SearchResultModel.swift in Sources */,
+				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,
+				58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */,
+				58F104C82563919B00AFD4B3 /* OkSegmentControlItem.swift in Sources */,
+				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
+				58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
 				58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */,
 				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
+				587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */,
+				58F104CC2563AF6300AFD4B3 /* OkSegmentControlModel.swift in Sources */,
+				5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */,
 				58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */,
 				587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */,
 				58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */,
+				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
 				58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */,
 				5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */,
+				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
+				58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */,
 				58B6A769255AA21100C1F6AF /* SearchHCPInput.swift in Sources */,
+				587D237B25652F7F0009EA01 /* API.swift in Sources */,
+				5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */,
 				5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */,
+				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
-				58F5EE3D255BCD120029B0B4 /* OKIconTitleConfigure.swift in Sources */,
-				58F5EE37255BCA3B0029B0B4 /* OKHCPSearchConfigure.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
+				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -618,7 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -632,7 +744,7 @@
 		};
 		58A364692554F64700C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C3161B453329B9571C857A3 /* Pods-OneKeySDK.debug.xcconfig */;
+			baseConfigurationReference = C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -643,7 +755,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OneKeySDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -662,7 +774,7 @@
 		};
 		58A3646A2554F64700C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAA9C7DDAFB94545F23B3BC4 /* Pods-OneKeySDK.release.xcconfig */;
+			baseConfigurationReference = 6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -673,7 +785,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = OneKeySDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,7 +803,7 @@
 		};
 		58A3646C2554F64700C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4310E3A9ED46F38CEDFD49E /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */;
+			baseConfigurationReference = FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -711,7 +823,7 @@
 		};
 		58A3646D2554F64700C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F9A8539640A980ABFF34A6F /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */;
+			baseConfigurationReference = B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
