@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11B031059F5FF1FDEA0E0FF4 /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0F70FB7921AD86FB0460EC /* Pods_OneKeySDKDemoTests.framework */; };
-		43B4BA394D42EBAF3CCE8AB0 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA56F0D47B485CCE75495AAD /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
+		107176D77F65A9E96CCB71AB /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2D0ED1E48D433143919C58 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
+		286C9CD222DA8E1D6FB8CC27 /* Pods_OneKeySDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A115E8F96F389C54AE39C74F /* Pods_OneKeySDKDemo.framework */; };
 		5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
-		58322BCF255E81FD00847919 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58322BCE255E81FD00847919 /* Keys.swift */; };
 		5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843945D25594D2B009D2306 /* MenuTableViewController.swift */; };
 		58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648C2555081E00C62479 /* AppDelegate.swift */; };
 		58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648E2555081E00C62479 /* SceneDelegate.swift */; };
@@ -20,27 +19,9 @@
 		58A364992555082000C62479 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364972555082000C62479 /* LaunchScreen.storyboard */; };
 		58A364A42555082000C62479 /* OneKeySDKDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364A32555082000C62479 /* OneKeySDKDemoTests.swift */; };
 		58A364AF2555082000C62479 /* OneKeySDKDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364AE2555082000C62479 /* OneKeySDKDemoUITests.swift */; };
-		58A8A56F25623A2900A11F88 /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */; };
-		58A8A574256241CF00A11F88 /* CustomFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A573256241CF00A11F88 /* CustomFontViewController.swift */; };
-		58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */; };
-		58A8A57E256270D000A11F88 /* CustomThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */; };
-		58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5822562750600A11F88 /* ConfigFont.swift */; };
-		58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961DA255CF7C2000B126D /* SettingsViewController.swift */; };
-		58B961E3255CFBE3000B126D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E2255CFBE3000B126D /* AppSettings.swift */; };
-		58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E7255CFDC9000B126D /* UIColor+Hex.swift */; };
-		58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */; };
-		58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */; };
-		58B9620E255D4BC3000B126D /* ColorPickerWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */; };
-		58BA6113255E459900696AA1 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6112255E459900696AA1 /* MenuSection.swift */; };
-		58D10D28255E47A1008471F3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D27255E47A1008471F3 /* Theme.swift */; };
-		58D10D2D255E4814008471F3 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D2C255E4814008471F3 /* Menu.swift */; };
-		58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */; };
-		58D10D37255E4931008471F3 /* SelectMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */; };
-		58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */; };
-		58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D51255E7354008471F3 /* CustomThemeViewController.swift */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
-		5DD2D9E5D8BE674AE458F949 /* Pods_OneKeySDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A27278BD63D19E68F65985B /* Pods_OneKeySDKDemo.framework */; };
+		9627E519C0F8244AC735EE68 /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25518C32852F6B714A9BF22 /* Pods_OneKeySDKDemoTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E58CCCD37ED60443EF45DC8 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4A79866E94F82558D15952E0 /* Pods-OneKeySDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		1D60A55A159E4C5B8D588024 /* Pods-OneKeySDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		436210AAE2E58C8D34AFEB2B /* Pods-OneKeySDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
-		58322BCE255E81FD00847919 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5843945D25594D2B009D2306 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		58A364892555081E00C62479 /* OneKeySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKeySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A3648C2555081E00C62479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,33 +60,15 @@
 		58A364AA2555082000C62479 /* OneKeySDKDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneKeySDKDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A364AE2555082000C62479 /* OneKeySDKDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneKeySDKDemoUITests.swift; sourceTree = "<group>"; };
 		58A364B02555082000C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMenuTableViewCell.swift; sourceTree = "<group>"; };
-		58A8A573256241CF00A11F88 /* CustomFontViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontViewController.swift; sourceTree = "<group>"; };
-		58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilyTableViewCell.swift; sourceTree = "<group>"; };
-		58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeDelegate.swift; sourceTree = "<group>"; };
-		58A8A5822562750600A11F88 /* ConfigFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFont.swift; sourceTree = "<group>"; };
-		58B961DA255CF7C2000B126D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		58B961E2255CFBE3000B126D /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		58B961E7255CFDC9000B126D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMenuTableViewCell.swift; sourceTree = "<group>"; };
-		58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMenuTableViewCell.swift; sourceTree = "<group>"; };
-		58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerWrapperViewController.swift; sourceTree = "<group>"; };
-		58BA6112255E459900696AA1 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
-		58D10D27255E47A1008471F3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		58D10D2C255E4814008471F3 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMenuTableViewCell.swift; sourceTree = "<group>"; };
-		58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMenuTableViewCell.swift; sourceTree = "<group>"; };
-		58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
-		58D10D51255E7354008471F3 /* CustomThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeViewController.swift; sourceTree = "<group>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		5ADD0BE91E85B76C1452845B /* Pods-OneKeySDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9A27278BD63D19E68F65985B /* Pods_OneKeySDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8AFAC60D5D1C527964D29C0 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		B7445B433D39C129138E870B /* Pods-OneKeySDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D67B65EA89BC51F251E3FF20 /* Pods-OneKeySDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		DA56F0D47B485CCE75495AAD /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF0F70FB7921AD86FB0460EC /* Pods_OneKeySDKDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76839522F4AE97A39C3B9065 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E2D0ED1E48D433143919C58 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A115E8F96F389C54AE39C74F /* Pods_OneKeySDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE94F4D381A9148B824C9BC5 /* Pods-OneKeySDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC57132F8D1F83A80FD59D25 /* Pods-OneKeySDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E25518C32852F6B714A9BF22 /* Pods_OneKeySDKDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E604630EF1F8F8A38617280D /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD2D9E5D8BE674AE458F949 /* Pods_OneKeySDKDemo.framework in Frameworks */,
+				286C9CD222DA8E1D6FB8CC27 /* Pods_OneKeySDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11B031059F5FF1FDEA0E0FF4 /* Pods_OneKeySDKDemoTests.framework in Frameworks */,
+				9627E519C0F8244AC735EE68 /* Pods_OneKeySDKDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,23 +92,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B4BA394D42EBAF3CCE8AB0 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */,
+				107176D77F65A9E96CCB71AB /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F7EB5AF87622975038540C2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9A27278BD63D19E68F65985B /* Pods_OneKeySDKDemo.framework */,
-				DA56F0D47B485CCE75495AAD /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */,
-				EF0F70FB7921AD86FB0460EC /* Pods_OneKeySDKDemoTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5805F97E255A5CB400D93CD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +117,7 @@
 				58A364AD2555082000C62479 /* OneKeySDKDemoUITests */,
 				58A3648A2555081E00C62479 /* Products */,
 				5C25B71665839002B4EE617B /* Pods */,
-				3F7EB5AF87622975038540C2 /* Frameworks */,
+				8A0C2067649DAA27C70459F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,10 +134,6 @@
 		58A3648B2555081E00C62479 /* OneKeySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				58D10D56255E735D008471F3 /* Settings */,
-				58D10D25255E4761008471F3 /* Models */,
-				58BA6117255E459D00696AA1 /* Menu */,
-				58B961FF255D449D000B126D /* Cells */,
 				58A3648C2555081E00C62479 /* AppDelegate.swift */,
 				58A3648E2555081E00C62479 /* SceneDelegate.swift */,
 				58A364902555081E00C62479 /* HomeViewController.swift */,
@@ -194,7 +142,7 @@
 				58A364952555082000C62479 /* Assets.xcassets */,
 				58A364972555082000C62479 /* LaunchScreen.storyboard */,
 				58A3649A2555082000C62479 /* Info.plist */,
-				58B961E7255CFDC9000B126D /* UIColor+Hex.swift */,
+				5843945D25594D2B009D2306 /* MenuTableViewController.swift */,
 			);
 			path = OneKeySDKDemo;
 			sourceTree = "<group>";
@@ -217,64 +165,27 @@
 			path = OneKeySDKDemoUITests;
 			sourceTree = "<group>";
 		};
-		58B961FF255D449D000B126D /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */,
-				58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */,
-				58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */,
-				58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */,
-				58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */,
-				58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */,
-				58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		58BA6117255E459D00696AA1 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				5843945D25594D2B009D2306 /* MenuTableViewController.swift */,
-			);
-			path = Menu;
-			sourceTree = "<group>";
-		};
-		58D10D25255E4761008471F3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				58BA6112255E459900696AA1 /* MenuSection.swift */,
-				58D10D27255E47A1008471F3 /* Theme.swift */,
-				58D10D2C255E4814008471F3 /* Menu.swift */,
-				58322BCE255E81FD00847919 /* Keys.swift */,
-				58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		58D10D56255E735D008471F3 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */,
-				58B961DA255CF7C2000B126D /* SettingsViewController.swift */,
-				58D10D51255E7354008471F3 /* CustomThemeViewController.swift */,
-				58B961E2255CFBE3000B126D /* AppSettings.swift */,
-				58A8A573256241CF00A11F88 /* CustomFontViewController.swift */,
-				58A8A5822562750600A11F88 /* ConfigFont.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
 		5C25B71665839002B4EE617B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D67B65EA89BC51F251E3FF20 /* Pods-OneKeySDKDemo.debug.xcconfig */,
-				B7445B433D39C129138E870B /* Pods-OneKeySDKDemo.release.xcconfig */,
-				3E58CCCD37ED60443EF45DC8 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */,
-				A8AFAC60D5D1C527964D29C0 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */,
-				5ADD0BE91E85B76C1452845B /* Pods-OneKeySDKDemoTests.debug.xcconfig */,
-				4A79866E94F82558D15952E0 /* Pods-OneKeySDKDemoTests.release.xcconfig */,
+				1D60A55A159E4C5B8D588024 /* Pods-OneKeySDKDemo.debug.xcconfig */,
+				DC57132F8D1F83A80FD59D25 /* Pods-OneKeySDKDemo.release.xcconfig */,
+				76839522F4AE97A39C3B9065 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */,
+				E604630EF1F8F8A38617280D /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */,
+				436210AAE2E58C8D34AFEB2B /* Pods-OneKeySDKDemoTests.debug.xcconfig */,
+				BE94F4D381A9148B824C9BC5 /* Pods-OneKeySDKDemoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8A0C2067649DAA27C70459F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A115E8F96F389C54AE39C74F /* Pods_OneKeySDKDemo.framework */,
+				9E2D0ED1E48D433143919C58 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */,
+				E25518C32852F6B714A9BF22 /* Pods_OneKeySDKDemoTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,11 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B32555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemo" */;
 			buildPhases = (
-				74C08F31488D0468CC2D3097 /* [CP] Check Pods Manifest.lock */,
+				5477797FA612C60E8455AE23 /* [CP] Check Pods Manifest.lock */,
 				58A364852555081E00C62479 /* Sources */,
 				58A364862555081E00C62479 /* Frameworks */,
 				58A364872555081E00C62479 /* Resources */,
-				5425B4047612443DEBDC61CD /* [CP] Embed Pods Frameworks */,
+				8B4BEA5F2959C6A64DD984B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,7 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B62555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemoTests" */;
 			buildPhases = (
-				646A810788C1D01D39450DB0 /* [CP] Check Pods Manifest.lock */,
+				83220F5E5F5D099FB35952AA /* [CP] Check Pods Manifest.lock */,
 				58A3649B2555082000C62479 /* Sources */,
 				58A3649C2555082000C62479 /* Frameworks */,
 				58A3649D2555082000C62479 /* Resources */,
@@ -322,11 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B92555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemoUITests" */;
 			buildPhases = (
-				8EA6F5BE447E7FC6A3F05377 /* [CP] Check Pods Manifest.lock */,
+				004B2F56C5D7C8CD800726A5 /* [CP] Check Pods Manifest.lock */,
 				58A364A62555082000C62479 /* Sources */,
 				58A364A72555082000C62479 /* Frameworks */,
 				58A364A82555082000C62479 /* Resources */,
-				146A092CFEC31CC2BEDD48DF /* [CP] Embed Pods Frameworks */,
+				2EC073726DA1B102CF8F45F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,85 +321,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		146A092CFEC31CC2BEDD48DF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5425B4047612443DEBDC61CD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		646A810788C1D01D39450DB0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemoTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		74C08F31488D0468CC2D3097 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EA6F5BE447E7FC6A3F05377 /* [CP] Check Pods Manifest.lock */ = {
+		004B2F56C5D7C8CD800726A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,6 +343,84 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2EC073726DA1B102CF8F45F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5477797FA612C60E8455AE23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83220F5E5F5D099FB35952AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B4BEA5F2959C6A64DD984B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -517,30 +428,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D10D37255E4931008471F3 /* SelectMenuTableViewCell.swift in Sources */,
-				58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */,
-				58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */,
-				58A8A57E256270D000A11F88 /* CustomThemeDelegate.swift in Sources */,
 				58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */,
-				58B9620E255D4BC3000B126D /* ColorPickerWrapperViewController.swift in Sources */,
-				58A8A56F25623A2900A11F88 /* FontMenuTableViewCell.swift in Sources */,
-				58A8A574256241CF00A11F88 /* CustomFontViewController.swift in Sources */,
-				58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */,
-				58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */,
-				58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */,
-				58322BCF255E81FD00847919 /* Keys.swift in Sources */,
-				58D10D2D255E4814008471F3 /* Menu.swift in Sources */,
-				58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */,
-				58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */,
-				58D10D28255E47A1008471F3 /* Theme.swift in Sources */,
 				5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */,
-				58B961E3255CFBE3000B126D /* AppSettings.swift in Sources */,
 				58A364912555081E00C62479 /* HomeViewController.swift in Sources */,
 				58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */,
 				58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */,
-				58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */,
-				58BA6113255E459900696AA1 /* MenuSection.swift in Sources */,
-				58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -701,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -713,14 +605,13 @@
 		};
 		58A364B42555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D67B65EA89BC51F251E3FF20 /* Pods-OneKeySDKDemo.debug.xcconfig */;
+			baseConfigurationReference = 1D60A55A159E4C5B8D588024 /* Pods-OneKeySDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6W4VACB9M8;
 				INFOPLIST_FILE = OneKeySDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -734,14 +625,13 @@
 		};
 		58A364B52555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7445B433D39C129138E870B /* Pods-OneKeySDKDemo.release.xcconfig */;
+			baseConfigurationReference = DC57132F8D1F83A80FD59D25 /* Pods-OneKeySDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6W4VACB9M8;
 				INFOPLIST_FILE = OneKeySDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,7 +645,7 @@
 		};
 		58A364B72555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ADD0BE91E85B76C1452845B /* Pods-OneKeySDKDemoTests.debug.xcconfig */;
+			baseConfigurationReference = 436210AAE2E58C8D34AFEB2B /* Pods-OneKeySDKDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -778,7 +668,7 @@
 		};
 		58A364B82555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A79866E94F82558D15952E0 /* Pods-OneKeySDKDemoTests.release.xcconfig */;
+			baseConfigurationReference = BE94F4D381A9148B824C9BC5 /* Pods-OneKeySDKDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -801,7 +691,7 @@
 		};
 		58A364BA2555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E58CCCD37ED60443EF45DC8 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */;
+			baseConfigurationReference = 76839522F4AE97A39C3B9065 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -822,7 +712,7 @@
 		};
 		58A364BB2555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8AFAC60D5D1C527964D29C0 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */;
+			baseConfigurationReference = E604630EF1F8F8A38617280D /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

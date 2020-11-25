@@ -8,48 +8,45 @@
 import UIKit
 
 class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
-
+    
+    func config(theme: OKThemeConfigure) {
+        self.theme = theme
+    }
+    
     var theme: OKThemeConfigure?
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var bodyContentWrapper: UIStackView!
-    @IBOutlet weak var topSearchBtn: OKBaseButton!
+    @IBOutlet weak var topSearchBtn: OKBaseView!
     @IBOutlet weak var bottomSearchBtn: OKBaseButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTextField.delegate = self
-        
         if let theme = theme {
-            layoutWith(theme: theme)
+            layoutViewWith(theme: theme)
         }
     }
 
-    func layoutWith(theme: OKThemeConfigure) {
+    private func layoutViewWith(theme: OKThemeConfigure) {
+        headerTitleLabel.text = theme.HCPThemeConfigure.titleText
         topSearchBtn.backgroundColor = theme.primaryColor
         bottomSearchBtn.backgroundColor = theme.primaryColor
-        bottomSearchBtn.titleLabel?.font = theme.titleFont
-        headerTitleLabel.font = theme.titleFont
-        searchTextField.font = theme.defaultFont
+
+        if let HCP = theme.HCPThemeConfigure.HCPSearch {
+            let HCPView = OKSearchTypeView(theme: HCP, primaryColor: theme.primaryColor, secondaryColor: theme.secondaryColor)
+            bodyContentWrapper.addArrangedSubview(HCPView)
+        }
         
-        let HCPView = OKSearchTypeView(theme: theme,
-                                       image: UIImage(named: "ic-search", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                       title: "Find and Locate other HCP",
-                                       description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
-        bodyContentWrapper.addArrangedSubview(HCPView)
+        if let consult = theme.HCPThemeConfigure.consultSearch {
+            let HCPView = OKSearchTypeView(theme: consult, primaryColor: theme.primaryColor, secondaryColor: theme.secondaryColor)
+            bodyContentWrapper.addArrangedSubview(HCPView)
+        }
         
-        let consultView = OKSearchTypeView(theme: theme,
-                                           image: UIImage(named: "ic-person", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                           title: "Consult Profile",
-                                           description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
-        bodyContentWrapper.addArrangedSubview(consultView)
-        
-        let informationView = OKSearchTypeView(theme: theme,
-                                               image: UIImage(named: "ic-edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                               title: "Request my Information update",
-                                               description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
-        bodyContentWrapper.addArrangedSubview(informationView)
+        if let information = theme.HCPThemeConfigure.informationUpdate {
+            let HCPView = OKSearchTypeView(theme: information, primaryColor: theme.primaryColor, secondaryColor: theme.secondaryColor)
+            bodyContentWrapper.addArrangedSubview(HCPView)
+        }
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
@@ -68,27 +65,10 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         if let identifier = segue.identifier {
             switch identifier {
             case "showSearchInputVC":
-                if let desVC = segue.destination as? OKHCPSearchInputViewController {
-                    desVC.theme = theme
-                }
+                break
             default:
                 return
             }
         }
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        for subview in bodyContentWrapper.arrangedSubviews {
-            if let searchTypeView = subview as? OKSearchTypeView {
-                searchTypeView.layoutWith(traitCollection: traitCollection)
-            }
-        }
-    }
-}
-
-extension OKHCPSearchHomeViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
-        performSegue(withIdentifier: "showSearchInputVC", sender: nil)
     }
 }

@@ -8,6 +8,5 @@
 import Foundation
 
 struct SearchHCPInput {
-    let criteriaText: String?
-    let placeAddressText: String?
+    
 }

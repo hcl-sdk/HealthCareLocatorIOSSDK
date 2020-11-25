@@ -19,14 +19,19 @@ class SearchViewController: UIViewController {
         shared.delegate = self
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController()
-        let storedTheme = AppSettings.selectedTheme
-        let theme = OKThemeConfigure(defaultFont: UIFont(name: storedTheme.defaultFontName, size: storedTheme.defaultFontSize),
-                                     titleFont: UIFont(name: storedTheme.titleFontName, size: storedTheme.titleFontSize),
-                                     primaryColor: UIColor(hexString: storedTheme.primaryColorHex),
-                                     secondaryColor: UIColor(hexString: storedTheme.secondaryColorHex),
-                                     markerColor: UIColor(hexString: storedTheme.markerColorHex),
-                                     selectedMarkerColor: UIColor(hexString: storedTheme.selectedMarkerColorHex))
-        HCPSearchVC.theme = theme
+        let theme = OKThemeConfigure(primaryColor: UIColor.red,
+                                     secondaryColor: UIColor.lightGray,
+                                     HCPThemeConfigure: OKHCPSearchConfigure(titleText: "From Ekino with love",
+                                                                             HCPSearch: OKIconTitleConfigure(image: UIImage(systemName: "magnifyingglass"),
+                                                                                                                                     titleText: "Find and Locate other HCP",
+                                                                                                                                     descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                             consultSearch: OKIconTitleConfigure(image: UIImage(systemName: "person"),
+                                                                                                                 titleText: "Consult Profile",
+                                                                                                                 descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                             informationUpdate: OKIconTitleConfigure(image: UIImage(systemName: "pencil"),
+                                                                                                                     titleText: "Request my Information update",
+                                                                                                                     descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit")))
+        HCPSearchVC.theme = theme//shared.getDefaultUIConfigure()
         setupSearchView(searchVC: HCPSearchVC)
     }
     
