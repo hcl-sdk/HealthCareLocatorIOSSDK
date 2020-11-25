@@ -65,7 +65,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.platform     = :ios
-  spec.platform     = :ios, "11.0"
+  spec.platform     = :ios, "13.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "OneKeySDK/**/*.{storyboard,xib,json,xcassets}"
+  spec.resources = "OneKeySDK/**/*.{storyboard,xib,json}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

@@ -9,28 +9,29 @@ import Foundation
 import UIKit
 
 public struct OKThemeConfigure {
-
-    // MARK: Fonts
-    public let defaultFont: UIFont!
-    public let titleFont: UIFont!
+    let primaryColor: UIColor!
+    let secondaryColor: UIColor!
+    let HCPThemeConfigure: OKHCPSearchConfigure!
     
-    // MARK: Colors
-    public let primaryColor: UIColor!
-    public let secondaryColor: UIColor!
-    public let markerColor: UIColor!
-    public let selectedMarkerColor: UIColor!
-
-    public init(defaultFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
-                titleFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
-                primaryColor: UIColor? = UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
-                secondaryColor: UIColor? = UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1),
-                markerColor: UIColor? = UIColor(red: 254/255, green: 138/255, blue: 18/255, alpha: 1),
-                selectedMarkerColor: UIColor? = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1)) {
-        self.defaultFont = defaultFont
-        self.titleFont = titleFont
+    public init(primaryColor: UIColor? = UIColor(red: 67, green: 176, blue: 42, alpha: 1),
+                secondaryColor: UIColor? = UIColor(red: 227, green: 243, blue: 223, alpha: 1),
+                HCPThemeConfigure: OKHCPSearchConfigure? = OKHCPSearchConfigure(titleText: "Find and Locate\nHealthcare Professional",
+                                                                                HCPSearch: OKIconTitleConfigure(image: UIImage(systemName: "magnifyingglass"),
+                                                                                                                titleText: "Find and Locate other HCP",
+                                                                                                                descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                                consultSearch: OKIconTitleConfigure(image: UIImage(systemName: "person"),
+                                                                                                                    titleText: "Consult Profile",
+                                                                                                                    descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                                informationUpdate: OKIconTitleConfigure(image: UIImage(systemName: "pencil"),
+                                                                                                                        titleText: "Request my Information update",
+                                                                                                                        descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"))) {
+        guard let primaryColor = primaryColor,
+              let secondaryColor = secondaryColor,
+              let HCPThemeConfigure = HCPThemeConfigure else {
+            fatalError("Can not init theme")
+        }
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
-        self.markerColor = markerColor
-        self.selectedMarkerColor = selectedMarkerColor
+        self.HCPThemeConfigure = HCPThemeConfigure
     }
 }

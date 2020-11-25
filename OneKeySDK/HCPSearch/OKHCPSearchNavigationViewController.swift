@@ -29,11 +29,9 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        guard let theme = theme else {return}
-        layoutWith(theme: theme)
-        if let viewController = viewControllers.first as? OKViewDesign {
-            var editableVC = viewController
-            editableVC.theme = theme
+        if let viewController = viewControllers.first as? OKViewDesign,
+           let theme = theme {
+            viewController.config(theme: theme)
         }
     }
     
@@ -59,7 +57,11 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
 }
 
 extension OKHCPSearchNavigationViewController: OKViewDesign {
-    func layoutWith(theme: OKThemeConfigure) {
-        navigationBar.barTintColor = theme.primaryColor
+    /**
+     Setup theme object which will be used to apply for the whole HCP search process
+     - Parameter theme: The theme configuration object for dynamic UI displaying
+     */
+    public func config(theme: OKThemeConfigure) {
+        self.theme = theme
     }
 }

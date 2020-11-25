@@ -14,7 +14,6 @@ class OKSearchTypeView: UIStackView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var backgroundView: UIView = UIView()
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,10 +25,10 @@ class OKSearchTypeView: UIStackView {
         initialize()
     }
     
-    init(theme: OKThemeConfigure, image: UIImage?, title: String, description: String) {
+    init(theme: OKIconTitleConfigure, primaryColor: UIColor, secondaryColor: UIColor) {
         super.init(frame: CGRect.zero)
         initialize()
-        configWith(theme: theme, image: image, title: title, description: description)
+        configWith(theme: theme, primaryColor: primaryColor, secondaryColor: secondaryColor)
     }
     
     private func initialize() {
@@ -37,35 +36,15 @@ class OKSearchTypeView: UIStackView {
         alignment = .fill
         axis = .vertical
         if let nibView = Bundle.internalBundle().loadNibNamed("OKSearchTypeView", owner: self, options: nil)?.first as? UIView {
-            nibView.translatesAutoresizingMaskIntoConstraints = false
-            
-            backgroundView.addSubview(nibView)
-            backgroundView.backgroundColor = UIColor.clear
-            backgroundView.addConstraints([NSLayoutConstraint(item: nibView, attribute: .top, relatedBy: .equal, toItem: backgroundView, attribute: .top, multiplier: 1, constant: 8),
-                                           NSLayoutConstraint(item: nibView, attribute: .left, relatedBy: .equal, toItem: backgroundView, attribute: .left, multiplier: 1, constant: 8),
-                                           NSLayoutConstraint(item: nibView, attribute: .bottom, relatedBy: .equal, toItem: backgroundView, attribute: .bottom, multiplier: 1, constant: -8),
-                                           NSLayoutConstraint(item: nibView, attribute: .right, relatedBy: .equal, toItem: backgroundView, attribute: .right, multiplier: 1, constant: -8)])
-            addArrangedSubview(backgroundView)
+            addArrangedSubview(nibView)
         }
     }
     
-    func configWith(theme: OKThemeConfigure, image: UIImage?, title: String, description: String) {
-        iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.2)
-        icon.image = image
-        icon.tintColor = theme.primaryColor
-        titleLabel.font = theme.titleFont
-        titleLabel.text = title
-        descriptionLabel.font = theme.defaultFont
-        descriptionLabel.text = description
-    }
-    
-    func layoutWith(traitCollection: UITraitCollection) {
-        switch traitCollection.verticalSizeClass {
-        case .regular:
-            // Hide border
-            backgroundView.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
-        default:
-            backgroundView.setBorderWith(width: 1, cornerRadius: 8, borderColor: .lightGray)
-        }
+    func configWith(theme: OKIconTitleConfigure, primaryColor: UIColor, secondaryColor: UIColor) {
+        iconBgView.backgroundColor = secondaryColor
+        icon.image = theme.image
+        icon.tintColor = primaryColor
+        titleLabel.text = theme.titleText
+        descriptionLabel.text = theme.descriptionText
     }
 }

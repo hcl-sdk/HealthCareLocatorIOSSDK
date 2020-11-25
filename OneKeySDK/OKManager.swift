@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Apollo
 
 /**
  The manager class
@@ -22,8 +21,7 @@ import Apollo
  */
 public class OKManager: NSObject {
     static public let shared = OKManager()
-    lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
-
+    
     /**
      The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
      - Note:
@@ -53,7 +51,17 @@ extension OKManager: OkManagerProtocol {
      - Returns: An object of type *OKThemeConfigure* which can be use to configure for the search component UI
      */
     public func getDefaultUIConfigure() -> OKThemeConfigure {
-        return OKThemeConfigure(primaryColor: UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
-                                secondaryColor: UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1))
+        return OKThemeConfigure(primaryColor: UIColor(red: 67, green: 176, blue: 42, alpha: 1),
+                                secondaryColor: UIColor(red: 227, green: 243, blue: 223, alpha: 1),
+                                HCPThemeConfigure: OKHCPSearchConfigure(titleText: "Find and Locate\nHealthcare Professional",
+                                                                        HCPSearch: OKIconTitleConfigure(image: UIImage(systemName: "magnifyingglass"),
+                                                                                                                                titleText: "Find and Locate other HCP",
+                                                                                                                                descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                        consultSearch: OKIconTitleConfigure(image: UIImage(systemName: "person"),
+                                                                                                            titleText: "Consult Profile",
+                                                                                                            descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit"),
+                                                                        informationUpdate: OKIconTitleConfigure(image: UIImage(systemName: "pencil"),
+                                                                                                                titleText: "Request my Information update",
+                                                                                                                descriptionText: "Lorem ipsum dolor sit amet, consect adipiscing elit")))
     }
 }
