@@ -31,6 +31,7 @@ class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign 
     func layoutWith(theme: OKThemeConfigure) {
         collectionView.reloadData()
     }
+    
     /*
     // MARK: - Navigation
 
@@ -94,5 +95,12 @@ class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign 
 extension HCPCardCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 311, height: 112)
+    }
+}
+
+extension HCPCardCollectionViewController: OkSortableResultList {
+    func reloadWith(data: [Activity]) {
+        result = data
+        collectionView.reloadData()
     }
 }

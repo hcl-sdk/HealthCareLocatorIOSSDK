@@ -46,8 +46,7 @@ class ColorPickerWrapperViewController: UIViewController {
         var redVal:CGFloat = 0
         var greenVal:CGFloat = 0
         var blueVal:CGFloat = 0
-        var alphaVal:CGFloat = 1
-        color.getRed(&redVal, green: &greenVal, blue: &blueVal, alpha: &alphaVal)
+        color.getRed(&redVal, green: &greenVal, blue: &blueVal, alpha: nil)
         rTextField.text = "\(Int(255*redVal))"
         gTextField.text = "\(Int(255*greenVal))"
         bTextField.text = "\(Int(255*blueVal))"
@@ -55,6 +54,19 @@ class ColorPickerWrapperViewController: UIViewController {
         gSlider.value = Float(greenVal*255)
         bSlider.value = Float(blueVal*255)
         hexCodeTextField.text = color.hexValue()
+        delegate?.didSelect(color: color, for: selectedMenu!)
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let redVal = rSlider.value
+        let greenVal = gSlider.value
+        let blueVal = bSlider.value
+        rTextField.text = "\(Int(redVal))"
+        gTextField.text = "\(Int(greenVal))"
+        bTextField.text = "\(Int(blueVal))"
+        let color = UIColor(red: CGFloat(redVal/255), green: CGFloat(greenVal/255), blue: CGFloat(blueVal/255), alpha: 1)
+        hexCodeTextField.text = color.hexValue()
+        colorPickerVC.selectedColor = color
         delegate?.didSelect(color: color, for: selectedMenu!)
     }
     

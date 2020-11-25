@@ -11,17 +11,40 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     var theme: OKThemeConfigure?
 
     var resultNavigationVC: UINavigationController!
-    var result: [Activity] = []
+    var data: OKHCPSearchData?
     
+    var result: [Activity] {
+        return data?.result ?? []
+    }
+    
+    var sort = OKHCPSearchResultSortViewController.SortBy.relevance {
+        didSet {
+            sortResultBy(sort: sort)
+        }
+    }
+    
+    @IBOutlet weak var criteriaLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var displayModeSegmentView: OKSegmentControlView!
     @IBOutlet weak var activityCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityCountLabel.text = "\(result.count)"
+        if let unwrap = data {
+            layoutWith(searchData: unwrap)
+        }
+        
         if let theme = theme {
             layoutWith(theme: theme)
         }
+        
+        sort = .relevance
+    }
+    
+    func layoutWith(searchData: OKHCPSearchData) {
+        activityCountLabel.text = "\(searchData.result.count)"
+        criteriaLabel.text = searchData.input.criteriaText
+        addressLabel.text = searchData.input.placeAddressText
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -42,6 +65,28 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         displayModeSegmentView.delegate = self
     }
 
+    func sortResultBy(sort: OKHCPSearchResultSortViewController.SortBy) {
+        if let resultList = data?.result, let input = data?.input {
+            var newList = resultList
+            switch sort {
+            case .name:
+                newList.sort { (lhs, rhs) -> Bool in
+                    return lhs.title.label < rhs.title.label
+                }
+            case .distance:
+                break
+            case .relevance:
+                break
+            }
+            data = OKHCPSearchData(input: input, result: newList)
+            for resultChildVC in resultNavigationVC.viewControllers {
+                if let resultVC = resultChildVC as? OkSortableResultList {
+                    resultVC.reloadWith(data: newList)
+                }
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
     @IBAction func unwindToOKHCPSearchResultViewController(_ unwindSegue: UIStoryboardSegue) {
@@ -57,6 +102,10 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                 if let desVC = segue.destination as? UINavigationController {
                     resultNavigationVC = desVC
                     resultNavigationVC.delegate = self
+                }
+            case "showResultSortVC":
+                if let desVC = segue.destination as? OKHCPSearchResultSortViewController {
+                    desVC.sort = sort
                 }
             default:
                 return
@@ -91,7 +140,6 @@ extension OKHCPSearchResultViewController: OKSegmentControlViewProtocol {
 extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if let resultListVC = viewController as? OKHCPSearchResultListViewController {
-            resultListVC.result = result
             resultListVC.theme = theme
         }
     }

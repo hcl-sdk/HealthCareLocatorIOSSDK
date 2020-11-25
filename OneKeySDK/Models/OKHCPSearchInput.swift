@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchHCPInput {
+struct OKHCPSearchInput {
     let criteriaText: String?
     let placeAddressText: String?
 }

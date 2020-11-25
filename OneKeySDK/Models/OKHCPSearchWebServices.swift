@@ -9,7 +9,7 @@ import Foundation
 import Apollo
 
 class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
-    func searchHCPWith(input: SearchHCPInput, manager: OKServiceManager, completionHandler: @escaping (([Activity]?, OKError?) -> Void)) {
+    func searchHCPWith(input: OKHCPSearchInput, manager: OKServiceManager, completionHandler: @escaping (([Activity]?, OKError?) -> Void)) {
         let query = ActivitiesQuery(apiKey: "1", criteria: "Hello")
         manager.apollo.fetch(query: query) { result in
             switch result {

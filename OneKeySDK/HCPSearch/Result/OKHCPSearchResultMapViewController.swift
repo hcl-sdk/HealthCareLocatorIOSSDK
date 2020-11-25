@@ -149,3 +149,10 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
         }
     }
 }
+
+extension OKHCPSearchResultMapViewController: OkSortableResultList {
+    func reloadWith(data: [Activity]) {
+        result = data
+        cardCollectionViewController.reloadWith(data: data)
+    }
+}

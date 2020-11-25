@@ -85,3 +85,10 @@ class OKHCPSearchResultListViewController: UITableViewController {
     */
 
 }
+
+extension OKHCPSearchResultListViewController: OkSortableResultList {
+    func reloadWith(data: [Activity]) {
+        result = data
+        tableView.reloadData()
+    }
+}

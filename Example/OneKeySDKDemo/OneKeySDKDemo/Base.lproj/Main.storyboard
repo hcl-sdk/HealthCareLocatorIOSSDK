@@ -387,7 +387,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pBP-y2-UCS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Au2-fv-ml5">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
@@ -420,8 +420,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyz-8W-7fH">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                        <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-Jb-0Lb">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="l0j-Jb-0Lb" firstAttribute="top" secondItem="Zyz-8W-7fH" secondAttribute="top" id="0cU-u4-4c7"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -429,16 +438,19 @@
                         <viewLayoutGuide key="safeArea" id="WeV-ai-HCO"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="l0j-Jb-0Lb" firstAttribute="leading" secondItem="WeV-ai-HCO" secondAttribute="leading" id="3g2-V9-p3t"/>
                             <constraint firstItem="pBP-y2-UCS" firstAttribute="top" secondItem="NUa-ja-Ktg" secondAttribute="top" id="F8P-9t-yCp"/>
                             <constraint firstItem="pBP-y2-UCS" firstAttribute="leading" secondItem="NUa-ja-Ktg" secondAttribute="leading" id="VpI-rN-RsD"/>
                             <constraint firstAttribute="trailing" secondItem="pBP-y2-UCS" secondAttribute="trailing" id="XI0-9X-cjv"/>
-                            <constraint firstItem="WeV-ai-HCO" firstAttribute="bottom" secondItem="pBP-y2-UCS" secondAttribute="bottom" id="icO-g2-1Ym"/>
+                            <constraint firstItem="WeV-ai-HCO" firstAttribute="trailing" secondItem="l0j-Jb-0Lb" secondAttribute="trailing" id="gOO-Gd-F2A"/>
+                            <constraint firstAttribute="bottom" secondItem="pBP-y2-UCS" secondAttribute="bottom" id="icO-g2-1Ym"/>
                             <constraint firstItem="KDn-tQ-CCU" firstAttribute="top" secondItem="WeV-ai-HCO" secondAttribute="top" id="l7H-No-Uil"/>
+                            <constraint firstItem="l0j-Jb-0Lb" firstAttribute="bottom" secondItem="WeV-ai-HCO" secondAttribute="bottom" constant="34" id="xhW-En-0qK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WRY-fX-mmh"/>
                     <connections>
-                        <outlet property="wrapperView" destination="Zyz-8W-7fH" id="m8W-cR-cZ8"/>
+                        <outlet property="wrapperView" destination="l0j-Jb-0Lb" id="ccj-4a-pJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke6-DN-Czh" sceneMemberID="firstResponder"/>
@@ -591,6 +603,9 @@
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="GUW-3g-3h8">
                                                                         <rect key="frame" x="-2" y="0.0" width="285" height="45"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <connections>
+                                                                            <action selector="sliderValueChanged:" destination="jEe-dt-1r5" eventType="valueChanged" id="bIy-s5-RHO"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-Ko-vvX">
                                                                         <rect key="frame" x="289" y="0.0" width="80" height="44"/>
@@ -620,6 +635,9 @@
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="40w-P9-K2Q">
                                                                         <rect key="frame" x="-2" y="0.0" width="284" height="45"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <connections>
+                                                                            <action selector="sliderValueChanged:" destination="jEe-dt-1r5" eventType="valueChanged" id="75d-2d-VtP"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3RI-X9-40S">
                                                                         <rect key="frame" x="288" y="0.0" width="80" height="44"/>
@@ -649,6 +667,9 @@
                                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="Zp1-tZ-SID">
                                                                         <rect key="frame" x="-2" y="0.0" width="285" height="45"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <connections>
+                                                                            <action selector="sliderValueChanged:" destination="jEe-dt-1r5" eventType="valueChanged" id="23a-8k-5oN"/>
+                                                                        </connections>
                                                                     </slider>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSp-8P-agY">
                                                                         <rect key="frame" x="289" y="0.0" width="80" height="44"/>

@@ -75,20 +75,21 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         }
         
         if isCriteriaValid && isPlaceAddressValid {
-            let searchInput = SearchHCPInput(criteriaText: categorySearchTextField.text,
+            let searchInput = OKHCPSearchInput(criteriaText: categorySearchTextField.text,
                                              placeAddressText: locationSearchTextField.text)
             performSearchingWith(input: searchInput, location: nil)
         }
     }
     
     
-    private func performSearchingWith(input: SearchHCPInput, location: CLLocationCoordinate2D?) {
+    private func performSearchingWith(input: OKHCPSearchInput, location: CLLocationCoordinate2D?) {
         webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {[weak self] (result, error) in
             guard let strongSelf = self else {return}
             if let error = error {
                 
             } else if let unwrapResult = result {
-                strongSelf.performSegue(withIdentifier: "showResultVC", sender: unwrapResult)
+                strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(input: input,
+                                                                                                result: unwrapResult))
             } else {
                 
             }
@@ -107,8 +108,8 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
             switch identifier {
             case "showResultVC":
                 if let desVC = segue.destination as? OKHCPSearchResultViewController,
-                   let result = sender as? [Activity] {
-                    desVC.result = result
+                   let data = sender as? OKHCPSearchData {
+                    desVC.data = data
                     desVC.theme = theme
                 }
             default:
@@ -142,7 +143,7 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
             case 0:
                 cell.configWith(theme: theme,
                                 iconImage: (UIImage(named: "ic-search-me", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))!,
-                                title: "Near me")
+                                title: kNearMeTitle)
             default:
                 cell.configWith(theme: theme,
                                 iconImage: (UIImage(named: "ic-search-marker", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))!,
@@ -155,13 +156,17 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            performSearchingWith(input: SearchHCPInput(criteriaText: "", placeAddressText: ""), location: nil)
-        case 1:
+            locationSearchTextField.text = kNearMeTitle
+            searchResult = []
             if let criteria = categorySearchTextField.text, !criteria.isEmpty {
-                performSearchingWith(input: SearchHCPInput(criteriaText: "", placeAddressText: ""), location: nil)
-            } else {
-                locationSearchTextField.text = "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)"
-                searchResult = []
+                performSearchingWith(input: OKHCPSearchInput(criteriaText: criteria, placeAddressText: kNearMeTitle), location: nil)
+            }
+        case 1:
+            let composedAdd = "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)"
+            locationSearchTextField.text = composedAdd
+            searchResult = []
+            if let criteria = categorySearchTextField.text, !criteria.isEmpty {
+                performSearchingWith(input: OKHCPSearchInput(criteriaText: criteria, placeAddressText: composedAdd), location: nil)
             }
         default:
             return
