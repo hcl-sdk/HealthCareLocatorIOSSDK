@@ -51,6 +51,9 @@ class ColorPickerWrapperViewController: UIViewController {
         rTextField.text = "\(Int(255*redVal))"
         gTextField.text = "\(Int(255*greenVal))"
         bTextField.text = "\(Int(255*blueVal))"
+        rSlider.value = Float(redVal*255)
+        gSlider.value = Float(greenVal*255)
+        bSlider.value = Float(blueVal*255)
         hexCodeTextField.text = color.hexValue()
         delegate?.didSelect(color: color, for: selectedMenu!)
     }
