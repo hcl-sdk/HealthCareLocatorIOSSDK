@@ -38,7 +38,7 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign {
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+//        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         if let location = result.first(where: {$0.workplace.address.location != nil})?.workplace.address.location {
             mapView.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2DMake(location.lat, location.long),
                                           fromDistance: 8000,

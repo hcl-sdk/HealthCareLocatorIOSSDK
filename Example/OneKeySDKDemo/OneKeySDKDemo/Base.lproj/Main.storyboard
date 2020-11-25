@@ -423,7 +423,7 @@
                                         <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-Jb-0Lb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -445,7 +445,7 @@
                             <constraint firstItem="WeV-ai-HCO" firstAttribute="trailing" secondItem="l0j-Jb-0Lb" secondAttribute="trailing" id="gOO-Gd-F2A"/>
                             <constraint firstAttribute="bottom" secondItem="pBP-y2-UCS" secondAttribute="bottom" id="icO-g2-1Ym"/>
                             <constraint firstItem="KDn-tQ-CCU" firstAttribute="top" secondItem="WeV-ai-HCO" secondAttribute="top" id="l7H-No-Uil"/>
-                            <constraint firstItem="l0j-Jb-0Lb" firstAttribute="bottom" secondItem="WeV-ai-HCO" secondAttribute="bottom" constant="34" id="xhW-En-0qK"/>
+                            <constraint firstItem="l0j-Jb-0Lb" firstAttribute="bottom" secondItem="WeV-ai-HCO" secondAttribute="bottom" id="xhW-En-0qK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WRY-fX-mmh"/>
@@ -1105,7 +1105,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Lwl-ak-3aM"/>
+        <segue reference="rxv-XI-hrn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="iconBackGrey" width="19" height="14"/>

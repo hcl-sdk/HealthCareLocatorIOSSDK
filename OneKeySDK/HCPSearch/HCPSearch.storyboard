@@ -667,7 +667,7 @@
                                                                             </mask>
                                                                         </variation>
                                                                         <connections>
-                                                                            <segue destination="9X4-Gn-zJw" kind="unwind" unwindAction="unwindToOKHCPSearchResultViewController:" id="ReP-n6-GhM"/>
+                                                                            <segue destination="9X4-Gn-zJw" kind="unwind" animates="NO" unwindAction="unwindToOKHCPSearchResultViewController:" id="ReP-n6-GhM"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EG-o6-OAv" customClass="OKBaseButton" customModule="OneKeySDK" customModuleProvider="target">
@@ -759,7 +759,7 @@
                         <outlet property="relevanceBtn" destination="IKK-CG-7Ba" id="jqt-a6-uP5"/>
                         <outlet property="relevanceLabel" destination="Yqy-iU-oAC" id="6N8-mu-S9p"/>
                         <outlet property="topLabel" destination="WZM-Wh-XiD" id="Ud0-Y2-jCP"/>
-                        <segue destination="9X4-Gn-zJw" kind="unwind" unwindAction="unwindToOKHCPSearchResultViewController:" id="Lom-dY-PV0"/>
+                        <segue destination="9X4-Gn-zJw" kind="unwind" animates="NO" unwindAction="unwindToOKHCPSearchResultViewController:" id="Lom-dY-PV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqA-jL-u3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

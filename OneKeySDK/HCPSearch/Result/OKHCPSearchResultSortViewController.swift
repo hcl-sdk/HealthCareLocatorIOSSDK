@@ -23,6 +23,8 @@ class OKHCPSearchResultSortViewController: UIViewController {
         }
     }
     
+    var theme: OKThemeConfigure?
+
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var relevanceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -34,6 +36,9 @@ class OKHCPSearchResultSortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutWith(sort: sort)
+        if let theme = theme {
+            layoutWith(theme: theme)
+        }
     }
     
     private func layoutWith(sort: SortBy) {
@@ -85,4 +90,19 @@ class OKHCPSearchResultSortViewController: UIViewController {
         }
     }
 
+}
+
+extension OKHCPSearchResultSortViewController: OKViewDesign {
+
+    func layoutWith(theme: OKThemeConfigure) {
+        topLabel.textColor = theme.primaryColor
+        topLabel.font = theme.titleFont
+        relevanceLabel.font = theme.titleFont
+        distanceLabel.font = theme.titleFont
+        nameLabel.font = theme.titleFont
+        relevanceBtn.tintColor = theme.primaryColor
+        distanceBtn.tintColor = theme.primaryColor
+        nameBtn.tintColor = theme.primaryColor
+    }
+    
 }

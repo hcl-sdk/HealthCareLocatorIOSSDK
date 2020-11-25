@@ -24,6 +24,8 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         if let theme = theme {
             layoutWith(theme: theme)
         }
+        
+        layoutWith(traitCollection: traitCollection)
     }
 
     func layoutWith(theme: OKThemeConfigure) {
@@ -63,6 +65,14 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         // Use data from the view controller which initiated the unwind segue
     }
     
+    private func layoutWith(traitCollection: UITraitCollection) {
+        for subview in bodyContentWrapper.arrangedSubviews {
+            if let searchTypeView = subview as? OKSearchTypeView {
+                searchTypeView.layoutWith(traitCollection: traitCollection)
+            }
+        }
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -78,11 +88,7 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        for subview in bodyContentWrapper.arrangedSubviews {
-            if let searchTypeView = subview as? OKSearchTypeView {
-                searchTypeView.layoutWith(traitCollection: traitCollection)
-            }
-        }
+        layoutWith(traitCollection: traitCollection)
     }
 }
 

@@ -32,13 +32,16 @@ class SettingsViewController: UIViewController {
         let isGreenThemeSelected = AppSettings.selectedTheme == Theme.defaultGreenTheme
         let isBlueThemeSelected = AppSettings.selectedTheme == Theme.defaultBlueTheme
         let isRedThemeSelected = AppSettings.selectedTheme == Theme.defaultRedTheme
-        let isCustomThemeSelected = !isGreenThemeSelected && !isBlueThemeSelected && !isRedThemeSelected
+        let isPurpleThemeSelected = AppSettings.selectedTheme == Theme.defaultPurpleTheme
+
+        let isCustomThemeSelected = !isGreenThemeSelected && !isBlueThemeSelected && !isRedThemeSelected && !isPurpleThemeSelected
         
         menus = [Menu.APIKeyMenu,
                  MenuSection(title: kMenuThemeTitle,
                              menus: [Menu.selectMenu(title: kMenuGreenThemeTitle, selected: isGreenThemeSelected),
                                      Menu.selectMenu(title: kMenuBlueThemeTitle, selected: isBlueThemeSelected),
                                      Menu.selectMenu(title: kMenuRedThemeTitle, selected: isRedThemeSelected),
+                                     Menu.selectMenu(title: kMenuPurpleThemeTitle, selected: isPurpleThemeSelected),
                                      Menu.selectMenu(title: kMenuCustomThemeTitle, selected: isCustomThemeSelected)])]
         menuVC.reloadData(menus: menus)
     }
@@ -79,6 +82,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 applySelected(theme: Theme.defaultBlueTheme)
             case kMenuRedThemeTitle:
                 applySelected(theme: Theme.defaultRedTheme)
+            case kMenuPurpleThemeTitle:
+                applySelected(theme: Theme.defaultPurpleTheme)
             case kMenuCustomThemeTitle:
                 performSegue(withIdentifier: "showCustomThemeVC", sender: nil)
             default:

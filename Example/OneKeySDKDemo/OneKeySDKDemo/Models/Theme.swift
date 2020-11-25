@@ -52,4 +52,13 @@ struct Theme: Encodable, Decodable, Equatable {
                                        secondaryColorHex: "FECCCC",
                                        markerColorHex: "FD3334",
                                        selectedMarkerColorHex: "4D0100")
+    
+    static let defaultPurpleTheme = Theme(defaultFontName: Theme.defaultSystemFont.fontName,
+                                       defaultFontSize: 14.0,
+                                       titleFontName: Theme.defaultSystemFont.fontName,
+                                       titleFontSize: 20.0,
+                                       primaryColorHex: "771d5f",
+                                       secondaryColorHex: "e5cee4",
+                                       markerColorHex: "a33c9f",
+                                       selectedMarkerColorHex: "690f65")
 }
