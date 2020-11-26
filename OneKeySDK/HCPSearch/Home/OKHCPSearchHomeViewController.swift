@@ -30,9 +30,13 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
 
     func layoutWith(theme: OKThemeConfigure) {
         topSearchBtn.backgroundColor = theme.primaryColor
+        //
         bottomSearchBtn.backgroundColor = theme.primaryColor
         bottomSearchBtn.titleLabel?.font = theme.titleFont
+        //
+        headerTitleLabel.textColor = theme.secondaryColor
         headerTitleLabel.font = theme.titleFont
+        //
         searchTextField.font = theme.defaultFont
         
         let HCPView = OKSearchTypeView(theme: theme,

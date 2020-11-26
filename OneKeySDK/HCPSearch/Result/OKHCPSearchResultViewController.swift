@@ -107,6 +107,10 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                 if let desVC = segue.destination as? OKHCPSearchResultSortViewController {
                     desVC.sort = sort
                 }
+            case "showFullCardVC":
+                if let desVC = segue.destination as? OKHCPFullCardViewController {
+                    desVC.theme = theme
+                }
             default:
                 return
             }
@@ -139,8 +143,20 @@ extension OKHCPSearchResultViewController: OKSegmentControlViewProtocol {
 
 extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if let resultListVC = viewController as? OKHCPSearchResultListViewController {
-            resultListVC.theme = theme
+        if let designAbleVC = viewController as? OKViewDesign {
+            var editableVC = designAbleVC
+            editableVC.theme = theme
         }
+        
+        if let activityList = viewController as? OKActivityList {
+            var editableVC = activityList
+            editableVC.delegate = self
+        }
+    }
+}
+
+extension OKHCPSearchResultViewController: OKActivityHandler {
+    func didSelect(activity: Activity) {
+        performSegue(withIdentifier: "showFullCardVC", sender: activity)
     }
 }

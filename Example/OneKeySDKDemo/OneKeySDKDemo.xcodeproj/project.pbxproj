@@ -25,6 +25,8 @@
 		58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */; };
 		58A8A57E256270D000A11F88 /* CustomThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */; };
 		58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5822562750600A11F88 /* ConfigFont.swift */; };
+		58B820C2256F70B00005DA26 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B820C0256F70B00005DA26 /* BaseView.swift */; };
+		58B820C3256F70B00005DA26 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B820C1256F70B00005DA26 /* BaseButton.swift */; };
 		58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961DA255CF7C2000B126D /* SettingsViewController.swift */; };
 		58B961E3255CFBE3000B126D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E2255CFBE3000B126D /* AppSettings.swift */; };
 		58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E7255CFDC9000B126D /* UIColor+Hex.swift */; };
@@ -85,6 +87,8 @@
 		58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFamilyTableViewCell.swift; sourceTree = "<group>"; };
 		58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeDelegate.swift; sourceTree = "<group>"; };
 		58A8A5822562750600A11F88 /* ConfigFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigFont.swift; sourceTree = "<group>"; };
+		58B820C0256F70B00005DA26 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		58B820C1256F70B00005DA26 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		58B961DA255CF7C2000B126D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		58B961E2255CFBE3000B126D /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		58B961E7255CFDC9000B126D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 		58A3648B2555081E00C62479 /* OneKeySDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				58B820BF256F70770005DA26 /* Commons */,
 				58D10D56255E735D008471F3 /* Settings */,
 				58D10D25255E4761008471F3 /* Models */,
 				58BA6117255E459D00696AA1 /* Menu */,
@@ -215,6 +220,15 @@
 				58A364B02555082000C62479 /* Info.plist */,
 			);
 			path = OneKeySDKDemoUITests;
+			sourceTree = "<group>";
+		};
+		58B820BF256F70770005DA26 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				58B820C1256F70B00005DA26 /* BaseButton.swift */,
+				58B820C0256F70B00005DA26 /* BaseView.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		58B961FF255D449D000B126D /* Cells */ = {
@@ -517,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B820C3256F70B00005DA26 /* BaseButton.swift in Sources */,
 				58D10D37255E4931008471F3 /* SelectMenuTableViewCell.swift in Sources */,
 				58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */,
 				58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */,
@@ -529,6 +544,7 @@
 				58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */,
 				58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */,
 				58322BCF255E81FD00847919 /* Keys.swift in Sources */,
+				58B820C2256F70B00005DA26 /* BaseView.swift in Sources */,
 				58D10D2D255E4814008471F3 /* Menu.swift in Sources */,
 				58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */,
 				58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */,

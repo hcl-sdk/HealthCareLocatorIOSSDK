@@ -9,7 +9,10 @@ import UIKit
 
 private let reuseIdentifier = "HCPCard"
 
-class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign {
+class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign, OKActivityList {
+    
+    weak var delegate: OKActivityHandler?
+    
     var selectedIndex: Int? {
         didSet {
             if isViewLoaded {
@@ -59,6 +62,10 @@ class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign 
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelect(activity: result[indexPath.row])
+    }
+    
     // MARK: UICollectionViewDelegate
 
     /*

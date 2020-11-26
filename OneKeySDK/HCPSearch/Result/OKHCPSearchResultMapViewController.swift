@@ -9,7 +9,16 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign {
+class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActivityList {
+    //
+    weak var delegate: OKActivityHandler? {
+        didSet {
+            if isViewLoaded {
+                cardCollectionViewController.delegate = delegate
+            }
+        }
+    }
+    //
     var theme: OKThemeConfigure?
     
     private let locationManager = CLLocationManager()
@@ -78,6 +87,7 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign {
                 if let desVC = segue.destination as? HCPCardCollectionViewController {
                     desVC.result = result
                     desVC.theme = theme
+                    desVC.delegate = delegate
                     cardCollectionViewController = desVC
                 }
             default:

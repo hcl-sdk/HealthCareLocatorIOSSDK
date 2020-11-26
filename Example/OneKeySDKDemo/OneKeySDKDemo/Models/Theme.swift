@@ -31,7 +31,7 @@ struct Theme: Encodable, Decodable, Equatable {
                                          titleFontName: Theme.defaultSystemFont.fontName,
                                          titleFontSize: 20.0,
                                          primaryColorHex: "43B12B",
-                                         secondaryColorHex: "E4F3DF",
+                                         secondaryColorHex: "00A3E0",
                                          markerColorHex: "FE8A12",
                                          selectedMarkerColorHex: "CD0800")
     
@@ -40,7 +40,7 @@ struct Theme: Encodable, Decodable, Equatable {
                                         titleFontName: Theme.defaultSystemFont.fontName,
                                         titleFontSize: 20.0,
                                         primaryColorHex: "0433CC",
-                                        secondaryColorHex: "B3C6FF",
+                                        secondaryColorHex: "00A3E0",
                                         markerColorHex: "1A53FF",
                                         selectedMarkerColorHex: "000D33")
     
@@ -49,7 +49,7 @@ struct Theme: Encodable, Decodable, Equatable {
                                        titleFontName: Theme.defaultSystemFont.fontName,
                                        titleFontSize: 20.0,
                                        primaryColorHex: "FD0D00",
-                                       secondaryColorHex: "FECCCC",
+                                       secondaryColorHex: "00A3E0",
                                        markerColorHex: "FD3334",
                                        selectedMarkerColorHex: "4D0100")
     
@@ -58,7 +58,7 @@ struct Theme: Encodable, Decodable, Equatable {
                                        titleFontName: Theme.defaultSystemFont.fontName,
                                        titleFontSize: 20.0,
                                        primaryColorHex: "771d5f",
-                                       secondaryColorHex: "e5cee4",
+                                       secondaryColorHex: "00A3E0",
                                        markerColorHex: "a33c9f",
                                        selectedMarkerColorHex: "690f65")
 }

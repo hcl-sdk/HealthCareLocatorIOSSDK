@@ -41,11 +41,14 @@
 		58A3647D2554F69C00C62479 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58A3647A2554F69C00C62479 /* README.md */; };
 		58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */; };
 		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
+		58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */; };
 		58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */; };
 		58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */; };
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
 		58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */; };
 		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
+		58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* OKActivityHandler.swift */; };
+		58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* OKActivityList.swift */; };
 		58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */; };
 		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
 		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
@@ -116,11 +119,14 @@
 		58A3647A2554F69C00C62479 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchNavigationViewController.swift; sourceTree = "<group>"; };
 		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
+		58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPFullCardViewController.swift; sourceTree = "<group>"; };
 		58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesProtocol.swift; sourceTree = "<group>"; };
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
 		58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		58C2997E256FBAE500236D91 /* OKActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityHandler.swift; sourceTree = "<group>"; };
+		58C29982256FBD1E00236D91 /* OKActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityList.swift; sourceTree = "<group>"; };
 		58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultListViewController.swift; sourceTree = "<group>"; };
 		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
 				58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */,
 				5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */,
+				58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -313,6 +320,8 @@
 			children = (
 				58E77981255BE4740051F1FA /* OKViewDesign.swift */,
 				585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */,
+				58C2997E256FBAE500236D91 /* OKActivityHandler.swift */,
+				58C29982256FBD1E00236D91 /* OKActivityList.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -590,6 +599,7 @@
 				58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */,
 				5848D6C0256E143B00217EFC /* OKHCPSearchInput.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
+				58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */,
 				58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */,
 				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
 				587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */,
@@ -618,6 +628,8 @@
 				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
 				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
+				58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */,
+				58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@ class HCPCardTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var moreDetailIcon: UIImageView!
     
     func configWith(theme: OKThemeConfigure?, item: Activity) {
         // Fonts
@@ -22,7 +23,9 @@ class HCPCardTableViewCell: UITableViewCell {
         distanceLabel.font = theme?.defaultFont
         
         // Colors
-        drLabel.textColor = theme?.primaryColor
+        drLabel.textColor = theme?.secondaryColor
+        moreDetailIcon.tintColor = theme?.secondaryColor
+        //
         drLabel.text = item.title.label
         categoryLabel.text = item.workplace.name
         addressLabel.text = item.workplace.address.longLabel

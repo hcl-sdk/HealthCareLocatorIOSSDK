@@ -126,7 +126,7 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="lOa-Lh-JgS" customClass="MenuTableViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="iAR-6B-tU0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.16322335600000001" green="0.36834239959999998" blue="0.41476839780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -952,7 +952,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-z5-fJL">
                                                                         <rect key="frame" x="210" y="0.0" width="172" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJg-Zy-YWN" customClass="OKBaseButton" customModule="OneKeySDK">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJg-Zy-YWN" customClass="BaseButton" customModule="OneKeySDKDemo" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
@@ -980,7 +980,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-ez-ea7" customClass="OKBaseButton" customModule="OneKeySDK">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-ez-ea7" customClass="BaseButton" customModule="OneKeySDKDemo" customModuleProvider="target">
                                                                                 <rect key="frame" x="132" y="0.0" width="40" height="40"/>
                                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
@@ -1094,9 +1094,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="55u-Lg-ZxV">
-            <size key="intrinsicContentSize" width="70" height="45"/>
-        </designable>
+        <designable name="U8V-XF-qGn"/>
         <designable name="bJg-Zy-YWN">
             <size key="intrinsicContentSize" width="30" height="41"/>
         </designable>
@@ -1105,7 +1103,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="rxv-XI-hrn"/>
+        <segue reference="7ZX-mv-ROS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="iconBackGrey" width="19" height="14"/>

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic-edit.png",
+      "filename" : "icons8-globe-earth.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic-edit@2x.png",
+      "filename" : "icons8-globe-earth@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic-edit@3x.png",
+      "filename" : "icons8-globe-earth@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

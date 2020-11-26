@@ -95,7 +95,7 @@ class OKHCPSearchResultSortViewController: UIViewController {
 extension OKHCPSearchResultSortViewController: OKViewDesign {
 
     func layoutWith(theme: OKThemeConfigure) {
-        topLabel.textColor = theme.primaryColor
+        topLabel.textColor = theme.secondaryColor
         topLabel.font = theme.titleFont
         relevanceLabel.font = theme.titleFont
         distanceLabel.font = theme.titleFont
