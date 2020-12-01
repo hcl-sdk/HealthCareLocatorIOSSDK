@@ -7,9 +7,35 @@
 
 import Foundation
 
-enum HistorySection {
+enum HistorySection: Equatable {
+    static func == (lhs: HistorySection, rhs: HistorySection) -> Bool {
+        switch lhs {
+        case .nearMe(let lhsTitle, let lhsActivities):
+            switch rhs {
+            case .lastSearchs, .lasHCPConsolted:
+                return false
+            case .nearMe:
+                return true
+            }
+        case .lastSearchs(let title, let searches):
+            switch rhs {
+            case .nearMe, .lasHCPConsolted:
+                return false
+            case .lastSearchs:
+                return true
+            }
+        case .lasHCPConsolted(let title, let activities):
+            switch rhs {
+            case .nearMe, .lastSearchs:
+                return false
+            case .lasHCPConsolted:
+                return true
+            }
+        }
+    }
+    
     case nearMe(title: String, activities: [Activity])
-    case lastSearchs(title: String, activities: [Activity])
+    case lastSearchs(title: String, searches: [OKHCPLastSearch])
     case lasHCPConsolted(title: String, activities: [Activity])
     
     var title: String {
@@ -26,9 +52,13 @@ enum HistorySection {
 
 class OKSearchHistoryViewModel {
     func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
-        let mockData = MockOKHCPSearchWebServices().getMockSearchResult()
+        var mockData = MockOKHCPSearchWebServices().getMockSearchResult()
+        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockSearchResult())
+        var lastSearches = OKDatabase.getLastSearchesHistory()
+        lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
+
         let mockResult = [HistorySection.nearMe(title: "HCP near me", activities: mockData),
-                          HistorySection.lastSearchs(title: "Last searches", activities: mockData),
+                          HistorySection.lastSearchs(title: "Last searches", searches: lastSearches),
                           HistorySection.lasHCPConsolted(title: "Last HCP consulted", activities: mockData)]
         completion(.success(mockResult))
     }

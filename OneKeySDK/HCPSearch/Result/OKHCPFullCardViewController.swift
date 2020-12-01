@@ -122,6 +122,10 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     
     
     // MARK: Actions
+    @IBAction func onBackAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func directionAction(_ sender: Any) {
         if let location = locationManager.location,
            let activity = activity,

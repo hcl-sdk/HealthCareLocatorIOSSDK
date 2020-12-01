@@ -38,6 +38,9 @@
                                         <state key="normal" title="View more">
                                             <color key="titleColor" red="0.26274509800000001" green="0.69259995220000004" blue="0.1668359935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2GF-P9-GVX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

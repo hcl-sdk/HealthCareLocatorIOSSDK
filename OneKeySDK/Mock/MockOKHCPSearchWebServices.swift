@@ -74,4 +74,11 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
                                                                                                    location: Activity.Workplace.Address.Location(lat: 48.834700,
                                                                                                                                                  long: 2.332315))))]
     }
+    
+    func getMockLastSearchResult() -> [OKHCPLastSearch] {
+        return [OKHCPLastSearch(criteria: "General Practitioner", address: "75008, Paris", timeInterval: 1606798423, selected: nil),
+                OKHCPLastSearch(criteria: "Cardiologist", address: "75008, Paris", timeInterval: 1606778423, selected: nil),
+                OKHCPLastSearch(criteria: "Dr Hababou Danielle", address: "38 Rue Beaujon, 75008 Paris", timeInterval: 1606698423, selected: getMockSearchResult().last),
+                OKHCPLastSearch(criteria: "Dr Hababou Danielle", address: "38 Rue Beaujon, 75008 Paris", timeInterval: 1606598423, selected: getMockSearchResult().first)]
+    }
 }

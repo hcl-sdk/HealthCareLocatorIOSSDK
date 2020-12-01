@@ -298,8 +298,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbg-61-uko">
                                         <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-k2-BBs">
-                                                <rect key="frame" x="10" y="10" width="394" height="817"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-k2-BBs">
+                                                <rect key="frame" x="10" y="0.0" width="394" height="827"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -309,7 +309,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="PKl-k2-BBs" secondAttribute="trailing" constant="10" id="9QY-rV-xHS"/>
                                             <constraint firstAttribute="bottom" secondItem="PKl-k2-BBs" secondAttribute="bottom" constant="10" id="Fs2-lc-jHo"/>
-                                            <constraint firstItem="PKl-k2-BBs" firstAttribute="top" secondItem="cbg-61-uko" secondAttribute="top" constant="10" id="NUt-1V-fd2"/>
+                                            <constraint firstItem="PKl-k2-BBs" firstAttribute="top" secondItem="cbg-61-uko" secondAttribute="top" id="NUt-1V-fd2"/>
                                             <constraint firstItem="PKl-k2-BBs" firstAttribute="leading" secondItem="cbg-61-uko" secondAttribute="leading" constant="10" id="b2d-3Q-vjV"/>
                                         </constraints>
                                     </view>
@@ -329,6 +329,7 @@
                         <outlet property="searchBtn" destination="hlP-XE-vRl" id="WZ2-Ic-PU8"/>
                         <outlet property="searchTextField" destination="XJ8-d5-MmP" id="JU6-Si-Olv"/>
                         <segue destination="SvW-MO-8o0" kind="show" identifier="showSearchInputVC" id="ou0-UB-5IT"/>
+                        <segue destination="c9L-RN-q29" kind="show" identifier="showFullCardVC" id="nlz-Yn-waP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuX-Qj-isD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -930,7 +931,7 @@
                                                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" image="ic-back-grey"/>
                                                                                 <connections>
-                                                                                    <segue destination="Zwu-n5-7fc" kind="unwind" unwindAction="unwindToOKHCPSearchResultViewController:" id="ZNg-3E-iIb"/>
+                                                                                    <action selector="onBackAction:" destination="c9L-RN-q29" eventType="touchUpInside" id="kc7-Ss-F16"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB3-bf-6Dy">
@@ -1663,9 +1664,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhU-E2-vwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Zwu-n5-7fc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="899"/>
+            <point key="canvasLocation" x="1706" y="899"/>
         </scene>
         <!--Picker List View Controller-->
         <scene sceneID="POT-Ml-tTe">
@@ -1728,7 +1728,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hop-Ev-faB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="1671"/>
+            <point key="canvasLocation" x="1706" y="1715"/>
         </scene>
         <!--Search Navigation View Controller-->
         <scene sceneID="lJj-aW-8pV">
@@ -2104,6 +2104,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="nlz-Yn-waP"/>
         <segue reference="ou0-UB-5IT"/>
     </inferredMetricsTieBreakers>
     <resources>

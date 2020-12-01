@@ -21,6 +21,7 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
         super.viewDidLoad()
         searchTextField.delegate = self
         tableViewDataSource = OKSearchHistoryDataSource(tableView: historyTableView)
+        tableViewDataSource.delegate = self
         if let theme = theme {
             layoutWith(theme: theme)
         }
@@ -68,5 +69,26 @@ extension OKHCPSearchHomeFullViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.resignFirstResponder()
         performSegue(withIdentifier: "showSearchInputVC", sender: nil)
+    }
+}
+
+extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
+    
+    func didSelect(activity: Activity) {
+        performSegue(withIdentifier: "showFullCardVC", sender: activity)
+    }
+    
+    func didSelect(search: OKHCPLastSearch) {
+        if let selected = search.selected {
+            performSegue(withIdentifier: "showFullCardVC", sender: selected)
+        }
+    }
+    
+    func shouldRemoveActivityAt(indexPath: IndexPath) {
+        
+    }
+    
+    func shouldRemoveSearchAt(indexPath: IndexPath) {
+        
     }
 }

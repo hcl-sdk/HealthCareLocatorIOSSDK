@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CustomBorderTableViewCell: UITableViewCell {
+class CustomBorderTableViewCell: UITableViewCell, OKIndexAble {
+    var indexPath: IndexPath?
+    
     @IBOutlet weak var topSeperatorLine: UIView!
     @IBOutlet weak var borderView: OKBaseView!
     @IBOutlet weak var borderViewTopContraint: NSLayoutConstraint!

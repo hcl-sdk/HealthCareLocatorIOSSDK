@@ -29,6 +29,8 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
             mapView.defaultZoomTo(location: location)
         }
     }
+    
+    
 }
 
 extension ActivityMapTableViewCell: MKMapViewDelegate {

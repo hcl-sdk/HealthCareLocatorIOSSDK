@@ -51,8 +51,8 @@ class MenuTableViewController: UITableViewController {
         guard let sectionTitle = menus[section].title else {return nil}
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
         titleLabel.text = sectionTitle
         titleLabel.sizeToFit()
         let headerView = UIView()
@@ -66,14 +66,14 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if menus[section].title != nil {
-            return 80.0
+            return 60.0
         } else {
             return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 70.0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

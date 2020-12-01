@@ -60,6 +60,13 @@
 		58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* OKActivityHandler.swift */; };
 		58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* OKActivityList.swift */; };
 		58C34B152570B7F800007DA2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C34B142570B7F800007DA2 /* Helpers.swift */; };
+		58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */; };
+		58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */; };
+		58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */; };
+		58CF586725760340001ACD6C /* OkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586625760340001ACD6C /* OkDatabase.swift */; };
+		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
+		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
+		58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* OKIndexAble.swift */; };
 		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
 		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
 		58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */; };
@@ -152,6 +159,13 @@
 		58C2997E256FBAE500236D91 /* OKActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityHandler.swift; sourceTree = "<group>"; };
 		58C29982256FBD1E00236D91 /* OKActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityList.swift; sourceTree = "<group>"; };
 		58C34B142570B7F800007DA2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPConsultedHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPConsultedHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPLastSearch.swift; sourceTree = "<group>"; };
+		58CF586625760340001ACD6C /* OkDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkDatabase.swift; sourceTree = "<group>"; };
+		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF588225766017001ACD6C /* OKIndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIndexAble.swift; sourceTree = "<group>"; };
 		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
 		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
 		58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPickerTableViewCell.xib; sourceTree = "<group>"; };
@@ -312,6 +326,7 @@
 				5848D6B9256E10C700217EFC /* Constants.swift */,
 				5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */,
 				5876089A256E666800F44787 /* Config.swift */,
+				58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +361,10 @@
 				58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */,
 				58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */,
 				58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */,
+				58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */,
+				58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */,
+				58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */,
+				58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -357,6 +376,7 @@
 				585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */,
 				58C2997E256FBAE500236D91 /* OKActivityHandler.swift */,
 				58C29982256FBD1E00236D91 /* OKActivityList.swift */,
+				58CF588225766017001ACD6C /* OKIndexAble.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -394,6 +414,7 @@
 				58F5EE20255BC54E0029B0B4 /* Views */,
 				58C34B142570B7F800007DA2 /* Helpers.swift */,
 				58BAEEB925751EAD003C5383 /* ActivityList.swift */,
+				58CF586625760340001ACD6C /* OkDatabase.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -537,8 +558,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */,
 				58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */,
 				58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */,
+				58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */,
 				58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */,
 				58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */,
 				58B96226255D5C14000B126D /* icons.xcassets in Resources */,
@@ -649,6 +672,7 @@
 				5848D6C0256E143B00217EFC /* OKHCPSearchInput.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
 				58C34B152570B7F800007DA2 /* Helpers.swift in Sources */,
+				58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */,
 				58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */,
 				58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */,
 				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
@@ -678,14 +702,18 @@
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
 				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
+				58CF586725760340001ACD6C /* OkDatabase.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
 				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
+				58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */,
 				58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */,
+				58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */,
 				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
 				58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */,
 				58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */,
+				58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
