@@ -81,6 +81,9 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         }
     }
     
+    @IBAction func backAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     private func performSearchingWith(input: OKHCPSearchInput, location: CLLocationCoordinate2D?) {
         webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {[weak self] (result, error) in

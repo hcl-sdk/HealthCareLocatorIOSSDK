@@ -12,7 +12,7 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
         completionHandler(getMockSearchResult(), nil)
     }
     
-    private func getMockSearchResult() -> [Activity] {
+    func getMockSearchResult() -> [Activity] {
         return [Activity(id: "id_1",
                          title: ActivityTitle(label: "Dr William Dahan"),
                          role: ActivityRole(label: "General practitioner"),

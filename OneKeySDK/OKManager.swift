@@ -40,11 +40,12 @@ extension OKManager: OkManagerProtocol {
      Retrive the instant for the HCP search process
      - Returns: The navigation controller of the search HCP process
      */
-    public func getHCPSearchViewController() -> OKHCPSearchNavigationViewController {
-        guard let searchVC = UIStoryboard(name: "HCPSearch",
-                                          bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchViewController") as? OKHCPSearchNavigationViewController else {
-            fatalError("Unable to load search screen")
-        }
+    public func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController {
+//        guard let searchVC = UIStoryboard(name: "HCPSearch",
+//                                          bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchViewController") as? OKHCPSearchNavigationViewController else {
+//            fatalError("Unable to load search screen")
+//        }
+        let searchVC = OKHCPSearchNavigationViewController(fullMode: fullMode)
         return searchVC
     }
     

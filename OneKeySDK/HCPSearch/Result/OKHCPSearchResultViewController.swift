@@ -110,6 +110,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
             case "showFullCardVC":
                 if let desVC = segue.destination as? OKHCPFullCardViewController {
                     desVC.theme = theme
+                    if let activity = sender as? Activity {
+                        desVC.activity = activity
+                    }
                 }
             default:
                 return

@@ -10,8 +10,10 @@
 		11B031059F5FF1FDEA0E0FF4 /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF0F70FB7921AD86FB0460EC /* Pods_OneKeySDKDemoTests.framework */; };
 		43B4BA394D42EBAF3CCE8AB0 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA56F0D47B485CCE75495AAD /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
 		5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
+		5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */; };
 		58322BCF255E81FD00847919 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58322BCE255E81FD00847919 /* Keys.swift */; };
 		5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843945D25594D2B009D2306 /* MenuTableViewController.swift */; };
+		588A99C42574AF9B002BCC74 /* ToogleMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */; };
 		58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648C2555081E00C62479 /* AppDelegate.swift */; };
 		58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648E2555081E00C62479 /* SceneDelegate.swift */; };
 		58A364912555081E00C62479 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364902555081E00C62479 /* HomeViewController.swift */; };
@@ -66,8 +68,10 @@
 		3E58CCCD37ED60443EF45DC8 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A79866E94F82558D15952E0 /* Pods-OneKeySDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
+		5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemesViewController.swift; sourceTree = "<group>"; };
 		58322BCE255E81FD00847919 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5843945D25594D2B009D2306 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58A364892555081E00C62479 /* OneKeySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKeySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A3648C2555081E00C62479 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58A3648E2555081E00C62479 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */,
 				58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */,
 				58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */,
+				588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				58B961E2255CFBE3000B126D /* AppSettings.swift */,
 				58A8A573256241CF00A11F88 /* CustomFontViewController.swift */,
 				58A8A5822562750600A11F88 /* ConfigFont.swift */,
+				5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				58A8A56F25623A2900A11F88 /* FontMenuTableViewCell.swift in Sources */,
 				58A8A574256241CF00A11F88 /* CustomFontViewController.swift in Sources */,
 				58A8A5832562750600A11F88 /* ConfigFont.swift in Sources */,
+				588A99C42574AF9B002BCC74 /* ToogleMenuTableViewCell.swift in Sources */,
 				58D10D32255E491F008471F3 /* InputMenuTableViewCell.swift in Sources */,
 				58A8A5792562607A00A11F88 /* FontFamilyTableViewCell.swift in Sources */,
 				58322BCF255E81FD00847919 /* Keys.swift in Sources */,
@@ -557,6 +564,7 @@
 				58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */,
 				58BA6113255E459900696AA1 /* MenuSection.swift in Sources */,
 				58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */,
+				5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,12 @@ import UIKit
 
 protocol MenuTableViewControllerDelegate: class {
     func didSelect(menu: Menu)
+    func didChangeValueFor(menu: Menu, newValue: Any?)
+}
+
+extension MenuTableViewControllerDelegate {
+    func didSelect(menu: Menu) {}
+    func didChangeValueFor(menu: Menu, newValue: Any?) {}
 }
 
 class MenuTableViewController: UITableViewController {
@@ -85,7 +91,7 @@ class MenuTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellInput", for: indexPath) as! InputMenuTableViewCell
             cell.configWith(placeHolder: placeHolder, value: value)
             return cell
-        case .selectMenu(let title, let selected):
+        case .selectMenu(let title, let selected, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellSelect", for: indexPath) as! SelectMenuTableViewCell
             cell.configWith(title: title, selected: selected)
             return cell
@@ -96,6 +102,11 @@ class MenuTableViewController: UITableViewController {
         case .fontMenu(let title, let font):
             let cell = tableView.dequeueReusableCell(withIdentifier: "FontMenuTableViewCell", for: indexPath) as! FontMenuTableViewCell
             cell.configWith(title: title, font: font)
+            return cell
+        case .toggleMenu(let title, let isOn):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ToogleMenuTableViewCell", for: indexPath) as! ToogleMenuTableViewCell
+            cell.delegate = delegate
+            cell.configWith(menu: menu)
             return cell
         }
     }
