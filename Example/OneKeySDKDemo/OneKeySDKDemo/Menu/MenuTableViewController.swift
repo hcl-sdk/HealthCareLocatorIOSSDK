@@ -9,6 +9,12 @@ import UIKit
 
 protocol MenuTableViewControllerDelegate: class {
     func didSelect(menu: Menu)
+    func didChangeValueFor(menu: Menu, newValue: Any?)
+}
+
+extension MenuTableViewControllerDelegate {
+    func didSelect(menu: Menu) {}
+    func didChangeValueFor(menu: Menu, newValue: Any?) {}
 }
 
 class MenuTableViewController: UITableViewController {
@@ -45,8 +51,8 @@ class MenuTableViewController: UITableViewController {
         guard let sectionTitle = menus[section].title else {return nil}
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        titleLabel.textColor = UIColor.black
+        titleLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
         titleLabel.text = sectionTitle
         titleLabel.sizeToFit()
         let headerView = UIView()
@@ -60,14 +66,14 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if menus[section].title != nil {
-            return 80.0
+            return 60.0
         } else {
             return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 70.0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,7 +91,7 @@ class MenuTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellInput", for: indexPath) as! InputMenuTableViewCell
             cell.configWith(placeHolder: placeHolder, value: value)
             return cell
-        case .selectMenu(let title, let selected):
+        case .selectMenu(let title, let selected, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellSelect", for: indexPath) as! SelectMenuTableViewCell
             cell.configWith(title: title, selected: selected)
             return cell
@@ -96,6 +102,11 @@ class MenuTableViewController: UITableViewController {
         case .fontMenu(let title, let font):
             let cell = tableView.dequeueReusableCell(withIdentifier: "FontMenuTableViewCell", for: indexPath) as! FontMenuTableViewCell
             cell.configWith(title: title, font: font)
+            return cell
+        case .toggleMenu(let title, let isOn):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ToogleMenuTableViewCell", for: indexPath) as! ToogleMenuTableViewCell
+            cell.delegate = delegate
+            cell.configWith(menu: menu)
             return cell
         }
     }

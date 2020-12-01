@@ -11,7 +11,7 @@ import UIKit
 struct Theme: Encodable, Decodable, Equatable {
     
     private static let defaultSystemFont = UIFont(name: "Helvetica", size: 14.0)!
-    
+        
     // Fonts - Default
     let defaultFontName: String!
     let defaultFontSize: CGFloat!
@@ -54,11 +54,11 @@ struct Theme: Encodable, Decodable, Equatable {
                                        selectedMarkerColorHex: "4D0100")
     
     static let defaultPurpleTheme = Theme(defaultFontName: Theme.defaultSystemFont.fontName,
-                                       defaultFontSize: 14.0,
-                                       titleFontName: Theme.defaultSystemFont.fontName,
-                                       titleFontSize: 20.0,
-                                       primaryColorHex: "771d5f",
-                                       secondaryColorHex: "00A3E0",
-                                       markerColorHex: "a33c9f",
-                                       selectedMarkerColorHex: "690f65")
+                                          defaultFontSize: 14.0,
+                                          titleFontName: Theme.defaultSystemFont.fontName,
+                                          titleFontSize: 20.0,
+                                          primaryColorHex: "771d5f",
+                                          secondaryColorHex: "00A3E0",
+                                          markerColorHex: "a33c9f",
+                                          selectedMarkerColorHex: "690f65")
 }

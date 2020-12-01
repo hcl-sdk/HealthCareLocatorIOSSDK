@@ -25,16 +25,34 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
     /**
      The theme configuration object for dynamic UI displaying dependence on container app business
      */
-    public var theme: OKThemeConfigure?
+    public var theme: OKThemeConfigure? {
+        didSet {
+            guard let theme = self.theme else {return}
+            if isViewLoaded {
+                layoutWith(theme: theme)
+            }
+        }
+    }
+    
+    init(fullMode: Bool) {
+        if fullMode {
+            let fullHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeFullViewController") as! OKHCPSearchHomeFullViewController
+            super.init(rootViewController: fullHomeVC)
+        } else {
+            let compactHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeViewController") as! OKHCPSearchHomeViewController
+            super.init(rootViewController: compactHomeVC)
+        }
+        isNavigationBarHidden = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         guard let theme = theme else {return}
         layoutWith(theme: theme)
-        if let viewController = viewControllers.first as? OKViewDesign {
-            var editableVC = viewController
-            editableVC.theme = theme
-        }
     }
     
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -61,5 +79,11 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
 extension OKHCPSearchNavigationViewController: OKViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         navigationBar.barTintColor = theme.primaryColor
+        for viewController in viewControllers {
+            if let designAbleVC = viewController as? OKViewDesign {
+                var editableVC = designAbleVC
+                editableVC.theme = theme
+            }
+        }
     }
 }

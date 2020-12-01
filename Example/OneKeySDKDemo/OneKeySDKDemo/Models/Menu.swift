@@ -13,16 +13,13 @@ enum Menu {
     case fontMenu(title: String, font: UIFont)
     case colorMenu(title: String, color: UIColor)
     case inputMenu(placeHolder: String, value: String?)
-    case selectMenu(title: String, selected: Bool)
+    case selectMenu(title: String, selected: Bool, data: Any?)
     case detailMenu(title: String)
+    case toggleMenu(title: String, isOn: Bool)
 
     static let allMainMenus = [Menu.textMenu(title: kMenuNewSearchTitle, value: nil),
                                Menu.textMenu(title: kMenuSettingsTitle, value: nil)]
+    
     static let APIKeyMenu = MenuSection(title: kMenuAPIKeyTitle,
                                         menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
-    static let themeMenus = MenuSection(title: kMenuThemeTitle,
-                                        menus: [Menu.selectMenu(title: kMenuGreenThemeTitle, selected: true),
-                                                Menu.selectMenu(title: kMenuBlueThemeTitle, selected: false),
-                                                Menu.selectMenu(title: kMenuRedThemeTitle, selected: false),
-                                                Menu.selectMenu(title: kMenuCustomThemeTitle, selected: false)])
 }

@@ -49,22 +49,12 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActi
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 //        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         if let location = result.first(where: {$0.workplace.address.location != nil})?.workplace.address.location {
-            mapView.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2DMake(location.lat, location.long),
-                                          fromDistance: 8000,
-                                          pitch: 0,
-                                          heading: 0),
-                              animated: false)
+            mapView.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.long))
         }
     }
     
     private func addMapPinFor(result: [Activity]) {
-        let annotations = result.compactMap { (item) -> MKAnnotation? in
-            guard let location = item.workplace.address.location else {return nil}
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.lat, longitude: location.long)
-            return annotation
-        }
-        mapView.addAnnotations(annotations)
+        mapView.addAnnotations(ActivityList(activities: result).getAnotations())
     }
     
     private func reloadHorizontalListWith(selectedIndex: Int) {

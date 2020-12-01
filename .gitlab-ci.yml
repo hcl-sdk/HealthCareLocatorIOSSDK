@@ -43,8 +43,8 @@ prepare:clean:
     - xcodebuild clean -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo | xcpretty
 
 build:mr:
+  extends: .build
   interruptible: true
-  stage: build
   tags:
     - ios
   only:

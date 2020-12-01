@@ -9,8 +9,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    var menus: [MenuSection] = [Menu.APIKeyMenu,
-                                Menu.themeMenus]
+    var menus: [MenuSection] = []
+    
     var menuVC: MenuTableViewController!
     
     override func viewDidLoad() {
@@ -29,20 +29,44 @@ class SettingsViewController: UIViewController {
     }
     
     private func reloadSettings() {
-        let isGreenThemeSelected = AppSettings.selectedTheme == Theme.defaultGreenTheme
-        let isBlueThemeSelected = AppSettings.selectedTheme == Theme.defaultBlueTheme
-        let isRedThemeSelected = AppSettings.selectedTheme == Theme.defaultRedTheme
-        let isPurpleThemeSelected = AppSettings.selectedTheme == Theme.defaultPurpleTheme
+        let selectedTheme = AppSettings.selectedTheme
+        
+        let isGreenThemeSelected = selectedTheme == Theme.defaultGreenTheme
+        let isBlueThemeSelected = selectedTheme == Theme.defaultBlueTheme
+        let isRedThemeSelected = selectedTheme == Theme.defaultRedTheme
+        let isPurpleThemeSelected = selectedTheme == Theme.defaultPurpleTheme
 
         let isCustomThemeSelected = !isGreenThemeSelected && !isBlueThemeSelected && !isRedThemeSelected && !isPurpleThemeSelected
         
+        var themeSection: MenuSection!
+        let homeModeSection = MenuSection(title: kMenuHomeTitle,
+                                          menus: [Menu.toggleMenu(title: kSearchHomeFullTitle, isOn: AppSettings.fullHomeModeEnabled)])
+        
+        var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
+        
+        if isCustomThemeSelected {
+            themeMenus.insert(Menu.detailMenu(title: kMenuCustomThemeTitle), at: 0)
+        } else {
+            switch selectedTheme {
+            case Theme.defaultGreenTheme:
+                themeMenus.insert(Menu.detailMenu(title: kMenuGreenThemeTitle), at: 0)
+            case Theme.defaultBlueTheme:
+                themeMenus.insert(Menu.detailMenu(title: kMenuBlueThemeTitle), at: 0)
+            case Theme.defaultRedTheme:
+                themeMenus.insert(Menu.detailMenu(title: kMenuRedThemeTitle), at: 0)
+            case Theme.defaultPurpleTheme:
+                themeMenus.insert(Menu.detailMenu(title: kMenuPurpleThemeTitle), at: 0)
+            default:
+                break
+            }
+        }
+        
+        themeSection = MenuSection(title: kMenuThemeTitle,
+                                   menus: themeMenus)
+        
         menus = [Menu.APIKeyMenu,
-                 MenuSection(title: kMenuThemeTitle,
-                             menus: [Menu.selectMenu(title: kMenuGreenThemeTitle, selected: isGreenThemeSelected),
-                                     Menu.selectMenu(title: kMenuBlueThemeTitle, selected: isBlueThemeSelected),
-                                     Menu.selectMenu(title: kMenuRedThemeTitle, selected: isRedThemeSelected),
-                                     Menu.selectMenu(title: kMenuPurpleThemeTitle, selected: isPurpleThemeSelected),
-                                     Menu.selectMenu(title: kMenuCustomThemeTitle, selected: isCustomThemeSelected)])]
+                 themeSection,
+                 homeModeSection]
         menuVC.reloadData(menus: menus)
     }
     
@@ -63,6 +87,10 @@ class SettingsViewController: UIViewController {
                     menuVC.delegate = self
                     menuVC.menus = menus
                 }
+            case "showDefaultThemeList":
+                if let defaultThemesVC = segue.destination as? DefaultThemesViewController {
+                    defaultThemesVC.delegate = self
+                }
             default:
                 return
             }
@@ -74,24 +102,49 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: MenuTableViewControllerDelegate {
     func didSelect(menu: Menu) {
         switch menu {
-        case .selectMenu(let title, _):
+        case .selectMenu(_, _, let data):
+            if let theme = data as? Theme {
+                applySelected(theme: theme)
+            }
+        case .detailMenu(let title):
             switch title {
-            case kMenuGreenThemeTitle:
-                applySelected(theme: Theme.defaultGreenTheme)
-            case kMenuBlueThemeTitle:
-                applySelected(theme: Theme.defaultBlueTheme)
-            case kMenuRedThemeTitle:
-                applySelected(theme: Theme.defaultRedTheme)
-            case kMenuPurpleThemeTitle:
-                applySelected(theme: Theme.defaultPurpleTheme)
-            case kMenuCustomThemeTitle:
+            case kMenuGreenThemeTitle,
+                 kMenuBlueThemeTitle,
+                 kMenuRedThemeTitle,
+                 kMenuPurpleThemeTitle,
+                 kMenuCustomThemeTitle:
+                performSegue(withIdentifier: "showDefaultThemeList", sender: nil)
+            default:
+                break
+            }
+        case .textMenu(let title, _):
+            switch title {
+            case kMenuEditThemeTitle:
                 performSegue(withIdentifier: "showCustomThemeVC", sender: nil)
             default:
                 break
             }
-            break
         default:
             return
+        }
+    }
+    
+    func didChangeValueFor(menu: Menu, newValue: Any?) {
+        switch menu {
+        case .toggleMenu(let title, _):
+            switch title {
+            case kSearchHomeFullTitle:
+                if let newBool = newValue as? Bool {
+                    AppSettings.fullHomeModeEnabled = newBool
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.reloadSettings()
+                    }
+                }
+            default:
+                break
+            }
+        default:
+            break
         }
     }
     

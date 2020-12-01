@@ -31,6 +31,7 @@
 		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
 		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
 		587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */; };
+		588A99F32574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */; };
 		58A3645E2554F64700C62479 /* OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A364542554F64700C62479 /* OneKeySDK.framework */; };
 		58A364632554F64700C62479 /* OneKeySDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364622554F64700C62479 /* OneKeySDKTests.swift */; };
 		58A364652554F64700C62479 /* OneKeySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A364572554F64700C62479 /* OneKeySDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,8 +48,28 @@
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
 		58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */; };
 		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
+		58BAEE462574F10A003C5383 /* OKSearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */; };
+		58BAEE4C2574F2FC003C5383 /* OKSearchHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */; };
+		58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */; };
+		58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */; };
+		58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */; };
+		58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */; };
+		58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */; };
+		58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEB925751EAD003C5383 /* ActivityList.swift */; };
+		58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */; };
 		58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* OKActivityHandler.swift */; };
 		58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* OKActivityList.swift */; };
+		58C34B152570B7F800007DA2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C34B142570B7F800007DA2 /* Helpers.swift */; };
+		58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */; };
+		58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */; };
+		58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */; };
+		58CF586725760340001ACD6C /* OkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586625760340001ACD6C /* OkDatabase.swift */; };
+		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
+		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
+		58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* OKIndexAble.swift */; };
+		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
+		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
+		58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */; };
 		58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */; };
 		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
 		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
@@ -106,6 +127,7 @@
 		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
 		587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
+		588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchHomeFullViewController.swift; sourceTree = "<group>"; };
 		58A364542554F64700C62479 /* OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A364572554F64700C62479 /* OneKeySDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneKeySDK.h; sourceTree = "<group>"; };
 		58A364582554F64700C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,8 +147,28 @@
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
 		58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchHistoryViewModel.swift; sourceTree = "<group>"; };
+		58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchHistoryDataSource.swift; sourceTree = "<group>"; };
+		58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewMoreTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderViewMoreTableViewCell.xib; sourceTree = "<group>"; };
+		58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMapTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityMapTableViewCell.xib; sourceTree = "<group>"; };
+		58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorderTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEEB925751EAD003C5383 /* ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityList.swift; sourceTree = "<group>"; };
+		58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Additional.swift"; sourceTree = "<group>"; };
 		58C2997E256FBAE500236D91 /* OKActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityHandler.swift; sourceTree = "<group>"; };
 		58C29982256FBD1E00236D91 /* OKActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityList.swift; sourceTree = "<group>"; };
+		58C34B142570B7F800007DA2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPConsultedHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPConsultedHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPLastSearch.swift; sourceTree = "<group>"; };
+		58CF586625760340001ACD6C /* OkDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkDatabase.swift; sourceTree = "<group>"; };
+		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF588225766017001ACD6C /* OKIndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIndexAble.swift; sourceTree = "<group>"; };
+		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
+		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
+		58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPickerTableViewCell.xib; sourceTree = "<group>"; };
 		58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultListViewController.swift; sourceTree = "<group>"; };
 		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +326,7 @@
 				5848D6B9256E10C700217EFC /* Constants.swift */,
 				5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */,
 				5876089A256E666800F44787 /* Config.swift */,
+				58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +354,17 @@
 				58E73AA92562925100740548 /* SearchResultTableViewCell.xib */,
 				587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */,
 				58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */,
+				58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */,
+				58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */,
+				58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */,
+				58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */,
+				58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */,
+				58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */,
+				58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */,
+				58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */,
+				58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */,
+				58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */,
+				58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,6 +376,7 @@
 				585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */,
 				58C2997E256FBAE500236D91 /* OKActivityHandler.swift */,
 				58C29982256FBD1E00236D91 /* OKActivityList.swift */,
+				58CF588225766017001ACD6C /* OKIndexAble.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -344,6 +399,9 @@
 				5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */,
 				58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */,
 				58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */,
+				588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */,
+				58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */,
+				58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -354,6 +412,9 @@
 				58E77980255BE43A0051F1FA /* Adapters */,
 				58F5EE21255BC5540029B0B4 /* Extensions */,
 				58F5EE20255BC54E0029B0B4 /* Views */,
+				58C34B142570B7F800007DA2 /* Helpers.swift */,
+				58BAEEB925751EAD003C5383 /* ActivityList.swift */,
+				58CF586625760340001ACD6C /* OkDatabase.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -364,6 +425,7 @@
 				58F104BA2563902400AFD4B3 /* OKSegmentControlView */,
 				58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */,
 				58E7797C255BDCF80051F1FA /* OKBaseButton.swift */,
+				58D88D622570F442008D2EE8 /* PickerListViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +436,7 @@
 				58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */,
 				58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */,
 				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
+				58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -495,11 +558,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */,
 				58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */,
+				58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */,
+				58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */,
 				58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */,
+				58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */,
 				58B96226255D5C14000B126D /* icons.xcassets in Resources */,
 				58A3647D2554F69C00C62479 /* README.md in Resources */,
 				587D234C256528480009EA01 /* Query.graphql in Resources */,
+				58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */,
 				58A3647C2554F69C00C62479 /* OneKeySDK.podspec in Resources */,
 				58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */,
 				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
@@ -587,18 +655,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A364722554F66900C62479 /* OkManagerProtocol.swift in Sources */,
+				58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */,
 				584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */,
+				58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */,
 				58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */,
 				58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */,
 				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
 				5876089B256E666800F44787 /* Config.swift in Sources */,
 				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,
+				588A99F32574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift in Sources */,
 				58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */,
 				58F104C82563919B00AFD4B3 /* OkSegmentControlItem.swift in Sources */,
+				58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */,
 				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
 				58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */,
 				5848D6C0256E143B00217EFC /* OKHCPSearchInput.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
+				58C34B152570B7F800007DA2 /* Helpers.swift in Sources */,
+				58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */,
 				58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */,
 				58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */,
 				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
@@ -610,9 +684,13 @@
 				587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */,
 				58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */,
 				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
+				58BAEE462574F10A003C5383 /* OKSearchHistoryViewModel.swift in Sources */,
+				58BAEE4C2574F2FC003C5383 /* OKSearchHistoryDataSource.swift in Sources */,
 				5848D6C4256E144E00217EFC /* OKHCPSearchData.swift in Sources */,
 				58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */,
 				5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */,
+				58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */,
+				58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */,
 				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
 				58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */,
 				587D237B25652F7F0009EA01 /* API.swift in Sources */,
@@ -623,13 +701,19 @@
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
+				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
+				58CF586725760340001ACD6C /* OkDatabase.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
 				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
+				58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */,
+				58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */,
+				58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */,
 				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
 				58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */,
 				58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */,
+				58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
