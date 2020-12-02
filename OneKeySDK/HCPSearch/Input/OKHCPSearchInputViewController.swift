@@ -57,8 +57,8 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     
     func layoutWith(theme: OKThemeConfigure) {
         searchBtn.backgroundColor = theme.primaryColor
-        categorySearchTextField.font = theme.defaultFont
-        locationSearchTextField.font = theme.defaultFont
+        categorySearchTextField.font = theme.searchInputFont
+        locationSearchTextField.font = theme.searchInputFont
     }
     
     @IBAction func onSearchAction(_ sender: Any) {

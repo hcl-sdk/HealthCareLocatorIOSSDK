@@ -27,6 +27,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var displayModeSegmentView: OKSegmentControlView!
     @IBOutlet weak var activityCountLabel: UILabel!
+    @IBOutlet weak var sortButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure) {
+        sortButton.tintColor = theme.secondaryColor
+        criteriaLabel.font = theme.title2Font
+        addressLabel.font = theme.smallFont
         activityCountLabel.textColor = theme.primaryColor
         displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "ic-list"),
                                                               title: "List View",
@@ -65,6 +69,11 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         displayModeSegmentView.delegate = self
     }
 
+    @IBAction func onBackAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     func sortResultBy(sort: OKHCPSearchResultSortViewController.SortBy) {
         if let resultList = data?.result, let input = data?.input {
             var newList = resultList

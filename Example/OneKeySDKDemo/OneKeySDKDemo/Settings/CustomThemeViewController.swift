@@ -20,13 +20,21 @@ class CustomThemeViewController: UIViewController {
     
     private func reloadDataWith(theme: Theme) {
         // Fonts
-        let defaultFont = UIFont(name: theme.defaultFontName, size: theme.defaultFontSize)!
-        let titleFont = UIFont(name: theme.titleFontName, size: theme.titleFontSize)!
-        let fontsSectionMenus = MenuSection(title: kMenuCustomThemeFontsTitle,
+       let fontsSectionMenus = MenuSection(title: kMenuCustomThemeFontsTitle,
                                             menus: [Menu.fontMenu(title: kMenuCustomThemeFontsDefaultTitle,
-                                                                  font: defaultFont),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitleTitle,
-                                                                          font: titleFont)])
+                                                                  font: theme.defaultFont),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle1Title,
+                                                                  font: theme.title1Font),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle2Title,
+                                                                  font: theme.title2Font),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle3Title,
+                                                                  font: theme.title3Font),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsSearchInputTitle,
+                                                                  font: theme.searchInputFont),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsButtonTitle,
+                                                                  font: theme.buttonFont),
+                                                    Menu.fontMenu(title: kMenuCustomThemeFontsSmallTitle,
+                                                                  font: theme.smallFont)])
         
         // Colors
         let colorsSectionMenus = MenuSection(title: kMenuCustomThemeColorsTitle,
@@ -120,36 +128,15 @@ extension CustomThemeViewController: MenuTableViewControllerDelegate {
 
 extension CustomThemeViewController: CustomThemeDelegate {
     func didSelect(font: UIFont, for menu: Menu) {
-        var defaultFontName = selectedTheme.defaultFontName
-        var titleFontName = selectedTheme.titleFontName
-        var titleFontSize = selectedTheme.titleFontSize
-        var defaultFontSize = selectedTheme.defaultFontSize
-        
         switch menu {
         case .fontMenu(let title, _):
-            switch title {
-            case kMenuCustomThemeFontsDefaultTitle:
-                defaultFontName = font.fontName
-                defaultFontSize = font.pointSize
-            case kMenuCustomThemeFontsTitleTitle:
-                titleFontName = font.fontName
-                titleFontSize = font.pointSize
-            default:
-                break
+            if let theme = selectedTheme.change(font: font, for: title) {
+                selectedTheme = theme
+                reloadDataWith(theme: theme)
             }
         default:
             return
         }
-        
-        selectedTheme = Theme(defaultFontName: defaultFontName,
-                              defaultFontSize: defaultFontSize,
-                              titleFontName: titleFontName,
-                              titleFontSize: titleFontSize,
-                              primaryColorHex: selectedTheme.primaryColorHex,
-                              secondaryColorHex: selectedTheme.secondaryColorHex,
-                              markerColorHex: selectedTheme.markerColorHex,
-                              selectedMarkerColorHex: selectedTheme.selectedMarkerColorHex)
-        reloadDataWith(theme: selectedTheme)
     }
     
     func didSelect(color: UIColor, for menu: Menu) {
@@ -157,6 +144,8 @@ extension CustomThemeViewController: CustomThemeDelegate {
         var secondaryColorHex = selectedTheme.secondaryColorHex
         var markerColorHex = selectedTheme.markerColorHex
         var selectedMarkerColorHex = selectedTheme.selectedMarkerColorHex
+        var listBackgroundColorHex = selectedTheme.listBackgroundColorHex
+
         switch menu {
         case .colorMenu(let title, _):
             switch title {
@@ -174,14 +163,25 @@ extension CustomThemeViewController: CustomThemeDelegate {
         default:
             return
         }
-        selectedTheme = Theme(defaultFontName: selectedTheme.defaultFontName,
+        selectedTheme = Theme(defaultFontName:  selectedTheme.defaultFontName,
                               defaultFontSize: selectedTheme.defaultFontSize,
-                              titleFontName: selectedTheme.titleFontName,
-                              titleFontSize: selectedTheme.titleFontSize,
+                              title1FontName: selectedTheme.title1FontName,
+                              title1FontSize: selectedTheme.title1FontSize,
+                              title2FontName: selectedTheme.title2FontName,
+                              title2FontSize: selectedTheme.title2FontSize,
+                              title3FontName: selectedTheme.title3FontName,
+                              title3FontSize: selectedTheme.title3FontSize,
+                              searchInputFontName: selectedTheme.searchInputFontName,
+                              searchInputFontSize: selectedTheme.searchInputFontSize,
+                              buttonFontName: selectedTheme.buttonFontName,
+                              buttonFontSize: selectedTheme.buttonFontSize,
+                              smallFontName: selectedTheme.smallFontName,
+                              smallFontSize: selectedTheme.smallFontSize,
                               primaryColorHex: primaryColorHex,
                               secondaryColorHex: secondaryColorHex,
                               markerColorHex: markerColorHex,
-                              selectedMarkerColorHex: selectedMarkerColorHex)
+                              selectedMarkerColorHex: selectedMarkerColorHex,
+                              listBackgroundColorHex: listBackgroundColorHex)
         reloadDataWith(theme: selectedTheme)
     }
 }

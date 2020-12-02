@@ -32,6 +32,8 @@ class OKHCPSearchResultSortViewController: UIViewController {
     @IBOutlet weak var relevanceBtn: UIButton!
     @IBOutlet weak var distanceBtn: UIButton!
     @IBOutlet weak var nameBtn: UIButton!
+    @IBOutlet weak var resetButton: OKBaseButton!
+    @IBOutlet weak var applyButton: OKBaseButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,11 +97,13 @@ class OKHCPSearchResultSortViewController: UIViewController {
 extension OKHCPSearchResultSortViewController: OKViewDesign {
 
     func layoutWith(theme: OKThemeConfigure) {
+        resetButton.titleLabel?.font = theme.buttonFont
+        applyButton.titleLabel?.font = theme.buttonFont
         topLabel.textColor = theme.secondaryColor
-        topLabel.font = theme.titleFont
-        relevanceLabel.font = theme.titleFont
-        distanceLabel.font = theme.titleFont
-        nameLabel.font = theme.titleFont
+        topLabel.font = theme.title1Font
+        relevanceLabel.font = theme.title1Font
+        distanceLabel.font = theme.title1Font
+        nameLabel.font = theme.title1Font
         relevanceBtn.tintColor = theme.primaryColor
         distanceBtn.tintColor = theme.primaryColor
         nameBtn.tintColor = theme.primaryColor

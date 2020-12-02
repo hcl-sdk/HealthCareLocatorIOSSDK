@@ -1,16 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic-current-location.png",
+      "filename" : "geo lock.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic-current-location@2x.png",
+      "filename" : "geo lock@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "geo lock@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

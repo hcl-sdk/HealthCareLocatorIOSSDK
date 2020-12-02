@@ -20,8 +20,13 @@ class SearchViewController: UIViewController {
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController(fullMode: AppSettings.fullHomeModeEnabled)
         let storedTheme = AppSettings.selectedTheme
-        let theme = OKThemeConfigure(defaultFont: UIFont(name: storedTheme.defaultFontName, size: storedTheme.defaultFontSize),
-                                     titleFont: UIFont(name: storedTheme.titleFontName, size: storedTheme.titleFontSize),
+        let theme = OKThemeConfigure(defaultFont: storedTheme.defaultFont,
+                                     title1Font: storedTheme.title1Font,
+                                     title2Font: storedTheme.title2Font,
+                                     title3Font: storedTheme.title3Font,
+                                     searchInputFont: storedTheme.searchInputFont,
+                                     buttonFont: storedTheme.buttonFont,
+                                     smallFont: storedTheme.smallFont,
                                      primaryColor: UIColor(hexString: storedTheme.primaryColorHex),
                                      secondaryColor: UIColor(hexString: storedTheme.secondaryColorHex),
                                      markerColor: UIColor(hexString: storedTheme.markerColorHex),

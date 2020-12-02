@@ -14,7 +14,8 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var searchBtn: OKBaseButton!
     @IBOutlet weak var historyTableView: UITableView!
     
-    let historyViewModel = OKSearchHistoryViewModel()
+    let historyViewModel = OKSearchHistoryViewModel(webService: MockOKHCPSearchWebServices())
+    
     var tableViewDataSource: OKSearchHistoryDataSource!
         
     override func viewDidLoad() {
@@ -39,7 +40,7 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     
     func layoutWith(theme: OKThemeConfigure) {
         searchBtn.backgroundColor = theme.primaryColor
-        searchTextField.font = theme.defaultFont
+        searchTextField.font = theme.searchInputFont
         tableViewDataSource.layoutWith(theme: theme)
     }
     
@@ -55,6 +56,18 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
             switch identifier {
             case "showSearchInputVC":
                 if let desVC = segue.destination as? OKHCPSearchInputViewController {
+                    desVC.theme = theme
+                }
+            case "showFullCardVC":
+                if let desVC = segue.destination as? OKHCPFullCardViewController,
+                   let activity = sender as? Activity {
+                    desVC.theme = theme
+                    desVC.activity = activity
+                }
+            case "showResultVC":
+                if let desVC = segue.destination as? OKHCPSearchResultViewController,
+                   let data = sender as? OKHCPSearchData {
+                    desVC.data = data
                     desVC.theme = theme
                 }
             default:
@@ -81,6 +94,18 @@ extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
     func didSelect(search: OKHCPLastSearch) {
         if let selected = search.selected {
             performSegue(withIdentifier: "showFullCardVC", sender: selected)
+        } else {
+            let input = search.getInput()
+            historyViewModel.performSearchingWith(input: input,
+                                                  location: nil) {[weak self] (result) in
+                guard let strongSelf = self else {return}
+                switch result {
+                case .success(let activities):
+                    strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(input: input, result: activities))
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
     

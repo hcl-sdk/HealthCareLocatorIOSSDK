@@ -20,7 +20,7 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
     
     func configWith(theme: OKThemeConfigure?, indexPath: IndexPath, title: String?, actionTitle: String?) {
         self.indexPath = indexPath
-        headerTitleLabel.font = theme?.titleFont
+        headerTitleLabel.font = theme?.title2Font
         headerTitleLabel.text = title
         actionButton.setTitle(actionTitle, for: .normal)
         actionButton.setTitleColor(theme?.primaryColor, for: .normal)

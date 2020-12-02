@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "thumb down.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "thumb down@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic-dislike@3x.png",
+      "filename" : "thumb down@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

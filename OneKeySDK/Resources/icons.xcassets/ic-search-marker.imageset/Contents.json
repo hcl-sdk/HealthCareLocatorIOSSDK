@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "maps_marker.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-marker-100.png",
+      "filename" : "maps_marker@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "maps_marker@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
