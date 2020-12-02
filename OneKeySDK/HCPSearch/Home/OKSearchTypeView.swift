@@ -53,7 +53,7 @@ class OKSearchTypeView: UIStackView {
         iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.2)
         icon.image = image
         icon.tintColor = theme.primaryColor
-        titleLabel.font = theme.titleFont
+        titleLabel.font = theme.defaultFont
         titleLabel.text = title
         descriptionLabel.font = theme.defaultFont
         descriptionLabel.text = description

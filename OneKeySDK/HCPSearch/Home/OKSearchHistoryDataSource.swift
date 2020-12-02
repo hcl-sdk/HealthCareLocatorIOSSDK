@@ -24,7 +24,7 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
     weak var delegate: OKSearchHistoryDataSourceDelegate?
     
     private let colapseItemMax = 4
-    private let expandItemMax = 8
+    private let expandItemMax = 11
     
     var theme: OKThemeConfigure?
     

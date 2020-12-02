@@ -17,7 +17,7 @@ class HCPCardTableViewCell: UITableViewCell {
     
     func configWith(theme: OKThemeConfigure?, item: Activity) {
         // Fonts
-        drLabel.font = theme?.defaultFont
+        drLabel.font = theme?.title3Font
         categoryLabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont
         distanceLabel.font = theme?.defaultFont

@@ -77,9 +77,14 @@ class AppSettings {
     
     static var selectedTheme: Theme {
         get {
-            if let themeData = AppSettings.getValueFor(key: Key.selectedTheme.rawValue) as? Data,
-               let theme = try? JSONDecoder().decode(Theme.self, from: themeData) {
-                return theme
+            if let themeData = AppSettings.getValueFor(key: Key.selectedTheme.rawValue) as? Data {
+                do {
+                    let theme = try JSONDecoder().decode(Theme.self, from: themeData)
+                    return theme
+                } catch {
+                    print(error)
+                    return Theme.defaultGreenTheme
+                }
             } else {
                 return Theme.defaultGreenTheme
             }

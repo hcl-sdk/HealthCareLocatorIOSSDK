@@ -22,7 +22,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         drLabel.font = theme?.defaultFont
         categoryLabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont
-        distanceLabel.font = theme?.defaultFont
+        distanceLabel.font = theme?.smallFont
         
         // Colors
         drLabel.textColor = theme?.secondaryColor

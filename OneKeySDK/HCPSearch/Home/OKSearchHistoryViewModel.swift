@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum HistorySection: Equatable {
     static func == (lhs: HistorySection, rhs: HistorySection) -> Bool {
@@ -51,10 +52,33 @@ enum HistorySection: Equatable {
 }
 
 class OKSearchHistoryViewModel {
+    var webService: OKHCPSearchWebServicesProtocol!
+    
+    init(webService: OKHCPSearchWebServicesProtocol) {
+        self.webService = webService
+    }
+    
+    func performSearchingWith(input: OKHCPSearchInput,
+                              location: CLLocationCoordinate2D?,
+                              completion: @escaping ((Result<[Activity], Error>) -> Void)) {
+        webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {(result, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let unwrapResult = result {
+                completion(.success(unwrapResult))
+            } else {
+                completion(.success([]))
+            }
+        }
+    }
+    
     func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
         var mockData = MockOKHCPSearchWebServices().getMockSearchResult()
         mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockSearchResult())
+        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockSearchResult())
+
         var lastSearches = OKDatabase.getLastSearchesHistory()
+        lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
         lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
 
         let mockResult = [HistorySection.nearMe(title: "HCP near me", activities: mockData),

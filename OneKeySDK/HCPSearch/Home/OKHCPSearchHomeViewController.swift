@@ -32,12 +32,12 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         topSearchBtn.backgroundColor = theme.primaryColor
         //
         bottomSearchBtn.backgroundColor = theme.primaryColor
-        bottomSearchBtn.titleLabel?.font = theme.titleFont
+        bottomSearchBtn.titleLabel?.font = theme.title1Font
         //
         headerTitleLabel.textColor = theme.secondaryColor
-        headerTitleLabel.font = theme.titleFont
+        headerTitleLabel.font = theme.title1Font
         //
-        searchTextField.font = theme.defaultFont
+        searchTextField.font = theme.searchInputFont
         
         let HCPView = OKSearchTypeView(theme: theme,
                                        image: UIImage(named: "ic-search", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),

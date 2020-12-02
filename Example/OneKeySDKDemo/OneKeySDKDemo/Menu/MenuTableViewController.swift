@@ -51,7 +51,7 @@ class MenuTableViewController: UITableViewController {
         guard let sectionTitle = menus[section].title else {return nil}
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor.systemBlue
         titleLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
         titleLabel.text = sectionTitle
         titleLabel.sizeToFit()

@@ -330,6 +330,7 @@
                         <outlet property="searchTextField" destination="XJ8-d5-MmP" id="JU6-Si-Olv"/>
                         <segue destination="SvW-MO-8o0" kind="show" identifier="showSearchInputVC" id="ou0-UB-5IT"/>
                         <segue destination="c9L-RN-q29" kind="show" identifier="showFullCardVC" id="nlz-Yn-waP"/>
+                        <segue destination="QWh-lL-KfX" kind="show" identifier="showResultVC" id="q3c-S0-aZe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuX-Qj-isD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -489,7 +490,7 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="ic-back-grey"/>
                                                 <connections>
-                                                    <segue destination="hpa-fy-TFN" kind="unwind" unwindAction="unwindToOKHCPSearchInputViewController:" id="bTx-7S-xia"/>
+                                                    <action selector="onBackAction:" destination="QWh-lL-KfX" eventType="touchUpInside" id="709-hm-Htv"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HiK-2r-x0d">
@@ -588,6 +589,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Oep-jD-uO8" secondAttribute="height" id="zFt-Rg-OdB"/>
                                                                 </constraints>
+                                                                <color key="tintColor" systemColor="linkColor"/>
                                                                 <state key="normal" image="ic-filter"/>
                                                                 <connections>
                                                                     <segue destination="w5R-qe-MWw" kind="show" identifier="showResultSortVC" animates="NO" id="E3D-MN-MAb"/>
@@ -631,13 +633,13 @@
                         <outlet property="addressLabel" destination="rYf-dC-D24" id="VVi-3k-ucs"/>
                         <outlet property="criteriaLabel" destination="NIc-qd-vnF" id="Fwr-SU-jpV"/>
                         <outlet property="displayModeSegmentView" destination="Sug-H4-QMC" id="BQw-bW-zK8"/>
+                        <outlet property="sortButton" destination="Oep-jD-uO8" id="jc7-Jo-HkK"/>
                         <segue destination="c9L-RN-q29" kind="show" identifier="showFullCardVC" id="R9D-DK-flI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHD-sE-tbA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="hpa-fy-TFN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2554" y="120"/>
+            <point key="canvasLocation" x="2632" y="120"/>
         </scene>
         <!--Search Result Sort View Controller-->
         <scene sceneID="1ci-Gp-RmA">
@@ -878,12 +880,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="GTa-qs-2TM"/>
                     <connections>
+                        <outlet property="applyButton" destination="9EG-o6-OAv" id="vmc-dN-EcN"/>
                         <outlet property="distanceBtn" destination="6Og-CG-YuR" id="BcA-1X-zVQ"/>
                         <outlet property="distanceLabel" destination="cOn-WI-W4f" id="8Zb-PM-BCe"/>
                         <outlet property="nameBtn" destination="45L-2X-Jss" id="1wL-t0-Qer"/>
                         <outlet property="nameLabel" destination="dBU-1m-x4y" id="0a0-4e-Kv3"/>
                         <outlet property="relevanceBtn" destination="IKK-CG-7Ba" id="jqt-a6-uP5"/>
                         <outlet property="relevanceLabel" destination="Yqy-iU-oAC" id="6N8-mu-S9p"/>
+                        <outlet property="resetButton" destination="o8k-iD-tDj" id="UVb-Vd-TcH"/>
                         <outlet property="topLabel" destination="WZM-Wh-XiD" id="Ud0-Y2-jCP"/>
                         <segue destination="9X4-Gn-zJw" kind="unwind" animates="NO" unwindAction="unwindToOKHCPSearchResultViewController:" id="Lom-dY-PV0"/>
                     </connections>
@@ -891,7 +895,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqA-jL-u3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9X4-Gn-zJw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2554" y="832"/>
+            <point key="canvasLocation" x="3442" y="120"/>
         </scene>
         <!--Full Card View Controller-->
         <scene sceneID="yuj-cR-4GM">
@@ -1498,17 +1502,17 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                                                                 <subviews>
                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nu9-bf-evD">
-                                                                                                        <rect key="frame" x="99" y="5" width="176.5" height="24"/>
+                                                                                                        <rect key="frame" x="103.5" y="5" width="167" height="24"/>
                                                                                                         <subviews>
                                                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-edit" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-8c-Lv1">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                                                                <rect key="frame" x="0.0" y="5" width="14.5" height="14.5"/>
                                                                                                                 <color key="tintColor" red="0.070588235294117646" green="0.64005583519999998" blue="0.88080948589999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstAttribute="width" secondItem="NqQ-8c-Lv1" secondAttribute="height" id="gvQ-9R-jqf"/>
                                                                                                                 </constraints>
                                                                                                             </imageView>
                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggest a modification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-d4-ftS">
-                                                                                                                <rect key="frame" x="32" y="4" width="144.5" height="16.5"/>
+                                                                                                                <rect key="frame" x="22.5" y="4" width="144.5" height="16.5"/>
                                                                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                                                                 <color key="textColor" red="0.2443017066" green="0.3068999946" blue="0.36338201170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                 <nil key="highlightedColor"/>
@@ -1621,6 +1625,7 @@
                         <outlet property="directionButton" destination="4KS-2t-2U0" id="ELZ-cr-k9A"/>
                         <outlet property="drTitle" destination="ksB-wk-Sfc" id="KTR-4d-6eA"/>
                         <outlet property="dropdownIcon" destination="RPY-og-ZqO" id="X5K-VR-3wf"/>
+                        <outlet property="editButtonTitleLabel" destination="eOt-d4-ftS" id="iRU-KP-Gcf"/>
                         <outlet property="editIcon" destination="NqQ-8c-Lv1" id="bYL-vB-ITA"/>
                         <outlet property="faxLabel" destination="C8n-Fg-lGZ" id="yeC-cp-VgA"/>
                         <outlet property="informationTitleLabel" destination="dEc-JB-MAx" id="Aiy-8R-hq1"/>
@@ -1659,7 +1664,6 @@
                         <outletCollection property="contentLabels" destination="GMm-5s-23P" collectionClass="NSMutableArray" id="msH-xl-WlN"/>
                         <outletCollection property="contentLabels" destination="TzJ-Vq-oGD" collectionClass="NSMutableArray" id="Bzj-49-65D"/>
                         <outletCollection property="contentLabels" destination="uUf-uD-XyA" collectionClass="NSMutableArray" id="8Pi-Ur-VgA"/>
-                        <outletCollection property="contentLabels" destination="eOt-d4-ftS" collectionClass="NSMutableArray" id="egm-Aa-qKg"/>
                         <segue destination="H9p-v3-pXc" kind="show" identifier="showAddressPicker" id="PD3-0O-xSi"/>
                     </connections>
                 </viewController>
@@ -1760,7 +1764,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csv-JA-yiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412" y="120"/>
+            <point key="canvasLocation" x="2632" y="779"/>
         </scene>
         <!--Search Result Map View Controller-->
         <scene sceneID="TWo-5t-W6d">
@@ -1836,7 +1840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vg-wG-7fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4280" y="120"/>
+            <point key="canvasLocation" x="2632" y="1438"/>
         </scene>
         <!--Card Collection View Controller-->
         <scene sceneID="kuC-wG-tQC">
@@ -1954,7 +1958,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZt-g5-Xr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5094" y="120"/>
+            <point key="canvasLocation" x="3752" y="1438"/>
         </scene>
         <!--Search Result List View Controller-->
         <scene sceneID="keq-Gh-hI7">
@@ -2071,7 +2075,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USh-1x-iAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4280" y="798"/>
+            <point key="canvasLocation" x="3481" y="779"/>
         </scene>
     </scenes>
     <designables>
@@ -2085,26 +2089,27 @@
             <size key="intrinsicContentSize" width="125" height="29"/>
         </designable>
         <designable name="RJG-tW-4rT">
-            <size key="intrinsicContentSize" width="33.5" height="33.5"/>
+            <size key="intrinsicContentSize" width="14.5" height="22"/>
         </designable>
         <designable name="bjg-uX-5ii">
-            <size key="intrinsicContentSize" width="50" height="50"/>
+            <size key="intrinsicContentSize" width="17" height="22"/>
         </designable>
         <designable name="gCc-Dh-x3c">
-            <size key="intrinsicContentSize" width="48" height="48"/>
+            <size key="intrinsicContentSize" width="18.5" height="22"/>
         </designable>
         <designable name="hlP-XE-vRl">
-            <size key="intrinsicContentSize" width="48" height="48"/>
+            <size key="intrinsicContentSize" width="18.5" height="22"/>
         </designable>
         <designable name="o8k-iD-tDj">
             <size key="intrinsicContentSize" width="39" height="30"/>
         </designable>
         <designable name="rgK-uX-xmG">
-            <size key="intrinsicContentSize" width="48" height="48"/>
+            <size key="intrinsicContentSize" width="18.5" height="22"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="nlz-Yn-waP"/>
+        <segue reference="R9D-DK-flI"/>
+        <segue reference="q3c-S0-aZe"/>
         <segue reference="ou0-UB-5IT"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2112,21 +2117,24 @@
         <image name="ic-avatar-default" width="33.5" height="33.5"/>
         <image name="ic-back-grey" width="19" height="14"/>
         <image name="ic-checked" width="25" height="25"/>
-        <image name="ic-close-grey" width="12.5" height="13"/>
-        <image name="ic-current-location" width="50" height="50"/>
+        <image name="ic-close-grey" width="12.5" height="12.5"/>
+        <image name="ic-current-location" width="17" height="17.5"/>
         <image name="ic-detail" width="24" height="24"/>
-        <image name="ic-dislike" width="32" height="32"/>
-        <image name="ic-earth" width="30" height="30"/>
-        <image name="ic-edit" width="48" height="48"/>
-        <image name="ic-filter" width="48" height="48"/>
-        <image name="ic-like" width="32" height="32"/>
-        <image name="ic-phone" width="33.5" height="33.5"/>
-        <image name="ic-printer" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="ic-dislike" width="12" height="14.5"/>
+        <image name="ic-earth" width="16.5" height="16.5"/>
+        <image name="ic-edit" width="14.5" height="14.5"/>
+        <image name="ic-filter" width="15.5" height="9.5"/>
+        <image name="ic-like" width="12" height="14.5"/>
+        <image name="ic-phone" width="14.5" height="14.5"/>
+        <image name="ic-printer" width="16" height="14.5"/>
         <image name="ic-right" width="26" height="26"/>
-        <image name="ic-search" width="48" height="48"/>
-        <image name="ic-search-marker" width="50" height="50"/>
-        <image name="ic-share" width="24" height="24"/>
+        <image name="ic-search" width="18.5" height="18.5"/>
+        <image name="ic-search-marker" width="16.5" height="22"/>
+        <image name="ic-share" width="18.5" height="18.5"/>
         <image name="ic-uncheck" width="25" height="25"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

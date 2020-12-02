@@ -20,7 +20,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         // Fonts
         criteriabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont
-        timeLabel.font = theme?.defaultFont
+        timeLabel.font = theme?.smallFont
         categoryLabel.font = theme?.defaultFont
         
         // Colors

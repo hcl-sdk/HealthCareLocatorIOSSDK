@@ -64,7 +64,8 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     
     @IBOutlet weak var webUrlView: UITextView!
     @IBOutlet weak var editIcon: UIImageView!
-
+    @IBOutlet weak var editButtonTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let theme = theme {
@@ -107,12 +108,13 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         for titleLabel in titleLabels {
             titleLabel.textColor = theme.secondaryColor
-            titleLabel.font = theme.titleFont
+            titleLabel.font = theme.title2Font
         }
         
         for contentLabel in contentLabels {
             contentLabel.font = theme.defaultFont
         }
+        editButtonTitleLabel.font = theme.buttonFont
         webUrlView.font = theme.defaultFont
         phoneButton.tintColor = theme.secondaryColor
         directionButton.tintColor = theme.secondaryColor

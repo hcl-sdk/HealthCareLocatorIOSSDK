@@ -25,18 +25,18 @@
                     <rect key="frame" x="144" y="0.0" width="27" height="27"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-m3-nIc">
-                            <rect key="frame" x="4" y="6.5" width="19" height="14.5"/>
+                            <rect key="frame" x="6" y="8.5" width="15" height="10.5"/>
                             <color key="tintColor" red="0.3411764705882353" green="0.72549019607843135" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.89411764705882346" green="0.95454019310000005" blue="0.87582063669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="CkF-m3-nIc" firstAttribute="leading" secondItem="0dQ-GJ-TQj" secondAttribute="leading" constant="4" id="02V-VT-77J"/>
+                        <constraint firstItem="CkF-m3-nIc" firstAttribute="leading" secondItem="0dQ-GJ-TQj" secondAttribute="leading" constant="6" id="02V-VT-77J"/>
                         <constraint firstItem="CkF-m3-nIc" firstAttribute="centerX" secondItem="0dQ-GJ-TQj" secondAttribute="centerX" id="0dA-IY-vRu"/>
                         <constraint firstAttribute="width" constant="27" id="hU1-5t-WKW"/>
                         <constraint firstItem="CkF-m3-nIc" firstAttribute="centerY" secondItem="0dQ-GJ-TQj" secondAttribute="centerY" id="qAf-b9-Y80"/>
                         <constraint firstAttribute="width" secondItem="0dQ-GJ-TQj" secondAttribute="height" id="qO7-rC-4KZ"/>
-                        <constraint firstItem="CkF-m3-nIc" firstAttribute="top" secondItem="0dQ-GJ-TQj" secondAttribute="top" constant="4" id="zY2-td-UXw"/>
+                        <constraint firstItem="CkF-m3-nIc" firstAttribute="top" secondItem="0dQ-GJ-TQj" secondAttribute="top" constant="6" id="zY2-td-UXw"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
