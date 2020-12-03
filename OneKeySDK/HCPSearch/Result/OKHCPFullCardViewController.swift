@@ -22,6 +22,9 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     var activity: Activity?
     
     // General
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var drTitle: UILabel!
     @IBOutlet weak var categoryTitle: UILabel!
@@ -29,7 +32,7 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     
     @IBOutlet var titleLabels: [UILabel]!
     @IBOutlet var contentLabels: [UILabel]!
-    
+    @IBOutlet var lines: [UIView]!
     
     @IBOutlet weak var directionButton: OKBaseButton!
     @IBOutlet weak var phoneButton: OKBaseButton!
@@ -82,7 +85,6 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     private func fixWebURLViewDisplaying() {
         webUrlView.textContainerInset = .zero
         webUrlView.textContainer.lineFragmentPadding = 0
-        webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
     }
 
     private func fullFill(activity: Activity) {
@@ -113,9 +115,19 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
         
         for contentLabel in contentLabels {
             contentLabel.font = theme.defaultFont
+            contentLabel.textColor = theme.darkColor
         }
+        
+        for line in lines {
+            line.backgroundColor = theme.greyLighterColor
+        }
+        
         editButtonTitleLabel.font = theme.buttonFont
         webUrlView.font = theme.defaultFont
+        
+        // Colors
+        webUrlView.textColor = theme.darkColor
+        webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: theme.darkColor!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
         phoneButton.tintColor = theme.secondaryColor
         directionButton.tintColor = theme.secondaryColor
         editIcon.tintColor = theme.secondaryColor

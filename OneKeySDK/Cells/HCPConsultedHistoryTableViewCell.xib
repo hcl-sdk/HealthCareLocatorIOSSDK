@@ -50,28 +50,28 @@
                                         <rect key="frame" x="10" y="10" width="300" height="90"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Mme-rw-4pM">
-                                                <rect key="frame" x="0.0" y="0.0" width="279" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="90"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJ5-Qj-En2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="279" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvs-X0-CHx">
-                                                        <rect key="frame" x="0.0" y="24.5" width="279" height="17"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="260" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjh-GL-YJa">
-                                                        <rect key="frame" x="0.0" y="48.5" width="279" height="17"/>
+                                                        <rect key="frame" x="0.0" y="48.5" width="260" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPw-on-pMg">
-                                                        <rect key="frame" x="0.0" y="73" width="279" height="17"/>
+                                                        <rect key="frame" x="0.0" y="73" width="260" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -79,11 +79,12 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elh-ZU-qJx">
-                                                <rect key="frame" x="279" y="0.0" width="21" height="90"/>
+                                                <rect key="frame" x="260" y="0.0" width="40" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-ry-QfH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="22"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-ry-QfH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="22"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                                         <state key="normal" image="cross"/>
                                                         <connections>
                                                             <action selector="onRemoveAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6IO-ve-61I"/>
@@ -95,7 +96,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="HS7-ry-QfH" secondAttribute="trailing" id="0aV-TK-Q4H"/>
                                                     <constraint firstItem="HS7-ry-QfH" firstAttribute="leading" secondItem="Elh-ZU-qJx" secondAttribute="leading" id="kK4-kz-tvV"/>
                                                     <constraint firstItem="HS7-ry-QfH" firstAttribute="top" secondItem="Elh-ZU-qJx" secondAttribute="top" id="lu2-cc-UbS"/>
-                                                    <constraint firstAttribute="width" constant="21" id="uk3-rg-Wb9"/>
+                                                    <constraint firstAttribute="width" constant="40" id="uk3-rg-Wb9"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -130,6 +131,7 @@
                 <outlet property="borderViewBottomContraint" destination="y2M-ud-mOL" id="Hde-KU-Hj0"/>
                 <outlet property="borderViewTopContraint" destination="kws-we-uK6" id="0CQ-fW-vjV"/>
                 <outlet property="categoryLabel" destination="Pvs-X0-CHx" id="S15-rZ-e48"/>
+                <outlet property="closeButton" destination="HS7-ry-QfH" id="OwL-Vr-ZBh"/>
                 <outlet property="distanceLabel" destination="TPw-on-pMg" id="6EM-0j-mYh"/>
                 <outlet property="drLabel" destination="hJ5-Qj-En2" id="UEW-u3-RoR"/>
                 <outlet property="topSeperatorLine" destination="w17-4H-SK0" id="5zr-5f-96D"/>
@@ -138,7 +140,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cross" width="12.5" height="12.5"/>
+        <image name="cross" width="11.5" height="11.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

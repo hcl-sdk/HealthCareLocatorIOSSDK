@@ -43,7 +43,7 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         // Fonts
         headerTitleLabel.font = theme.title1Font
         searchTextField.font = theme.searchInputFont
-        bottomSearchBtn.titleLabel?.font = theme.title1Font
+        bottomSearchBtn.titleLabel?.font = theme.defaultFont
         
         let HCPView = OKSearchTypeView(theme: theme,
                                        image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),

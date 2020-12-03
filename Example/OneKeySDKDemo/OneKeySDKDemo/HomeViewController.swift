@@ -18,11 +18,8 @@ class HomeViewController: UIViewController {
         didSet {
             let from: AnimationProgressTime = isMenuShowing ? 0 : 1
             let to: AnimationProgressTime = isMenuShowing ? 1 : 0
-            buggerMenuAnimationView.play(fromProgress: from,
-                                         toProgress: to,
-                                         loopMode: .none) {[weak self] (isFinished) in
-                self?.animateMenuTable(isShow: self?.isMenuShowing == true)
-            }
+            buggerMenuAnimationView.play(fromProgress: from, toProgress: to, loopMode: .none, completion: nil)
+            animateMenuTable(isShow: isMenuShowing == true)
         }
     }
     
