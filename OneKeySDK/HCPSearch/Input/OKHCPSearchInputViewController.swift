@@ -155,7 +155,7 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
             switch indexPath.section {
             case 0:
                 cell.configWith(theme: theme,
-                                iconImage: UIImage.OKImageWith(name: "clock_small")!,
+                                iconImage: UIImage.OKImageWith(name: "geoloc")!,
                                 title: kNearMeTitle)
             default:
                 cell.configWith(theme: theme,

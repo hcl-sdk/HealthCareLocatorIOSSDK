@@ -12,6 +12,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     
     weak var delegate: OKSearchHistoryDataSourceDelegate?
 
@@ -28,6 +29,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         categoryLabel.textColor = theme?.darkColor
         timeLabel.textColor = theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor
+        closeButton.tintColor = theme?.greyColor
 
         //
         if let activity = search.selected {
