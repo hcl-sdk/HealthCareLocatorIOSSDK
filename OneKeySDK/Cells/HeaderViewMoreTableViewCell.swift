@@ -14,12 +14,14 @@ protocol HeaderViewMoreTableViewCellDelegate: class {
 class HeaderViewMoreTableViewCell: UITableViewCell {
     private var indexPath: IndexPath!
     
+    @IBOutlet weak var wrapperView: OKBaseView!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     weak var delegate: HeaderViewMoreTableViewCellDelegate?
     
     func configWith(theme: OKThemeConfigure?, indexPath: IndexPath, title: String?, actionTitle: String?) {
         self.indexPath = indexPath
+        wrapperView.borderColor = theme?.cardBorderColor ?? .lightGray
         headerTitleLabel.font = theme?.title2Font
         headerTitleLabel.text = title
         actionButton.setTitle(actionTitle, for: .normal)

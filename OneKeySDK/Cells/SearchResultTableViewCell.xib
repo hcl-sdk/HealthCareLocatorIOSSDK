@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQp-CV-jm7" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="6" width="28" height="28"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-search" translatesAutoresizingMaskIntoConstraints="NO" id="ono-AN-KNt">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifier" translatesAutoresizingMaskIntoConstraints="NO" id="ono-AN-KNt">
                                         <rect key="frame" x="4" y="4" width="20" height="20"/>
                                         <color key="tintColor" red="0.26274509800000001" green="0.69411764710000001" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
@@ -69,6 +67,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-search" width="48" height="48"/>
+        <image name="magnifier" width="128" height="128"/>
     </resources>
 </document>

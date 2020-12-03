@@ -56,7 +56,17 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure) {
+        // Colors
+        searchResultTableView.separatorColor = theme.greyLighterColor
+        categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "Name, specialty, Establishment...",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+        locationSearchTextField.attributedPlaceholder = NSAttributedString(string: "Where? (address, city...)",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+        categorySearchTextField.textColor = theme.darkColor
+        locationSearchTextField.textColor = theme.darkColor
         searchBtn.backgroundColor = theme.primaryColor
+        
+        // Fonts
         categorySearchTextField.font = theme.searchInputFont
         locationSearchTextField.font = theme.searchInputFont
     }
@@ -145,11 +155,11 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
             switch indexPath.section {
             case 0:
                 cell.configWith(theme: theme,
-                                iconImage: (UIImage(named: "ic-search-me", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))!,
+                                iconImage: UIImage.OKImageWith(name: "clock_small")!,
                                 title: kNearMeTitle)
             default:
                 cell.configWith(theme: theme,
-                                iconImage: (UIImage(named: "ic-search-marker", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))!,
+                                iconImage: UIImage.OKImageWith(name: "marker")!,
                                 title: "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)")
             }
         }

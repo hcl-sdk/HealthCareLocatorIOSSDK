@@ -16,7 +16,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     weak var delegate: OKSearchHistoryDataSourceDelegate?
 
     func configWith(theme: OKThemeConfigure?, search: OKHCPLastSearch, isLastRow: Bool) {
-        super.config(isLastRow: isLastRow)
+        super.config(theme: theme, isLastRow: isLastRow)
         // Fonts
         criteriabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont
@@ -25,6 +25,9 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         
         // Colors
         criteriabel.textColor = theme?.secondaryColor
+        categoryLabel.textColor = theme?.darkColor
+        timeLabel.textColor = theme?.darkColor
+        addressLabel.textColor = theme?.greyDarkColor
 
         //
         if let activity = search.selected {

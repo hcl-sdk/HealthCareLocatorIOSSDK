@@ -78,6 +78,7 @@
             <connections>
                 <outlet property="actionButton" destination="pDA-L5-utd" id="m8t-1b-PTN"/>
                 <outlet property="headerTitleLabel" destination="fZz-wS-e2N" id="VZZ-Dl-nJ4"/>
+                <outlet property="wrapperView" destination="xMG-AS-26T" id="tq7-l2-e9b"/>
             </connections>
             <point key="canvasLocation" x="99" y="94"/>
         </tableViewCell>

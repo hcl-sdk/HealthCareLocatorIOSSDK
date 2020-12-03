@@ -49,16 +49,23 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zht-Tv-J3y">
                                         <rect key="frame" x="10" y="10" width="306" height="90"/>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-hn-U1X">
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="110"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="6Fs-Ra-Fbf"/>
                                     <constraint firstItem="abR-7e-lz9" firstAttribute="width" secondItem="dyK-4J-lha" secondAttribute="width" id="7EV-PM-uQb"/>
+                                    <constraint firstItem="c5E-hn-U1X" firstAttribute="centerX" secondItem="dyK-4J-lha" secondAttribute="centerX" id="DUQ-iM-mu9"/>
+                                    <constraint firstItem="c5E-hn-U1X" firstAttribute="height" secondItem="dyK-4J-lha" secondAttribute="height" id="H3q-T3-3Jr"/>
                                     <constraint firstItem="Zht-Tv-J3y" firstAttribute="leading" secondItem="dyK-4J-lha" secondAttribute="leading" constant="10" id="TUF-UM-v9v"/>
+                                    <constraint firstItem="c5E-hn-U1X" firstAttribute="width" secondItem="dyK-4J-lha" secondAttribute="width" id="Yha-fh-QvE"/>
                                     <constraint firstItem="Zht-Tv-J3y" firstAttribute="top" secondItem="dyK-4J-lha" secondAttribute="top" constant="10" id="crx-4W-lSz"/>
                                     <constraint firstItem="abR-7e-lz9" firstAttribute="centerX" secondItem="dyK-4J-lha" secondAttribute="centerX" id="hrH-RK-Kee"/>
                                     <constraint firstItem="abR-7e-lz9" firstAttribute="top" secondItem="dyK-4J-lha" secondAttribute="top" constant="-8" id="qxi-1i-Ujc"/>
                                     <constraint firstAttribute="bottom" secondItem="abR-7e-lz9" secondAttribute="bottom" id="vPt-Vx-EeK"/>
+                                    <constraint firstItem="c5E-hn-U1X" firstAttribute="centerY" secondItem="dyK-4J-lha" secondAttribute="centerY" id="xKe-ac-sqH"/>
                                     <constraint firstAttribute="bottom" secondItem="Zht-Tv-J3y" secondAttribute="bottom" constant="10" id="xO5-B1-HWj"/>
                                     <constraint firstAttribute="trailing" secondItem="Zht-Tv-J3y" secondAttribute="trailing" constant="10" id="yjp-8N-M0z"/>
                                 </constraints>
