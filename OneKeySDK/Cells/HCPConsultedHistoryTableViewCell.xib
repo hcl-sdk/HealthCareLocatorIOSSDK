@@ -84,7 +84,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS7-ry-QfH">
                                                         <rect key="frame" x="0.0" y="0.0" width="21" height="22"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="ic-close-grey"/>
+                                                        <state key="normal" image="cross"/>
                                                         <connections>
                                                             <action selector="onRemoveAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6IO-ve-61I"/>
                                                         </connections>
@@ -138,7 +138,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-close-grey" width="12.5" height="13"/>
+        <image name="cross" width="12.5" height="12.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

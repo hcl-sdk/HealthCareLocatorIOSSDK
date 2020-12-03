@@ -11,6 +11,7 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
 
     var theme: OKThemeConfigure?
     
+    @IBOutlet weak var contentWrapperView: OKBaseView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var bodyContentWrapper: UIStackView!
@@ -29,30 +30,35 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
     }
 
     func layoutWith(theme: OKThemeConfigure) {
-        topSearchBtn.backgroundColor = theme.primaryColor
-        //
-        bottomSearchBtn.backgroundColor = theme.primaryColor
-        bottomSearchBtn.titleLabel?.font = theme.title1Font
-        //
+        // Colors
+        view.backgroundColor = theme.viewBackgroundColor
+        searchTextField.textColor = theme.darkColor
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "Find Healthcare Professional",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+        contentWrapperView.borderColor = theme.cardBorderColor
         headerTitleLabel.textColor = theme.secondaryColor
+        bottomSearchBtn.backgroundColor = theme.primaryColor
+        topSearchBtn.backgroundColor = theme.primaryColor
+
+        // Fonts
         headerTitleLabel.font = theme.title1Font
-        //
         searchTextField.font = theme.searchInputFont
+        bottomSearchBtn.titleLabel?.font = theme.title1Font
         
         let HCPView = OKSearchTypeView(theme: theme,
-                                       image: UIImage(named: "ic-search", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                       image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
                                        title: "Find and Locate other HCP",
                                        description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(HCPView)
         
         let consultView = OKSearchTypeView(theme: theme,
-                                           image: UIImage(named: "ic-person", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                           image: UIImage(named: "profile", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
                                            title: "Consult Profile",
                                            description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(consultView)
         
         let informationView = OKSearchTypeView(theme: theme,
-                                               image: UIImage(named: "ic-edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                               image: UIImage(named: "edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
                                                title: "Request my Information update",
                                                description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(informationView)

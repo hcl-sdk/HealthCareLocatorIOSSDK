@@ -14,7 +14,7 @@ class Helper {
         let userMark = MKMapItem(placemark: MKPlacemark(coordinate: from))
         let destination = MKMapItem(placemark: MKPlacemark(coordinate: to))
         MKMapItem.openMaps(with: [userMark, destination],
-                           launchOptions: [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving])
+                           launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     
     static func makeCallWith(phoneNumber: String) {

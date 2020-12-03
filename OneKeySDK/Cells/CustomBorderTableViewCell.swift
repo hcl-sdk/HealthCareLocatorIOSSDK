@@ -15,7 +15,10 @@ class CustomBorderTableViewCell: UITableViewCell, OKIndexAble {
     @IBOutlet weak var borderViewTopContraint: NSLayoutConstraint!
     @IBOutlet weak var borderViewBottomContraint: NSLayoutConstraint!
     
-    func config(isLastRow: Bool) {
+    func config(theme: OKThemeConfigure?, isLastRow: Bool) {
+        topSeperatorLine.backgroundColor = theme?.cardBorderColor ?? .lightGray
+        borderView.borderColor = theme?.cardBorderColor ?? .lightGray
+        
         if isLastRow {
             borderViewBottomContraint.constant = 0
         } else {

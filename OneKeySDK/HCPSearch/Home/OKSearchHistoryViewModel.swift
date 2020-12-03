@@ -81,9 +81,9 @@ class OKSearchHistoryViewModel {
         lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
         lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
 
-        let mockResult = [HistorySection.nearMe(title: "HCP near me", activities: mockData),
+        let mockResult = [HistorySection.nearMe(title: "HCPs near me", activities: mockData),
                           HistorySection.lastSearchs(title: "Last searches", searches: lastSearches),
-                          HistorySection.lasHCPConsolted(title: "Last HCP consulted", activities: mockData)]
+                          HistorySection.lasHCPConsolted(title: "Last HCPs consulted", activities: mockData)]
         completion(.success(mockResult))
     }
 }

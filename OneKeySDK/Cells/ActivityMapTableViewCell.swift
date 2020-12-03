@@ -21,7 +21,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
     }
     
     func configWith(theme: OKThemeConfigure?, activities: [Activity], isLastRow: Bool) {
-        super.config(isLastRow: isLastRow)
+        super.config(theme: theme, isLastRow: isLastRow)
         self.theme = theme
         let activityList = ActivityList(activities: activities)
         mapView.addAnnotations(activityList.getAnotations())

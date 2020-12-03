@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,9 +80,9 @@
                                                 <rect key="frame" x="279" y="0.0" width="21" height="90"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igb-Yv-9vJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="22"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="128"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="ic-close-grey"/>
+                                                        <state key="normal" image="cross"/>
                                                         <connections>
                                                             <action selector="onRemoveAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hZf-NI-jMT"/>
                                                         </connections>
@@ -138,7 +136,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic-close-grey" width="12.5" height="13"/>
+        <image name="cross" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

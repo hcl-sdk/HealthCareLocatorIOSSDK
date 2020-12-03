@@ -53,13 +53,13 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         criteriaLabel.font = theme.title2Font
         addressLabel.font = theme.smallFont
         activityCountLabel.textColor = theme.primaryColor
-        displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "ic-list"),
+        displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "list-view"),
                                                               title: "List View",
                                                               selectedBackgroundColor: theme.primaryColor,
                                                               selectedForcegroundColor: UIColor.white,
                                                               nonSelectedBackgroundColor: UIColor.white,
                                                               nonSelectedForcegroundColor: UIColor.darkGray),
-                                        OkSegmentControlModel(icon: UIImage.OKImageWith(name: "ic-map"),
+                                        OkSegmentControlModel(icon: UIImage.OKImageWith(name: "map-view"),
                                                               title: "Map View",
                                                               selectedBackgroundColor: theme.primaryColor,
                                                               selectedForcegroundColor: UIColor.white,

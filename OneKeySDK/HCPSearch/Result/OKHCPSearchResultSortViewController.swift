@@ -46,17 +46,17 @@ class OKHCPSearchResultSortViewController: UIViewController {
     private func layoutWith(sort: SortBy) {
         switch sort {
         case .distance:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "ic-checked"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
+            distanceBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
+            nameBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            relevanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
         case .name:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "ic-checked"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
+            distanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            nameBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
+            relevanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
         case .relevance:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "ic-uncheck"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "ic-checked"), for: .normal)
+            distanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            nameBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            relevanceBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
         }
     }
 

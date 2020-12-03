@@ -39,7 +39,13 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure) {
+        // Colors
+        view.backgroundColor = theme.viewBackgroundColor
         searchBtn.backgroundColor = theme.primaryColor
+        searchTextField.textColor = theme.darkColor
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "Find Healthcare Professional",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+        // Fonts
         searchTextField.font = theme.searchInputFont
         tableViewDataSource.layoutWith(theme: theme)
     }
