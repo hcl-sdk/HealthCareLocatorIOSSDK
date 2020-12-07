@@ -104,9 +104,9 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderViewMoreTableViewCell") as! HeaderViewMoreTableViewCell
             switch data[indexPath.section] {
             case .nearMe:
-                cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: "")
+                cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: nil)
             default:
-                cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: "View more")
+                cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: expandedSection.contains(indexPath.section) ? "View less" : "View more")
             }
             cell.delegate = self
             return cell

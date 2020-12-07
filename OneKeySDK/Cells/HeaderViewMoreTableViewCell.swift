@@ -24,9 +24,15 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
         wrapperView.borderColor = theme?.cardBorderColor ?? .lightGray
         headerTitleLabel.font = theme?.title2Font
         headerTitleLabel.text = title
-        actionButton.setTitle(actionTitle, for: .normal)
-        actionButton.setTitleColor(theme?.primaryColor, for: .normal)
-        actionButton.titleLabel?.font = theme?.defaultFont
+        if let action = actionTitle {
+            actionButton.isHidden = false
+            actionButton.setTitle(action, for: .normal)
+            actionButton.setTitleColor(theme?.primaryColor, for: .normal)
+            actionButton.titleLabel?.font = theme?.defaultFont
+        } else {
+            actionButton.isHidden = true
+        }
+        
     }
     
     @IBAction func onAction(_ sender: Any) {

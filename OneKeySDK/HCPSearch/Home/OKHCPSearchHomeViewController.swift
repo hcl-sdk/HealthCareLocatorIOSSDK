@@ -47,19 +47,19 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         
         let HCPView = OKSearchTypeView(theme: theme,
                                        image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                       title: "Find and Locate other HCP",
+                                       title: "Find and Locate HCP",
                                        description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(HCPView)
         
         let consultView = OKSearchTypeView(theme: theme,
                                            image: UIImage(named: "profile", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                           title: "Consult Profile",
+                                           title: "Consult HCP's Profile",
                                            description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(consultView)
         
         let informationView = OKSearchTypeView(theme: theme,
                                                image: UIImage(named: "edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                               title: "Request my Information update",
+                                               title: "Request HCP's information update",
                                                description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         bodyContentWrapper.addArrangedSubview(informationView)
     }
