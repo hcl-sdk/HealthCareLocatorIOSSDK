@@ -67,12 +67,16 @@ class OKSearchTypeView: UIStackView {
     }
     
     func layoutWith(traitCollection: UITraitCollection) {
-        switch traitCollection.verticalSizeClass {
-        case .regular:
+        switch traitCollection.horizontalSizeClass {
+        case .compact:
+            titleLabel.textAlignment = .left
+            descriptionLabel.textAlignment = .left
             // Hide border
             backgroundView.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
         default:
             backgroundView.setBorderWith(width: 1, cornerRadius: 8, borderColor: .lightGray)
+            titleLabel.textAlignment = .center
+            descriptionLabel.textAlignment = .center
         }
     }
 }
