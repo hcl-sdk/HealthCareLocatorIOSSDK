@@ -31,5 +31,4 @@ class HCPCardTableViewCell: UITableViewCell {
         addressLabel.text = item.workplace.address.longLabel
         distanceLabel.text = "500m"
     }
-
 }

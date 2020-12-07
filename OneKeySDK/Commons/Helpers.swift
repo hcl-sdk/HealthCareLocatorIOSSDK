@@ -10,10 +10,8 @@ import MapKit
 import CoreLocation
 
 class Helper {
-    static func openMapWithDirection(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) {
-        let userMark = MKMapItem(placemark: MKPlacemark(coordinate: from))
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: to))
-        MKMapItem.openMaps(with: [userMark, destination],
+    static func openMapWithDirection(from: MKMapItem, to: MKMapItem) {
+        MKMapItem.openMaps(with: [from, to],
                            launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
     

@@ -58,7 +58,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         // Colors
         searchResultTableView.separatorColor = theme.greyLighterColor
-        categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "Name, specialty, Establishment...",
+        categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "Name, specialty ?",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         locationSearchTextField.attributedPlaceholder = NSAttributedString(string: "Where? (address, city...)",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])

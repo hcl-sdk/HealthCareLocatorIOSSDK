@@ -144,9 +144,13 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
         if let location = locationManager.location,
            let activity = activity,
            let desLocation = activity.workplace.address.location {
-            Helper.openMapWithDirection(from: location.coordinate,
-                                        to: CLLocationCoordinate2D(latitude: desLocation.lat,
-                                                                   longitude: desLocation.long))
+            let userMark = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
+            userMark.name = "Your location"
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: desLocation.lat,
+                                                                                                  longitude: desLocation.long)))
+            destination.name = activity.title.label
+            Helper.openMapWithDirection(from: userMark,
+                                        to: destination)
         }
     }
     

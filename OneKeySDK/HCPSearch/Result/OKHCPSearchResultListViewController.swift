@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OKHCPSearchResultListViewController: UITableViewController, OKActivityList {
+class OKHCPSearchResultListViewController: UITableViewController, OKActivityList, OKViewDesign {
     
     weak var delegate: OKActivityHandler?
     
