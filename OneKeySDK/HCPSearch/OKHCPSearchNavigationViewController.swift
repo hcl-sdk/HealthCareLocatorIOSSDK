@@ -34,6 +34,10 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
         }
     }
     
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
     init(fullMode: Bool) {
         if fullMode {
             let fullHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeFullViewController") as! OKHCPSearchHomeFullViewController

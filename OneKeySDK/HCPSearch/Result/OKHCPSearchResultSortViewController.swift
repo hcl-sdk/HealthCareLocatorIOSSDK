@@ -29,15 +29,16 @@ class OKHCPSearchResultSortViewController: UIViewController {
     @IBOutlet weak var relevanceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var relevanceBtn: UIButton!
-    @IBOutlet weak var distanceBtn: UIButton!
-    @IBOutlet weak var nameBtn: UIButton!
     @IBOutlet weak var resetButton: OKBaseButton!
     @IBOutlet weak var applyButton: OKBaseButton!
     
+    @IBOutlet weak var relevenceBackground: OKBaseView!
+    @IBOutlet weak var distanceBackground: OKBaseView!
+    @IBOutlet weak var nameBackground: OKBaseView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        layoutWith(sort: sort)
         if let theme = theme {
             layoutWith(theme: theme)
         }
@@ -46,31 +47,30 @@ class OKHCPSearchResultSortViewController: UIViewController {
     private func layoutWith(sort: SortBy) {
         switch sort {
         case .distance:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            relevenceBackground.backgroundColor = .white
+            distanceBackground.backgroundColor = theme?.primaryColor
+            nameBackground.backgroundColor = .white
         case .name:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
+            relevenceBackground.backgroundColor = .white
+            distanceBackground.backgroundColor = .white
+            nameBackground.backgroundColor = theme?.primaryColor
         case .relevance:
-            distanceBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
-            nameBtn.setImage(UIImage.OKImageWith(name: "uncheck"), for: .normal)
-            relevanceBtn.setImage(UIImage.OKImageWith(name: "checkmark"), for: .normal)
+            relevenceBackground.backgroundColor = theme?.primaryColor
+            distanceBackground.backgroundColor = .white
+            nameBackground.backgroundColor = .white
         }
     }
-
-    @IBAction func didSelect(_ sender: UIButton) {
-        switch sender {
-        case nameBtn:
-            sort = .name
-        case relevanceBtn:
-            sort = .relevance
-        case distanceBtn:
-            sort = .distance
-        default:
-            return
-        }
+    
+    @IBAction func didSelectRelevaneSort(_ sender: Any) {
+        sort = .relevance
+    }
+    
+    @IBAction func didSelectDistanceSort(_ sender: Any) {
+        sort = .distance
+    }
+    
+    @IBAction func didSelectNameSort(_ sender: Any) {
+        sort = .name
     }
     
     @IBAction func resetAction(_ sender: Any) {
@@ -104,9 +104,10 @@ extension OKHCPSearchResultSortViewController: OKViewDesign {
         relevanceLabel.font = theme.title1Font
         distanceLabel.font = theme.title1Font
         nameLabel.font = theme.title1Font
-        relevanceBtn.tintColor = theme.primaryColor
-        distanceBtn.tintColor = theme.primaryColor
-        nameBtn.tintColor = theme.primaryColor
+        relevenceBackground.borderColor = theme.greyLighterColor
+        distanceBackground.borderColor = theme.greyLighterColor
+        nameBackground.borderColor = theme.greyLighterColor
+        layoutWith(sort: sort)
     }
     
 }

@@ -27,6 +27,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var displayModeSegmentView: OKSegmentControlView!
     @IBOutlet weak var activityCountLabel: UILabel!
+    @IBOutlet weak var sortButtonWrapper: OKBaseView!
     @IBOutlet weak var sortButton: UIButton!
     
     override func viewDidLoad() {
@@ -49,7 +50,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure) {
-        sortButton.tintColor = theme.secondaryColor
+        sortButton.backgroundColor = theme.secondaryColor
         criteriaLabel.font = theme.title2Font
         addressLabel.font = theme.smallFont
         activityCountLabel.textColor = theme.primaryColor

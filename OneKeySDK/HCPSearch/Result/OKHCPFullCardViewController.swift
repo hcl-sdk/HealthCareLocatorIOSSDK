@@ -183,13 +183,14 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
 
 extension OKHCPFullCardViewController: PickerListViewControllerDelegate {
     func didSelect(item: String, at index: Int) {
-        selectedAddressLabel.text = "Address \(index + 1): \(mockAddresses[index])"
-        selectedAddressIndex = index
-        navigationController?.popToViewController(self, animated: true)
+        dismiss(animated: false) {
+            self.selectedAddressLabel.text = "Address \(index + 1): \(self.mockAddresses[index])"
+            self.selectedAddressIndex = index
+        }
     }
     
     func backAction() {
-        navigationController?.popToViewController(self, animated: true)
+        dismiss(animated: false, completion: nil)
     }
 
 }

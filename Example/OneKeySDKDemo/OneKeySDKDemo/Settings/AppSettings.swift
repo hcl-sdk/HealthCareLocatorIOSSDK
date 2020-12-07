@@ -82,7 +82,6 @@ class AppSettings {
                     let theme = try JSONDecoder().decode(Theme.self, from: themeData)
                     return theme
                 } catch {
-                    print(error)
                     return Theme.defaultGreenTheme
                 }
             } else {
