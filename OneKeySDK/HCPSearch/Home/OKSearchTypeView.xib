@@ -64,12 +64,12 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <variation key="heightClass=compact" alignment="top" axis="horizontal"/>
-                    <variation key="heightClass=regular" alignment="fill" axis="vertical"/>
+                    <variation key="widthClass=compact" alignment="fill" axis="vertical"/>
+                    <variation key="widthClass=regular" alignment="top" axis="horizontal"/>
                 </stackView>
             </subviews>
-            <variation key="heightClass=compact" alignment="center" axis="vertical"/>
-            <variation key="heightClass=regular" alignment="top" axis="horizontal"/>
+            <variation key="widthClass=compact" alignment="top" axis="horizontal"/>
+            <variation key="widthClass=regular" alignment="center" axis="vertical"/>
             <point key="canvasLocation" x="-284.78260869565219" y="52.232142857142854"/>
         </stackView>
     </objects>
