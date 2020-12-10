@@ -23,6 +23,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         }
     }
     
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var firstSeparatorView: UIView!
+    @IBOutlet weak var secondSeparatorView: UIView!
     @IBOutlet weak var criteriaLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var displayModeSegmentView: OKSegmentControlView!
@@ -50,10 +53,20 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure) {
-        sortButton.backgroundColor = theme.secondaryColor
-        criteriaLabel.font = theme.title2Font
+        // Fonts
+        criteriaLabel.font = theme.searchResultTitleFont
         addressLabel.font = theme.smallFont
+        activityCountLabel.font = theme.smallFont
+
+        // Colors
+        sortButton.backgroundColor = theme.secondaryColor
         activityCountLabel.textColor = theme.primaryColor
+        criteriaLabel.textColor = theme.darkColor
+        addressLabel.textColor = theme.greyColor
+        backButton.tintColor = theme.darkColor
+        firstSeparatorView.backgroundColor = theme.greyLighterColor
+        secondSeparatorView.backgroundColor = theme.greyLighterColor
+        
         displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "list-view"),
                                                               title: "List View",
                                                               selectedBackgroundColor: theme.primaryColor,

@@ -20,13 +20,31 @@ extension UIFont {
 class CustomFontViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let configFont = ConfigFont()
-    private let allFontNames = UIFont.allFontNames
-    
+
     var selectedMenu: Menu?
     
     @IBOutlet weak var navigationTitleLabel: UILabel!
     @IBOutlet weak var showcaseLabel: UILabel!
     @IBOutlet weak var fontSizeLabel: UILabel!
+    @IBOutlet weak var fontFamilyTextField: UITextField!
+    @IBOutlet weak var fontStyleTextField: UITextField!
+    
+    let pickerView = UIPickerView()
+    var isEditingFontFamily: Bool = false {
+        didSet {
+            if isEditingFontFamily {
+                isEditingFontStyle = false
+            }
+        }
+    }
+    
+    var isEditingFontStyle: Bool = false {
+        didSet {
+            if isEditingFontStyle {
+                isEditingFontFamily = false
+            }
+        }
+    }
     
     weak var delegate: CustomThemeDelegate?
     
@@ -36,6 +54,11 @@ class CustomFontViewController: UIViewController {
             print(UIFont.fontNames(forFamilyName: fontName).joined(separator: "\n"))
         }
         
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        fontFamilyTextField.inputView = pickerView
+        fontStyleTextField.inputView = pickerView
+
         if let menu = selectedMenu {
             setupBinding(menu: menu)
         }
@@ -52,7 +75,9 @@ class CustomFontViewController: UIViewController {
     private func setupBinding(menu: Menu) {
         // Font - Size
         configFont.fontSizeAsString.bind(to: fontSizeLabel.rx.text).disposed(by: disposeBag)
-        
+        configFont.fontFamilyNameObservable.bind(to: fontFamilyTextField.rx.text).disposed(by: disposeBag)
+        configFont.fontStyleAsStringObservable.bind(to: fontStyleTextField.rx.text).disposed(by: disposeBag)
+
         // Font - Showcase
         configFont.customFont.subscribe(onNext: { [weak self] font in
             self?.showcaseLabel.font = font
@@ -88,23 +113,49 @@ class CustomFontViewController: UIViewController {
         configFont.set(size: showcaseLabel.font.pointSize + 1)
     }
     
+    @IBAction func changeFontFamilyAction(_ sender: Any) {
+    }
+    
+    @IBAction func changeFontStyleAction(_ sender: Any) {
+    }
+    
 }
 
-extension CustomFontViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allFontNames.count
+extension CustomFontViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FontFamilyTableViewCell") as! FontFamilyTableViewCell
-        let font = UIFont(name: allFontNames[indexPath.row], size: 17.0)!
-        let isUsingFont = allFontNames[indexPath.row] == showcaseLabel.font.fontName
-        cell.configWith(font: font, selected: isUsingFont)
-        return cell
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return isEditingFontFamily ? FontMapping.allCases.count : FontStyles.allCases.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        configFont.set(name: allFontNames[indexPath.row])
-        tableView.reloadData()
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return isEditingFontFamily ? FontMapping.allCases[row].fontFamily : FontStyles.allCases[row].title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if isEditingFontFamily {
+            let value = FontMapping.allCases[row]
+            configFont.set(family: value)
+        } else if isEditingFontStyle {
+            let value = FontStyles.allCases[row]
+            configFont.set(style: value)
+        }
+    }
+}
+
+extension CustomFontViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == fontFamilyTextField {
+            isEditingFontFamily = true
+        } else {
+            isEditingFontStyle = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        isEditingFontFamily = false
+        isEditingFontStyle = false
     }
 }

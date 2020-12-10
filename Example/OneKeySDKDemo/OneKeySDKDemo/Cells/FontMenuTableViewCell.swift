@@ -14,6 +14,6 @@ class FontMenuTableViewCell: UITableViewCell {
     func configWith(title: String, font: UIFont) {
         menuTitleLabel.text = title
         showcaseLabel.font = font
-        showcaseLabel.text = title
+        showcaseLabel.text = "Preview"
     }
 }

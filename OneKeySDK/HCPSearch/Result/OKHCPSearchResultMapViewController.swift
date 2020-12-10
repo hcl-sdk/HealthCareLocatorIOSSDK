@@ -135,7 +135,7 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let marker = view as? MKMarkerAnnotationView {
-            marker.markerTintColor = theme?.selectedMarkerColor
+            marker.markerTintColor = theme?.markerSelectedColor
             let annotation = view.annotation
             if let index = result.firstIndex(where: {$0.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.workplace.address.location?.long == annotation?.coordinate.longitude}) {
                 reloadHorizontalListWith(selectedIndex: index)

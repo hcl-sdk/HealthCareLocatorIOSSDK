@@ -10,13 +10,13 @@ import UIKit
 class CustomBorderTableViewCell: UITableViewCell, OKIndexAble {
     var indexPath: IndexPath?
     
-    @IBOutlet weak var topSeperatorLine: UIView!
+    @IBOutlet weak var topseparatorLine: UIView!
     @IBOutlet weak var borderView: OKBaseView!
     @IBOutlet weak var borderViewTopContraint: NSLayoutConstraint!
     @IBOutlet weak var borderViewBottomContraint: NSLayoutConstraint!
     
     func config(theme: OKThemeConfigure?, isLastRow: Bool) {
-        topSeperatorLine.backgroundColor = theme?.cardBorderColor ?? .lightGray
+        topseparatorLine.backgroundColor = theme?.cardBorderColor ?? .lightGray
         borderView.borderColor = theme?.cardBorderColor ?? .lightGray
         
         if isLastRow {

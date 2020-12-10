@@ -25,7 +25,10 @@ class OKHCPSearchResultSortViewController: UIViewController {
     
     var theme: OKThemeConfigure?
 
+    @IBOutlet weak var wrapperView: OKBaseView!
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var relevanceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -99,14 +102,26 @@ extension OKHCPSearchResultSortViewController: OKViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         resetButton.titleLabel?.font = theme.buttonFont
         applyButton.titleLabel?.font = theme.buttonFont
+        topLabel.font = theme.modalTitleFont
+        relevanceLabel.font = theme.sortCriteriaFont
+        distanceLabel.font = theme.sortCriteriaFont
+        nameLabel.font = theme.sortCriteriaFont
+        
+        // Colors
+        view.backgroundColor = theme.viewBkgColor
         topLabel.textColor = theme.secondaryColor
-        topLabel.font = theme.title1Font
-        relevanceLabel.font = theme.title1Font
-        distanceLabel.font = theme.title1Font
-        nameLabel.font = theme.title1Font
+        closeButton.tintColor = theme.greyDarkColor
         relevenceBackground.borderColor = theme.greyLighterColor
         distanceBackground.borderColor = theme.greyLighterColor
         nameBackground.borderColor = theme.greyLighterColor
+        relevenceBackground.borderColor = theme.greyLighterColor
+        distanceBackground.borderColor = theme.greyLighterColor
+        nameBackground.borderColor = theme.greyLighterColor
+        applyButton.backgroundColor = theme.buttonAcceptBkgColor
+        resetButton.backgroundColor = theme.buttonDiscardBkgColor
+        separatorView.backgroundColor = theme.greyLighterColor
+        wrapperView.borderColor = theme.cardBorderColor
+
         layoutWith(sort: sort)
     }
     
