@@ -104,7 +104,8 @@ class MenuTableViewController: UITableViewController {
             return cell
         case .colorMenu(let title, let color):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellColor", for: indexPath) as! ColorMenuTableViewCell
-            cell.config(title: title, color: color)
+            let formatedTitle = title.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter().replacingOccurrences(of: "Bkg", with: "Background")}.joined(separator: " ")
+            cell.config(title: formatedTitle, color: color)
             return cell
         case .inputMenu(let placeHolder, let value):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellInput", for: indexPath) as! InputMenuTableViewCell
@@ -120,7 +121,8 @@ class MenuTableViewController: UITableViewController {
             return cell
         case .fontMenu(let title, let font):
             let cell = tableView.dequeueReusableCell(withIdentifier: "FontMenuTableViewCell", for: indexPath) as! FontMenuTableViewCell
-            cell.configWith(title: title, font: font)
+            let formatedTitle = title.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter()}.joined(separator: " ")
+            cell.configWith(title: formatedTitle, font: font)
             return cell
         case .toggleMenu(let title, let isOn):
             let cell = tableView.dequeueReusableCell(withIdentifier: "ToogleMenuTableViewCell", for: indexPath) as! ToogleMenuTableViewCell

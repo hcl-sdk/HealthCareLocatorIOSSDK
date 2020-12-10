@@ -24,17 +24,9 @@ class CustomThemeViewController: UIViewController {
         let mirror = Mirror(reflecting: theme)
         for child in mirror.children {
             if let fontInfo = child.value as? FontInfo {
-                var title = "Unknow"
-                if let label = child.label {
-                    title = label.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter()}.joined(separator: " ")
-                }
-                fontMenus.append(Menu.fontMenu(title: title, font: UIFont.from(core: fontInfo)))
+                fontMenus.append(Menu.fontMenu(title: child.label ?? "Unknow", font: UIFont.from(core: fontInfo)))
             } else if let colorCode = child.value as? String {
-                var title = "Unknow"
-                if let label = child.label {
-                    title = label.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter().replacingOccurrences(of: "Bkg", with: "Background")}.joined(separator: " ")
-                }
-                colorMenus.append(Menu.colorMenu(title: title, color: UIColor(hexString: colorCode)))
+                colorMenus.append(Menu.colorMenu(title: child.label ?? "Unknow", color: UIColor(hexString: colorCode)))
             }
         }
         
