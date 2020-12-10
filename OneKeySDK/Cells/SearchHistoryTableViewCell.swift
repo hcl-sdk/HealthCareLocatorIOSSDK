@@ -29,7 +29,6 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         categoryLabel.textColor = theme?.darkColor
         timeLabel.textColor = theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor
-        closeButton.tintColor = theme?.greyColor
 
         //
         if let activity = search.selected {

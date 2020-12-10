@@ -23,10 +23,12 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         }
     }
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var categorySearchTextField: UITextField!
     @IBOutlet weak var locationSearchTextField: UITextField!
     @IBOutlet weak var searchBtn: OKBaseButton!
+    @IBOutlet weak var separatorView: UIView!
     
     
     override func viewDidLoad() {
@@ -57,13 +59,17 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     
     func layoutWith(theme: OKThemeConfigure) {
         // Colors
+        backButton.tintColor = theme.darkColor
+        separatorView.backgroundColor = theme.greyLighterColor
         searchResultTableView.separatorColor = theme.greyLighterColor
+        
         categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "Name, specialty ?",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         locationSearchTextField.attributedPlaceholder = NSAttributedString(string: "Where? (address, city...)",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         categorySearchTextField.textColor = theme.darkColor
         locationSearchTextField.textColor = theme.darkColor
+        
         searchBtn.backgroundColor = theme.primaryColor
         
         // Fonts

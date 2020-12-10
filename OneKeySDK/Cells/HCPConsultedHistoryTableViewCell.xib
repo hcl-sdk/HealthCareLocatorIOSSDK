@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -134,7 +132,7 @@
                 <outlet property="closeButton" destination="HS7-ry-QfH" id="OwL-Vr-ZBh"/>
                 <outlet property="distanceLabel" destination="TPw-on-pMg" id="6EM-0j-mYh"/>
                 <outlet property="drLabel" destination="hJ5-Qj-En2" id="UEW-u3-RoR"/>
-                <outlet property="topSeperatorLine" destination="w17-4H-SK0" id="5zr-5f-96D"/>
+                <outlet property="topseparatorLine" destination="w17-4H-SK0" id="5zr-5f-96D"/>
             </connections>
             <point key="canvasLocation" x="138" y="94"/>
         </tableViewCell>

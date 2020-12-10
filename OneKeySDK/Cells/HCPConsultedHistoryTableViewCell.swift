@@ -30,7 +30,6 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         categoryLabel.textColor = theme?.darkColor
         distanceLabel.textColor = theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor
-        closeButton.tintColor = theme?.greyColor
 
         //
         drLabel.text = activity.title.label

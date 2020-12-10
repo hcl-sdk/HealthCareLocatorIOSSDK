@@ -22,13 +22,14 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
     func configWith(theme: OKThemeConfigure?, indexPath: IndexPath, title: String?, actionTitle: String?) {
         self.indexPath = indexPath
         wrapperView.borderColor = theme?.cardBorderColor ?? .lightGray
-        headerTitleLabel.font = theme?.title2Font
+        headerTitleLabel.textColor = theme?.darkColor
+        headerTitleLabel.font = theme?.cardTitleFont
         headerTitleLabel.text = title
         if let action = actionTitle {
             actionButton.isHidden = false
             actionButton.setTitle(action, for: .normal)
             actionButton.setTitleColor(theme?.primaryColor, for: .normal)
-            actionButton.titleLabel?.font = theme?.defaultFont
+            actionButton.titleLabel?.font = theme?.smallFont
         } else {
             actionButton.isHidden = true
         }

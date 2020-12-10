@@ -11,7 +11,7 @@ class TextPickerTableViewCell: UITableViewCell {
     @IBOutlet weak var itemLabel: UILabel!
     
     func configWith(theme: OKThemeConfigure?, item: String, selected: Bool) {
-        itemLabel.font = theme?.title1Font
+        itemLabel.font = theme?.defaultFont
         itemLabel.text = item
         tintColor = theme?.secondaryColor
         accessoryType = selected ? .checkmark : .none

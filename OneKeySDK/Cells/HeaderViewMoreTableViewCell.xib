@@ -25,16 +25,13 @@
                                 <rect key="frame" x="10" y="10" width="300" height="23"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HCP near me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZz-wS-e2N">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDA-L5-utd">
-                                        <rect key="frame" x="220" y="0.0" width="80" height="23"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="kMf-Nk-uoz"/>
-                                        </constraints>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDA-L5-utd">
+                                        <rect key="frame" x="100.5" y="0.0" width="199.5" height="23"/>
                                         <state key="normal" title="View more">
                                             <color key="titleColor" red="0.26274509800000001" green="0.69259995220000004" blue="0.1668359935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>

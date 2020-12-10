@@ -19,34 +19,28 @@ class CustomThemeViewController: UIViewController {
     }
     
     private func reloadDataWith(theme: Theme) {
-        // Fonts
-       let fontsSectionMenus = MenuSection(title: kMenuCustomThemeFontsTitle,
-                                            menus: [Menu.fontMenu(title: kMenuCustomThemeFontsDefaultTitle,
-                                                                  font: theme.defaultFont),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle1Title,
-                                                                  font: theme.title1Font),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle2Title,
-                                                                  font: theme.title2Font),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsTitle3Title,
-                                                                  font: theme.title3Font),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsSearchInputTitle,
-                                                                  font: theme.searchInputFont),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsButtonTitle,
-                                                                  font: theme.buttonFont),
-                                                    Menu.fontMenu(title: kMenuCustomThemeFontsSmallTitle,
-                                                                  font: theme.smallFont)])
+        var fontMenus: [Menu] = []
+        var colorMenus: [Menu] = []
+        let mirror = Mirror(reflecting: theme)
+        for child in mirror.children {
+            if let fontInfo = child.value as? FontInfo {
+                var title = "Unknow"
+                if let label = child.label {
+                    title = label.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter()}.joined(separator: " ")
+                }
+                fontMenus.append(Menu.fontMenu(title: title, font: UIFont.from(core: fontInfo)))
+            } else if let colorCode = child.value as? String {
+                var title = "Unknow"
+                if let label = child.label {
+                    title = label.splitBefore(separator: { $0.isUpperCase }).map {String($0).capitalizingFirstLetter().replacingOccurrences(of: "Bkg", with: "Background")}.joined(separator: " ")
+                }
+                colorMenus.append(Menu.colorMenu(title: title, color: UIColor(hexString: colorCode)))
+            }
+        }
         
-        // Colors
-        let colorsSectionMenus = MenuSection(title: kMenuCustomThemeColorsTitle,
-                                             menus: [Menu.colorMenu(title: kCustomThemePrimaryColorTitle,
-                                                                    color: UIColor(hexString: theme.primaryColorHex)),
-                                                     Menu.colorMenu(title: kCustomThemeSecondaryColorTitle,
-                                                                    color: UIColor(hexString: theme.secondaryColorHex)),
-                                                     Menu.colorMenu(title: kCustomThemeMarkerColorTitle,
-                                                                    color: UIColor(hexString: theme.markerColorHex)),
-                                                     Menu.colorMenu(title: kCustomThemeSelectedMarkerColorTitle,
-                                                                    color: UIColor(hexString: theme.selectedMarkerColorHex))])
-        menuVC.reloadData(menus: [fontsSectionMenus, colorsSectionMenus])
+        menuVC.reloadData(menus: [MenuSection(title: kMenuCustomThemeFontsTitle, menus: fontMenus, colapsedLimit: 5),
+                                  MenuSection(title: kMenuCustomThemeColorsTitle, menus: colorMenus, colapsedLimit: 5)])
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,58 +124,24 @@ extension CustomThemeViewController: CustomThemeDelegate {
     func didSelect(font: UIFont, for menu: Menu) {
         switch menu {
         case .fontMenu(let title, _):
-            if let theme = selectedTheme.change(font: font, for: title) {
-                selectedTheme = theme
-                reloadDataWith(theme: theme)
+            if let newTheme = selectedTheme.set(value: font.core.json, for: title) {
+                selectedTheme = newTheme
             }
         default:
             return
         }
+        reloadDataWith(theme: selectedTheme)
     }
     
     func didSelect(color: UIColor, for menu: Menu) {
-        var primaryColorHex = selectedTheme.primaryColorHex
-        var secondaryColorHex = selectedTheme.secondaryColorHex
-        var markerColorHex = selectedTheme.markerColorHex
-        var selectedMarkerColorHex = selectedTheme.selectedMarkerColorHex
-        var listBackgroundColorHex = selectedTheme.listBackgroundColorHex
-
         switch menu {
         case .colorMenu(let title, _):
-            switch title {
-            case kCustomThemePrimaryColorTitle:
-                primaryColorHex = color.toHex()
-            case kCustomThemeSecondaryColorTitle:
-                secondaryColorHex = color.toHex()
-            case kCustomThemeMarkerColorTitle:
-                markerColorHex = color.toHex()
-            case kCustomThemeSelectedMarkerColorTitle:
-                selectedMarkerColorHex = color.toHex()
-            default:
-                break
+            if let newTheme = selectedTheme.set(value: color.hexValue(), for: title) {
+                selectedTheme = newTheme
             }
         default:
             return
         }
-        selectedTheme = Theme(defaultFontName:  selectedTheme.defaultFontName,
-                              defaultFontSize: selectedTheme.defaultFontSize,
-                              title1FontName: selectedTheme.title1FontName,
-                              title1FontSize: selectedTheme.title1FontSize,
-                              title2FontName: selectedTheme.title2FontName,
-                              title2FontSize: selectedTheme.title2FontSize,
-                              title3FontName: selectedTheme.title3FontName,
-                              title3FontSize: selectedTheme.title3FontSize,
-                              searchInputFontName: selectedTheme.searchInputFontName,
-                              searchInputFontSize: selectedTheme.searchInputFontSize,
-                              buttonFontName: selectedTheme.buttonFontName,
-                              buttonFontSize: selectedTheme.buttonFontSize,
-                              smallFontName: selectedTheme.smallFontName,
-                              smallFontSize: selectedTheme.smallFontSize,
-                              primaryColorHex: primaryColorHex,
-                              secondaryColorHex: secondaryColorHex,
-                              markerColorHex: markerColorHex,
-                              selectedMarkerColorHex: selectedMarkerColorHex,
-                              listBackgroundColorHex: listBackgroundColorHex)
         reloadDataWith(theme: selectedTheme)
     }
 }

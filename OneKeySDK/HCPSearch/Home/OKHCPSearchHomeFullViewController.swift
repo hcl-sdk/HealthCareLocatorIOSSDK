@@ -12,6 +12,7 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBtn: OKBaseButton!
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var historyTableView: UITableView!
     
     let historyViewModel = OKSearchHistoryViewModel(webService: MockOKHCPSearchWebServices())
@@ -40,7 +41,8 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     
     func layoutWith(theme: OKThemeConfigure) {
         // Colors
-        view.backgroundColor = theme.viewBackgroundColor
+        view.backgroundColor = theme.viewBkgColor
+        separatorView.backgroundColor = theme.cardBorderColor
         searchBtn.backgroundColor = theme.primaryColor
         searchTextField.textColor = theme.darkColor
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Find Healthcare Professional",

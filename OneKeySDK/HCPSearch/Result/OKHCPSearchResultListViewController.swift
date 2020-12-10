@@ -17,11 +17,18 @@ class OKHCPSearchResultListViewController: UITableViewController, OKActivityList
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        if let theme = theme {
+            layoutWith(theme: theme)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    func layoutWith(theme: OKThemeConfigure) {
+        tableView.backgroundColor = theme.viewBkgColor
     }
     
     // MARK: - Table view data source

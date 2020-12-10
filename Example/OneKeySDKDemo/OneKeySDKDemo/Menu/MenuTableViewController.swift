@@ -18,6 +18,7 @@ extension MenuTableViewControllerDelegate {
 }
 
 class MenuTableViewController: UITableViewController {
+    var expandedSection: [Int] = []
     var menus: [MenuSection] = []
     weak var delegate: MenuTableViewControllerDelegate?
     
@@ -44,23 +45,41 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menus[section].menus.count
+        return (expandedSection.contains(section) || menus[section].colapsedLimit == nil) ?
+            menus[section].menus.count :
+            min(menus[section].colapsedLimit!, menus[section].menus.count)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let sectionTitle = menus[section].title else {return nil}
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        
         let titleLabel = UILabel()
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textColor = UIColor(hexString: "5CBCD5")
         titleLabel.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
         titleLabel.text = sectionTitle
-        titleLabel.sizeToFit()
+        stackView.addArrangedSubview(titleLabel)
+
+        if menus[section].colapsedLimit != nil {
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
+            button.tag = section
+            button.setTitle("View more", for: .normal)
+            button.setTitleColor(UIColor(hexString: "5CBCD5"), for: .normal)
+            button.addTarget(self, action: #selector(toogleListAction(sender:)), for: .touchUpInside)
+            stackView.addArrangedSubview(button)
+        }
+        
         let headerView = UIView()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerView.addSubview(titleLabel)
-        headerView.addConstraints([NSLayoutConstraint(item: titleLabel, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0),
-                                   NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: .equal, toItem: headerView, attribute: .left, multiplier: 1, constant: 16.0),
-                                   NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: headerView, attribute: .right, multiplier: 1, constant: 0)])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(stackView)
+        headerView.addConstraints([NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: headerView, attribute: .top, multiplier: 1, constant: 0),
+                                   NSLayoutConstraint(item: stackView, attribute: .bottom, relatedBy: .equal, toItem: headerView, attribute: .bottom, multiplier: 1, constant: 0),
+                                   NSLayoutConstraint(item: stackView, attribute: .left, relatedBy: .equal, toItem: headerView, attribute: .left, multiplier: 1, constant: 16.0),
+                                   NSLayoutConstraint(item: stackView, attribute: .right, relatedBy: .equal, toItem: headerView, attribute: .right, multiplier: 1, constant: -16.0)])
         return headerView
     }
     
@@ -114,6 +133,21 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(menu: menus[indexPath.section].menus[indexPath.row])
     }
+    
+    @objc func toogleListAction(sender: UIButton) {
+        let section = sender.tag
+        if let index = expandedSection.firstIndex(of: section) {
+            expandedSection.remove(at: index)
+        } else {
+            expandedSection.append(section)
+        }
+        
+        tableView?.beginUpdates()
+        tableView?.reloadSections(IndexSet(integer: section), with: .automatic)
+        tableView?.endUpdates()
+        
+    }
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

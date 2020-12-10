@@ -11,16 +11,29 @@ import RxSwift
 class ConfigFont: NSObject {
     private let disposeBag = DisposeBag()
     
-    private let fontName = PublishSubject<String>()
+    private let fontFamily = PublishSubject<FontMapping>()
+    private let fontStyle = PublishSubject<FontStyles>()
     private let fontSize = PublishSubject<CGFloat>()
     private let initFont = BehaviorSubject<UIFont?>(value: nil)
     
     override init() {
         super.init()
         // Font
-        Observable.combineLatest(fontName, fontSize)
-            .map {UIFont(name: $0.0,
-                         size: $0.1)}
+        Observable.combineLatest(fontFamily.distinctUntilChanged(),
+                                 fontStyle.distinctUntilChanged(),
+                                 fontSize.distinctUntilChanged())
+            .map({ (family, style, size) -> UIFont? in
+                switch style {
+                case .Regular:
+                    return UIFont(name: family.regularFontName, size: size)
+                case .Bold:
+                    return UIFont(name: family.boldFontName, size: size)
+                case .Italic:
+                    return UIFont(name: family.italicFontName, size: size)
+                case .BoldItalic:
+                    return UIFont(name: family.boldItalicFontName, size: size)
+                }
+            })
             .bind(to: initFont)
             .disposed(by: disposeBag)
         
@@ -34,16 +47,35 @@ class ConfigFont: NSObject {
 // MARK: Setters
 extension ConfigFont {
     func initializeWith(font: UIFont) {
-        fontName.onNext(font.fontName)
-        fontSize.onNext(font.pointSize)
+        if let mapping = FontMapping.from(familyName: font.familyName) {
+            fontFamily.onNext(mapping)
+            switch font.fontName {
+            case mapping.regularFontName:
+                fontStyle.onNext(.Regular)
+            case mapping.boldFontName:
+                fontStyle.onNext(.Bold)
+            case mapping.italicFontName:
+                fontStyle.onNext(.Italic)
+            case mapping.boldItalicFontName:
+                fontStyle.onNext(.BoldItalic)
+            default:
+                break
+            }
+            fontSize.onNext(font.pointSize)
+        }
+        
     }
     
     func set(size: CGFloat) {
         fontSize.onNext(size)
     }
     
-    func set(name: String) {
-        fontName.onNext(name)
+    func set(family: FontMapping) {
+        fontFamily.onNext(family)
+    }
+    
+    func set(style: FontStyles) {
+        fontStyle.onNext(style)
     }
 }
 
@@ -55,5 +87,13 @@ extension ConfigFont {
     
     var customFont: Observable<UIFont?> {
         return initFont.asObservable()
+    }
+    
+    var fontFamilyNameObservable: Observable<String> {
+        return fontFamily.map {$0.fontFamily}
+    }
+    
+    var fontStyleAsStringObservable: Observable<String> {
+        return fontStyle.map {$0.title}
     }
 }

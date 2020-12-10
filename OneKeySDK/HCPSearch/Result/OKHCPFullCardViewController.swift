@@ -22,6 +22,7 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     var activity: Activity?
     
     // General
+    @IBOutlet weak var wrapperView: OKBaseView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
@@ -58,7 +59,13 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     // Information
     @IBOutlet weak var informationTitleLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBOutlet weak var yesBackground: OKBaseView!
+    @IBOutlet weak var yesIcon: UIImageView!
     @IBOutlet weak var yesLabel: UILabel!
+    
+    @IBOutlet weak var noBackground: OKBaseView!
+    @IBOutlet weak var noIcon: UIImageView!
     @IBOutlet weak var noLabel: UILabel!
     
     // Improve the data quality
@@ -68,6 +75,15 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var webUrlView: UITextView!
     @IBOutlet weak var editIcon: UIImageView!
     @IBOutlet weak var editButtonTitleLabel: UILabel!
+    
+    var rating: Bool? {
+        didSet {
+            guard let theme = theme else {
+                return
+            }
+            layoutRatingWith(theme: theme, value: rating)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +126,7 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         for titleLabel in titleLabels {
             titleLabel.textColor = theme.secondaryColor
-            titleLabel.font = theme.title2Font
+            titleLabel.font = theme.profileTitleSectionFont
         }
         
         for contentLabel in contentLabels {
@@ -122,16 +138,24 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
             line.backgroundColor = theme.greyLighterColor
         }
         
+        // Fonts
+        drTitle.font = theme.profileTitleFont
+        categoryTitle.font = theme.profileSubTitleFont
         editButtonTitleLabel.font = theme.buttonFont
         webUrlView.font = theme.defaultFont
         
         // Colors
+        wrapperView.borderColor = theme.cardBorderColor
         webUrlView.textColor = theme.darkColor
         webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: theme.darkColor!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        drTitle.textColor = theme.secondaryColor
+        categoryTitle.textColor = theme.darkColor
         phoneButton.tintColor = theme.secondaryColor
         directionButton.tintColor = theme.secondaryColor
         editIcon.tintColor = theme.secondaryColor
         markerIcon.tintColor = theme.markerColor
+        
+        layoutRatingWith(theme: theme, value: rating)
     }
     
     
@@ -197,4 +221,38 @@ extension OKHCPFullCardViewController: PickerListViewControllerDelegate {
         dismiss(animated: false, completion: nil)
     }
 
+}
+
+// MARK: Rating
+extension OKHCPFullCardViewController {
+    @IBAction func ratingYesAction(_ sender: Any) {
+        rating = true
+    }
+    
+    @IBAction func ratingNoAction(_ sender: Any) {
+        rating = false
+    }
+    
+    func layoutRatingWith(theme: OKThemeConfigure, value: Bool?) {
+        yesLabel.textColor = theme.darkColor
+        noLabel.textColor = theme.darkColor
+        yesBackground.borderColor = theme.greyLightColor
+        noBackground.borderColor = theme.greyLightColor
+        if let rating = rating {
+            if rating {
+                yesBackground.backgroundColor = theme.voteUpColor
+                noBackground.backgroundColor = .white
+                yesIcon.tintColor = .white
+                noIcon.tintColor = theme.greyLightColor
+            } else {
+                yesBackground.backgroundColor = .white
+                noBackground.backgroundColor = theme.voteDownColor
+                yesIcon.tintColor = theme.greyLightColor
+                noIcon.tintColor = .white
+            }
+        } else {
+            yesIcon.tintColor = theme.greyLightColor
+            noIcon.tintColor = theme.greyLightColor
+        }
+    }
 }
