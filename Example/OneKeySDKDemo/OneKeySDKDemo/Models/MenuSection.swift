@@ -18,4 +18,3 @@ struct MenuSection {
         self.colapsedLimit = colapsedLimit
     }
 }
- 

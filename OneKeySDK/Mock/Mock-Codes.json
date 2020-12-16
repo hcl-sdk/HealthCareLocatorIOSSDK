@@ -1,0 +1,24 @@
+{
+    "codes": [
+      {
+        "id": "SP.WCA.6U",
+        "longLbl": "Gerontology Nursing"
+      },
+      {
+        "id": "SP.WCA.21",
+        "longLbl": "Geriatrics"
+      },
+      {
+        "id": "SP.WCA.7U",
+        "longLbl": "Geriatric Psychiatry"
+      },
+      {
+        "id": "SP.WCA.81",
+        "longLbl": "Medical Genetics"
+      },
+      {
+        "id": "SP.WCA.11",
+        "longLbl": "General Surgery"
+      }
+    ]
+}

@@ -136,6 +136,9 @@ Pod::Spec.new do |spec|
   spec.dependency "Moya"
   spec.dependency "SDWebImage"
   spec.dependency "Apollo"
+  spec.dependency "RxSwift"
+  spec.dependency "RxCocoa"
+  spec.dependency "RxSwiftExt"
 
   spec.swift_version = "5.0" 
 

@@ -13,7 +13,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     var resultNavigationVC: UINavigationController!
     var data: OKHCPSearchData?
     
-    var result: [Activity] {
+    var result: [ActivityResult] {
         return data?.result ?? []
     }
     
@@ -23,6 +23,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         }
     }
     
+    private var searchResultViewModel: SearchResultViewModel?
+    
+    @IBOutlet weak var bodyWrapper: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var firstSeparatorView: UIView!
     @IBOutlet weak var secondSeparatorView: UIView!
@@ -35,6 +38,10 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let search = data {
+            searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(), search: search)
+        }
+        
         if let unwrap = data {
             layoutWith(searchData: unwrap)
         }
@@ -44,12 +51,39 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         }
         
         sort = .relevance
+        // Initialize search
+        performSearch()
+    }
+    
+    private func performSearch() {
+        searchResultViewModel?.showLoadingOn(view: bodyWrapper)
+        searchResultViewModel?.performSearch({[weak self] (result, error) in
+            guard let strongSelf = self else {return}
+            if let result = result {
+                strongSelf.data?.change(result: result)
+                strongSelf.reloadWith(data: strongSelf.data!)
+                strongSelf.searchResultViewModel?.hideLoading()
+            } else {
+                print(error)
+            }
+        })
+    }
+    
+    func reloadWith(data: OKHCPSearchData) {
+        DispatchQueue.main.async {
+            self.layoutWith(searchData: data)
+            for resultChildVC in self.resultNavigationVC.viewControllers {
+                if let resultVC = resultChildVC as? OkSortableResultList {
+                    resultVC.reloadWith(data: data.result)
+                }
+            }
+        }
     }
     
     func layoutWith(searchData: OKHCPSearchData) {
         activityCountLabel.text = "\(searchData.result.count)"
-        criteriaLabel.text = searchData.input.criteriaText
-        addressLabel.text = searchData.input.placeAddressText
+        criteriaLabel.text = searchData.code?.longLbl ?? searchData.criteria
+        addressLabel.text = searchData.address
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -89,24 +123,20 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     
     func sortResultBy(sort: OKHCPSearchResultSortViewController.SortBy) {
-        if let resultList = data?.result, let input = data?.input {
+        if let resultList = data?.result {
             var newList = resultList
             switch sort {
             case .name:
                 newList.sort { (lhs, rhs) -> Bool in
-                    return lhs.title.label < rhs.title.label
+                    return lhs.activity.individual.mailingName ?? "" < rhs.activity.individual.mailingName ?? ""
                 }
             case .distance:
                 break
             case .relevance:
                 break
             }
-            data = OKHCPSearchData(input: input, result: newList)
-            for resultChildVC in resultNavigationVC.viewControllers {
-                if let resultVC = resultChildVC as? OkSortableResultList {
-                    resultVC.reloadWith(data: newList)
-                }
-            }
+            data?.change(result: newList)
+            reloadWith(data: data!)
         }
     }
     
@@ -133,7 +163,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
             case "showFullCardVC":
                 if let desVC = segue.destination as? OKHCPFullCardViewController {
                     desVC.theme = theme
-                    if let activity = sender as? Activity {
+                    if let activity = sender as? ActivityResult {
                         desVC.activity = activity
                     }
                 }
@@ -182,7 +212,7 @@ extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
 }
 
 extension OKHCPSearchResultViewController: OKActivityHandler {
-    func didSelect(activity: Activity) {
+    func didSelect(activity: ActivityResult) {
         performSegue(withIdentifier: "showFullCardVC", sender: activity)
     }
 }

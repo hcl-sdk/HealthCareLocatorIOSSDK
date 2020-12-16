@@ -437,7 +437,7 @@
                                             <constraint firstAttribute="height" constant="1" id="3bU-B7-X8p"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hvV-5P-RUx">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hvV-5P-RUx">
                                         <rect key="frame" x="0.0" y="105" width="375" height="520"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <inset key="separatorInset" minX="58" minY="0.0" maxX="15" maxY="0.0"/>
@@ -681,6 +681,7 @@
                         <outlet property="activityCountLabel" destination="t4n-1j-QAe" id="v3z-hb-dtX"/>
                         <outlet property="addressLabel" destination="rYf-dC-D24" id="VVi-3k-ucs"/>
                         <outlet property="backButton" destination="QlW-mX-kPw" id="jW4-mE-h9Z"/>
+                        <outlet property="bodyWrapper" destination="ZtX-E0-rMx" id="8Pb-wv-spF"/>
                         <outlet property="criteriaLabel" destination="NIc-qd-vnF" id="Fwr-SU-jpV"/>
                         <outlet property="displayModeSegmentView" destination="Sug-H4-QMC" id="BQw-bW-zK8"/>
                         <outlet property="firstSeparatorView" destination="QL3-BU-BBq" id="IcR-Ck-LdR"/>
@@ -2359,6 +2360,12 @@
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbw-Qm-Khu">
+                                                                    <rect key="frame" x="0.0" y="34" width="258" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tk-GS-HLq">
                                                                     <rect key="frame" x="0.0" y="34" width="258" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2420,6 +2427,7 @@
                                     <outlet property="distanceLabel" destination="8xE-3h-UBp" id="TKK-lo-v5k"/>
                                     <outlet property="drLabel" destination="c70-iz-gY1" id="0fI-5F-6tz"/>
                                     <outlet property="moreDetailIcon" destination="0zf-6d-OWS" id="xef-dc-cpG"/>
+                                    <outlet property="parentWorkplaceLabel" destination="xbw-Qm-Khu" id="QWB-7L-dAn"/>
                                     <outlet property="wrapper" destination="QPI-1Z-hgq" id="RNW-ND-O5y"/>
                                 </connections>
                             </collectionViewCell>

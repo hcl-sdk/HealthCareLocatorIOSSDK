@@ -12,9 +12,11 @@ class SearchResultTableViewCell: UITableViewCell {
     @IBOutlet weak var iconBgView: OKBaseView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var resultTitleLabel: UILabel!
+    @IBOutlet weak var separatorView: UIView!
     
     
     func configWith(theme: OKThemeConfigure, iconImage: UIImage, title: String) {
+        separatorView.backgroundColor = theme.greyLighterColor
         iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.1)
         icon.tintColor = theme.primaryColor
         resultTitleLabel.font = theme.defaultFont

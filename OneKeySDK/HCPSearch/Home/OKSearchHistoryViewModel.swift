@@ -35,9 +35,9 @@ enum HistorySection: Equatable {
         }
     }
     
-    case nearMe(title: String, activities: [Activity])
+    case nearMe(title: String, activities: [ActivityResult])
     case lastSearchs(title: String, searches: [OKHCPLastSearch])
-    case lasHCPConsolted(title: String, activities: [Activity])
+    case lasHCPConsolted(title: String, activities: [ActivityResult])
     
     var title: String {
         switch self {
@@ -58,10 +58,20 @@ class OKSearchHistoryViewModel {
         self.webService = webService
     }
     
-    func performSearchingWith(input: OKHCPSearchInput,
+    func performSearchingWith(criteria: String!,
                               location: CLLocationCoordinate2D?,
-                              completion: @escaping ((Result<[Activity], Error>) -> Void)) {
-        webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {(result, error) in
+                              completion: @escaping ((Result<[ActivityResult], Error>) -> Void)) {
+        let info = GeneralQueryInput(apiKey: "1",
+                                     first: 50,
+                                     offset: 0,
+                                     userId: nil,
+                                     locale: "en")
+        webService.fetchActivitiesWith(info: info,
+                                       specialties: nil,
+                                       location: nil,
+                                       county: "",
+                                       criteria: criteria,
+                                       manager: OKServiceManager.shared) { (result, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let unwrapResult = result {
@@ -73,9 +83,9 @@ class OKSearchHistoryViewModel {
     }
     
     func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
-        var mockData = MockOKHCPSearchWebServices().getMockSearchResult()
-        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockSearchResult())
-        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockSearchResult())
+        var mockData = MockOKHCPSearchWebServices().getMockActivities()
+        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockActivities())
+        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockActivities())
 
         var lastSearches = OKDatabase.getLastSearchesHistory()
         lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())

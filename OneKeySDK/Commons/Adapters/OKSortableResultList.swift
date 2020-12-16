@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OkSortableResultList {
-    func reloadWith(data: [Activity])
+    func reloadWith(data: [ActivityResult])
 }

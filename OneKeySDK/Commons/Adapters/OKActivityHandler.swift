@@ -8,5 +8,5 @@
 import Foundation
 
 protocol OKActivityHandler: class {
-    func didSelect(activity: Activity)
+    func didSelect(activity: ActivityResult)
 }

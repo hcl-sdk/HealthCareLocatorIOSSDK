@@ -12,7 +12,6 @@ target 'OneKeySDKDemo' do
   pod 'lottie-ios'
   pod 'FlexColorPicker'
   pod 'IQKeyboardManagerSwift'
-  pod 'Apollo'
   pod 'AppCenter'
 
   target 'OneKeySDKDemoTests' do

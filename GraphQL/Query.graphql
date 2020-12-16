@@ -1,34 +1,134 @@
-query Activities($apiKey: String!, $criteria: String!) {
-  activities(apiKey: $apiKey, criteria: $criteria) {
-    distance
-    relevance
-    activity {
+query CodesByLabel(
+  $apiKey: String!
+  $first: Int = 5
+  $offset: Int = 0
+  $userId: String
+  $criteria: String!
+  $codeTypes: [String!]!
+  $locale: String
+) {
+  codesByLabel(
+    apiKey: $apiKey
+    first: $first
+    offset: $offset
+    userId: $userId
+    criteria: $criteria
+    codeTypes: $codeTypes
+    locale: $locale
+  ) {
+    codes {
       id
-      title {
+      longLbl
+    }
+  }
+}
+
+query IndividualsByName(
+  $apiKey: String!
+  $first: Int = 5
+  $offset: Int = 0
+  $userId: String
+  $criteria: String!
+  $locale: String
+) {
+  individualsByName(
+    apiKey: $apiKey
+    first: $first
+    offset: $offset
+    userId: $userId
+    criteria: $criteria
+    locale: $locale
+  ) {
+    individuals {
+      id
+      title
+      firstName
+      lastName
+      middleName
+      mailingName
+      specialties {
+        code
         label
       }
-      role {
-        label
+      mainActivity {
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
       }
-      phone
-      fax
-      webAddress
-      workplace {
+    }
+  }
+}
+
+query Activities(
+  $apiKey: String!
+  $first: Int = 10
+  $offset: Int = 0
+  $userId: String
+  $locale: String
+  $professionalType: String
+  $specialties: [String!]
+  $county: String
+  $criteria: String
+  $location: GeopointQuery
+) {
+  activities(
+    apiKey: $apiKey
+    first: $first
+    offset: $offset
+    userId: $userId
+    locale: $locale
+    professionalType: $professionalType
+    specialties: $specialties
+    county: $county
+    criteria: $criteria
+    location: $location
+  ) {
+    distance
+    activity {
+      individual {
         id
-        name
-        localPhone
+        title
+        firstName
+        lastName
+        middleName
+        mailingName
+        specialties {
+          code
+          label
+        }
+      }
+      workplace {
         address {
           longLabel
+          buildingLabel
+          county {
+            code
+            label
+          }
           city {
+            code
             label
           }
-          country {
-            label
-          }
-          postalCode
+          country
           location {
             lat
-            long
+            lon
           }
         }
       }

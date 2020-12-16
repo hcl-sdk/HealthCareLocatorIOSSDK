@@ -68,7 +68,7 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
                 }
             case "showFullCardVC":
                 if let desVC = segue.destination as? OKHCPFullCardViewController,
-                   let activity = sender as? Activity {
+                   let activity = sender as? ActivityResult {
                     desVC.theme = theme
                     desVC.activity = activity
                 }
@@ -95,7 +95,7 @@ extension OKHCPSearchHomeFullViewController: UITextFieldDelegate {
 
 extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
     
-    func didSelect(activity: Activity) {
+    func didSelect(activity: ActivityResult) {
         performSegue(withIdentifier: "showFullCardVC", sender: activity)
     }
     
@@ -103,17 +103,18 @@ extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
         if let selected = search.selected {
             performSegue(withIdentifier: "showFullCardVC", sender: selected)
         } else {
-            let input = search.getInput()
-            historyViewModel.performSearchingWith(input: input,
-                                                  location: nil) {[weak self] (result) in
-                guard let strongSelf = self else {return}
-                switch result {
-                case .success(let activities):
-                    strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(input: input, result: activities))
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+//            historyViewModel.performSearchingWith(criteria: search.criteria,
+//                                                  location: nil) {[weak self] (result) in
+//                guard let strongSelf = self else {return}
+//                switch result {
+//                case .success(let activities):
+//                    strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(criteria: search.criteria,
+//                                                                                                    address: search.address,
+//                                                                                                    result: activities))
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                }
+//            }
         }
     }
     

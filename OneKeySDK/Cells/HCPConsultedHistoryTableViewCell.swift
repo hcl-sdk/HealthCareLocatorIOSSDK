@@ -17,7 +17,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
     
     weak var delegate: OKSearchHistoryDataSourceDelegate?
     
-    func configWith(theme: OKThemeConfigure?, activity: Activity, isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, activity: ActivityResult, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
         // Fonts
         drLabel.font = theme?.defaultFont
@@ -32,9 +32,9 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         addressLabel.textColor = theme?.greyDarkColor
 
         //
-        drLabel.text = activity.title.label
-        categoryLabel.text = activity.workplace.name
-        addressLabel.text = activity.workplace.address.longLabel
+        drLabel.text = activity.activity.individual.mailingName
+        categoryLabel.text = activity.activity.individual.specialties.first?.label
+        addressLabel.text = activity.activity.workplace.address.longLabel
         distanceLabel.text = "3 days ago"
     }
     

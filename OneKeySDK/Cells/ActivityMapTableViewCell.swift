@@ -20,7 +20,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
         mapView.delegate = self
     }
     
-    func configWith(theme: OKThemeConfigure?, activities: [Activity], isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, activities: [ActivityResult], isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
         self.theme = theme
         let activityList = ActivityList(activities: activities)

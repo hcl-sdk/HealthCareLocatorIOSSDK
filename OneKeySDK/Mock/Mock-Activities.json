@@ -1,0 +1,524 @@
+{
+  "activities": [
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00002774",
+          "title": "TIT.WCA.20",
+          "firstName": "France",
+          "lastName": "Gervais",
+          "middleName": "",
+          "mailingName": "Mlle France Gervais",
+          "specialties": [
+            {
+              "code": "SP.WCA.4L",
+              "label": "Social Worker"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "103-176 av Rouleau",
+            "buildingLabel": "",
+            "county": {
+              "label": "Quebec"
+            },
+            "city": {
+              "label": "Rimouski"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.88449765105568,
+              "lon": 2.2928186205937373
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00007062",
+          "title": "TIT.WCA.20",
+          "firstName": "Jennifer",
+          "lastName": "Geelen",
+          "middleName": "",
+          "mailingName": "Ms Jennifer Geelen",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "10 Angeline St N",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "Lindsay"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.91820821759238,
+              "lon": 2.2478381710573827
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00009217",
+          "title": "TIT.WCA.20",
+          "firstName": "Gentian",
+          "lastName": "Cermjani",
+          "middleName": "",
+          "mailingName": "Ms Gentian Cermjani",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "201 Georgian Dr",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "Barrie"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.896401940198196,
+              "lon": 2.3708362557250044
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00009322",
+          "title": "TIT.WCA.20",
+          "firstName": "Marie",
+          "lastName": "Gendreau",
+          "middleName": "",
+          "mailingName": "Mme Marie Gendreau",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "050-2480 ch Sainte-Foy",
+            "buildingLabel": "Centre Horizon",
+            "county": {
+              "label": "Quebec"
+            },
+            "city": {
+              "label": "Quebec"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.85288342564693,
+              "lon": 2.31487423896418
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00009800",
+          "title": "TIT.WCA.20",
+          "firstName": "Georgia",
+          "lastName": "Georgiou",
+          "middleName": "",
+          "mailingName": "Ms Georgia Georgiou",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "711 Concession St Floor 2 Lab",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "Hamilton"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.83230179802181,
+              "lon": 2.372153009060553
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00010019",
+          "title": "TIT.WCA.20",
+          "firstName": "George",
+          "lastName": "Habib",
+          "middleName": "",
+          "mailingName": "Mr George Habib",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "401-18 Wynford Dr",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "North York"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.843516048798485,
+              "lon": 2.3940978480776147
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00011144",
+          "title": "TIT.WCA.20",
+          "firstName": "Autumn",
+          "lastName": "Gehring",
+          "middleName": "",
+          "mailingName": "Ms Autumn Gehring",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "300-175 Bloor St E",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "Toronto"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.86701513314284,
+              "lon": 2.345699180118024
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00011495",
+          "title": "TIT.WCA.20",
+          "firstName": "Frederick",
+          "lastName": "Germini",
+          "middleName": "",
+          "mailingName": "Mr Frederick Germini",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "140-1280 Main St W",
+            "buildingLabel": "",
+            "county": {
+              "label": "Ontario"
+            },
+            "city": {
+              "label": "Hamilton"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.83714523809088,
+              "lon": 2.3693978382223753
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00012611",
+          "title": "TIT.WCA.20",
+          "firstName": "Geneviève",
+          "lastName": "Jetté",
+          "middleName": "",
+          "mailingName": "Mlle Geneviève Jetté",
+          "specialties": [
+            {
+              "code": "SP.WCA.2C",
+              "label": "Administration"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "205 boul Leclerc O",
+            "buildingLabel": "",
+            "county": {
+              "label": "Quebec"
+            },
+            "city": {
+              "label": "Granby"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.856035625537075,
+              "lon": 2.447837058708609
+            }
+          }
+        }
+      }
+    },
+    {
+      "distance": 0,
+      "activity": {
+        "individual": {
+          "id": "WCAA00013534",
+          "title": "TIT.WCA.20",
+          "firstName": "Maxime",
+          "lastName": "St-Georges",
+          "middleName": "",
+          "mailingName": "M Maxime St-Georges",
+          "specialties": [
+            {
+              "code": "SP.WCA.02",
+              "label": "Pharmacy Technician"
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            },
+            {
+              "code": "",
+              "label": ""
+            }
+          ]
+        },
+        "workplace": {
+          "address": {
+            "longLabel": "180 boul Jean-Leman",
+            "buildingLabel": "",
+            "county": {
+              "label": "Quebec"
+            },
+            "city": {
+              "label": "Candiac"
+            },
+            "country": "CA",
+            "location": {
+              "lat": 48.81736859670648,
+              "lon": 2.2882883464004395
+            }
+          }
+        }
+      }
+    }
+  ]
+}
