@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 protocol OKSearchHistoryDataSourceDelegate: class {
-    func didSelect(activity: Activity)
+    func didSelect(activity: ActivityResult)
     func didSelect(search: OKHCPLastSearch)
     func shouldRemoveActivityAt(indexPath: IndexPath)
     func shouldRemoveSearchAt(indexPath: IndexPath)
 }
 
 extension OKSearchHistoryDataSourceDelegate {
-    func didSelect(activity: Activity) {}
+    func didSelect(activity: ActivityResult) {}
     func didSelect(search: OKHCPLastSearch) {}
 }
 

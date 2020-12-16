@@ -1,0 +1,264 @@
+{
+    "individuals": [
+        {
+            "id": "WCAM00071994",
+            "title": "TIT.WCA.03",
+            "firstName": "Mustafa",
+            "lastName": "Geneve",
+            "middleName": "Mohamed",
+            "mailingName": "Dr Mustafa M Geneve",
+            "specialties": [
+                {
+                    "code": "SP.WCA.3C",
+                    "label": "Family Medicine"
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                }
+            ],
+            "mainActivity": {
+                "id": "WCAM0007199406",
+                "workplace": {
+                    "address": {
+                        "longLabel": "1035 Gateway Rd",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "MB",
+                            "label": "Manitoba"
+                        },
+                        "city": {
+                            "code": "CA003032",
+                            "label": "Winnipeg"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 49.9287,
+                            "lon": -97.0714
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "WCAP00025143",
+            "title": "TIT.WCA.20",
+            "firstName": "Jean-Philippe",
+            "lastName": "Gentes",
+            "middleName": "",
+            "mailingName": "Mr Jean-Philippe Gentes",
+            "specialties": [
+                {
+                    "code": "SP.WCA.88",
+                    "label": "Pharmacy"
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                }
+            ],
+            "mainActivity": {
+                "id": "WCAP0002514301",
+                "workplace": {
+                    "address": {
+                        "longLabel": "4555 Av Beaudry",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "QC",
+                            "label": "Quebec"
+                        },
+                        "city": {
+                            "code": "CA011456",
+                            "label": "Saint-Hyacinthe"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 45.6308,
+                            "lon": -72.983
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "WCAP00027609",
+            "title": "TIT.WCA.20",
+            "firstName": "Uchenwa",
+            "lastName": "Genus",
+            "middleName": "",
+            "mailingName": "Mr Uchenwa Genus",
+            "specialties": [
+                {
+                    "code": "SP.WCA.88",
+                    "label": "Pharmacy"
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                }
+            ],
+            "mainActivity": {
+                "id": "WCAP0002760901",
+                "workplace": {
+                    "address": {
+                        "longLabel": "10 Trench St",
+                        "buildingLabel": "York Central Hospital",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009296",
+                            "label": "Richmond Hill"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.8703,
+                            "lon": -79.4496
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "WCAR00054372",
+            "title": "TIT.WCA.20",
+            "firstName": "Gemina",
+            "lastName": "Genchi",
+            "middleName": "A",
+            "mailingName": "Ms Gemina A Genchi",
+            "specialties": [
+                {
+                    "code": "SP.WCA.RN",
+                    "label": "Registered Practical Nurse"
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                }
+            ],
+            "mainActivity": {
+                "id": "WCAR0005437201",
+                "workplace": {
+                    "address": {
+                        "longLabel": "40 Friuli Crt",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009127",
+                            "label": "Woodbridge"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7658,
+                            "lon": -79.5744
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": "WCAA00011407",
+            "title": "TIT.WCA.20",
+            "firstName": "Béchard",
+            "lastName": "Geneviève",
+            "middleName": "",
+            "mailingName": "Mlle Geneviève Béchard",
+            "specialties": [
+                {
+                    "code": "SP.WCA.2C",
+                    "label": "Administration"
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                },
+                {
+                    "code": "",
+                    "label": ""
+                }
+            ],
+            "mainActivity": {
+                "id": "WCAA0001140701",
+                "workplace": {
+                    "address": {
+                        "longLabel": "4705 rue Dobrin",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "QC",
+                            "label": "Quebec"
+                        },
+                        "city": {
+                            "code": "CA011432",
+                            "label": "Saint-Laurent"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 45.4951,
+                            "lon": -73.7349
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

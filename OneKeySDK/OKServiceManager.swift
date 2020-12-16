@@ -11,7 +11,7 @@ import Apollo
 class OKServiceManager: NSObject {
     var apiKey: String?
     static let shared = OKServiceManager()
-    lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql/query")!)
+    lazy var apollo = ApolloClient(url: URL(string: "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query")!)
     
     private override init() {}
     

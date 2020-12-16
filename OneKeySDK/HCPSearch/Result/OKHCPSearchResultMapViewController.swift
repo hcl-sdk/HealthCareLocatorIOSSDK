@@ -23,7 +23,7 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActi
     
     private let locationManager = CLLocationManager()
     
-    var result: [Activity] = []
+    var result: [ActivityResult] = []
 
     @IBOutlet weak var currentLocationBtn: OKBaseButton!
     @IBOutlet weak var mapView: MKMapView!
@@ -48,12 +48,12 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActi
         mapView.isRotateEnabled = false
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 //        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
-        if let location = result.first(where: {$0.workplace.address.location != nil})?.workplace.address.location {
-            mapView.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.long))
+        if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
+            mapView.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
         }
     }
     
-    private func addMapPinFor(result: [Activity]) {
+    private func addMapPinFor(result: [ActivityResult]) {
         mapView.addAnnotations(ActivityList(activities: result).getAnotations())
     }
     
@@ -137,7 +137,7 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
         if let marker = view as? MKMarkerAnnotationView {
             marker.markerTintColor = theme?.markerSelectedColor
             let annotation = view.annotation
-            if let index = result.firstIndex(where: {$0.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.workplace.address.location?.long == annotation?.coordinate.longitude}) {
+            if let index = result.firstIndex(where: {$0.activity.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.activity.workplace.address.location?.lon == annotation?.coordinate.longitude}) {
                 reloadHorizontalListWith(selectedIndex: index)
             }
         }
@@ -151,7 +151,7 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
 }
 
 extension OKHCPSearchResultMapViewController: OkSortableResultList {
-    func reloadWith(data: [Activity]) {
+    func reloadWith(data: [ActivityResult]) {
         result = data
         cardCollectionViewController.reloadWith(data: data)
     }

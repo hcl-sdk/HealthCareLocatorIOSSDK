@@ -1,0 +1,28 @@
+//
+//  CodeAutoCompleteTableViewCell.swift
+//  OneKeySDK
+//
+//  Created by Truong Le on 12/15/20.
+//
+
+import UIKit
+
+class CodeAutoCompleteTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var separatorView: UIView!
+    
+    func configWith(theme: OKThemeConfigure, code: Code, highlight: String?) {
+        separatorView.backgroundColor = theme.greyLighterColor
+        codeLabel.font = theme.defaultFont
+        codeLabel.textColor = theme.darkColor
+        let attibuteText = NSMutableAttributedString(string: code.longLbl)
+        if let highlightText = highlight {
+            let range = NSString(string: attibuteText.mutableString.lowercased).range(of: highlightText.lowercased())
+            attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor, range: range)
+        }
+        codeLabel.attributedText = attibuteText
+        
+    }
+    
+}

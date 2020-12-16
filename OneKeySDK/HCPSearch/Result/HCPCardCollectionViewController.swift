@@ -22,7 +22,7 @@ class HCPCardCollectionViewController: UICollectionViewController, OKViewDesign,
     }
     
     var theme: OKThemeConfigure?
-    var result: [Activity] = []
+    var result: [ActivityResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,7 @@ extension HCPCardCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HCPCardCollectionViewController: OkSortableResultList {
-    func reloadWith(data: [Activity]) {
+    func reloadWith(data: [ActivityResult]) {
         result = data
         collectionView.reloadData()
     }

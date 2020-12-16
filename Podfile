@@ -9,7 +9,10 @@ target 'OneKeySDK' do
   pod 'Moya'
   pod 'SDWebImage'
   pod 'Apollo'
-  
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxSwiftExt'
+
   target 'OneKeySDKTests' do
     # Pods for testing
   end

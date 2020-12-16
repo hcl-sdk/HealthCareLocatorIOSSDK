@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxSwiftExt
 import MapKit
 
 class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
+    private let disposeBag = DisposeBag()
     
     var theme: OKThemeConfigure?
 
-    private var webService: OKHCPSearchWebServicesProtocol = MockOKHCPSearchWebServices()
+    private var webService: OKHCPSearchWebServicesProtocol = OKHCPSearchWebServices()//MockOKHCPSearchWebServices()
         
+    // Individual
+    private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
+    
+    // Address
     private let searchCompleter = MKLocalSearchCompleter()
-    private var searchResult = [MKLocalSearchCompletion]() {
+    private var searchResult = [SearchAutoComplete]() {
         didSet {
             if isViewLoaded {
                 searchResultTableView.reloadData()
@@ -30,21 +38,36 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var searchBtn: OKBaseButton!
     @IBOutlet weak var separatorView: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCompleter.delegate = self
         searchResultTableView.register(UINib(nibName: "SearchResultTableViewCell",
                                              bundle: Bundle.internalBundle()),
                                        forCellReuseIdentifier: "SearchResultTableViewCell")
+        
+        searchResultTableView.register(UINib(nibName: "CodeAutoCompleteTableViewCell",
+                                             bundle: Bundle.internalBundle()),
+                                       forCellReuseIdentifier: "CodeAutoCompleteTableViewCell")
+        
+        searchResultTableView.register(UINib(nibName: "IndividualAutoCompleteTableViewCell",
+                                             bundle: Bundle.internalBundle()),
+                                       forCellReuseIdentifier: "IndividualAutoCompleteTableViewCell")
+        
         searchResultTableView.dataSource = self
         searchResultTableView.delegate = self
         searchResultTableView.tableFooterView = UIView()
         categorySearchTextField.delegate = self
+        categorySearchTextField.rightViewMode = .always
         locationSearchTextField.delegate = self
+        locationSearchTextField.rightViewMode = .always
+
+        searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService as! OKHCPSearchWebServices)
+        
         if let theme = theme {
             layoutWith(theme: theme)
         }
+        
+        setupDataBinding()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +78,39 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(false)
+    }
+    
+    func setupDataBinding() {
+        categorySearchTextField.rx.controlEvent([.editingChanged]).asObservable().subscribe(onNext: {[weak self] in
+            self?.searchResultTableView.reloadData()
+        })
+        .disposed(by: disposeBag)
+        /*
+         Fetch autocomplete data by creteria with debounce 300 milisecond
+         */
+        let firstFieldCriteria = categorySearchTextField.rx.controlEvent([.editingChanged])
+            .map { [weak self] in self?.categorySearchTextField.text ?? ""}
+            .distinctUntilChanged().filter {$0.count >= 3}
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+        
+        firstFieldCriteria.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in
+            let indicator = UIActivityIndicatorView(style: .gray)
+            self?.categorySearchTextField.rightView = indicator
+            indicator.startAnimating()
+        }).disposed(by: disposeBag)
+        
+        firstFieldCriteria.bind(to: searchInputAutocompleteModelView.autocompleteCreteriaSubject).disposed(by: disposeBag)
+        
+        Observable.zip(searchInputAutocompleteModelView.codesObservable(),
+                       searchInputAutocompleteModelView.individualsObservable())
+        .subscribe(onNext: {[weak self] (codes, individuals) in
+                guard let strongSelf = self else {return}
+                var result = [SearchAutoComplete]()
+                result.append(contentsOf: codes.map {SearchAutoComplete.Code(code: $0)})
+                result.append(contentsOf: individuals.map {SearchAutoComplete.Individual(individual: $0)})
+                strongSelf.searchResult = result
+                strongSelf.categorySearchTextField.rightView = nil
+            }).disposed(by: disposeBag)
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -80,20 +136,16 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     @IBAction func onSearchAction(_ sender: Any) {
         let validator = SearchInputValidator()
         let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
-        let isPlaceAddressValid = validator.isPlaceAddressValid(placeAddressText: locationSearchTextField.text)
         
         if !isCriteriaValid {
             categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
         }
         
-        if !isPlaceAddressValid {
-            locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
-        }
-        
-        if isCriteriaValid && isPlaceAddressValid {
-            let searchInput = OKHCPSearchInput(criteriaText: categorySearchTextField.text,
-                                             placeAddressText: locationSearchTextField.text)
-            performSearchingWith(input: searchInput, location: nil)
+        if isCriteriaValid {
+            performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
+                                 code: searchInputAutocompleteModelView.selectedCode,
+                                 address: searchInputAutocompleteModelView.address,
+                                 isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
         }
     }
     
@@ -101,18 +153,13 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         navigationController?.popViewController(animated: true)
     }
     
-    private func performSearchingWith(input: OKHCPSearchInput, location: CLLocationCoordinate2D?) {
-        webService.searchHCPWith(input: input, manager: OKServiceManager.shared) {[weak self] (result, error) in
-            guard let strongSelf = self else {return}
-            if let error = error {
-                
-            } else if let unwrapResult = result {
-                strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(input: input,
-                                                                                                result: unwrapResult))
-            } else {
-                
-            }
-        }
+    private func performSearchingWith(criteria: String? = nil, code: Code? = nil, address: String? = nil, isNearMeSearch: Bool? = false) {
+        let searchData = OKHCPSearchData(criteria: criteria,
+                                         code: code,
+                                         address: address,
+                                         isNearMeSearch: isNearMeSearch,
+                                         result: [])
+        performSegue(withIdentifier: "showResultVC", sender: searchData)
     }
     
     // MARK: - Navigation
@@ -141,67 +188,88 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
 // MARK: TableView datasource
 extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return searchResult.count
-        default:
-            return 0
-        }
+        return searchResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
         if let theme = theme {
-            switch indexPath.section {
-            case 0:
+            switch searchResult[indexPath.row] {
+            case .Code(let code):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CodeAutoCompleteTableViewCell") as! CodeAutoCompleteTableViewCell
+                cell.configWith(theme: theme,
+                                code: code,
+                                highlight: categorySearchTextField.text)
+                return cell
+            case .Individual(let individual):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
+                cell.configWith(theme: theme,
+                                individual: individual,
+                                highlight: categorySearchTextField.text)
+                return cell
+            case .NearMe:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
                 cell.configWith(theme: theme,
                                 iconImage: UIImage.OKImageWith(name: "geoloc")!,
                                 title: kNearMeTitle)
-            default:
+                return cell
+            case .Address(let address):
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
                 cell.configWith(theme: theme,
                                 iconImage: UIImage.OKImageWith(name: "marker")!,
-                                title: "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)")
+                                title: "\(address.title), \(address.subtitle)")
+                return cell
+            default:
+                return UITableViewCell()
             }
         }
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
+        switch searchResult[indexPath.row] {
+        case .NearMe:
             locationSearchTextField.text = kNearMeTitle
+            searchInputAutocompleteModelView.set(isNearMeSearch: true)
             searchResult = []
-            if let criteria = categorySearchTextField.text, !criteria.isEmpty {
-                performSearchingWith(input: OKHCPSearchInput(criteriaText: criteria, placeAddressText: kNearMeTitle), location: nil)
-            }
-        case 1:
-            let composedAdd = "\(searchResult[indexPath.row].title), \(searchResult[indexPath.row].subtitle)"
+        case .Address(let address):
+            let composedAdd = "\(address.title), \(address.subtitle)"
             locationSearchTextField.text = composedAdd
+            searchInputAutocompleteModelView.set(address: composedAdd)
             searchResult = []
-            if let criteria = categorySearchTextField.text, !criteria.isEmpty {
-                performSearchingWith(input: OKHCPSearchInput(criteriaText: criteria, placeAddressText: composedAdd), location: nil)
-            }
+        case .Code(let code):
+            categorySearchTextField.text = code.longLbl
+            searchInputAutocompleteModelView.set(code: code)
+            locationSearchTextField.becomeFirstResponder()
         default:
-            return
+            break
         }
     }
 }
 
 // MARK: Textfield delegate
 extension OKHCPSearchInputViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == categorySearchTextField {
+            searchResult = []
+        } else {
+            searchResult = [.NearMe]
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
-        if textField == locationSearchTextField {
-            if let text = textField.text,
-               let textRange = Range(range, in: text) {
-                let searchText = text.replacingCharacters(in: textRange, with: string)
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+            let searchText = text.replacingCharacters(in: textRange, with: string)
+            if textField == locationSearchTextField {
+                searchInputAutocompleteModelView.set(address: searchText)
                 searchCompleter.queryFragment = searchText
+            } else {
+                searchInputAutocompleteModelView.set(criteria: searchText)
             }
         }
         
@@ -213,7 +281,9 @@ extension OKHCPSearchInputViewController: UITextFieldDelegate {
 extension OKHCPSearchInputViewController: MKLocalSearchCompleterDelegate {
 
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        searchResult = completer.results
+        var newList: [SearchAutoComplete] = [.NearMe]
+        newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
+        searchResult = newList
     }
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {

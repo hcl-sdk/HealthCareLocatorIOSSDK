@@ -19,7 +19,7 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     private let locationManager = CLLocationManager()
     
     var theme: OKThemeConfigure?
-    var activity: Activity?
+    var activity: ActivityResult?
     
     // General
     @IBOutlet weak var wrapperView: OKBaseView!
@@ -103,16 +103,16 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
         webUrlView.textContainer.lineFragmentPadding = 0
     }
 
-    private func fullFill(activity: Activity) {
-        drTitle.text = activity.title.label
-        categoryTitle.text = activity.role.label
-        webUrlView.text = activity.webAddress
-        phoneLabel.text = activity.workplace.localPhone
-        faxLabel.text = activity.workplace.localPhone
+    private func fullFill(activity: ActivityResult) {
+        drTitle.text = activity.activity.individual.mailingName
+        categoryTitle.text = activity.activity.individual.specialties.first?.label
+//        webUrlView.text = activity.webAddress
+//        phoneLabel.text = activity.workplace.localPhone
+//        faxLabel.text = activity.workplace.localPhone
         selectedAddressLabel.text = "Address \(selectedAddressIndex + 1): \(mockAddresses[selectedAddressIndex])"
         // Map
-        let activityCoordinate = CLLocationCoordinate2D(latitude: activity.workplace.address.location!.lat,
-                                                        longitude: activity.workplace.address.location!.long)
+        let activityCoordinate = CLLocationCoordinate2D(latitude: activity.activity.workplace.address.location!.lat,
+                                                        longitude: activity.activity.workplace.address.location!.lon)
         let anotation = MKPointAnnotation()
         anotation.coordinate = activityCoordinate
         placeMapView.addAnnotation(anotation)
@@ -167,20 +167,20 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     @IBAction func directionAction(_ sender: Any) {
         if let location = locationManager.location,
            let activity = activity,
-           let desLocation = activity.workplace.address.location {
+           let desLocation = activity.activity.workplace.address.location {
             let userMark = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
             userMark.name = "Your location"
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: desLocation.lat,
-                                                                                                  longitude: desLocation.long)))
-            destination.name = activity.title.label
+                                                                                                  longitude: desLocation.lon)))
+//            destination.name = activity.title.label
             Helper.openMapWithDirection(from: userMark,
                                         to: destination)
         }
     }
     
     @IBAction func phoneCallAction(_ sender: Any) {
-        guard let phoneNumber = activity?.workplace.localPhone else {return}
-        Helper.makeCallWith(phoneNumber: phoneNumber)
+//        guard let phoneNumber = activity?.workplace.localPhone else {return}
+//        Helper.makeCallWith(phoneNumber: phoneNumber)
     }
     
     @IBAction func changeAddressAction(_ sender: Any) {

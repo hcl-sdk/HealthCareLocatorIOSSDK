@@ -11,10 +11,5 @@ struct OKHCPLastSearch {
     let criteria: String!
     let address: String!
     let timeInterval: Double!
-    let selected: Activity?
-    
-    func getInput() -> OKHCPSearchInput {
-        return OKHCPSearchInput(criteriaText: criteria,
-                                placeAddressText: address)
-    }
+    let selected: ActivityResult?
 }

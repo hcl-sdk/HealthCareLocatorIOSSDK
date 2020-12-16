@@ -13,10 +13,4 @@ class SearchInputValidator {
         guard let criteria = criteriaText else {return false}
         return !criteria.isEmpty
     }
-    
-    func isPlaceAddressValid(placeAddressText: String?) -> Bool {
-//        guard let place = placeAddressText else {return false}
-//        return !place.isEmpty
-        return true
-    }
 }

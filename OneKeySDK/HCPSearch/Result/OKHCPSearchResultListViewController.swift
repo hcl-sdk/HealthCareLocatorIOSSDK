@@ -12,7 +12,7 @@ class OKHCPSearchResultListViewController: UITableViewController, OKActivityList
     weak var delegate: OKActivityHandler?
     
     var theme: OKThemeConfigure?
-    var result: [Activity] = []
+    var result: [ActivityResult] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +99,11 @@ class OKHCPSearchResultListViewController: UITableViewController, OKActivityList
 }
 
 extension OKHCPSearchResultListViewController: OkSortableResultList {
-    func reloadWith(data: [Activity]) {
+    func reloadWith(data: [ActivityResult]) {
         result = data
-        tableView.reloadData()
+        tableView.beginUpdates()
+        let sections = NSIndexSet(indexesIn: NSRange(location: 0, length: tableView.numberOfSections))
+        tableView.reloadSections(sections as IndexSet, with: .automatic)
+        tableView.endUpdates()
     }
 }

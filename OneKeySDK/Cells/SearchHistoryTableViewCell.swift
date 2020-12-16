@@ -33,9 +33,9 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         //
         if let activity = search.selected {
             categoryLabel.isHidden = false
-            criteriabel.text = activity.title.label
-            categoryLabel.text = activity.workplace.name
-            addressLabel.text = activity.workplace.address.longLabel
+            criteriabel.text = activity.activity.individual.mailingName
+            categoryLabel.text = activity.activity.individual.specialties.first?.label
+            addressLabel.text = activity.activity.workplace.address.longLabel
             timeLabel.text = "3 days ago"
         } else {
             categoryLabel.isHidden = true
