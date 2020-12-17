@@ -35,15 +35,15 @@ class FullCardViewModel {
                 
                 // Fill address label
                 var addressComponent: [String] = []
-                if let name = activity.workplace.name {
+                if let name = activity.workplace.name, !name.isEmpty {
                     addressComponent.append(name)
                 }
                 
-                if let buildingLabel = activity.workplace.address.buildingLabel {
+                if let buildingLabel = activity.workplace.address.buildingLabel, !buildingLabel.isEmpty {
                     addressComponent.append(buildingLabel)
                 }
                 
-                if let address = activity.workplace.address.longLabel {
+                if let address = activity.workplace.address.longLabel, !address.isEmpty {
                     addressComponent.append(address)
                 }
                 view.addressLabel.text = addressComponent.joined(separator: "\n")
