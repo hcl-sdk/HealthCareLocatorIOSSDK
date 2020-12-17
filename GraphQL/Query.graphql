@@ -55,6 +55,7 @@ query IndividualsByName(
         label
       }
       mainActivity {
+        id
         workplace {
           address {
             longLabel

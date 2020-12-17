@@ -462,6 +462,7 @@
                         <outlet property="searchResultTableView" destination="hvV-5P-RUx" id="TKT-jB-jxM"/>
                         <outlet property="separatorView" destination="jBY-Gu-pRt" id="jx8-kB-kBK"/>
                         <segue destination="QWh-lL-KfX" kind="show" identifier="showResultVC" id="s83-iU-uQ7"/>
+                        <segue destination="c9L-RN-q29" kind="show" identifier="showFullCardVC" id="pkh-qW-l5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4Z-6X-I4F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2151,7 +2152,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1706" y="899"/>
+            <point key="canvasLocation" x="1706" y="906"/>
         </scene>
         <!--Picker List View Controller-->
         <scene sceneID="POT-Ml-tTe">
@@ -2265,7 +2266,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csv-JA-yiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2632" y="779"/>
+            <point key="canvasLocation" x="2631" y="856"/>
         </scene>
         <!--Search Result Map View Controller-->
         <scene sceneID="TWo-5t-W6d">
@@ -2341,7 +2342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vg-wG-7fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2632" y="1438"/>
+            <point key="canvasLocation" x="2630" y="1666"/>
         </scene>
         <!--Card Collection View Controller-->
         <scene sceneID="kuC-wG-tQC">
@@ -2466,7 +2467,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZt-g5-Xr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3752" y="1438"/>
+            <point key="canvasLocation" x="3521" y="1665"/>
         </scene>
         <!--Search Result List View Controller-->
         <scene sceneID="keq-Gh-hI7">
@@ -2577,7 +2578,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USh-1x-iAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3481" y="779"/>
+            <point key="canvasLocation" x="3522" y="856"/>
         </scene>
     </scenes>
     <designables>
@@ -2613,7 +2614,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="R9D-DK-flI"/>
+        <segue reference="pkh-qW-l5N"/>
         <segue reference="s83-iU-uQ7"/>
         <segue reference="iSp-TB-PpT"/>
     </inferredMetricsTieBreakers>

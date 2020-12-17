@@ -13,6 +13,7 @@ struct IndividualResult: Codable {
 
 struct IndividualWorkPlaceDetails: Codable {
     struct Activity: Codable {
+        let id: String!
         let workplace: Workplace?
     }
     

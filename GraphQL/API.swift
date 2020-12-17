@@ -244,6 +244,7 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           }
           mainActivity {
             __typename
+            id
             workplace {
               __typename
               address {
@@ -588,6 +589,7 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           public static var selections: [GraphQLSelection] {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
               GraphQLField("workplace", type: .nonNull(.object(Workplace.selections))),
             ]
           }
@@ -598,8 +600,8 @@ public final class IndividualsByNameQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(workplace: Workplace) {
-            self.init(unsafeResultMap: ["__typename": "Activity", "workplace": workplace.resultMap])
+          public init(id: GraphQLID, workplace: Workplace) {
+            self.init(unsafeResultMap: ["__typename": "Activity", "id": id, "workplace": workplace.resultMap])
           }
 
           public var __typename: String {
@@ -608,6 +610,15 @@ public final class IndividualsByNameQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var id: GraphQLID {
+            get {
+              return resultMap["id"]! as! GraphQLID
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "id")
             }
           }
 
