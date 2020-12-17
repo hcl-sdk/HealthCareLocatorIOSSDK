@@ -1,0 +1,57 @@
+{
+  "id": "WCAA0000187502",
+  "phone": "403 7821408",
+  "fax": "403 7825431",
+  "webAddress": "",
+  "individual": {
+    "id": "WCAA00001875",
+    "firstName": "Doreen",
+    "lastName": "Parcels",
+    "middleName": "",
+    "mailingName": "Ms Doreen Parcels",
+    "specialties": [
+      {
+        "code": "SP.WCA.2C",
+        "label": "General Dentistry"
+      },
+      {
+        "code": "",
+        "label": ""
+      },
+      {
+        "code": "",
+        "label": ""
+      },
+      {
+        "code": "",
+        "label": ""
+      },
+      {
+        "code": "",
+        "label": ""
+      }
+    ]
+  },
+  "workplace": {
+    "name": "Medcombe Walk-In Clinic",
+    "officialName": "",
+    "address": {
+      "longLabel": "4956 Hwy 2A",
+      "buildingLabel": "",
+      "county": {
+        "code": "AB",
+        "label": "Alberta"
+      },
+      "city": {
+        "code": "CA001121",
+        "label": "Lacombe"
+      },
+      "country": "CA",
+      "postalCode": "T4L 1J9",
+      "location": {
+        "lat": 52.4622,
+        "lon": -113.731
+      }
+    }
+  }
+}

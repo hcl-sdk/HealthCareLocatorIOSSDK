@@ -28,4 +28,11 @@ protocol OKHCPSearchWebServicesProtocol {
                              criteria: String!,
                              manager: OKServiceManager,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void))
+    
+    func fetchActivityWith(apiKey: String,
+                           userId: String?,
+                           id: String!,
+                           locale: String?,
+                           manager: OKServiceManager,
+                           completionHandler: @escaping ((Activity?, Error?) -> Void))
 }

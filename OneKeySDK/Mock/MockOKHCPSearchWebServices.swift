@@ -9,6 +9,15 @@ import Foundation
 import Apollo
 
 class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
+    func fetchActivityWith(apiKey: String,
+                           userId: String?,
+                           id: String!,
+                           locale: String?,
+                           manager: OKServiceManager,
+                           completionHandler: @escaping ((Activity?, Error?) -> Void)) {
+        completionHandler(getMockActivityDetail()!, nil)
+    }
+    
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
@@ -38,6 +47,16 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
 
 // MARK: Mock data
 extension MockOKHCPSearchWebServices {
+    func getMockActivityDetail() -> Activity? {
+        if let path = Bundle.internalBundle().path(forResource: "Mock-Activity-Detail", ofType: "json"),
+           let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path)),
+           let response = try? JSONDecoder().decode(Activity.self, from: jsonData) {
+            return response
+        } else {
+            return nil
+        }
+    }
+    
     func getMockCodes() -> [Code] {
         if let path = Bundle.internalBundle().path(forResource: "Mock-Codes", ofType: "json"),
            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path)),

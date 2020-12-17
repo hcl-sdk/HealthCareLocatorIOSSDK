@@ -29,7 +29,7 @@ class IndividualAutoCompleteTableViewCell: UITableViewCell {
         addressLabel.font = theme.resultSubTitleFont
         
         // Fullfill data
-        specialtiesLabel.text = individual.specialties.first?.label
+        specialtiesLabel.text = individual.professionalType?.label
         addressLabel.text = individual.mainActivity.workplace?.address.composedAddress
         
         let attibuteText = NSMutableAttributedString(string: individual.composedName)

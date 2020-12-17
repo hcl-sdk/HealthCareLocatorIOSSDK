@@ -46,6 +46,10 @@ query IndividualsByName(
       lastName
       middleName
       mailingName
+      professionalType {
+        code
+        label
+      }
       specialties {
         code
         label
@@ -101,6 +105,7 @@ query Activities(
   ) {
     distance
     activity {
+      id
       individual {
         id
         title
@@ -108,6 +113,10 @@ query Activities(
         lastName
         middleName
         mailingName
+        professionalType {
+          code
+          label
+        }
         specialties {
           code
           label
@@ -130,6 +139,57 @@ query Activities(
             lat
             lon
           }
+        }
+      }
+    }
+  }
+}
+
+query ActivityByID(
+  $apiKey: String!
+  $userId: String
+  $id: ID!
+  $locale: String
+) {
+  activityByID(apiKey: $apiKey, userId: $userId, id: $id, locale: $locale) {
+    id
+    phone
+    fax
+    webAddress
+    individual {
+      id
+      firstName
+      lastName
+      middleName
+      mailingName
+      professionalType {
+        code
+        label
+      }
+      specialties {
+        code
+        label
+      }
+    }
+    workplace {
+      name
+      officialName
+      address {
+        longLabel
+        buildingLabel
+        county {
+          code
+          label
+        }
+        city {
+          code
+          label
+        }
+        country
+        postalCode
+        location {
+          lat
+          lon
         }
       }
     }

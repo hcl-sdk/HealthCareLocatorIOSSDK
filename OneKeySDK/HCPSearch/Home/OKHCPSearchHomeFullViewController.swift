@@ -70,7 +70,7 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
                 if let desVC = segue.destination as? OKHCPFullCardViewController,
                    let activity = sender as? ActivityResult {
                     desVC.theme = theme
-                    desVC.activity = activity
+                    desVC.activityID = activity.activity.id
                 }
             case "showResultVC":
                 if let desVC = segue.destination as? OKHCPSearchResultViewController,

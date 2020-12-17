@@ -33,8 +33,8 @@ class HCPCardTableViewCell: UITableViewCell {
         
         //
         drLabel.text = item.activity.individual.composedName
-        categoryLabel.text = item.activity.individual.specialties.first?.label
+        categoryLabel.text = item.activity.individual.professionalType?.label
         addressLabel.text = item.activity.workplace.address.composedAddress
-        distanceLabel.text = "500m"
+        distanceLabel.text = "\(Int(item.distance ?? 0))m"
     }
 }

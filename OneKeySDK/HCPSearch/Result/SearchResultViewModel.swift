@@ -26,10 +26,11 @@ class SearchResultViewModel {
                                      userId: nil,
                                      locale: "en",
                                      criteria: search.code != nil ? nil : search.criteria)
-        
+
         webServices.fetchActivitiesWith(info: info,
                                         specialties: search.code != nil ? [search.code!.id] : nil,
-                                        location: nil, // Temporary for now
+                                        location: GeopointQuery(lat: 43.76438020602678,
+                                                                lon: -79.31803766618543), // Temporary for now
                                         county: "",
                                         criteria: info.criteria,
                                         manager: OKServiceManager.shared) { (result, error) in

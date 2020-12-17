@@ -10,16 +10,25 @@ import CoreLocation
 import MapKit
 
 class OKHCPFullCardViewController: UIViewController, OKViewDesign {
-    private var selectedAddressIndex = 0
-    private let mockAddresses = ["13 Rue Tronchet, 75008 Paris",
-                                 "4 Rue Lincoln, 75008 Paris",
-                                 "15 Rue de Surène, 75008 Paris",
-                                 "43 Boulevard Malesherbes, 75008 Paris"]
+//    private let mockAddresses = ["13 Rue Tronchet, 75008 Paris",
+//                                 "4 Rue Lincoln, 75008 Paris",
+//                                 "15 Rue de Surène, 75008 Paris",
+//                                 "43 Boulevard Malesherbes, 75008 Paris"]
     
     private let locationManager = CLLocationManager()
     
     var theme: OKThemeConfigure?
-    var activity: ActivityResult?
+    var fullCardViewModel: FullCardViewModel!
+    var activityID: String?
+    private var activity: Activity?
+    
+    // Wrapper
+    @IBOutlet weak var contentWrapper: UIStackView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var phoneWrapper: UIStackView!
+    @IBOutlet weak var faxWrapper: UIStackView!
+    @IBOutlet weak var websiteWrapper: UIStackView!
     
     // General
     @IBOutlet weak var wrapperView: OKBaseView!
@@ -87,40 +96,44 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let id = activityID {
+            fullCardViewModel = FullCardViewModel(activityID: id, webServices: OKHCPSearchWebServices())
+        } else {
+            fatalError("Missing Activity ID")
+        }
+        
         if let theme = theme {
             layoutWith(theme: theme)
         }
         
-        if let activity = activity {
-            fullFill(activity: activity)
-        }
-        
         fixWebURLViewDisplaying()
+        
+        // Fetch activity
+        contentWrapper.isHidden = true
+        fullCardViewModel.fetchActivityDetail {[weak self] (activity, error) in
+            guard let strongSelf = self else {return}
+            if let unwrapActivity = activity {
+                strongSelf.activity = unwrapActivity
+                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
+                strongSelf.animateContentDisplaying()
+            } else {
+                print(error)
+            }
+        }
     }
     
     private func fixWebURLViewDisplaying() {
         webUrlView.textContainerInset = .zero
         webUrlView.textContainer.lineFragmentPadding = 0
     }
-
-    private func fullFill(activity: ActivityResult) {
-        drTitle.text = activity.activity.individual.mailingName
-        categoryTitle.text = activity.activity.individual.specialties.first?.label
-//        webUrlView.text = activity.webAddress
-//        phoneLabel.text = activity.workplace.localPhone
-//        faxLabel.text = activity.workplace.localPhone
-        selectedAddressLabel.text = "Address \(selectedAddressIndex + 1): \(mockAddresses[selectedAddressIndex])"
-        // Map
-        let activityCoordinate = CLLocationCoordinate2D(latitude: activity.activity.workplace.address.location!.lat,
-                                                        longitude: activity.activity.workplace.address.location!.lon)
-        let anotation = MKPointAnnotation()
-        anotation.coordinate = activityCoordinate
-        placeMapView.addAnnotation(anotation)
-        placeMapView.setCamera(MKMapCamera(lookingAtCenter: activityCoordinate,
-                                           fromDistance: 8000,
-                                           pitch: 0,
-                                           heading: 0),
-                               animated: false)
+    
+    private func animateContentDisplaying() {
+        UIView.animate(withDuration: 0.2) { [unowned self] in
+            self.loadingIndicator.stopAnimating()
+            self.contentWrapper.isHidden = false
+            self.loadingView.isHidden = true
+            self.view.layoutIfNeeded()
+        }
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -167,24 +180,24 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     @IBAction func directionAction(_ sender: Any) {
         if let location = locationManager.location,
            let activity = activity,
-           let desLocation = activity.activity.workplace.address.location {
+           let desLocation = activity.workplace.address.location {
             let userMark = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
             userMark.name = "Your location"
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: desLocation.lat,
                                                                                                   longitude: desLocation.lon)))
-//            destination.name = activity.title.label
+            destination.name = activity.workplace.name
             Helper.openMapWithDirection(from: userMark,
                                         to: destination)
         }
     }
     
     @IBAction func phoneCallAction(_ sender: Any) {
-//        guard let phoneNumber = activity?.workplace.localPhone else {return}
-//        Helper.makeCallWith(phoneNumber: phoneNumber)
+        guard let phoneNumber = activity?.phone else {return}
+        Helper.makeCallWith(phoneNumber: phoneNumber)
     }
     
     @IBAction func changeAddressAction(_ sender: Any) {
-        performSegue(withIdentifier: "showAddressPicker", sender: selectedAddressIndex)
+//        performSegue(withIdentifier: "showAddressPicker", sender: selectedAddressIndex)
     }
     
     @IBAction func modifyAction(_ sender: Any) {
@@ -200,7 +213,7 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
             case "showAddressPicker":
                 guard let addressPicker = segue.destination as? PickerListViewController else {return}
                 addressPicker.delegate = self
-                addressPicker.configWith(theme: theme, items: mockAddresses, selected: selectedAddressIndex)
+//                addressPicker.configWith(theme: theme, items: mockAddresses, selected: selectedAddressIndex)
             default:
                 return
             }
@@ -211,10 +224,10 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
 
 extension OKHCPFullCardViewController: PickerListViewControllerDelegate {
     func didSelect(item: String, at index: Int) {
-        dismiss(animated: false) {
-            self.selectedAddressLabel.text = "Address \(index + 1): \(self.mockAddresses[index])"
-            self.selectedAddressIndex = index
-        }
+//        dismiss(animated: false) {
+//            self.selectedAddressLabel.text = "Address \(index + 1): \(self.mockAddresses[index])"
+//            self.selectedAddressIndex = index
+//        }
     }
     
     func backAction() {

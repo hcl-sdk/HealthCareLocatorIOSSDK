@@ -28,7 +28,7 @@ class OKHCPSearchResultListViewController: UITableViewController, OKActivityList
     }
     
     func layoutWith(theme: OKThemeConfigure) {
-        tableView.backgroundColor = theme.viewBkgColor
+        tableView.backgroundColor = theme.listBkgColor
     }
     
     // MARK: - Table view data source

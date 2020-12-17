@@ -9,10 +9,10 @@ public struct GeopointQuery: GraphQLMapConvertible {
 
   /// - Parameters:
   ///   - lat
-  ///   - long
+  ///   - lon
   ///   - distanceMeter
-  public init(lat: Double, long: Double, distanceMeter: Swift.Optional<Double?> = nil) {
-    graphQLMap = ["lat": lat, "long": long, "distanceMeter": distanceMeter]
+  public init(lat: Double, lon: Double, distanceMeter: Swift.Optional<Double?> = nil) {
+    graphQLMap = ["lat": lat, "lon": lon, "distanceMeter": distanceMeter]
   }
 
   public var lat: Double {
@@ -24,12 +24,12 @@ public struct GeopointQuery: GraphQLMapConvertible {
     }
   }
 
-  public var long: Double {
+  public var lon: Double {
     get {
-      return graphQLMap["long"] as! Double
+      return graphQLMap["lon"] as! Double
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "long")
+      graphQLMap.updateValue(newValue, forKey: "lon")
     }
   }
 
@@ -232,6 +232,11 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           lastName
           middleName
           mailingName
+          professionalType {
+            __typename
+            code
+            label
+          }
           specialties {
             __typename
             code
@@ -369,6 +374,7 @@ public final class IndividualsByNameQuery: GraphQLQuery {
             GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("middleName", type: .scalar(String.self)),
             GraphQLField("mailingName", type: .scalar(String.self)),
+            GraphQLField("professionalType", type: .nonNull(.object(ProfessionalType.selections))),
             GraphQLField("specialties", type: .nonNull(.list(.nonNull(.object(Specialty.selections))))),
             GraphQLField("mainActivity", type: .nonNull(.object(MainActivity.selections))),
           ]
@@ -380,8 +386,8 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, specialties: [Specialty], mainActivity: MainActivity) {
-          self.init(unsafeResultMap: ["__typename": "IndividualWorkPlaceDetails", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap])
+        public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty], mainActivity: MainActivity) {
+          self.init(unsafeResultMap: ["__typename": "IndividualWorkPlaceDetails", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap])
         }
 
         public var __typename: String {
@@ -447,6 +453,15 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           }
         }
 
+        public var professionalType: ProfessionalType {
+          get {
+            return ProfessionalType(unsafeResultMap: resultMap["professionalType"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "professionalType")
+          }
+        }
+
         public var specialties: [Specialty] {
           get {
             return (resultMap["specialties"] as! [ResultMap]).map { (value: ResultMap) -> Specialty in Specialty(unsafeResultMap: value) }
@@ -462,6 +477,57 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.resultMap, forKey: "mainActivity")
+          }
+        }
+
+        public struct ProfessionalType: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["KeyedString"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("code", type: .nonNull(.scalar(String.self))),
+              GraphQLField("label", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(code: String, label: String) {
+            self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A unique key that can be used to identify this string
+          public var code: String {
+            get {
+              return resultMap["code"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "code")
+            }
+          }
+
+          /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+          public var label: String {
+            get {
+              return resultMap["label"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "label")
+            }
           }
         }
 
@@ -859,6 +925,7 @@ public final class ActivitiesQuery: GraphQLQuery {
         distance
         activity {
           __typename
+          id
           individual {
             __typename
             id
@@ -867,6 +934,11 @@ public final class ActivitiesQuery: GraphQLQuery {
             lastName
             middleName
             mailingName
+            professionalType {
+              __typename
+              code
+              label
+            }
             specialties {
               __typename
               code
@@ -966,7 +1038,7 @@ public final class ActivitiesQuery: GraphQLQuery {
       public static var selections: [GraphQLSelection] {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("distance", type: .scalar(Int.self)),
+          GraphQLField("distance", type: .scalar(Double.self)),
           GraphQLField("activity", type: .nonNull(.object(Activity.selections))),
         ]
       }
@@ -977,7 +1049,7 @@ public final class ActivitiesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(distance: Int? = nil, activity: Activity) {
+      public init(distance: Double? = nil, activity: Activity) {
         self.init(unsafeResultMap: ["__typename": "ActivityResult", "distance": distance, "activity": activity.resultMap])
       }
 
@@ -990,9 +1062,9 @@ public final class ActivitiesQuery: GraphQLQuery {
         }
       }
 
-      public var distance: Int? {
+      public var distance: Double? {
         get {
-          return resultMap["distance"] as? Int
+          return resultMap["distance"] as? Double
         }
         set {
           resultMap.updateValue(newValue, forKey: "distance")
@@ -1014,6 +1086,7 @@ public final class ActivitiesQuery: GraphQLQuery {
         public static var selections: [GraphQLSelection] {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
             GraphQLField("individual", type: .nonNull(.object(Individual.selections))),
             GraphQLField("workplace", type: .nonNull(.object(Workplace.selections))),
           ]
@@ -1025,8 +1098,8 @@ public final class ActivitiesQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(individual: Individual, workplace: Workplace) {
-          self.init(unsafeResultMap: ["__typename": "ActivityFragment", "individual": individual.resultMap, "workplace": workplace.resultMap])
+        public init(id: GraphQLID, individual: Individual, workplace: Workplace) {
+          self.init(unsafeResultMap: ["__typename": "ActivityFragment", "id": id, "individual": individual.resultMap, "workplace": workplace.resultMap])
         }
 
         public var __typename: String {
@@ -1035,6 +1108,15 @@ public final class ActivitiesQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
           }
         }
 
@@ -1068,6 +1150,7 @@ public final class ActivitiesQuery: GraphQLQuery {
               GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
               GraphQLField("middleName", type: .scalar(String.self)),
               GraphQLField("mailingName", type: .scalar(String.self)),
+              GraphQLField("professionalType", type: .nonNull(.object(ProfessionalType.selections))),
               GraphQLField("specialties", type: .nonNull(.list(.nonNull(.object(Specialty.selections))))),
             ]
           }
@@ -1078,8 +1161,8 @@ public final class ActivitiesQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, specialties: [Specialty]) {
-            self.init(unsafeResultMap: ["__typename": "IndividualFragment", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }])
+          public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty]) {
+            self.init(unsafeResultMap: ["__typename": "IndividualFragment", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -1145,12 +1228,72 @@ public final class ActivitiesQuery: GraphQLQuery {
             }
           }
 
+          public var professionalType: ProfessionalType {
+            get {
+              return ProfessionalType(unsafeResultMap: resultMap["professionalType"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "professionalType")
+            }
+          }
+
           public var specialties: [Specialty] {
             get {
               return (resultMap["specialties"] as! [ResultMap]).map { (value: ResultMap) -> Specialty in Specialty(unsafeResultMap: value) }
             }
             set {
               resultMap.updateValue(newValue.map { (value: Specialty) -> ResultMap in value.resultMap }, forKey: "specialties")
+            }
+          }
+
+          public struct ProfessionalType: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["KeyedString"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("code", type: .nonNull(.scalar(String.self))),
+                GraphQLField("label", type: .nonNull(.scalar(String.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(code: String, label: String) {
+              self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// A unique key that can be used to identify this string
+            public var code: String {
+              get {
+                return resultMap["code"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "code")
+              }
+            }
+
+            /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+            public var label: String {
+              get {
+                return resultMap["label"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "label")
+              }
             }
           }
 
@@ -1480,6 +1623,713 @@ public final class ActivitiesQuery: GraphQLQuery {
                 set {
                   resultMap.updateValue(newValue, forKey: "lon")
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class ActivityByIdQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query ActivityByID($apiKey: String!, $userId: String, $id: ID!, $locale: String) {
+      activityByID(apiKey: $apiKey, userId: $userId, id: $id, locale: $locale) {
+        __typename
+        id
+        phone
+        fax
+        webAddress
+        individual {
+          __typename
+          id
+          firstName
+          lastName
+          middleName
+          mailingName
+          professionalType {
+            __typename
+            code
+            label
+          }
+          specialties {
+            __typename
+            code
+            label
+          }
+        }
+        workplace {
+          __typename
+          name
+          officialName
+          address {
+            __typename
+            longLabel
+            buildingLabel
+            county {
+              __typename
+              code
+              label
+            }
+            city {
+              __typename
+              code
+              label
+            }
+            country
+            postalCode
+            location {
+              __typename
+              lat
+              lon
+            }
+          }
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "ActivityByID"
+
+  public var apiKey: String
+  public var userId: String?
+  public var id: GraphQLID
+  public var locale: String?
+
+  public init(apiKey: String, userId: String? = nil, id: GraphQLID, locale: String? = nil) {
+    self.apiKey = apiKey
+    self.userId = userId
+    self.id = id
+    self.locale = locale
+  }
+
+  public var variables: GraphQLMap? {
+    return ["apiKey": apiKey, "userId": userId, "id": id, "locale": locale]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("activityByID", arguments: ["apiKey": GraphQLVariable("apiKey"), "userId": GraphQLVariable("userId"), "id": GraphQLVariable("id"), "locale": GraphQLVariable("locale")], type: .object(ActivityById.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(activityById: ActivityById? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "activityByID": activityById.flatMap { (value: ActivityById) -> ResultMap in value.resultMap }])
+    }
+
+    public var activityById: ActivityById? {
+      get {
+        return (resultMap["activityByID"] as? ResultMap).flatMap { ActivityById(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "activityByID")
+      }
+    }
+
+    public struct ActivityById: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Activity"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("phone", type: .scalar(String.self)),
+          GraphQLField("fax", type: .scalar(String.self)),
+          GraphQLField("webAddress", type: .scalar(String.self)),
+          GraphQLField("individual", type: .nonNull(.object(Individual.selections))),
+          GraphQLField("workplace", type: .nonNull(.object(Workplace.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(id: GraphQLID, phone: String? = nil, fax: String? = nil, webAddress: String? = nil, individual: Individual, workplace: Workplace) {
+        self.init(unsafeResultMap: ["__typename": "Activity", "id": id, "phone": phone, "fax": fax, "webAddress": webAddress, "individual": individual.resultMap, "workplace": workplace.resultMap])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var id: GraphQLID {
+        get {
+          return resultMap["id"]! as! GraphQLID
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "id")
+        }
+      }
+
+      public var phone: String? {
+        get {
+          return resultMap["phone"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "phone")
+        }
+      }
+
+      public var fax: String? {
+        get {
+          return resultMap["fax"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "fax")
+        }
+      }
+
+      public var webAddress: String? {
+        get {
+          return resultMap["webAddress"] as? String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "webAddress")
+        }
+      }
+
+      public var individual: Individual {
+        get {
+          return Individual(unsafeResultMap: resultMap["individual"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "individual")
+        }
+      }
+
+      public var workplace: Workplace {
+        get {
+          return Workplace(unsafeResultMap: resultMap["workplace"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "workplace")
+        }
+      }
+
+      public struct Individual: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Individual"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("firstName", type: .scalar(String.self)),
+            GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
+            GraphQLField("middleName", type: .scalar(String.self)),
+            GraphQLField("mailingName", type: .scalar(String.self)),
+            GraphQLField("professionalType", type: .nonNull(.object(ProfessionalType.selections))),
+            GraphQLField("specialties", type: .nonNull(.list(.nonNull(.object(Specialty.selections))))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty]) {
+          self.init(unsafeResultMap: ["__typename": "Individual", "id": id, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var firstName: String? {
+          get {
+            return resultMap["firstName"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "firstName")
+          }
+        }
+
+        public var lastName: String {
+          get {
+            return resultMap["lastName"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "lastName")
+          }
+        }
+
+        public var middleName: String? {
+          get {
+            return resultMap["middleName"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "middleName")
+          }
+        }
+
+        public var mailingName: String? {
+          get {
+            return resultMap["mailingName"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "mailingName")
+          }
+        }
+
+        public var professionalType: ProfessionalType {
+          get {
+            return ProfessionalType(unsafeResultMap: resultMap["professionalType"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "professionalType")
+          }
+        }
+
+        public var specialties: [Specialty] {
+          get {
+            return (resultMap["specialties"] as! [ResultMap]).map { (value: ResultMap) -> Specialty in Specialty(unsafeResultMap: value) }
+          }
+          set {
+            resultMap.updateValue(newValue.map { (value: Specialty) -> ResultMap in value.resultMap }, forKey: "specialties")
+          }
+        }
+
+        public struct ProfessionalType: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["KeyedString"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("code", type: .nonNull(.scalar(String.self))),
+              GraphQLField("label", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(code: String, label: String) {
+            self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A unique key that can be used to identify this string
+          public var code: String {
+            get {
+              return resultMap["code"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "code")
+            }
+          }
+
+          /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+          public var label: String {
+            get {
+              return resultMap["label"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "label")
+            }
+          }
+        }
+
+        public struct Specialty: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["KeyedString"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("code", type: .nonNull(.scalar(String.self))),
+              GraphQLField("label", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(code: String, label: String) {
+            self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A unique key that can be used to identify this string
+          public var code: String {
+            get {
+              return resultMap["code"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "code")
+            }
+          }
+
+          /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+          public var label: String {
+            get {
+              return resultMap["label"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "label")
+            }
+          }
+        }
+      }
+
+      public struct Workplace: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Workplace"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("officialName", type: .scalar(String.self)),
+            GraphQLField("address", type: .nonNull(.object(Address.selections))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(name: String, officialName: String? = nil, address: Address) {
+          self.init(unsafeResultMap: ["__typename": "Workplace", "name": name, "officialName": officialName, "address": address.resultMap])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var name: String {
+          get {
+            return resultMap["name"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "name")
+          }
+        }
+
+        public var officialName: String? {
+          get {
+            return resultMap["officialName"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "officialName")
+          }
+        }
+
+        public var address: Address {
+          get {
+            return Address(unsafeResultMap: resultMap["address"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "address")
+          }
+        }
+
+        public struct Address: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["Address"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("longLabel", type: .nonNull(.scalar(String.self))),
+              GraphQLField("buildingLabel", type: .scalar(String.self)),
+              GraphQLField("county", type: .object(County.selections)),
+              GraphQLField("city", type: .nonNull(.object(City.selections))),
+              GraphQLField("country", type: .nonNull(.scalar(String.self))),
+              GraphQLField("postalCode", type: .nonNull(.scalar(String.self))),
+              GraphQLField("location", type: .object(Location.selections)),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(longLabel: String, buildingLabel: String? = nil, county: County? = nil, city: City, country: String, postalCode: String, location: Location? = nil) {
+            self.init(unsafeResultMap: ["__typename": "Address", "longLabel": longLabel, "buildingLabel": buildingLabel, "county": county.flatMap { (value: County) -> ResultMap in value.resultMap }, "city": city.resultMap, "country": country, "postalCode": postalCode, "location": location.flatMap { (value: Location) -> ResultMap in value.resultMap }])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          public var longLabel: String {
+            get {
+              return resultMap["longLabel"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "longLabel")
+            }
+          }
+
+          public var buildingLabel: String? {
+            get {
+              return resultMap["buildingLabel"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "buildingLabel")
+            }
+          }
+
+          public var county: County? {
+            get {
+              return (resultMap["county"] as? ResultMap).flatMap { County(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "county")
+            }
+          }
+
+          public var city: City {
+            get {
+              return City(unsafeResultMap: resultMap["city"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "city")
+            }
+          }
+
+          public var country: String {
+            get {
+              return resultMap["country"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "country")
+            }
+          }
+
+          public var postalCode: String {
+            get {
+              return resultMap["postalCode"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "postalCode")
+            }
+          }
+
+          public var location: Location? {
+            get {
+              return (resultMap["location"] as? ResultMap).flatMap { Location(unsafeResultMap: $0) }
+            }
+            set {
+              resultMap.updateValue(newValue?.resultMap, forKey: "location")
+            }
+          }
+
+          public struct County: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["KeyedString"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("code", type: .nonNull(.scalar(String.self))),
+                GraphQLField("label", type: .nonNull(.scalar(String.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(code: String, label: String) {
+              self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// A unique key that can be used to identify this string
+            public var code: String {
+              get {
+                return resultMap["code"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "code")
+              }
+            }
+
+            /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+            public var label: String {
+              get {
+                return resultMap["label"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "label")
+              }
+            }
+          }
+
+          public struct City: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["KeyedString"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("code", type: .nonNull(.scalar(String.self))),
+                GraphQLField("label", type: .nonNull(.scalar(String.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(code: String, label: String) {
+              self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// A unique key that can be used to identify this string
+            public var code: String {
+              get {
+                return resultMap["code"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "code")
+              }
+            }
+
+            /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+            public var label: String {
+              get {
+                return resultMap["label"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "label")
+              }
+            }
+          }
+
+          public struct Location: GraphQLSelectionSet {
+            public static let possibleTypes: [String] = ["Geopoint"]
+
+            public static var selections: [GraphQLSelection] {
+              return [
+                GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+                GraphQLField("lat", type: .nonNull(.scalar(Double.self))),
+                GraphQLField("lon", type: .nonNull(.scalar(Double.self))),
+              ]
+            }
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(lat: Double, lon: Double) {
+              self.init(unsafeResultMap: ["__typename": "Geopoint", "lat": lat, "lon": lon])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            public var lat: Double {
+              get {
+                return resultMap["lat"]! as! Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "lat")
+              }
+            }
+
+            public var lon: Double {
+              get {
+                return resultMap["lon"]! as! Double
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "lon")
               }
             }
           }

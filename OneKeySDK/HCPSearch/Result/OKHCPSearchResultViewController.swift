@@ -83,7 +83,11 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     func layoutWith(searchData: OKHCPSearchData) {
         activityCountLabel.text = "\(searchData.result.count)"
         criteriaLabel.text = searchData.code?.longLbl ?? searchData.criteria
-        addressLabel.text = searchData.address
+        if searchData.isNearMeSearch == true {
+            addressLabel.text = kNearMeTitle
+        } else {
+            addressLabel.text = searchData.address
+        }
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -131,7 +135,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                     return lhs.activity.individual.mailingName ?? "" < rhs.activity.individual.mailingName ?? ""
                 }
             case .distance:
-                break
+                newList.sort { (lhs, rhs) -> Bool in
+                    return lhs.distance ?? 0 < rhs.distance ?? 0
+                }
             case .relevance:
                 break
             }
@@ -164,7 +170,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                 if let desVC = segue.destination as? OKHCPFullCardViewController {
                     desVC.theme = theme
                     if let activity = sender as? ActivityResult {
-                        desVC.activity = activity
+                        desVC.activityID = activity.activity.id
                     }
                 }
             default:
@@ -202,6 +208,9 @@ extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
         if let designAbleVC = viewController as? OKViewDesign {
             var editableVC = designAbleVC
             editableVC.theme = theme
+            if let theme = theme {
+                editableVC.layoutWith(theme: theme)
+            }
         }
         
         if let activityList = viewController as? OKActivityList {

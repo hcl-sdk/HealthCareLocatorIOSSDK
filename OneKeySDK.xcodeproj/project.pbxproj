@@ -27,6 +27,8 @@
 		5848D6DA256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */; };
 		585116AD256E42BC00E5C7D3 /* OKSortableResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */; };
 		5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */; };
+		5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659269258B0D8C00A9A950 /* FullCardViewModel.swift */; };
+		58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659280258B23F500A9A950 /* Optional+Additional.swift */; };
 		5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875442C25885E5A0000C126 /* SearchAutoComplete.swift */; };
 		587544312588790B0000C126 /* Mock-Codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 587544302588790B0000C126 /* Mock-Codes.json */; };
 		58754435258879390000C126 /* Mock-Individuals.json in Resources */ = {isa = PBXBuildFile; fileRef = 58754434258879390000C126 /* Mock-Individuals.json */; };
@@ -55,6 +57,7 @@
 		58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */; };
 		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
 		58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */; };
+		58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B30B21258A24E90036442F /* Mock-Activity-Detail.json */; };
 		58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */; };
 		58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */; };
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
@@ -136,6 +139,8 @@
 		5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultSortViewController.swift; sourceTree = "<group>"; };
 		585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSortableResultList.swift; sourceTree = "<group>"; };
 		5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputAutocompleteViewModel.swift; sourceTree = "<group>"; };
+		58659269258B0D8C00A9A950 /* FullCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCardViewModel.swift; sourceTree = "<group>"; };
+		58659280258B23F500A9A950 /* Optional+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Additional.swift"; sourceTree = "<group>"; };
 		5875442C25885E5A0000C126 /* SearchAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoComplete.swift; sourceTree = "<group>"; };
 		587544302588790B0000C126 /* Mock-Codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Codes.json"; sourceTree = "<group>"; };
 		58754434258879390000C126 /* Mock-Individuals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Individuals.json"; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchNavigationViewController.swift; sourceTree = "<group>"; };
 		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
 		58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPFullCardViewController.swift; sourceTree = "<group>"; };
+		58B30B21258A24E90036442F /* Mock-Activity-Detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activity-Detail.json"; sourceTree = "<group>"; };
 		58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesProtocol.swift; sourceTree = "<group>"; };
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 				5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */,
 				58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */,
 				582854FE2589E9020090FA68 /* SearchResultViewModel.swift */,
+				58659269258B0D8C00A9A950 /* FullCardViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -374,6 +381,7 @@
 		58B6A75B255AA12000C1F6AF /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				58B30B21258A24E90036442F /* Mock-Activity-Detail.json */,
 				58754434258879390000C126 /* Mock-Individuals.json */,
 				587544302588790B0000C126 /* Mock-Codes.json */,
 				5891621E25875F41006C1E6C /* Mock-Activities.json */,
@@ -484,6 +492,7 @@
 				58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */,
 				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
 				58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */,
+				58659280258B23F500A9A950 /* Optional+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 				587D234C256528480009EA01 /* Query.graphql in Resources */,
 				58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */,
 				587544312588790B0000C126 /* Mock-Codes.json in Resources */,
+				58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */,
 				58A3647C2554F69C00C62479 /* OneKeySDK.podspec in Resources */,
 				58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */,
 				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
@@ -744,6 +754,7 @@
 				58BAEE462574F10A003C5383 /* OKSearchHistoryViewModel.swift in Sources */,
 				58BAEE4C2574F2FC003C5383 /* OKSearchHistoryDataSource.swift in Sources */,
 				5848D6C4256E144E00217EFC /* OKHCPSearchData.swift in Sources */,
+				58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */,
 				58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */,
 				5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */,
 				58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */,
@@ -759,6 +770,7 @@
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,
 				5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */,
+				5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */,
 				5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */,
 				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
 				58CF586725760340001ACD6C /* OkDatabase.swift in Sources */,
