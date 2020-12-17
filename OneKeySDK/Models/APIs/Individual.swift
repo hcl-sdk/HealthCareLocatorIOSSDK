@@ -23,6 +23,7 @@ struct IndividualWorkPlaceDetails: Codable {
     let middleName: String?
     let mailingName: String?
     let specialties: [KeyedString]
+    let professionalType: KeyedString?
     let mainActivity: IndividualWorkPlaceDetails.Activity!
 }
 

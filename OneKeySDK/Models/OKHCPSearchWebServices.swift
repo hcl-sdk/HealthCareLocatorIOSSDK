@@ -9,6 +9,31 @@ import Foundation
 import Apollo
 
 class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
+    func fetchActivityWith(apiKey: String,
+                           userId: String?,
+                           id: String!,
+                           locale: String?,
+                           manager: OKServiceManager,
+                           completionHandler: @escaping ((Activity?, Error?) -> Void)) {
+        let query = ActivityByIdQuery(apiKey: apiKey,
+                                      userId: userId,
+                                      id: id,
+                                      locale: locale)
+        manager.apollo.fetch(query: query) { result in
+            switch result {
+            case .success(let response):
+                if let json = response.data?.activityById?.jsonObject,
+                   let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .fragmentsAllowed),
+                   let result = try? JSONDecoder().decode(Activity.self, from: jsonData) {
+                    completionHandler(result, nil)
+                }
+                break
+            case .failure(let error):
+                completionHandler(nil, error)
+            }
+        }
+    }
+    
 
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
@@ -79,7 +104,7 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
                                     specialties: specialties,
                                     county: county,
                                     criteria: criteria,
-                                    location: nil)
+                                    location: location)
         manager.apollo.fetch(query: query) { result in
             switch result {
             case .success(let response):

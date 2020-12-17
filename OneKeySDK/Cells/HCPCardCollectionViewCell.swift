@@ -38,9 +38,8 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         distanceLabel.textColor = theme?.darkColor
         
         drLabel.text = item.activity.individual.composedName
-        categoryLabel.text = item.activity.individual.specialties.first?.label
+        categoryLabel.text = item.activity.individual.professionalType?.label
         addressLabel.text = item.activity.workplace.address.composedAddress
-//        parentWorkplaceLabel.text = item.activity.workplace
-        distanceLabel.text = "500m"
+        distanceLabel.text = "\(Int(item.distance ?? 0))m"
     }
 }

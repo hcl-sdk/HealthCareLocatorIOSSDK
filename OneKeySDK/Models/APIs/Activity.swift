@@ -12,23 +12,26 @@ struct ActivityResponse: Codable {
 }
 
 struct ActivityResult: Codable {
-    let distance: Int!
+    let distance: Double?
     let activity: Activity!
 }
 
 struct Activity: Codable {
     let id: String!
+    let phone: String?
+    let fax: String?
+    let webAddress: String?
     let individual: Individual!
     let workplace: Workplace!
 }
 
 struct Individual: Codable {
     let id: String!
-    let title: String?
     let firstName: String?
     let lastName: String!
     let middleName: String?
     let mailingName: String?
+    let professionalType: KeyedString?
     let specialties: [KeyedString]
 }
 
@@ -42,6 +45,7 @@ extension Individual {
 }
 
 struct Workplace: Codable {
+    let name: String?
     let address: Address!
 }
 
@@ -56,6 +60,7 @@ struct Address: Codable {
     let county: KeyedString?
     let city: KeyedString!
     let country: String!
+    let postalCode: String?
     let location: Geopoint?
 }
 
@@ -66,11 +71,6 @@ extension Address {
         if let city = city {
             addComponents.append(city.label)
         }
-        
-//        if let county = county {
-//            addComponents.append(county.label)
-//        }
-//        addComponents.append(country)
         return addComponents.joined(separator: ", ")
     }
 }
