@@ -178,6 +178,13 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
                     desVC.data = data
                     desVC.theme = theme
                 }
+            case "showFullCardVC":
+                if let desVC = segue.destination as? OKHCPFullCardViewController {
+                    desVC.theme = theme
+                    if let individual = sender as? IndividualWorkPlaceDetails {
+                        desVC.activityID = individual.mainActivity.id
+                    }
+                }
             default:
                 return
             }
@@ -244,8 +251,8 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
             categorySearchTextField.text = code.longLbl
             searchInputAutocompleteModelView.set(code: code)
             locationSearchTextField.becomeFirstResponder()
-        default:
-            break
+        case .Individual(let individual):
+            performSegue(withIdentifier: "showFullCardVC", sender: individual)
         }
     }
 }
