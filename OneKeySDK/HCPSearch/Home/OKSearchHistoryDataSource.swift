@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol OKSearchHistoryDataSourceDelegate: class {
+    func didSelectNearMeSearch()
     func didSelect(activity: ActivityResult)
     func didSelect(search: OKHCPLastSearch)
     func shouldRemoveActivityAt(indexPath: IndexPath)
@@ -16,6 +17,7 @@ protocol OKSearchHistoryDataSourceDelegate: class {
 }
 
 extension OKSearchHistoryDataSourceDelegate {
+    func didSelectNearMeSearch() {}
     func didSelect(activity: ActivityResult) {}
     func didSelect(search: OKHCPLastSearch) {}
 }
@@ -115,6 +117,7 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
             case .nearMe(_, let activities):
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityMapTableViewCell") as! ActivityMapTableViewCell
                 cell.configWith(theme: theme, activities: activities, isLastRow: true)
+                cell.delegate = self.delegate
                 return cell
             case .lastSearchs(_ , let searches):
                 let search = searches[indexPath.row - 1]
@@ -145,6 +148,8 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
             switch data[indexPath.section] {
+            case .nearMe:
+                delegate?.didSelectNearMeSearch()
             case .lastSearchs(_, let searches):
                 delegate?.didSelect(search: searches[indexPath.row - 1])
             case .lasHCPConsolted(_, let activities):

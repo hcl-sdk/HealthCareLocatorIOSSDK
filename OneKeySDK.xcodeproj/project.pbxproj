@@ -33,7 +33,7 @@
 		587544312588790B0000C126 /* Mock-Codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 587544302588790B0000C126 /* Mock-Codes.json */; };
 		58754435258879390000C126 /* Mock-Individuals.json in Resources */ = {isa = PBXBuildFile; fileRef = 58754434258879390000C126 /* Mock-Individuals.json */; };
 		58754439258879860000C126 /* Codes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58754438258879860000C126 /* Codes.swift */; };
-		5876089B256E666800F44787 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5876089A256E666800F44787 /* Config.swift */; };
+		5876089B256E666800F44787 /* OKSearchConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5876089A256E666800F44787 /* OKSearchConfigure.swift */; };
 		587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */; };
 		587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */; };
 		587D2307256515680009EA01 /* OKServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D2306256515680009EA01 /* OKServiceManager.swift */; };
@@ -82,6 +82,7 @@
 		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
 		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
 		58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* OKIndexAble.swift */; };
+		58D46590258C8E9B0084FA7A /* OKLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */; };
 		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
 		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
 		58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */; };
@@ -103,8 +104,8 @@
 		58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */; };
 		58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */; };
 		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
-		9CE39F2686627FD0488ED9FA /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
-		B95DE34E6A85CBE22A674692 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */; };
+		68D6E2B8C6FD80D8E43E6DBC /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98B2E6204F8C9E73635A9C /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
+		B6F023121E1352AAD3DE4931 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +119,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A943288E8B4ADB0D0D2B606 /* Pods-OneKeySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.release.xcconfig"; sourceTree = "<group>"; };
+		358A41ADC4BAB55B22E4961D /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkManagerDelegate.swift; sourceTree = "<group>"; };
 		58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
 		58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodeAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 		587544302588790B0000C126 /* Mock-Codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Codes.json"; sourceTree = "<group>"; };
 		58754434258879390000C126 /* Mock-Individuals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Individuals.json"; sourceTree = "<group>"; };
 		58754438258879860000C126 /* Codes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codes.swift; sourceTree = "<group>"; };
-		5876089A256E666800F44787 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5876089A256E666800F44787 /* OKSearchConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchConfigure.swift; sourceTree = "<group>"; };
 		587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewController.swift; sourceTree = "<group>"; };
 		587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		587D2306256515680009EA01 /* OKServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKServiceManager.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		58CF588225766017001ACD6C /* OKIndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIndexAble.swift; sourceTree = "<group>"; };
+		58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKLocationManager.swift; sourceTree = "<group>"; };
 		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
 		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
 		58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPickerTableViewCell.xib; sourceTree = "<group>"; };
@@ -218,11 +221,10 @@
 		58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additional.swift"; sourceTree = "<group>"; };
 		58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKThemeConfigure.swift; sourceTree = "<group>"; };
 		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
-		6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.release.xcconfig"; sourceTree = "<group>"; };
-		B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
-		FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		964CD8A5EBED03C47FEE38AC /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4495B23A6AA127EB7CFA4F6 /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
+		EB98B2E6204F8C9E73635A9C /* Pods_OneKeySDK_OneKeySDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK_OneKeySDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +234,7 @@
 			files = (
 				584394672559501C009D2306 /* MapKit.framework in Frameworks */,
 				584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */,
-				B95DE34E6A85CBE22A674692 /* Pods_OneKeySDK.framework in Frameworks */,
+				B6F023121E1352AAD3DE4931 /* Pods_OneKeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A3645E2554F64700C62479 /* OneKeySDK.framework in Frameworks */,
-				9CE39F2686627FD0488ED9FA /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */,
+				68D6E2B8C6FD80D8E43E6DBC /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +373,10 @@
 				58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */,
 				5848D6B9256E10C700217EFC /* Constants.swift */,
 				5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */,
-				5876089A256E666800F44787 /* Config.swift */,
+				5876089A256E666800F44787 /* OKSearchConfigure.swift */,
 				58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */,
 				5875442C25885E5A0000C126 /* SearchAutoComplete.swift */,
+				58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -502,8 +505,8 @@
 			children = (
 				584394662559501C009D2306 /* MapKit.framework */,
 				584393FC255906F8009D2306 /* CoreLocation.framework */,
-				C43219F42937BE26EE19A0C4 /* Pods_OneKeySDK.framework */,
-				5686BA11438B61A584F8AA6C /* Pods_OneKeySDK_OneKeySDKTests.framework */,
+				B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */,
+				EB98B2E6204F8C9E73635A9C /* Pods_OneKeySDK_OneKeySDKTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -511,10 +514,10 @@
 		A0B0A026CE3C0EB6B2894D5B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */,
-				6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */,
-				FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */,
-				B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */,
+				D4495B23A6AA127EB7CFA4F6 /* Pods-OneKeySDK.debug.xcconfig */,
+				2A943288E8B4ADB0D0D2B606 /* Pods-OneKeySDK.release.xcconfig */,
+				964CD8A5EBED03C47FEE38AC /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */,
+				358A41ADC4BAB55B22E4961D /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -537,7 +540,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364682554F64700C62479 /* Build configuration list for PBXNativeTarget "OneKeySDK" */;
 			buildPhases = (
-				A22514AAA0640282271EF556 /* [CP] Check Pods Manifest.lock */,
+				D7E32E14834CF94AC434DB8F /* [CP] Check Pods Manifest.lock */,
 				58A3644F2554F64700C62479 /* Headers */,
 				58A364502554F64700C62479 /* Sources */,
 				58A364512554F64700C62479 /* Frameworks */,
@@ -556,11 +559,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A3646B2554F64700C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKTests" */;
 			buildPhases = (
-				69BA866A4373CDCAD772FD58 /* [CP] Check Pods Manifest.lock */,
+				A6CDCAE79CFA585D2AFF221C /* [CP] Check Pods Manifest.lock */,
 				58A364592554F64700C62479 /* Sources */,
 				58A3645A2554F64700C62479 /* Frameworks */,
 				58A3645B2554F64700C62479 /* Resources */,
-				F615B2E2B444350BBD4653BC /* [CP] Embed Pods Frameworks */,
+				48DC559C533394DD50D60B59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -648,7 +651,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69BA866A4373CDCAD772FD58 /* [CP] Check Pods Manifest.lock */ = {
+		48DC559C533394DD50D60B59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6CDCAE79CFA585D2AFF221C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,7 +690,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A22514AAA0640282271EF556 /* [CP] Check Pods Manifest.lock */ = {
+		D7E32E14834CF94AC434DB8F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -692,23 +712,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F615B2E2B444350BBD4653BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -725,7 +728,7 @@
 				58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */,
 				58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */,
 				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
-				5876089B256E666800F44787 /* Config.swift in Sources */,
+				5876089B256E666800F44787 /* OKSearchConfigure.swift in Sources */,
 				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,
 				58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */,
 				588A99F32574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift in Sources */,
@@ -784,6 +787,7 @@
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
 				58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */,
 				58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */,
+				58D46590258C8E9B0084FA7A /* OKLocationManager.swift in Sources */,
 				5891626925878831006C1E6C /* Activity.swift in Sources */,
 				58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */,
 			);
@@ -932,7 +936,7 @@
 		};
 		58A364692554F64700C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C98E6623F35A918F9904AFBD /* Pods-OneKeySDK.debug.xcconfig */;
+			baseConfigurationReference = D4495B23A6AA127EB7CFA4F6 /* Pods-OneKeySDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -963,7 +967,7 @@
 		};
 		58A3646A2554F64700C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A2451E68376B29C7DADC22E /* Pods-OneKeySDK.release.xcconfig */;
+			baseConfigurationReference = 2A943288E8B4ADB0D0D2B606 /* Pods-OneKeySDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -993,7 +997,7 @@
 		};
 		58A3646C2554F64700C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAAC5C6018E791987AB3C9F0 /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */;
+			baseConfigurationReference = 964CD8A5EBED03C47FEE38AC /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1013,7 +1017,7 @@
 		};
 		58A3646D2554F64700C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B52F94ED0C0C5BF2FE88C511 /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */;
+			baseConfigurationReference = 358A41ADC4BAB55B22E4961D /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

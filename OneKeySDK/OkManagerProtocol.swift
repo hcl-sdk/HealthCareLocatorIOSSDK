@@ -8,6 +8,9 @@
 import Foundation
 
 protocol OkManagerProtocol {
+    func initialize(apiKey: String)
+    func configure(search: OKSearchConfigure)
+    func getDefaultSearchConfigure() -> OKSearchConfigure
     func getDefaultUIConfigure() -> OKThemeConfigure
     func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController
 }

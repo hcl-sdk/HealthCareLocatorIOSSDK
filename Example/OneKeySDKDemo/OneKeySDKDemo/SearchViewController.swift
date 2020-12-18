@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // Get manager and assign the delegate to listen for search process events
         let shared = OKManager.shared
+        shared.initialize(apiKey: "1")
+        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases))
         shared.delegate = self
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController(fullMode: AppSettings.fullHomeModeEnabled)

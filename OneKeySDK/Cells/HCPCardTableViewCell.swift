@@ -35,6 +35,11 @@ class HCPCardTableViewCell: UITableViewCell {
         drLabel.text = item.activity.individual.composedName
         categoryLabel.text = item.activity.individual.professionalType?.label
         addressLabel.text = item.activity.workplace.address.composedAddress
-        distanceLabel.text = "\(Int(item.distance ?? 0))m"
+        let distance = Int(item.distance ?? 0)
+        if distance > 0 {
+            distanceLabel.text = "\(distance)m"
+        } else {
+            distanceLabel.isHidden = true
+        }
     }
 }

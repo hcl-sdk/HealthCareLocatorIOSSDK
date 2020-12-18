@@ -101,9 +101,11 @@ class OKHCPSearchResultListViewController: UITableViewController, OKActivityList
 extension OKHCPSearchResultListViewController: OkSortableResultList {
     func reloadWith(data: [ActivityResult]) {
         result = data
-        tableView.beginUpdates()
-        let sections = NSIndexSet(indexesIn: NSRange(location: 0, length: tableView.numberOfSections))
-        tableView.reloadSections(sections as IndexSet, with: .automatic)
-        tableView.endUpdates()
+        if isViewLoaded {
+            tableView.beginUpdates()
+            let sections = NSIndexSet(indexesIn: NSRange(location: 0, length: tableView.numberOfSections))
+            tableView.reloadSections(sections as IndexSet, with: .automatic)
+            tableView.endUpdates()
+        }
     }
 }

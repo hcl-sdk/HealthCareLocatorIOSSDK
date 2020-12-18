@@ -22,6 +22,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
     
     // Address
+    var data: OKHCPSearchData?
     private let searchCompleter = MKLocalSearchCompleter()
     private var searchResult = [SearchAutoComplete]() {
         didSet {
@@ -67,6 +68,10 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
             layoutWith(theme: theme)
         }
         
+        if let data = data {
+            initializeWith(data: data)
+        }
+        
         setupDataBinding()
     }
 
@@ -78,6 +83,11 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         view.endEditing(false)
+    }
+    
+    func initializeWith(data: OKHCPSearchData) {
+        locationSearchTextField.text = (data.isNearMeSearch == true || data.isQuickNearMeSearch == true) ? kNearMeTitle : data.address
+        searchInputAutocompleteModelView.set(data: data)
     }
     
     func setupDataBinding() {
@@ -135,6 +145,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     
     @IBAction func onSearchAction(_ sender: Any) {
         let validator = SearchInputValidator()
+        // Search near me criteria is not mandatory
         let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
         
         if !isCriteriaValid {
@@ -142,10 +153,26 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         }
         
         if isCriteriaValid {
-            performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
-                                 code: searchInputAutocompleteModelView.selectedCode,
-                                 address: searchInputAutocompleteModelView.address,
-                                 isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+            if searchInputAutocompleteModelView.isNearMeSearch {
+                OKLocationManager.shared.requestAuthorization {[weak self] (status) in
+                    guard let strongSelf = self else {return}
+                    switch status {
+                    case .authorizedAlways, .authorizedWhenInUse:
+                        strongSelf.performSearchingWith(criteria: strongSelf.searchInputAutocompleteModelView.creteria,
+                                                        code: strongSelf.searchInputAutocompleteModelView.selectedCode,
+                                                        address: strongSelf.searchInputAutocompleteModelView.address,
+                                                        isNearMeSearch: strongSelf.searchInputAutocompleteModelView.isNearMeSearch)
+                    default:
+                        // TODO: Handle error
+                        break
+                    }
+                }
+            } else {
+                performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
+                                     code: searchInputAutocompleteModelView.selectedCode,
+                                     address: searchInputAutocompleteModelView.address,
+                                     isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+            }
         }
     }
     
@@ -158,6 +185,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
                                          code: code,
                                          address: address,
                                          isNearMeSearch: isNearMeSearch,
+                                         isQuickNearMeSearch: false,
                                          result: [])
         performSegue(withIdentifier: "showResultVC", sender: searchData)
     }

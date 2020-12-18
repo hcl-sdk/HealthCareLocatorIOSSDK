@@ -934,6 +934,7 @@ public final class ActivitiesQuery: GraphQLQuery {
       ) {
         __typename
         distance
+        relevance
         activity {
           __typename
           id
@@ -1050,6 +1051,7 @@ public final class ActivitiesQuery: GraphQLQuery {
         return [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("distance", type: .scalar(Double.self)),
+          GraphQLField("relevance", type: .scalar(Int.self)),
           GraphQLField("activity", type: .nonNull(.object(Activity.selections))),
         ]
       }
@@ -1060,8 +1062,8 @@ public final class ActivitiesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(distance: Double? = nil, activity: Activity) {
-        self.init(unsafeResultMap: ["__typename": "ActivityResult", "distance": distance, "activity": activity.resultMap])
+      public init(distance: Double? = nil, relevance: Int? = nil, activity: Activity) {
+        self.init(unsafeResultMap: ["__typename": "ActivityResult", "distance": distance, "relevance": relevance, "activity": activity.resultMap])
       }
 
       public var __typename: String {
@@ -1079,6 +1081,15 @@ public final class ActivitiesQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "distance")
+        }
+      }
+
+      public var relevance: Int? {
+        get {
+          return resultMap["relevance"] as? Int
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "relevance")
         }
       }
 
