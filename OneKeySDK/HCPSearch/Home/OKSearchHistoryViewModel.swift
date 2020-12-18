@@ -58,37 +58,11 @@ class OKSearchHistoryViewModel {
         self.webService = webService
     }
     
-    func performSearchingWith(criteria: String!,
-                              location: CLLocationCoordinate2D?,
-                              completion: @escaping ((Result<[ActivityResult], Error>) -> Void)) {
-        let info = GeneralQueryInput(apiKey: "1",
-                                     first: 50,
-                                     offset: 0,
-                                     userId: nil,
-                                     locale: "en")
-        webService.fetchActivitiesWith(info: info,
-                                       specialties: nil,
-                                       location: nil,
-                                       county: "",
-                                       criteria: criteria,
-                                       manager: OKServiceManager.shared) { (result, error) in
-            if let error = error {
-                completion(.failure(error))
-            } else if let unwrapResult = result {
-                completion(.success(unwrapResult))
-            } else {
-                completion(.success([]))
-            }
-        }
-    }
-    
     func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
         var mockData = MockOKHCPSearchWebServices().getMockActivities()
         mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockActivities())
-        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockActivities())
 
         var lastSearches = OKDatabase.getLastSearchesHistory()
-        lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
         lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
 
         let mockResult = [HistorySection.nearMe(title: "HCPs near me", activities: mockData),

@@ -6,8 +6,6 @@ target 'OneKeySDK' do
   use_frameworks!
 
   # Pods for OneKeySDK
-  pod 'Moya'
-  pod 'SDWebImage'
   pod 'Apollo'
   pod 'RxSwift'
   pod 'RxCocoa'

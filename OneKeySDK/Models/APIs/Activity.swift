@@ -13,6 +13,7 @@ struct ActivityResponse: Codable {
 
 struct ActivityResult: Codable {
     let distance: Double?
+    let relevance: Int?
     let activity: Activity!
 }
 

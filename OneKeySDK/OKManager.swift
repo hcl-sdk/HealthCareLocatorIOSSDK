@@ -24,6 +24,9 @@ public class OKManager: NSObject {
     static public let shared = OKManager()
     lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
 
+    private(set) var apiKey: String?
+    private(set) var searchConfigure: OKSearchConfigure?
+    
     /**
      The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
      - Note:
@@ -35,16 +38,34 @@ public class OKManager: NSObject {
 }
 
 
-extension OKManager: OkManagerProtocol {    
+extension OKManager: OkManagerProtocol {
+    /**
+     The API key provide by the provisioning tools to authenticate with server, you need it to be set before using the searching
+     - Important: the API key **MUST** be set before using the *Search* features OR it will raise an exception at run time
+     */
+    public func initialize(apiKey: String) {
+        self.apiKey = apiKey
+    }
+    
+    /**
+     The configuration for HCP/HCO searching
+     */
+    public func configure(search: OKSearchConfigure) {
+        self.searchConfigure = search
+    }
+    
+    /**
+     The default configuration for HCP/HCO searching will be use if no configure set
+     */
+    public func getDefaultSearchConfigure() -> OKSearchConfigure {
+        return OKSearchConfigure(favourites: Specialities.allCases)
+    }
+    
     /**
      Retrive the instant for the HCP search process
      - Returns: The navigation controller of the search HCP process
      */
     public func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController {
-//        guard let searchVC = UIStoryboard(name: "HCPSearch",
-//                                          bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchViewController") as? OKHCPSearchNavigationViewController else {
-//            fatalError("Unable to load search screen")
-//        }
         let searchVC = OKHCPSearchNavigationViewController(fullMode: fullMode)
         return searchVC
     }

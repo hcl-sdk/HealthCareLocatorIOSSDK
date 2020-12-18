@@ -88,6 +88,10 @@ extension SearchInputAutocompleteViewModel {
 }
 
 extension SearchInputAutocompleteViewModel {
+    func set(data: OKHCPSearchData) {
+        set(isNearMeSearch: (data.isNearMeSearch == true || data.isQuickNearMeSearch == true))
+    }
+    
     func set(criteria: String) {
         self.creteria = criteria
         self.selectedCode = nil

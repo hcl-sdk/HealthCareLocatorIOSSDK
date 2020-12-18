@@ -77,6 +77,7 @@ class OKHCPSearchResultSortViewController: UIViewController {
     }
     
     @IBAction func resetAction(_ sender: Any) {
+        sort = .relevance
     }
     
     @IBAction func applyAction(_ sender: Any) {

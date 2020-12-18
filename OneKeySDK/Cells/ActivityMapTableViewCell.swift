@@ -13,6 +13,8 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    weak var delegate: OKSearchHistoryDataSourceDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         mapView.isRotateEnabled = false
@@ -30,6 +32,9 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
         }
     }
     
+    @IBAction func onTapAction(_ sender: Any) {
+        delegate?.didSelectNearMeSearch()
+    }
     
 }
 

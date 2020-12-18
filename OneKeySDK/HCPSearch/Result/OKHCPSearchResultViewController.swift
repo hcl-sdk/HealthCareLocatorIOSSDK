@@ -25,6 +25,11 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     private var searchResultViewModel: SearchResultViewModel?
     
+    @IBOutlet weak var topLabelsWrapper: UIStackView!
+    @IBOutlet weak var topInputWrapper: UIStackView!
+    @IBOutlet weak var topInputTextField: UITextField!
+    @IBOutlet weak var searchButton: OKBaseButton!
+    
     @IBOutlet weak var bodyWrapper: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var firstSeparatorView: UIView!
@@ -38,6 +43,8 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topInputTextField.delegate = self
+        
         if let search = data {
             searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(), search: search)
         }
@@ -83,6 +90,21 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     func layoutWith(searchData: OKHCPSearchData) {
         activityCountLabel.text = "\(searchData.result.count)"
         criteriaLabel.text = searchData.code?.longLbl ?? searchData.criteria
+        // Display map by default if the user active near me search at home screen
+        if searchData.isQuickNearMeSearch == true {
+            topInputWrapper.isHidden = false
+            topLabelsWrapper.isHidden = true
+            if let viewMapVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultMapViewController") as? OKHCPSearchResultMapViewController {
+                viewMapVC.result = result
+                viewMapVC.theme = theme
+                displayModeSegmentView.selectedIndex = 1
+                resultNavigationVC.pushViewController(viewMapVC, animated: false)
+            }
+        } else {
+            topInputWrapper.isHidden = true
+            topLabelsWrapper.isHidden = false
+        }
+        
         if searchData.isNearMeSearch == true {
             addressLabel.text = kNearMeTitle
         } else {
@@ -95,7 +117,8 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         criteriaLabel.font = theme.searchResultTitleFont
         addressLabel.font = theme.smallFont
         activityCountLabel.font = theme.smallFont
-
+        topInputTextField.font = theme.searchInputFont
+        
         // Colors
         sortButton.backgroundColor = theme.secondaryColor
         activityCountLabel.textColor = theme.primaryColor
@@ -104,6 +127,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         backButton.tintColor = theme.darkColor
         firstSeparatorView.backgroundColor = theme.greyLighterColor
         secondSeparatorView.backgroundColor = theme.greyLighterColor
+        topInputTextField.textColor = theme.darkColor
+        topInputTextField.attributedPlaceholder = NSAttributedString(string: "Find Healthcare Professional",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         
         displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "list-view"),
                                                               title: "List View",
@@ -125,25 +151,20 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onSearchAction(_ sender: Any) {
+        performSegue(withIdentifier: "showSearchInputVC", sender: OKHCPSearchData(criteria: nil,
+                                                                                  code: nil,
+                                                                                  address: nil,
+                                                                                  isNearMeSearch: true,
+                                                                                  isQuickNearMeSearch: true))
+    }
     
     func sortResultBy(sort: OKHCPSearchResultSortViewController.SortBy) {
-        if let resultList = data?.result {
-            var newList = resultList
-            switch sort {
-            case .name:
-                newList.sort { (lhs, rhs) -> Bool in
-                    return lhs.activity.individual.mailingName ?? "" < rhs.activity.individual.mailingName ?? ""
-                }
-            case .distance:
-                newList.sort { (lhs, rhs) -> Bool in
-                    return lhs.distance ?? 0 < rhs.distance ?? 0
-                }
-            case .relevance:
-                break
-            }
-            data?.change(result: newList)
-            reloadWith(data: data!)
-        }
+        searchResultViewModel?.sortResultBy(sort, {[weak self] (data) in
+            guard let strongSelf = self else {return}
+            strongSelf.data = data
+            strongSelf.reloadWith(data: data)
+        })
     }
     
     // MARK: - Navigation
@@ -171,6 +192,13 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                     desVC.theme = theme
                     if let activity = sender as? ActivityResult {
                         desVC.activityID = activity.activity.id
+                    }
+                }
+            case "showSearchInputVC":
+                if let desVC = segue.destination as? OKHCPSearchInputViewController {
+                    desVC.theme = theme
+                    if let data = sender as? OKHCPSearchData {
+                        desVC.data = data
                     }
                 }
             default:
@@ -223,5 +251,17 @@ extension OKHCPSearchResultViewController: UINavigationControllerDelegate {
 extension OKHCPSearchResultViewController: OKActivityHandler {
     func didSelect(activity: ActivityResult) {
         performSegue(withIdentifier: "showFullCardVC", sender: activity)
+    }
+}
+
+extension OKHCPSearchResultViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == topInputTextField {
+            performSegue(withIdentifier: "showSearchInputVC", sender: OKHCPSearchData(criteria: nil,
+                                                                                      code: nil,
+                                                                                      address: nil,
+                                                                                      isNearMeSearch: true,
+                                                                                      isQuickNearMeSearch: true))
+        }
     }
 }

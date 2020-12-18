@@ -34,7 +34,7 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActi
         super.viewDidLoad()
         configure(manager: locationManager)
         configure(mapView: mapView)
-        addMapPinFor(result: result)
+        reloadWith(data: result)
     }
     
     private func configure(manager: CLLocationManager) {
@@ -153,6 +153,9 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
 extension OKHCPSearchResultMapViewController: OkSortableResultList {
     func reloadWith(data: [ActivityResult]) {
         result = data
-        cardCollectionViewController.reloadWith(data: data)
+        if isViewLoaded {
+            addMapPinFor(result: data)
+            cardCollectionViewController.reloadWith(data: data)
+        }
     }
 }

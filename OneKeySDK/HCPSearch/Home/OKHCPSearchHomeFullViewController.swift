@@ -109,13 +109,23 @@ extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
 //                switch result {
 //                case .success(let activities):
 //                    strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(criteria: search.criteria,
+//                                                                                                    code: nil,
 //                                                                                                    address: search.address,
-//                                                                                                    result: activities))
+//                                                                                                    isNearMeSearch: false,
+//                                                                                                    isQuickNearMeSearch: false))
 //                case .failure(let error):
 //                    print(error.localizedDescription)
 //                }
 //            }
         }
+    }
+    
+    func didSelectNearMeSearch() {
+        performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(criteria: nil,
+                                                                             code: nil,
+                                                                             address: nil,
+                                                                             isNearMeSearch: true,
+                                                                             isQuickNearMeSearch: true))
     }
     
     func shouldRemoveActivityAt(indexPath: IndexPath) {
