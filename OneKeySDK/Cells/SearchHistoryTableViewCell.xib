@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,14 +58,8 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-gt-zfO">
-                                                        <rect key="frame" x="0.0" y="24.5" width="260" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TX5-Tw-nUj">
-                                                        <rect key="frame" x="0.0" y="48.5" width="260" height="17"/>
+                                                        <rect key="frame" x="0.0" y="36.5" width="260" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -128,7 +124,6 @@
                 <outlet property="borderView" destination="ku3-xo-6gE" id="935-96-g0l"/>
                 <outlet property="borderViewBottomContraint" destination="auX-eh-MW6" id="XNs-Ia-Dh6"/>
                 <outlet property="borderViewTopContraint" destination="pmQ-nO-GhT" id="DPG-MD-80G"/>
-                <outlet property="categoryLabel" destination="Gfk-gt-zfO" id="gZi-JW-jRV"/>
                 <outlet property="closeButton" destination="igb-Yv-9vJ" id="PM7-sW-H6R"/>
                 <outlet property="criteriabel" destination="1lC-eg-coQ" id="tnc-t5-EA6"/>
                 <outlet property="timeLabel" destination="mpd-ne-jqw" id="DDC-FC-Vus"/>

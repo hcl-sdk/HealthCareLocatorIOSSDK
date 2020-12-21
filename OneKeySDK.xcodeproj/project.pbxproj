@@ -29,6 +29,7 @@
 		5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */; };
 		5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659269258B0D8C00A9A950 /* FullCardViewModel.swift */; };
 		58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659280258B23F500A9A950 /* Optional+Additional.swift */; };
+		5872D740259098C3004E9892 /* Date+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872D73F259098C3004E9892 /* Date+Additional.swift */; };
 		5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875442C25885E5A0000C126 /* SearchAutoComplete.swift */; };
 		587544312588790B0000C126 /* Mock-Codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 587544302588790B0000C126 /* Mock-Codes.json */; };
 		58754435258879390000C126 /* Mock-Individuals.json in Resources */ = {isa = PBXBuildFile; fileRef = 58754434258879390000C126 /* Mock-Individuals.json */; };
@@ -143,6 +144,7 @@
 		5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputAutocompleteViewModel.swift; sourceTree = "<group>"; };
 		58659269258B0D8C00A9A950 /* FullCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCardViewModel.swift; sourceTree = "<group>"; };
 		58659280258B23F500A9A950 /* Optional+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Additional.swift"; sourceTree = "<group>"; };
+		5872D73F259098C3004E9892 /* Date+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additional.swift"; sourceTree = "<group>"; };
 		5875442C25885E5A0000C126 /* SearchAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoComplete.swift; sourceTree = "<group>"; };
 		587544302588790B0000C126 /* Mock-Codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Codes.json"; sourceTree = "<group>"; };
 		58754434258879390000C126 /* Mock-Individuals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Individuals.json"; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
 				58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */,
 				58659280258B23F500A9A950 /* Optional+Additional.swift */,
+				5872D73F259098C3004E9892 /* Date+Additional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */,
 				585116AD256E42BC00E5C7D3 /* OKSortableResultList.swift in Sources */,
 				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
+				5872D740259098C3004E9892 /* Date+Additional.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */,
 				58A364732554F66900C62479 /* OKManager.swift in Sources */,

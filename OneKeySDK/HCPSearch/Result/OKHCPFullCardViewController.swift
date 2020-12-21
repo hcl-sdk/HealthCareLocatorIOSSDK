@@ -113,6 +113,8 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
         fullCardViewModel.fetchActivityDetail {[weak self] (activity, error) in
             guard let strongSelf = self else {return}
             if let unwrapActivity = activity {
+                // Save last HCPs consulted
+                OKDatabase.save(activity: unwrapActivity)
                 strongSelf.activity = unwrapActivity
                 strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
                 strongSelf.animateContentDisplaying()

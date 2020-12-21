@@ -15,3 +15,9 @@ struct Code: Codable {
     let id: String!
     let longLbl: String!
 }
+
+extension Code: Equatable {
+    static func == (lhs: Code, rhs: Code) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
