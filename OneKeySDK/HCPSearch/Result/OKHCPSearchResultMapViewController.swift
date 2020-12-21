@@ -47,14 +47,17 @@ class OKHCPSearchResultMapViewController: UIViewController, OKViewDesign, OKActi
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-//        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
             mapView.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
         }
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
-        mapView.addAnnotations(ActivityList(activities: result).getAnotations())
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotations(ActivityList(activities: result).getAnotations())
+        }
     }
     
     private func reloadHorizontalListWith(selectedIndex: Int) {
@@ -124,10 +127,12 @@ extension OKHCPSearchResultMapViewController: MKMapViewDelegate {
         } else {
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
                 annotationView.markerTintColor = theme?.markerColor
+                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             } else {
                 let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
                 annotationView.markerTintColor = theme?.markerColor
+                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             }
         }

@@ -10,7 +10,7 @@ import UIKit
 
 protocol OKSearchHistoryDataSourceDelegate: class {
     func didSelectNearMeSearch()
-    func didSelect(activity: ActivityResult)
+    func didSelect(activity: Activity)
     func didSelect(search: OKHCPLastSearch)
     func shouldRemoveActivityAt(indexPath: IndexPath)
     func shouldRemoveSearchAt(indexPath: IndexPath)
@@ -18,7 +18,7 @@ protocol OKSearchHistoryDataSourceDelegate: class {
 
 extension OKSearchHistoryDataSourceDelegate {
     func didSelectNearMeSearch() {}
-    func didSelect(activity: ActivityResult) {}
+    func didSelect(activity: Activity) {}
     func didSelect(search: OKHCPLastSearch) {}
 }
 
@@ -107,8 +107,16 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
             switch data[indexPath.section] {
             case .nearMe:
                 cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: nil)
-            default:
-                cell.configWith(theme: theme, indexPath: indexPath, title: data[indexPath.section].title, actionTitle: expandedSection.contains(indexPath.section) ? "View less" : "View more")
+            case .lastSearchs(let title, let searches):
+                cell.configWith(theme: theme,
+                                indexPath: indexPath,
+                                title: title,
+                                actionTitle: searches.count > colapseItemMax - 1 ? (expandedSection.contains(indexPath.section) ? "View less" : "View more") : nil)
+            case .lasHCPConsolted(let title, let activities):
+                cell.configWith(theme: theme,
+                                indexPath: indexPath,
+                                title: title,
+                                actionTitle: activities.count > colapseItemMax - 1 ? (expandedSection.contains(indexPath.section) ? "View less" : "View more") : nil)
             }
             cell.delegate = self
             return cell
@@ -153,7 +161,7 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
             case .lastSearchs(_, let searches):
                 delegate?.didSelect(search: searches[indexPath.row - 1])
             case .lasHCPConsolted(_, let activities):
-                delegate?.didSelect(activity: activities[indexPath.row - 1])
+                delegate?.didSelect(activity: activities[indexPath.row - 1].activity)
             default:
                 break
             }

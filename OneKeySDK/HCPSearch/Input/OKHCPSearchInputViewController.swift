@@ -196,6 +196,9 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
                                          isNearMeSearch: isNearMeSearch,
                                          isQuickNearMeSearch: false,
                                          result: [])
+        // Save last search
+        OKDatabase.save(search: searchData)
+        // Go search
         performSegue(withIdentifier: "showResultVC", sender: searchData)
     }
     

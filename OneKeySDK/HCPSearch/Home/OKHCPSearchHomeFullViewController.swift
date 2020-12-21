@@ -27,7 +27,10 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
         if let theme = theme {
             layoutWith(theme: theme)
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         historyViewModel.fetchHistory {[weak self] (result) in
             guard let strongSelf = self else {return}
             switch result {
@@ -68,9 +71,9 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
                 }
             case "showFullCardVC":
                 if let desVC = segue.destination as? OKHCPFullCardViewController,
-                   let activity = sender as? ActivityResult {
+                   let activity = sender as? Activity {
                     desVC.theme = theme
-                    desVC.activityID = activity.activity.id
+                    desVC.activityID = activity.id
                 }
             case "showResultVC":
                 if let desVC = segue.destination as? OKHCPSearchResultViewController,
@@ -95,37 +98,22 @@ extension OKHCPSearchHomeFullViewController: UITextFieldDelegate {
 
 extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
     
-    func didSelect(activity: ActivityResult) {
+    func didSelect(activity: Activity) {
         performSegue(withIdentifier: "showFullCardVC", sender: activity)
     }
     
     func didSelect(search: OKHCPLastSearch) {
-        if let selected = search.selected {
-            performSegue(withIdentifier: "showFullCardVC", sender: selected)
-        } else {
-//            historyViewModel.performSearchingWith(criteria: search.criteria,
-//                                                  location: nil) {[weak self] (result) in
-//                guard let strongSelf = self else {return}
-//                switch result {
-//                case .success(let activities):
-//                    strongSelf.performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(criteria: search.criteria,
-//                                                                                                    code: nil,
-//                                                                                                    address: search.address,
-//                                                                                                    isNearMeSearch: false,
-//                                                                                                    isQuickNearMeSearch: false))
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                }
-//            }
-        }
+        performSegue(withIdentifier: "showResultVC", sender: search.search)
     }
     
     func didSelectNearMeSearch() {
-        performSegue(withIdentifier: "showResultVC", sender: OKHCPSearchData(criteria: nil,
-                                                                             code: nil,
-                                                                             address: nil,
-                                                                             isNearMeSearch: true,
-                                                                             isQuickNearMeSearch: true))
+        let searchData = OKHCPSearchData(criteria: nil,
+                                         code: nil,
+                                         address: nil,
+                                         isNearMeSearch: true,
+                                         isQuickNearMeSearch: true)
+        OKDatabase.save(search: searchData)
+        performSegue(withIdentifier: "showResultVC", sender: searchData)
     }
     
     func shouldRemoveActivityAt(indexPath: IndexPath) {

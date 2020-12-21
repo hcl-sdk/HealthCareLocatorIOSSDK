@@ -7,9 +7,24 @@
 
 import Foundation
 
-struct OKHCPLastSearch {
-    let criteria: String!
-    let address: String!
+struct OKHCPLastSearch: Codable {
     let timeInterval: Double!
-    let selected: ActivityResult?
+    let search: OKHCPSearchData
+}
+
+extension OKHCPLastSearch: Equatable {
+    static func == (lhs: OKHCPLastSearch, rhs: OKHCPLastSearch) -> Bool {
+        return lhs.search == rhs.search
+    }
+}
+
+struct OKHCPLastHCP: Codable {
+    let timeInterval: Double!
+    let activity: Activity!
+}
+
+extension OKHCPLastHCP: Equatable {
+    static func == (lhs: OKHCPLastHCP, rhs: OKHCPLastHCP) -> Bool {
+        return lhs.activity.id == rhs.activity.id
+    }
 }

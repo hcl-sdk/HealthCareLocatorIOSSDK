@@ -11,7 +11,6 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     @IBOutlet weak var criteriabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
     weak var delegate: OKSearchHistoryDataSourceDelegate?
@@ -22,27 +21,16 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         criteriabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont
         timeLabel.font = theme?.smallFont
-        categoryLabel.font = theme?.defaultFont
         
         // Colors
         criteriabel.textColor = theme?.secondaryColor
-        categoryLabel.textColor = theme?.darkColor
         timeLabel.textColor = theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor
 
         //
-        if let activity = search.selected {
-            categoryLabel.isHidden = false
-            criteriabel.text = activity.activity.individual.mailingName
-            categoryLabel.text = activity.activity.individual.specialties.first?.label
-            addressLabel.text = activity.activity.workplace.address.longLabel
-            timeLabel.text = "3 days ago"
-        } else {
-            categoryLabel.isHidden = true
-            criteriabel.text = search.criteria
-            addressLabel.text = search.address
-            timeLabel.text = "3 days ago"
-        }
+        criteriabel.text = search.search.code?.longLbl ?? search.search.criteria
+        addressLabel.text = (search.search.isNearMeSearch == true || search.search.isQuickNearMeSearch == true) ? kNearMeTitle : search.search.address
+        timeLabel.text = String(format: "%@ ago", Date(timeIntervalSince1970: search.timeInterval).timeAgo())
     }
     
     @IBAction func onRemoveAction(_ sender: Any) {

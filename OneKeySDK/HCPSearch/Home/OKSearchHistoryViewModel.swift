@@ -37,7 +37,7 @@ enum HistorySection: Equatable {
     
     case nearMe(title: String, activities: [ActivityResult])
     case lastSearchs(title: String, searches: [OKHCPLastSearch])
-    case lasHCPConsolted(title: String, activities: [ActivityResult])
+    case lasHCPConsolted(title: String, activities: [OKHCPLastHCP])
     
     var title: String {
         switch self {
@@ -59,15 +59,13 @@ class OKSearchHistoryViewModel {
     }
     
     func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
-        var mockData = MockOKHCPSearchWebServices().getMockActivities()
-        mockData.append(contentsOf: MockOKHCPSearchWebServices().getMockActivities())
-
-        var lastSearches = OKDatabase.getLastSearchesHistory()
-        lastSearches.append(contentsOf: OKDatabase.getLastSearchesHistory())
-
+        let mockData = MockOKHCPSearchWebServices().getMockActivities()
+        let lastSearches = OKDatabase.getLastSearchesHistory()
+        let lastHCPsConsulted = OKDatabase.getLastHCPsConsulted()
+        
         let mockResult = [HistorySection.nearMe(title: "HCPs near me", activities: mockData),
                           HistorySection.lastSearchs(title: "Last searches", searches: lastSearches),
-                          HistorySection.lasHCPConsolted(title: "Last HCPs consulted", activities: mockData)]
+                          HistorySection.lasHCPConsolted(title: "Last HCPs consulted", activities: lastHCPsConsulted)]
         completion(.success(mockResult))
     }
 }
