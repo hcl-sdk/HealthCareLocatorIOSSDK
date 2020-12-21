@@ -68,7 +68,10 @@ struct Address: Codable {
 extension Address {
     var composedAddress: String {
         var addComponents = [String]()
-        addComponents.append(longLabel)
+        if !longLabel.isEmpty {
+            addComponents.append(longLabel)
+        }
+        
         if let city = city {
             addComponents.append(city.label)
         }
