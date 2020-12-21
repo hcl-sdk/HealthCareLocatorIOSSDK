@@ -98,28 +98,27 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         /*
          Fetch autocomplete data by creteria with debounce 300 milisecond
          */
-        let firstFieldCriteria = categorySearchTextField.rx.controlEvent([.editingChanged])
-            .map { [weak self] in self?.categorySearchTextField.text ?? ""}
-            .distinctUntilChanged().filter {$0.count >= 3}
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-        
-        firstFieldCriteria.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in
-            let indicator = UIActivityIndicatorView(style: .gray)
-            self?.categorySearchTextField.rightView = indicator
-            indicator.startAnimating()
+        searchInputAutocompleteModelView.isFirstFieldLoading().subscribe(onNext: {[weak self] isLoading in
+            guard let strongSelf = self else {return}
+            strongSelf.showLoading(isLoading: isLoading, for: strongSelf.categorySearchTextField)
         }).disposed(by: disposeBag)
         
-        firstFieldCriteria.bind(to: searchInputAutocompleteModelView.autocompleteCreteriaSubject).disposed(by: disposeBag)
+        let firstFieldCriteria = categorySearchTextField.rx.controlEvent([.editingChanged])
+            .map { [weak self] in self?.categorySearchTextField.text ?? ""}
+            .distinctUntilChanged()
         
+        let searchCriteria = firstFieldCriteria.debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+        
+        searchCriteria.bind(to: searchInputAutocompleteModelView.autocompleteCreteriaSubject).disposed(by: disposeBag)
+                
         Observable.zip(searchInputAutocompleteModelView.codesObservable(),
                        searchInputAutocompleteModelView.individualsObservable())
-        .subscribe(onNext: {[weak self] (codes, individuals) in
+            .subscribe(onNext: {[weak self] (codes, individuals) in
                 guard let strongSelf = self else {return}
                 var result = [SearchAutoComplete]()
                 result.append(contentsOf: codes.map {SearchAutoComplete.Code(code: $0)})
                 result.append(contentsOf: individuals.map {SearchAutoComplete.Individual(individual: $0)})
-                strongSelf.searchResult = result
-                strongSelf.categorySearchTextField.rightView = nil
+                strongSelf.searchResult = result.count > 0 ? result : [.NearMe]
             }).disposed(by: disposeBag)
     }
     
@@ -141,6 +140,16 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
         // Fonts
         categorySearchTextField.font = theme.searchInputFont
         locationSearchTextField.font = theme.searchInputFont
+    }
+    
+    private func showLoading(isLoading: Bool, for field: UITextField) {
+        if isLoading {
+            let indicator = UIActivityIndicatorView(style: .gray)
+            field.rightView = indicator
+            indicator.startAnimating()
+        } else {
+            field.rightView = nil
+        }
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
@@ -288,10 +297,17 @@ extension OKHCPSearchInputViewController: UITableViewDataSource, UITableViewDele
 // MARK: Textfield delegate
 extension OKHCPSearchInputViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        let searchText = textField.text.orEmpty
         if textField == categorySearchTextField {
-            searchResult = []
+            if searchText.isEmpty {
+                searchResult = [.NearMe]
+            } else {
+                searchResult = []
+            }
+            searchInputAutocompleteModelView.autocompleteCreteriaSubject.onNext(searchText)
         } else {
             searchResult = [.NearMe]
+            searchCompleter.queryFragment = searchText
         }
     }
     

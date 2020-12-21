@@ -58,6 +58,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         }
         
         sort = .relevance
+        
         // Initialize search
         performSearch()
     }
@@ -77,8 +78,8 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     }
     
     func reloadWith(data: OKHCPSearchData) {
-        DispatchQueue.main.async {
-            self.layoutWith(searchData: data)
+        layoutWith(searchData: data)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             for resultChildVC in self.resultNavigationVC.viewControllers {
                 if let resultVC = resultChildVC as? OkSortableResultList {
                     resultVC.reloadWith(data: data.result)
