@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-typealias RequestLocationHandler = ([CLLocation]) -> Void
+typealias RequestLocationHandler = ([CLLocation]?, Error?) -> Void
 typealias RequestAuthorizationHandler = (CLAuthorizationStatus) -> Void
 
 class OKLocationManager: NSObject {
@@ -37,13 +37,13 @@ class OKLocationManager: NSObject {
         }
     }
     
-    func requestLocation(_ completionHandler: @escaping (([CLLocation]) -> Void)) {
+    func requestLocation(_ completionHandler: @escaping (([CLLocation]?, Error?) -> Void)) {
         requestLocationHandler = completionHandler
         switch authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
         case .denied:
-            completionHandler([])
+            completionHandler(nil, OKError.locationAccessDenined)
         default:
             locationManager.requestWhenInUseAuthorization()
         }
@@ -72,11 +72,13 @@ extension OKLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let handler = requestLocationHandler {
-            handler(locations)
+            handler(locations, nil)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        if let handler = requestLocationHandler {
+            handler(nil, error)
+        }
     }
 }

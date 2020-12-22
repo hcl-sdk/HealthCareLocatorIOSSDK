@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     var theme: OKThemeConfigure?
@@ -13,12 +14,15 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBtn: OKBaseButton!
     @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var bodyWrapperView: UIView!
     @IBOutlet weak var historyTableView: UITableView!
     
     let historyViewModel = OKSearchHistoryViewModel(webService: MockOKHCPSearchWebServices())
     
     var tableViewDataSource: OKSearchHistoryDataSource!
-        
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
@@ -31,15 +35,18 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        historyViewModel.fetchHistory {[weak self] (result) in
+        historyViewModel.showLoadingOn(view: bodyWrapperView)
+        historyViewModel.fetchHistory().subscribe({[weak self] result in
             guard let strongSelf = self else {return}
             switch result {
-            case .success(let section):
-                strongSelf.tableViewDataSource.reloadWith(data: section)
-            case .failure:
-                break
+            case .success(let sections):
+                strongSelf.tableViewDataSource.reloadWith(data: sections)
+            case .error(let error):
+                // TODO: Handle error
+                print(error)
             }
-        }
+            strongSelf.historyViewModel.hideLoading()
+        }).disposed(by: disposeBag)
     }
     
     func layoutWith(theme: OKThemeConfigure) {
@@ -116,11 +123,11 @@ extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
         performSegue(withIdentifier: "showResultVC", sender: searchData)
     }
     
-    func shouldRemoveActivityAt(indexPath: IndexPath) {
-        
+    func shouldRemoveActivityAt(index: Int) {
+        OKDatabase.removeActivityHistoryAt(index: index)
     }
     
-    func shouldRemoveSearchAt(indexPath: IndexPath) {
-        
+    func shouldRemoveSearchAt(index: Int) {
+        OKDatabase.removeSearchHistoryAt(index: index)
     }
 }

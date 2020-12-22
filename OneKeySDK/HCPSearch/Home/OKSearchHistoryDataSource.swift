@@ -8,12 +8,17 @@
 import Foundation
 import UIKit
 
+protocol OKSearchHistoryCellDelegate: class {
+    func shouldRemoveActivityAt(indexPath: IndexPath)
+    func shouldRemoveSearchAt(indexPath: IndexPath)
+}
+
 protocol OKSearchHistoryDataSourceDelegate: class {
     func didSelectNearMeSearch()
     func didSelect(activity: Activity)
     func didSelect(search: OKHCPLastSearch)
-    func shouldRemoveActivityAt(indexPath: IndexPath)
-    func shouldRemoveSearchAt(indexPath: IndexPath)
+    func shouldRemoveActivityAt(index: Int)
+    func shouldRemoveSearchAt(index: Int)
 }
 
 extension OKSearchHistoryDataSourceDelegate {
@@ -189,7 +194,7 @@ extension OKSearchHistoryDataSource: HeaderViewMoreTableViewCellDelegate {
     }
 }
 
-extension OKSearchHistoryDataSource: OKSearchHistoryDataSourceDelegate {
+extension OKSearchHistoryDataSource: OKSearchHistoryCellDelegate {
     func shouldRemoveActivityAt(indexPath: IndexPath) {
         switch data[indexPath.section] {
         case .lasHCPConsolted(let title, let activities):
@@ -197,6 +202,7 @@ extension OKSearchHistoryDataSource: OKSearchHistoryDataSourceDelegate {
             newList.remove(at: indexPath.row - 1)
             data[indexPath.section] = HistorySection.lasHCPConsolted(title: title, activities: newList)
             tableView?.reloadData()
+            delegate?.shouldRemoveActivityAt(index: indexPath.row - 1)
         default:
             return
         }
@@ -209,6 +215,7 @@ extension OKSearchHistoryDataSource: OKSearchHistoryDataSourceDelegate {
             newList.remove(at: indexPath.row - 1)
             data[indexPath.section] = HistorySection.lastSearchs(title: title, searches: newList)
             tableView?.reloadData()
+            delegate?.shouldRemoveSearchAt(index: indexPath.row - 1)
         default:
             return
         }

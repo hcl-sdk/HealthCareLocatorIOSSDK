@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import MapKit
 
-class SearchResultViewModel {
-    private var indicator = UIActivityIndicatorView(style: .gray)
+class SearchResultViewModel: OKViewLoading {
+    lazy var indicator = UIActivityIndicatorView(style: .gray)
     
     private var webServices: OKHCPSearchWebServicesProtocol!
     private var search: OKHCPSearchData!
@@ -48,9 +48,9 @@ class SearchResultViewModel {
     }
     
     private func performNearMeSearchWith(info: GeneralQueryInput, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        OKLocationManager.shared.requestLocation {[weak self] (locations) in
+        OKLocationManager.shared.requestLocation {[weak self] (locations, error) in
             guard let strongSelf = self else {return}
-            if let lastLocation = locations.last {
+            if let lastLocation = locations?.last {
                 strongSelf.fetchActivitiesWith(info: info,
                                     specialties: strongSelf.search.code != nil ? [strongSelf.search.code!.id] : nil,
                                     location: GeopointQuery(lat: 43.76438020602678,
@@ -128,23 +128,5 @@ class SearchResultViewModel {
             }
         }
         completionHandler(search)
-    }
-    
-    func showLoadingOn(view: UIView) {
-        if indicator.superview != nil {
-            indicator.stopAnimating()
-            indicator.removeFromSuperview()
-        }
-        
-        view.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraints([NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                             NSLayoutConstraint(item: indicator, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)])
-        indicator.startAnimating()
-    }
-    
-    func hideLoading() {
-        indicator.stopAnimating()
-        indicator.removeFromSuperview()
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
 
 enum HistorySection: Equatable {
     static func == (lhs: HistorySection, rhs: HistorySection) -> Bool {
@@ -51,21 +52,87 @@ enum HistorySection: Equatable {
     }
 }
 
-class OKSearchHistoryViewModel {
+class OKSearchHistoryViewModel: OKViewLoading {
+    lazy var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
+    
     var webService: OKHCPSearchWebServicesProtocol!
     
     init(webService: OKHCPSearchWebServicesProtocol) {
         self.webService = webService
     }
     
-    func fetchHistory(_ completion: @escaping ((Result<[HistorySection], Error>) -> Void)) {
-        let mockData = MockOKHCPSearchWebServices().getMockActivities()
-        let lastSearches = OKDatabase.getLastSearchesHistory()
-        let lastHCPsConsulted = OKDatabase.getLastHCPsConsulted()
-        
-        let mockResult = [HistorySection.nearMe(title: "HCPs near me", activities: mockData),
-                          HistorySection.lastSearchs(title: "Last searches", searches: lastSearches),
-                          HistorySection.lasHCPConsolted(title: "Last HCPs consulted", activities: lastHCPsConsulted)]
-        completion(.success(mockResult))
+    func fetchHistory() -> Single<[HistorySection]> {
+        return getCurrentLocation().flatMap {[weak self] (coordinate) -> Single<[ActivityResult]> in
+            guard let strongSelf = self else {
+                return Single.create { single in
+                    single(.error(OKError.noResult))
+                    return Disposables.create {}
+                }
+            }
+            if let coordinate = coordinate {
+                let manager = OKServiceManager.shared
+                let location = GeopointQuery(lat: coordinate.latitude, lon: coordinate.longitude)
+                let query = GeneralQueryInput(apiKey: "1",
+                                              first: 50,
+                                              offset: 0,
+                                              userId: nil,
+                                              locale: "en",
+                                              criteria: nil)
+                return strongSelf.fetchActivitiesWith(info: query,
+                                                      location: location,
+                                                      webService: strongSelf.webService,
+                                                      manager: manager)
+            } else {
+                return Single.create { single in
+                    single(.success([]))
+                    return Disposables.create {}
+                }
+            }
+        }.map { (activities) -> [HistorySection] in
+            let lastSearches = OKDatabase.getLastSearchesHistory()
+            let lastHCPsConsulted = OKDatabase.getLastHCPsConsulted()
+            return [HistorySection.nearMe(title: "HCPs near me", activities: activities),
+                    HistorySection.lastSearchs(title: "Last searches", searches: lastSearches),
+                    HistorySection.lasHCPConsolted(title: "Last HCPs consulted", activities: lastHCPsConsulted)]
+        }
+    }
+    
+    private func getCurrentLocation() -> Single<CLLocationCoordinate2D?> {
+        return Single<CLLocationCoordinate2D?>.create { single in
+            OKLocationManager.shared.requestLocation { (locations, error) in
+                single(.success(locations?.last?.coordinate))
+//                if let location = locations?.last?.coordinate {
+//                    single(.success(location))
+//                } else if let error = error {
+//                    single(.error(error))
+//                } else {
+//                    single(.error(OKError.noResult))
+//                }
+            }
+            return Disposables.create {}
+        }
+    }
+    
+    private func fetchActivitiesWith(info: GeneralQueryInput,
+                                     location: GeopointQuery,
+                                     webService: OKHCPSearchWebServicesProtocol,
+                                     manager: OKServiceManager) -> Single<[ActivityResult]> {
+        return Single<[ActivityResult]>.create { single in
+            webService.fetchActivitiesWith(info: info,
+                                           specialties: nil,
+                                           location: location,
+                                           county: nil,
+                                           criteria: nil,
+                                           manager: manager) { (result, error) in
+                if let result = result {
+                    single(.success(result))
+                } else if let error = error {
+                    single(.error(error))
+                } else {
+                    single(.error(OKError.noResult))
+                }
+            }
+            return Disposables.create {}
+        }
     }
 }
