@@ -13,7 +13,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    weak var delegate: OKSearchHistoryDataSourceDelegate?
+    weak var delegate: OKSearchHistoryCellDelegate?
 
     func configWith(theme: OKThemeConfigure?, search: OKHCPLastSearch, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
@@ -23,6 +23,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         timeLabel.font = theme?.smallFont
         
         // Colors
+        closeButton.tintColor = theme?.greyDarkColor
         criteriabel.textColor = theme?.secondaryColor
         timeLabel.textColor = theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor

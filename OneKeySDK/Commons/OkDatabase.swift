@@ -23,6 +23,14 @@ class OKDatabase {
         setLastSearchesHistory(searches: savedSearches)
     }
     
+    static func removeSearchHistoryAt(index: Int) {
+        var searches = getLastSearchesHistory()
+        if searches.count > index {
+            searches.remove(at: index)
+            setLastSearchesHistory(searches: searches)
+        }
+    }
+    
     static func setLastSearchesHistory(searches: [OKHCPLastSearch]) {
         let userDefault = UserDefaults.standard
         userDefault.setValue(searches.compactMap {try? JSONEncoder().encode($0)}, forKey: Keys.LastSearches.rawValue)
@@ -46,6 +54,14 @@ class OKDatabase {
         }
         savedActivities.insert(toSave, at: 0)
         setLastHCPsConsulted(HCPs: savedActivities)
+    }
+    
+    static func removeActivityHistoryAt(index: Int) {
+        var activities = getLastHCPsConsulted()
+        if activities.count > index {
+            activities.remove(at: index)
+            setLastHCPsConsulted(HCPs: activities)
+        }
     }
     
     static func setLastHCPsConsulted(HCPs: [OKHCPLastHCP]) {

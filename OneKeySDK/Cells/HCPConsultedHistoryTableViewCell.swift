@@ -15,7 +15,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    weak var delegate: OKSearchHistoryDataSourceDelegate?
+    weak var delegate: OKSearchHistoryCellDelegate?
     
     func configWith(theme: OKThemeConfigure?, activity: OKHCPLastHCP, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
@@ -26,6 +26,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         distanceLabel.font = theme?.smallFont
         
         // Colors
+        closeButton.tintColor = theme?.greyDarkColor
         drLabel.textColor = theme?.secondaryColor
         categoryLabel.textColor = theme?.darkColor
         distanceLabel.textColor = theme?.darkColor

@@ -25,7 +25,7 @@ protocol OKHCPSearchWebServicesProtocol {
                              specialties: [String]?,
                              location: GeopointQuery?,
                              county: String?,
-                             criteria: String!,
+                             criteria: String?,
                              manager: OKServiceManager,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void))
     

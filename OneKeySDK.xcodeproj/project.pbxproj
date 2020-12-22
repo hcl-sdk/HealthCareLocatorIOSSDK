@@ -83,6 +83,7 @@
 		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
 		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
 		58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* OKIndexAble.swift */; };
+		58D0E38D2591BC8200491C92 /* OKViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0E38C2591BC8200491C92 /* OKViewLoading.swift */; };
 		58D46590258C8E9B0084FA7A /* OKLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */; };
 		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
 		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
@@ -201,6 +202,7 @@
 		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		58CF588225766017001ACD6C /* OKIndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIndexAble.swift; sourceTree = "<group>"; };
+		58D0E38C2591BC8200491C92 /* OKViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKViewLoading.swift; sourceTree = "<group>"; };
 		58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKLocationManager.swift; sourceTree = "<group>"; };
 		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
 		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				58C2997E256FBAE500236D91 /* OKActivityHandler.swift */,
 				58C29982256FBD1E00236D91 /* OKActivityList.swift */,
 				58CF588225766017001ACD6C /* OKIndexAble.swift */,
+				58D0E38C2591BC8200491C92 /* OKViewLoading.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
 				58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
+				58D0E38D2591BC8200491C92 /* OKViewLoading.swift in Sources */,
 				58C34B152570B7F800007DA2 /* Helpers.swift in Sources */,
 				58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */,
 				58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */,

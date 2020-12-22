@@ -21,30 +21,31 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dQ-GJ-TQj" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
-                    <rect key="frame" x="144" y="0.0" width="27" height="27"/>
+                    <rect key="frame" x="141.5" y="0.0" width="32" height="32"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-m3-nIc">
-                            <rect key="frame" x="6" y="8.5" width="15" height="10.5"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-m3-nIc">
+                            <rect key="frame" x="8" y="8.5" width="16" height="15.5"/>
                             <color key="tintColor" red="0.3411764705882353" green="0.72549019607843135" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="eI8-h5-P6h"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.89411764705882346" green="0.95454019310000005" blue="0.87582063669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="CkF-m3-nIc" firstAttribute="leading" secondItem="0dQ-GJ-TQj" secondAttribute="leading" constant="6" id="02V-VT-77J"/>
                         <constraint firstItem="CkF-m3-nIc" firstAttribute="centerX" secondItem="0dQ-GJ-TQj" secondAttribute="centerX" id="0dA-IY-vRu"/>
-                        <constraint firstAttribute="width" constant="27" id="hU1-5t-WKW"/>
+                        <constraint firstAttribute="width" constant="32" id="hU1-5t-WKW"/>
                         <constraint firstItem="CkF-m3-nIc" firstAttribute="centerY" secondItem="0dQ-GJ-TQj" secondAttribute="centerY" id="qAf-b9-Y80"/>
                         <constraint firstAttribute="width" secondItem="0dQ-GJ-TQj" secondAttribute="height" id="qO7-rC-4KZ"/>
-                        <constraint firstItem="CkF-m3-nIc" firstAttribute="top" secondItem="0dQ-GJ-TQj" secondAttribute="top" constant="6" id="zY2-td-UXw"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="13.5"/>
+                            <real key="value" value="16"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mhn-gR-P15">
-                    <rect key="frame" x="139" y="42" width="37.5" height="158"/>
+                    <rect key="frame" x="139" y="47" width="37.5" height="153"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DEg-MP-4lp">
                             <rect key="frame" x="0.0" y="0.0" width="37.5" height="32"/>

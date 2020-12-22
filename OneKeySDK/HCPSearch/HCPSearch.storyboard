@@ -26,25 +26,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-hr-16U">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohv-kd-jEZ" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="9" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="9" width="355" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNf-ij-vrf">
-                                                        <rect key="frame" x="16" y="0.0" width="339" height="40"/>
+                                                        <rect key="frame" x="16" y="0.0" width="339" height="38"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find Healthcare Professionnal" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="599-0e-iVX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="299" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="299" height="38"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-Dh-x3c" customClass="OKBaseButton" customModule="OneKeySDK" customModuleProvider="target">
-                                                                <rect key="frame" x="299" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="299" y="0.0" width="40" height="38"/>
                                                                 <color key="backgroundColor" red="0.3411764706" green="0.72549019609999998" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="FOk-ca-gRP"/>
-                                                                    <constraint firstAttribute="width" secondItem="gCc-Dh-x3c" secondAttribute="height" id="hbS-oi-4UV"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="sI1-7r-CBr"/>
                                                                 </constraints>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -66,6 +65,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="uNf-ij-vrf" secondAttribute="bottom" id="1xl-8y-eoe"/>
                                                     <constraint firstAttribute="trailing" secondItem="uNf-ij-vrf" secondAttribute="trailing" id="9co-ax-h1R"/>
                                                     <constraint firstItem="uNf-ij-vrf" firstAttribute="leading" secondItem="ohv-kd-jEZ" secondAttribute="leading" constant="16" id="WzL-UJ-hQh"/>
+                                                    <constraint firstAttribute="height" constant="38" id="jMr-IR-0W0"/>
                                                     <constraint firstItem="uNf-ij-vrf" firstAttribute="top" secondItem="ohv-kd-jEZ" secondAttribute="top" id="nKi-Db-Nwj"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -84,20 +84,20 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ohv-kd-jEZ" firstAttribute="centerX" secondItem="pwx-hr-16U" secondAttribute="centerX" id="JGY-9n-8c4"/>
-                                            <constraint firstAttribute="height" constant="58" id="QM7-Yd-95P"/>
                                             <constraint firstItem="ohv-kd-jEZ" firstAttribute="centerY" secondItem="pwx-hr-16U" secondAttribute="centerY" id="RQG-IO-7aH"/>
+                                            <constraint firstItem="ohv-kd-jEZ" firstAttribute="top" secondItem="pwx-hr-16U" secondAttribute="top" constant="9" id="jar-EB-uhJ"/>
                                             <constraint firstItem="ohv-kd-jEZ" firstAttribute="leading" secondItem="pwx-hr-16U" secondAttribute="leading" constant="10" id="vKM-4Q-V5m"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKv-7r-EGh">
-                                        <rect key="frame" x="0.0" y="58" width="375" height="1"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="vqo-H1-VQL"/>
                                         </constraints>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="bAy-RQ-9ST">
-                                        <rect key="frame" x="0.0" y="59" width="375" height="588"/>
+                                        <rect key="frame" x="0.0" y="57" width="375" height="590"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pK9-gA-zWs" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="355" height="179"/>
@@ -225,25 +225,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60k-9U-yXy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H08-dc-GWi" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="9" width="355" height="40"/>
+                                                <rect key="frame" x="10" y="9" width="355" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjA-di-PGX">
-                                                        <rect key="frame" x="16" y="0.0" width="339" height="40"/>
+                                                        <rect key="frame" x="16" y="0.0" width="339" height="38"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find Healthcare Professionnal" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XJ8-d5-MmP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="299" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="299" height="38"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlP-XE-vRl" customClass="OKBaseButton" customModule="OneKeySDK" customModuleProvider="target">
-                                                                <rect key="frame" x="299" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="299" y="0.0" width="40" height="38"/>
                                                                 <color key="backgroundColor" red="0.3411764706" green="0.72549019609999998" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="hlP-XE-vRl" secondAttribute="height" id="Llt-oy-01y"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="qHf-W4-eit"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="EVk-hf-X5W"/>
                                                                 </constraints>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -264,6 +263,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="jjA-di-PGX" secondAttribute="trailing" id="Ezn-Z2-LbE"/>
                                                     <constraint firstAttribute="bottom" secondItem="jjA-di-PGX" secondAttribute="bottom" id="FuJ-9a-dtw"/>
+                                                    <constraint firstAttribute="height" constant="38" id="XqW-kM-voj"/>
                                                     <constraint firstItem="jjA-di-PGX" firstAttribute="leading" secondItem="H08-dc-GWi" secondAttribute="leading" constant="16" id="aOv-bS-0Z0"/>
                                                     <constraint firstItem="jjA-di-PGX" firstAttribute="top" secondItem="H08-dc-GWi" secondAttribute="top" id="k8M-Qr-VSh"/>
                                                 </constraints>
@@ -283,23 +283,23 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="H08-dc-GWi" firstAttribute="centerX" secondItem="60k-9U-yXy" secondAttribute="centerX" id="cEK-ug-H6e"/>
+                                            <constraint firstItem="H08-dc-GWi" firstAttribute="top" secondItem="60k-9U-yXy" secondAttribute="top" constant="9" id="cx5-VW-WXH"/>
                                             <constraint firstItem="H08-dc-GWi" firstAttribute="centerY" secondItem="60k-9U-yXy" secondAttribute="centerY" id="d2e-Ee-ngr"/>
-                                            <constraint firstAttribute="height" constant="58" id="rWk-hT-4Mz"/>
                                             <constraint firstItem="H08-dc-GWi" firstAttribute="leading" secondItem="60k-9U-yXy" secondAttribute="leading" constant="10" id="yBD-Eu-UXM"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b11-sn-YE3">
-                                        <rect key="frame" x="0.0" y="58" width="375" height="1"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="1"/>
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="dhD-iQ-Tgo"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbg-61-uko">
-                                        <rect key="frame" x="0.0" y="59" width="375" height="608"/>
+                                        <rect key="frame" x="0.0" y="57" width="375" height="610"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-k2-BBs">
-                                                <rect key="frame" x="10" y="0.0" width="355" height="598"/>
+                                                <rect key="frame" x="10" y="0.0" width="355" height="600"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -325,6 +325,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bodyWrapperView" destination="cbg-61-uko" id="ear-GJ-Cpe"/>
                         <outlet property="historyTableView" destination="PKl-k2-BBs" id="sZM-2k-B1K"/>
                         <outlet property="searchBtn" destination="hlP-XE-vRl" id="WZ2-Ic-PU8"/>
                         <outlet property="searchTextField" destination="XJ8-d5-MmP" id="JU6-Si-Olv"/>
@@ -501,13 +502,13 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HiK-2r-x0d">
-                                                <rect key="frame" x="40" y="9" width="335" height="40"/>
+                                                <rect key="frame" x="40" y="10" width="335" height="38"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="sqp-u3-xpt">
-                                                        <rect key="frame" x="0.0" y="3" width="76.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="2" width="98" height="34"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="General practitioner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIc-qd-vnF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="76.5" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="98" height="19.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <color key="textColor" red="0.16862745098039217" green="0.23407834769999999" blue="0.30477240680000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -521,25 +522,24 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GH3-qw-REP">
-                                                        <rect key="frame" x="76.5" y="0.0" width="258.5" height="40"/>
+                                                        <rect key="frame" x="98" y="0.0" width="237" height="38"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPD-nk-QGJ" customClass="OKBaseView" customModule="OneKeySDK" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="248.5" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="227" height="38"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q42-wy-6rQ">
-                                                                        <rect key="frame" x="16" y="0.0" width="232.5" height="40"/>
+                                                                        <rect key="frame" x="16" y="0.0" width="211" height="38"/>
                                                                         <subviews>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Find Healthcare Professionnal" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Z1x-hZ-PhF">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="192.5" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="171" height="38"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                                                             </textField>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-i5-sCZ" customClass="OKBaseButton" customModule="OneKeySDK" customModuleProvider="target">
-                                                                                <rect key="frame" x="192.5" y="0.0" width="40" height="40"/>
+                                                                                <rect key="frame" x="171" y="0.0" width="40" height="38"/>
                                                                                 <color key="backgroundColor" red="0.3411764706" green="0.72549019609999998" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" secondItem="wTY-i5-sCZ" secondAttribute="height" id="Fdy-hL-buY"/>
-                                                                                    <constraint firstAttribute="height" constant="40" id="prE-P4-KjL"/>
+                                                                                    <constraint firstAttribute="width" constant="40" id="3sR-lC-TYm"/>
                                                                                 </constraints>
                                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -560,6 +560,7 @@
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Q42-wy-6rQ" firstAttribute="top" secondItem="BPD-nk-QGJ" secondAttribute="top" id="54g-Kw-a0e"/>
+                                                                    <constraint firstAttribute="height" constant="38" id="Lz4-1D-X2M"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Q42-wy-6rQ" secondAttribute="bottom" id="bZM-vw-GYv"/>
                                                                     <constraint firstItem="Q42-wy-6rQ" firstAttribute="leading" secondItem="BPD-nk-QGJ" secondAttribute="leading" constant="16" id="g32-il-A7m"/>
                                                                     <constraint firstAttribute="trailing" secondItem="Q42-wy-6rQ" secondAttribute="trailing" id="gtK-UP-sRF"/>
@@ -577,7 +578,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4X-Mg-bJL" userLabel="10px">
-                                                                <rect key="frame" x="248.5" y="0.0" width="10" height="40"/>
+                                                                <rect key="frame" x="227" y="0.0" width="10" height="38"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="10" id="8Rs-5Q-qrv"/>
@@ -2687,9 +2688,9 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="R9D-DK-flI"/>
+        <segue reference="nlz-Yn-waP"/>
         <segue reference="q3c-S0-aZe"/>
-        <segue reference="sgf-Eb-lPJ"/>
+        <segue reference="ou0-UB-5IT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow-down" width="14.5" height="8.5"/>
@@ -2697,7 +2698,7 @@
         <image name="avatar-default" width="35.5" height="37"/>
         <image name="back" width="16.5" height="29.5"/>
         <image name="checkmark" width="16.5" height="16.5"/>
-        <image name="cross" width="11.5" height="11.5"/>
+        <image name="cross" width="8" height="8"/>
         <image name="direction" width="21.5" height="21.5"/>
         <image name="edit" width="14.5" height="14.5"/>
         <image name="fax-grey" width="16" height="14.5"/>
