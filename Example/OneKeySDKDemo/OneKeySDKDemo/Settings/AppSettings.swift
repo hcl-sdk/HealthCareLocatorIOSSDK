@@ -16,6 +16,7 @@ class AppSettings {
         case selectedThemeMenu
         case selectedTheme
         case fullHomeModeEnabled
+        case language
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -102,6 +103,18 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue ? "true" : "false", for: Key.fullHomeModeEnabled.rawValue)
+        }
+    }
+    
+    static var language: Language {
+        get {
+            guard let code = AppSettings.getValueFor(key: Key.language.rawValue) as? String,
+                  let lang = Language(rawValue: code) else {return Language.english}
+            return lang
+        }
+        
+        set {
+            AppSettings.set(value: newValue.rawValue, for: Key.language.rawValue)
         }
     }
 }

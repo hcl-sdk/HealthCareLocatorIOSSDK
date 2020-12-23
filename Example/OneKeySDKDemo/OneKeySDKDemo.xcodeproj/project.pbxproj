@@ -13,6 +13,8 @@
 		582BBDFF257FA786009BC23E /* UIFont+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBDFE257FA786009BC23E /* UIFont+Additional.swift */; };
 		582BBE04257FA8A6009BC23E /* Theme+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBE03257FA8A6009BC23E /* Theme+Additional.swift */; };
 		58322BCF255E81FD00847919 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58322BCE255E81FD00847919 /* Keys.swift */; };
+		5836DD5F25935958002F776D /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD5E25935958002F776D /* Language.swift */; };
+		5836DD6425935B4D002F776D /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD6325935B4D002F776D /* LanguagesViewController.swift */; };
 		5843945E25594D2B009D2306 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843945D25594D2B009D2306 /* MenuTableViewController.swift */; };
 		5888D2752581DA2700FA5539 /* Character+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2742581DA2700FA5539 /* Character+Additional.swift */; };
 		5888D27A2581DA9900FA5539 /* Sequence+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2792581DA9900FA5539 /* Sequence+Additional.swift */; };
@@ -82,6 +84,8 @@
 		582BBDFE257FA786009BC23E /* UIFont+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additional.swift"; sourceTree = "<group>"; };
 		582BBE03257FA8A6009BC23E /* Theme+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Additional.swift"; sourceTree = "<group>"; };
 		58322BCE255E81FD00847919 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		5836DD5E25935958002F776D /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		5836DD6325935B4D002F776D /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		5843945D25594D2B009D2306 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		5888D2742581DA2700FA5539 /* Character+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additional.swift"; sourceTree = "<group>"; };
 		5888D2792581DA9900FA5539 /* Sequence+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Additional.swift"; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 				5888D2742581DA2700FA5539 /* Character+Additional.swift */,
 				5888D2792581DA9900FA5539 /* Sequence+Additional.swift */,
 				5888D27E2581DCB900FA5539 /* String+Additional.swift */,
+				5836DD5E25935958002F776D /* Language.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				58A8A573256241CF00A11F88 /* CustomFontViewController.swift */,
 				58A8A5822562750600A11F88 /* ConfigFont.swift */,
 				5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */,
+				5836DD6325935B4D002F776D /* LanguagesViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				58B820C2256F70B00005DA26 /* BaseView.swift in Sources */,
 				58D10D2D255E4814008471F3 /* Menu.swift in Sources */,
 				58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */,
+				5836DD5F25935958002F776D /* Language.swift in Sources */,
 				58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */,
 				58D10D28255E47A1008471F3 /* Theme.swift in Sources */,
 				582BBE04257FA8A6009BC23E /* Theme+Additional.swift in Sources */,
@@ -597,6 +604,7 @@
 				5888D27A2581DA9900FA5539 /* Sequence+Additional.swift in Sources */,
 				58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */,
 				5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */,
+				5836DD6425935B4D002F776D /* LanguagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -716,6 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

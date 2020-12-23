@@ -10,3 +10,4 @@ import MapKit
 
 let kDefaultZoomLevel: CLLocationDistance = 6000
 let kNearMeTitle = "Near me"
+let kLocalizedTableName = "OneKeySDK"

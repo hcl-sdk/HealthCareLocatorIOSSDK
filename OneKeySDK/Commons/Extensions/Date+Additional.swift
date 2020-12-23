@@ -8,12 +8,16 @@
 import Foundation
 
 extension Date {
-    func timeAgo() -> String {
+    func timeAgo(locale: String) -> String {
         let formatter = DateComponentsFormatter()
+        var calendar = Calendar.current
+        calendar.locale = Locale(identifier: locale)
+        formatter.calendar = calendar
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.year, .month, .day, .hour, .minute, .second]
         formatter.zeroFormattingBehavior = .dropAll
         formatter.maximumUnitCount = 1
-        return String(format: formatter.string(from: self, to: Date()) ?? "", locale: .current)
+
+        return formatter.string(from: self, to: Date()) ?? ""
     }
 }

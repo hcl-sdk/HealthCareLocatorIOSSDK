@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "OneKeySDK/**/*.{storyboard,xib,json,xcassets}"
+  spec.resources = "OneKeySDK/**/*.{storyboard,xib,json,xcassets,strings}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

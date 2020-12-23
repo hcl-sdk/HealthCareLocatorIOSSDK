@@ -26,7 +26,8 @@ public class OKManager: NSObject {
 
     private(set) var apiKey: String?
     private(set) var searchConfigure: OKSearchConfigure?
-    
+    private(set) var lang: String = NSLocale.preferredLanguages.first ?? "en"
+
     /**
      The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
      - Note:
@@ -52,6 +53,18 @@ extension OKManager: OkManagerProtocol {
      */
     public func configure(search: OKSearchConfigure) {
         self.searchConfigure = search
+    }
+    
+    /**
+     Change displayed language for the SDK
+        - Example:
+     ````
+     OKManager.shared.setLocale(lang: "en")
+     ````
+     - Note: By default the SDK will use the device language, if the device langue is not in supported range, the language will fallback to English
+     */
+    public func setLocale(lang: String) {
+        self.lang = lang
     }
     
     /**

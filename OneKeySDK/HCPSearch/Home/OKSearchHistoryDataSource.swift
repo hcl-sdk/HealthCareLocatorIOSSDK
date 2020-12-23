@@ -139,7 +139,7 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
                     min(colapseItemMax, searches.count + 1) :
                     min(expandItemMax, searches.count + 1)
                 let isLastRow = lastCellIndex == (indexPath.row + 1)
-                cell.configWith(theme: theme, search: search, isLastRow: isLastRow)
+                cell.configWith(theme: theme, lang: OKManager.shared.lang, search: search, isLastRow: isLastRow)
                 cell.indexPath = indexPath
                 cell.delegate = self
                 return cell
@@ -150,7 +150,7 @@ class OKSearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDel
                     min(colapseItemMax, activities.count + 1) :
                     min(expandItemMax, activities.count + 1)
                 let isLastRow = lastCellIndex == (indexPath.row + 1)
-                cell.configWith(theme: theme, activity: activity, isLastRow: isLastRow)
+                cell.configWith(theme: theme, lang: OKManager.shared.lang, activity: activity, isLastRow: isLastRow)
                 cell.indexPath = indexPath
                 cell.delegate = self
                 return cell

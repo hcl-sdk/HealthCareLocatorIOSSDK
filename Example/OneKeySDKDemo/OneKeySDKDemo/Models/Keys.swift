@@ -33,3 +33,5 @@ let kMenuCustomThemeFontsSmallTitle = "Small"
 let kMenuHomeTitle = "Home"
 let kSearchHomeFullTitle = "Full Mode"
 
+let kMenuLanguageTitle = "Language"
+let kMenuLanguageLabel = "Language"

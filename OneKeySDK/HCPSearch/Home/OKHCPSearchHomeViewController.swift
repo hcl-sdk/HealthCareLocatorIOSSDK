@@ -22,6 +22,8 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         super.viewDidLoad()
         searchTextField.delegate = self
         
+        headerTitleLabel.text = "search.home.introduce_title".localized(lang: OKManager.shared.lang)
+        
         if let theme = theme {
             layoutWith(theme: theme)
         }

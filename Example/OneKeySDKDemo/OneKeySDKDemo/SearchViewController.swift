@@ -18,6 +18,7 @@ class SearchViewController: UIViewController {
         let shared = OKManager.shared
         shared.initialize(apiKey: "1")
         shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases))
+        shared.setLocale(lang: AppSettings.language.rawValue)
         shared.delegate = self
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController(fullMode: AppSettings.fullHomeModeEnabled)

@@ -15,7 +15,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     
     weak var delegate: OKSearchHistoryCellDelegate?
 
-    func configWith(theme: OKThemeConfigure?, search: OKHCPLastSearch, isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, lang: String, search: OKHCPLastSearch, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
         // Fonts
         criteriabel.font = theme?.defaultFont
@@ -31,7 +31,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         //
         criteriabel.text = search.search.code?.longLbl ?? search.search.criteria
         addressLabel.text = (search.search.isNearMeSearch == true || search.search.isQuickNearMeSearch == true) ? kNearMeTitle : search.search.address
-        timeLabel.text = String(format: "%@ ago", Date(timeIntervalSince1970: search.timeInterval).timeAgo())
+        timeLabel.text = String(format: "%@ ago", Date(timeIntervalSince1970: search.timeInterval).timeAgo(locale: lang))
     }
     
     @IBAction func onRemoveAction(_ sender: Any) {

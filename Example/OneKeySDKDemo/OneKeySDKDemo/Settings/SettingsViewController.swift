@@ -41,6 +41,8 @@ class SettingsViewController: UIViewController {
         var themeSection: MenuSection!
         let homeModeSection = MenuSection(title: kMenuHomeTitle,
                                           menus: [Menu.toggleMenu(title: kSearchHomeFullTitle, isOn: AppSettings.fullHomeModeEnabled)])
+        let languageSection = MenuSection(title: kMenuLanguageTitle,
+                                          menus: [Menu.detailMenu(title: AppSettings.language.title)], colapsedLimit: nil)
         
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
         
@@ -65,6 +67,7 @@ class SettingsViewController: UIViewController {
                                    menus: themeMenus)
         
         menus = [Menu.APIKeyMenu,
+                 languageSection,
                  themeSection,
                  homeModeSection]
         menuVC.reloadData(menus: menus)
@@ -114,6 +117,9 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                  kMenuPurpleThemeTitle,
                  kMenuCustomThemeTitle:
                 performSegue(withIdentifier: "showDefaultThemeList", sender: nil)
+            case Language.english.title,
+                 Language.french.title:
+                performSegue(withIdentifier: "showLanguageList", sender: nil)
             default:
                 break
             }
