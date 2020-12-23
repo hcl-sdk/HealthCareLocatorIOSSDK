@@ -79,7 +79,7 @@ class FullCardViewModel {
                 anotation.coordinate = activityCoordinate
                 view.placeMapView.addAnnotation(anotation)
                 view.placeMapView.setCamera(MKMapCamera(lookingAtCenter: activityCoordinate,
-                                                        fromDistance: 8000,
+                                                        fromDistance: kDefaultZoomLevel,
                                                         pitch: 0,
                                                         heading: 0),
                                             animated: false)

@@ -106,6 +106,8 @@
 		58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */; };
 		58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */; };
 		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
+		58FD50DE2593041500402723 /* OKHCPMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50DD2593041500402723 /* OKHCPMapViewController.swift */; };
+		58FD50F22593208C00402723 /* OKHCPMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */; };
 		68D6E2B8C6FD80D8E43E6DBC /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98B2E6204F8C9E73635A9C /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
 		B6F023121E1352AAD3DE4931 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */; };
 /* End PBXBuildFile section */
@@ -225,6 +227,8 @@
 		58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additional.swift"; sourceTree = "<group>"; };
 		58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKThemeConfigure.swift; sourceTree = "<group>"; };
 		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
+		58FD50DD2593041500402723 /* OKHCPMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPMapViewController.swift; sourceTree = "<group>"; };
+		58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPMapViewModel.swift; sourceTree = "<group>"; };
 		964CD8A5EBED03C47FEE38AC /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4495B23A6AA127EB7CFA4F6 /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */,
 				582854FE2589E9020090FA68 /* SearchResultViewModel.swift */,
 				58659269258B0D8C00A9A950 /* FullCardViewModel.swift */,
+				58FD50DD2593041500402723 /* OKHCPMapViewController.swift */,
+				58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -726,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58A364722554F66900C62479 /* OkManagerProtocol.swift in Sources */,
+				58FD50F22593208C00402723 /* OKHCPMapViewModel.swift in Sources */,
 				58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */,
 				58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */,
 				582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */,
@@ -734,6 +741,7 @@
 				58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */,
 				58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */,
 				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
+				58FD50DE2593041500402723 /* OKHCPMapViewController.swift in Sources */,
 				5876089B256E666800F44787 /* OKSearchConfigure.swift in Sources */,
 				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,
 				58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */,

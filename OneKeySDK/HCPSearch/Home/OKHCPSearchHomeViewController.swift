@@ -45,6 +45,12 @@ class OKHCPSearchHomeViewController: UIViewController, OKViewDesign {
         searchTextField.font = theme.searchInputFont
         bottomSearchBtn.titleLabel?.font = theme.defaultFont
         
+        //
+        for subView in bodyContentWrapper.arrangedSubviews {
+            subView.removeFromSuperview()
+            bodyContentWrapper.removeArrangedSubview(subView)
+        }
+        
         let HCPView = OKSearchTypeView(theme: theme,
                                        image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
                                        title: "Find and Locate HCP",

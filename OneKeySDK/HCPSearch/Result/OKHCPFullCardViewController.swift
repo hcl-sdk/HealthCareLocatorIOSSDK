@@ -198,6 +198,10 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
         Helper.makeCallWith(phoneNumber: phoneNumber)
     }
     
+    @IBAction func showMapAction(_ sender: Any) {
+        performSegue(withIdentifier: "showMapView", sender: nil)
+    }
+    
     @IBAction func changeAddressAction(_ sender: Any) {
 //        performSegue(withIdentifier: "showAddressPicker", sender: selectedAddressIndex)
     }
@@ -216,6 +220,10 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
                 guard let addressPicker = segue.destination as? PickerListViewController else {return}
                 addressPicker.delegate = self
 //                addressPicker.configWith(theme: theme, items: mockAddresses, selected: selectedAddressIndex)
+            case "showMapView":
+                guard let mapVC = segue.destination as? OKHCPMapViewController else {return}
+                mapVC.theme = theme
+                mapVC.activity = activity
             default:
                 return
             }
