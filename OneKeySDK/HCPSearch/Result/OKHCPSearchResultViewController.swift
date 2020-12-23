@@ -133,13 +133,13 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
                                                                      attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         
         displayModeSegmentView.items = [OkSegmentControlModel(icon: UIImage.OKImageWith(name: "list-view"),
-                                                              title: "List View",
+                                                              title: "List",
                                                               selectedBackgroundColor: theme.primaryColor,
                                                               selectedForcegroundColor: UIColor.white,
                                                               nonSelectedBackgroundColor: UIColor.white,
                                                               nonSelectedForcegroundColor: UIColor.darkGray),
                                         OkSegmentControlModel(icon: UIImage.OKImageWith(name: "map-view"),
-                                                              title: "Map View",
+                                                              title: "Map",
                                                               selectedBackgroundColor: theme.primaryColor,
                                                               selectedForcegroundColor: UIColor.white,
                                                               nonSelectedBackgroundColor: UIColor.white,
