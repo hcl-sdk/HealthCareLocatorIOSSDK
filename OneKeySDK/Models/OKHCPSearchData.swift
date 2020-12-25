@@ -10,7 +10,7 @@ import Foundation
 struct OKHCPSearchData: Codable {
     // search by 'criteria' OR 'code'
     let criteria: String!
-    let code: Code?
+    let codes: [Code]?
 
     // search by 'address' OR 'near me'
     let address: String?
@@ -29,7 +29,7 @@ struct OKHCPSearchData: Codable {
 extension OKHCPSearchData: Equatable {
     static func == (lhs: OKHCPSearchData, rhs: OKHCPSearchData) -> Bool {
         return lhs.criteria == lhs.criteria &&
-            lhs.code == rhs.code &&
+            lhs.codes == rhs.codes &&
             lhs.address == lhs.address &&
             lhs.isNearMeSearch == rhs.isNearMeSearch &&
             lhs.isQuickNearMeSearch == rhs.isQuickNearMeSearch

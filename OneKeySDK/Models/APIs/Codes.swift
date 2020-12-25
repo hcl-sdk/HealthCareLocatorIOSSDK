@@ -13,7 +13,7 @@ struct CodeResult: Codable {
 
 struct Code: Codable {
     let id: String!
-    let longLbl: String!
+    let longLbl: String?
 }
 
 extension Code: Equatable {

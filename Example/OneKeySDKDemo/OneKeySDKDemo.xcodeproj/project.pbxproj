@@ -20,6 +20,7 @@
 		5888D27A2581DA9900FA5539 /* Sequence+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2792581DA9900FA5539 /* Sequence+Additional.swift */; };
 		5888D27F2581DCB900FA5539 /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D27E2581DCB900FA5539 /* String+Additional.swift */; };
 		588A99C42574AF9B002BCC74 /* ToogleMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */; };
+		5895536F2595ACD600DDE2FF /* Specialities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5895536E2595ACD600DDE2FF /* Specialities.swift */; };
 		5898C2632580BF4C00D983B5 /* FontMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2622580BF4C00D983B5 /* FontMapping.swift */; };
 		5898C2682580C6DA00D983B5 /* FontSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2672580C6DA00D983B5 /* FontSettingsTableViewCell.swift */; };
 		58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648C2555081E00C62479 /* AppDelegate.swift */; };
@@ -91,6 +92,7 @@
 		5888D2792581DA9900FA5539 /* Sequence+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Additional.swift"; sourceTree = "<group>"; };
 		5888D27E2581DCB900FA5539 /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleMenuTableViewCell.swift; sourceTree = "<group>"; };
+		5895536E2595ACD600DDE2FF /* Specialities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialities.swift; sourceTree = "<group>"; };
 		5898C2622580BF4C00D983B5 /* FontMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMapping.swift; sourceTree = "<group>"; };
 		5898C2672580C6DA00D983B5 /* FontSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		58A364892555081E00C62479 /* OneKeySDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneKeySDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 				5888D2792581DA9900FA5539 /* Sequence+Additional.swift */,
 				5888D27E2581DCB900FA5539 /* String+Additional.swift */,
 				5836DD5E25935958002F776D /* Language.swift */,
+				5895536E2595ACD600DDE2FF /* Specialities.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				58D10D2D255E4814008471F3 /* Menu.swift in Sources */,
 				58B961E8255CFDC9000B126D /* UIColor+Hex.swift in Sources */,
 				5836DD5F25935958002F776D /* Language.swift in Sources */,
+				5895536F2595ACD600DDE2FF /* Specialities.swift in Sources */,
 				58B96201255D44C2000B126D /* TextMenuTableViewCell.swift in Sources */,
 				58D10D28255E47A1008471F3 /* Theme.swift in Sources */,
 				582BBE04257FA8A6009BC23E /* Theme+Additional.swift in Sources */,

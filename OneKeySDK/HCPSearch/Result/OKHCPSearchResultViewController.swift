@@ -46,7 +46,9 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
         topInputTextField.delegate = self
         
         if let search = data {
-            searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(), search: search)
+            searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
+                                                                                              manager: OKServiceManager.shared),
+                                                          search: search)
         }
         
         if let unwrap = data {
@@ -90,7 +92,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     func layoutWith(searchData: OKHCPSearchData) {
         activityCountLabel.text = "\(searchData.result.count)"
-        criteriaLabel.text = searchData.code?.longLbl ?? searchData.criteria
+        criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria
         // Display map by default if the user active near me search at home screen
         if searchData.isQuickNearMeSearch == true {
             topInputWrapper.isHidden = false
@@ -154,7 +156,7 @@ class OKHCPSearchResultViewController: UIViewController, OKViewDesign {
     
     @IBAction func onSearchAction(_ sender: Any) {
         performSegue(withIdentifier: "showSearchInputVC", sender: OKHCPSearchData(criteria: nil,
-                                                                                  code: nil,
+                                                                                  codes: nil,
                                                                                   address: nil,
                                                                                   isNearMeSearch: true,
                                                                                   isQuickNearMeSearch: true))
@@ -259,7 +261,7 @@ extension OKHCPSearchResultViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == topInputTextField {
             performSegue(withIdentifier: "showSearchInputVC", sender: OKHCPSearchData(criteria: nil,
-                                                                                      code: nil,
+                                                                                      codes: nil,
                                                                                       address: nil,
                                                                                       isNearMeSearch: true,
                                                                                       isQuickNearMeSearch: true))

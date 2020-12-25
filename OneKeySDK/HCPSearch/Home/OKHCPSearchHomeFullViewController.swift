@@ -17,7 +17,8 @@ class OKHCPSearchHomeFullViewController: UIViewController, OKViewDesign {
     @IBOutlet weak var bodyWrapperView: UIView!
     @IBOutlet weak var historyTableView: UITableView!
     
-    let historyViewModel = OKSearchHistoryViewModel(webService: MockOKHCPSearchWebServices())
+    let historyViewModel = OKSearchHistoryViewModel(webService: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
+                                                                                       manager: OKServiceManager.shared))
     
     var tableViewDataSource: OKSearchHistoryDataSource!
     
@@ -115,7 +116,7 @@ extension OKHCPSearchHomeFullViewController: OKSearchHistoryDataSourceDelegate {
     
     func didSelectNearMeSearch() {
         let searchData = OKHCPSearchData(criteria: nil,
-                                         code: nil,
+                                         codes: OKManager.shared.searchConfigure?.favourites.map {Code(id: $0, longLbl: nil)},
                                          address: nil,
                                          isNearMeSearch: true,
                                          isQuickNearMeSearch: true)

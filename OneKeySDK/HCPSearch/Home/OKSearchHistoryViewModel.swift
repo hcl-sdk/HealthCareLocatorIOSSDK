@@ -72,16 +72,16 @@ class OKSearchHistoryViewModel: OKViewLoading {
             if let coordinate = coordinate {
                 let manager = OKServiceManager.shared
                 let location = GeopointQuery(lat: coordinate.latitude, lon: coordinate.longitude)
-                let query = GeneralQueryInput(apiKey: "1",
-                                              first: 50,
+                let query = GeneralQueryInput(first: 50,
                                               offset: 0,
-                                              userId: nil,
                                               locale: "en",
                                               criteria: nil)
+                let userId = OKManager.shared.userId
                 return strongSelf.fetchActivitiesWith(info: query,
                                                       location: location,
                                                       webService: strongSelf.webService,
-                                                      manager: manager)
+                                                      manager: manager,
+                                                      userId: userId)
             } else {
                 return Single.create { single in
                     single(.success([]))
@@ -116,14 +116,15 @@ class OKSearchHistoryViewModel: OKViewLoading {
     private func fetchActivitiesWith(info: GeneralQueryInput,
                                      location: GeopointQuery,
                                      webService: OKHCPSearchWebServicesProtocol,
-                                     manager: OKServiceManager) -> Single<[ActivityResult]> {
+                                     manager: OKServiceManager,
+                                     userId: String?) -> Single<[ActivityResult]> {
         return Single<[ActivityResult]>.create { single in
             webService.fetchActivitiesWith(info: info,
                                            specialties: nil,
                                            location: location,
                                            county: nil,
                                            criteria: nil,
-                                           manager: manager) { (result, error) in
+                                           userId: userId) { (result, error) in
                 if let result = result {
                     single(.success(result))
                 } else if let error = error {

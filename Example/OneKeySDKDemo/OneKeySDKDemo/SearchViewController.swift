@@ -10,16 +10,32 @@ import OneKeySDK
 
 class SearchViewController: UIViewController {
     
+    var config: OKSearchConfigure?
+    
     @IBOutlet weak var wrapperView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get manager and assign the delegate to listen for search process events
         let shared = OKManager.shared
-        shared.initialize(apiKey: "1")
-        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases))
+        //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
-        shared.delegate = self
+        
+        shared.initialize(apiKey: "123",
+                          configure: config) {[weak self] (success, error) in
+            if success {
+                shared.delegate = self
+                self?.initSearchUI()
+            } else {
+                let alertView = UIAlertController(title: "Error", message: "Unknow error", preferredStyle: .alert)
+                let closeAction = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+                alertView.addAction(closeAction)
+                self?.present(alertView, animated: true, completion: nil)
+            }
+        }
+    }
+
+    private func initSearchUI() {
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController(fullMode: AppSettings.fullHomeModeEnabled)
         let storedTheme = AppSettings.selectedTheme

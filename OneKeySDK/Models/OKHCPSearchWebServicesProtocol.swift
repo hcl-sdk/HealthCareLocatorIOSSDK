@@ -9,16 +9,18 @@ import Foundation
 
 protocol OKHCPSearchWebServicesProtocol {
     
+    init(apiKey: String, manager: OKServiceManager)
+    
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping (([Code]?, Error?) -> Void))
     
     func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
-                                    manager: OKServiceManager,
+                                    userId: String?,
                                     completionHandler: @escaping (([IndividualWorkPlaceDetails]?, Error?) -> Void))
     
     func fetchActivitiesWith(info: GeneralQueryInput,
@@ -26,13 +28,11 @@ protocol OKHCPSearchWebServicesProtocol {
                              location: GeopointQuery?,
                              county: String?,
                              criteria: String?,
-                             manager: OKServiceManager,
+                             userId: String?,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void))
     
-    func fetchActivityWith(apiKey: String,
-                           userId: String?,
-                           id: String!,
+    func fetchActivityWith(id: String!,
                            locale: String?,
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void))
 }

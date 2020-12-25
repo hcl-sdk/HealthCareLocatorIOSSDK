@@ -18,11 +18,9 @@ class FullCardViewModel {
     }
     
     func fetchActivityDetail(_ completionHandler: @escaping ((Activity?, Error?) -> Void)) {
-        webServices.fetchActivityWith(apiKey: "1",
-                                      userId: nil,
-                                      id: activityID,
+        webServices.fetchActivityWith(id: activityID,
                                       locale: "en",
-                                      manager: OKServiceManager.shared) { (activity, error) in
+                                      userId: OKManager.shared.userId) { (activity, error) in
             completionHandler(activity, error)
         }
     }

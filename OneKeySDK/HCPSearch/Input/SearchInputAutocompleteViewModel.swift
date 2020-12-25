@@ -26,7 +26,7 @@ class SearchInputAutocompleteViewModel {
         self.webServices = webServices
     }
     
-    func codesByLabelObservableWith(creteria: String) -> Observable<[Code]> {
+    func codesByLabelObservableWith(creteria: String, userId: String?) -> Observable<[Code]> {
         return Observable.create {[weak self] (observer) -> Disposable in
             if creteria.isEmpty {
                 observer.onNext([])
@@ -34,14 +34,12 @@ class SearchInputAutocompleteViewModel {
             } else {
                 if let webservice = self?.webServices {
                     self?.isLoadingCodes.onNext(true)
-                    webservice.fetchCodesByLabel(info: GeneralQueryInput(apiKey: "1",
-                                                                         first: 5,
+                    webservice.fetchCodesByLabel(info: GeneralQueryInput(first: 5,
                                                                          offset: 0,
-                                                                         userId: "1",
                                                                          locale: "en"),
                                                  criteria: creteria,
                                                  codeTypes: ["SP"],
-                                                 manager: OKServiceManager.shared) { (codes, error) in
+                                                 userId: userId) { (codes, error) in
                         if let error = error {
                             observer.onError(error)
                         } else {
@@ -59,7 +57,7 @@ class SearchInputAutocompleteViewModel {
         }
     }
     
-    func individualsByNameObservableWith(creteria: String) -> Observable<[IndividualWorkPlaceDetails]> {
+    func individualsByNameObservableWith(creteria: String, userId: String?) -> Observable<[IndividualWorkPlaceDetails]> {
         return Observable.create {[weak self] (observer) -> Disposable in
             if creteria.isEmpty {
                 observer.onNext([])
@@ -67,14 +65,12 @@ class SearchInputAutocompleteViewModel {
             } else {
                 if let webservice = self?.webServices {
                     self?.isLoadingIndividuals.onNext(true)
-                    webservice.fetchIndividualsByNameWith(info: GeneralQueryInput(apiKey: "1",
-                                                                                  first: 5,
+                    webservice.fetchIndividualsByNameWith(info: GeneralQueryInput(first: 5,
                                                                                   offset: 0,
-                                                                                  userId: "1",
                                                                                   locale: "en"),
                                                           county: "",
                                                           criteria: creteria,
-                                                          manager: OKServiceManager.shared) { (individuals, error) in
+                                                          userId: userId) { (individuals, error) in
                         if let error = error {
                             observer.onError(error)
                         } else {
@@ -95,11 +91,11 @@ class SearchInputAutocompleteViewModel {
 
 extension SearchInputAutocompleteViewModel {
     func codesObservable() -> Observable<[Code]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in codesByLabelObservableWith(creteria: $0)}
+        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in codesByLabelObservableWith(creteria: $0, userId: OKManager.shared.userId)}
     }
     
     func individualsObservable() -> Observable<[IndividualWorkPlaceDetails]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in individualsByNameObservableWith(creteria: $0)}
+        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in individualsByNameObservableWith(creteria: $0, userId: OKManager.shared.userId)}
     }
     
     func isFirstFieldLoading() -> Observable<Bool> {

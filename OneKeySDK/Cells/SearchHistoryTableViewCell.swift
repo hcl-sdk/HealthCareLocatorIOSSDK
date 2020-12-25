@@ -29,7 +29,7 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         addressLabel.textColor = theme?.greyDarkColor
 
         //
-        criteriabel.text = search.search.code?.longLbl ?? search.search.criteria
+        criteriabel.text = search.search.codes?.compactMap {$0.longLbl}.joined(separator: ", ") ?? search.search.criteria
         addressLabel.text = (search.search.isNearMeSearch == true || search.search.isQuickNearMeSearch == true) ? kNearMeTitle : search.search.address
         timeLabel.text = String(format: "%@ ago", Date(timeIntervalSince1970: search.timeInterval).timeAgo(locale: lang))
     }

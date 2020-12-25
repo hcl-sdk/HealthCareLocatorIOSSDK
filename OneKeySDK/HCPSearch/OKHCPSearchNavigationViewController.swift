@@ -38,14 +38,27 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    init(fullMode: Bool) {
-        if fullMode {
-            let fullHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeFullViewController") as! OKHCPSearchHomeFullViewController
-            super.init(rootViewController: fullHomeVC)
-        } else {
-            let compactHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeViewController") as! OKHCPSearchHomeViewController
-            super.init(rootViewController: compactHomeVC)
+    init(configure: OKSearchConfigure, fullMode: Bool) {
+        switch configure.entry {
+        case .home,
+             .none:
+            if fullMode {
+                let fullHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeFullViewController") as! OKHCPSearchHomeFullViewController
+                super.init(rootViewController: fullHomeVC)
+            } else {
+                let compactHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeViewController") as! OKHCPSearchHomeViewController
+                super.init(rootViewController: compactHomeVC)
+            }
+        case .nearMe:
+            let resultVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultViewController") as! OKHCPSearchResultViewController
+            resultVC.data = OKHCPSearchData(criteria: nil,
+                                            codes: configure.favourites.map {Code(id: $0, longLbl: nil)},
+                                            address: nil,
+                                            isNearMeSearch: true,
+                                            isQuickNearMeSearch: true)
+            super.init(rootViewController: resultVC)
         }
+        
         isNavigationBarHidden = true
     }
     

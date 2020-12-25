@@ -97,7 +97,9 @@ class OKHCPFullCardViewController: UIViewController, OKViewDesign {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let id = activityID {
-            fullCardViewModel = FullCardViewModel(activityID: id, webServices: OKHCPSearchWebServices())
+            fullCardViewModel = FullCardViewModel(activityID: id,
+                                                  webServices: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
+                                                                                      manager: OKServiceManager.shared))
         } else {
             fatalError("Missing Activity ID")
         }

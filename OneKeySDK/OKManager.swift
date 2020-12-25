@@ -24,7 +24,9 @@ public class OKManager: NSObject {
     static public let shared = OKManager()
     lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
 
+    private(set) var searchNavigationController: OKHCPSearchNavigationViewController?
     private(set) var apiKey: String?
+    private(set) var userId: String?
     private(set) var searchConfigure: OKSearchConfigure?
     private(set) var lang: String = NSLocale.preferredLanguages.first ?? "en"
 
@@ -44,8 +46,31 @@ extension OKManager: OkManagerProtocol {
      The API key provide by the provisioning tools to authenticate with server, you need it to be set before using the searching
      - Important: the API key **MUST** be set before using the *Search* features OR it will raise an exception at run time
      */
-    public func initialize(apiKey: String) {
+    public func initialize(apiKey: String,
+                           configure: OKSearchConfigure? = nil,
+                           handler: ((Bool, Error?) -> Void)? = nil) {
         self.apiKey = apiKey
+        if let configure = configure {
+            if OKSearchConfigureValidator.validate(configure: configure) {
+                searchConfigure = configure
+                handler?(true, nil)
+            } else {
+                print(OKError.initializeConfigureValidateFailed)
+                handler?(false, OKError.initializeConfigureValidateFailed)
+            }
+        } else {
+            searchConfigure = getDefaultSearchConfigure()
+            handler?(true, nil)
+        }
+    }
+    
+    /**
+     User id should be a uniqueue string to store your user's search history.
+     - Parameters:
+        - userId: A uniqueue string, depend on your app bussiness rule, this is the key to distinst between users
+     */
+    public func set(userId: String) {
+        self.userId = userId
     }
     
     /**
@@ -71,7 +96,7 @@ extension OKManager: OkManagerProtocol {
      The default configuration for HCP/HCO searching will be use if no configure set
      */
     public func getDefaultSearchConfigure() -> OKSearchConfigure {
-        return OKSearchConfigure(favourites: Specialities.allCases)
+        return OKSearchConfigure(favourites: [])
     }
     
     /**
@@ -79,7 +104,9 @@ extension OKManager: OkManagerProtocol {
      - Returns: The navigation controller of the search HCP process
      */
     public func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController {
-        let searchVC = OKHCPSearchNavigationViewController(fullMode: fullMode)
+        let searchVC = OKHCPSearchNavigationViewController(configure: searchConfigure ?? getDefaultSearchConfigure(),
+                                                           fullMode: fullMode)
+        searchNavigationController = searchVC
         return searchVC
     }
     
@@ -90,5 +117,18 @@ extension OKManager: OkManagerProtocol {
     public func getDefaultUIConfigure() -> OKThemeConfigure {
         return OKThemeConfigure(primaryColor: UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
                                 secondaryColor: UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1))
+    }
+    
+    public func searchNearMe(specialities: [String]) {
+        if let searchVC = searchNavigationController,
+           searchVC.isViewLoaded,
+           let resultVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultViewController") as? OKHCPSearchResultViewController {
+            resultVC.data = OKHCPSearchData(criteria: nil,
+                                            codes: specialities.map {Code(id: $0, longLbl: nil)},
+                                            address: nil,
+                                            isNearMeSearch: false,
+                                            isQuickNearMeSearch: true)
+            searchVC.pushViewController(resultVC, animated: true)
+        }
     }
 }

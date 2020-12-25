@@ -16,7 +16,8 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     
     var theme: OKThemeConfigure?
 
-    private var webService: OKHCPSearchWebServicesProtocol = OKHCPSearchWebServices()//MockOKHCPSearchWebServices()
+    private var webService: OKHCPSearchWebServicesProtocol = OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
+                                                                                    manager: OKServiceManager.shared)
         
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -191,7 +192,7 @@ class OKHCPSearchInputViewController: UIViewController, OKViewDesign {
     
     private func performSearchingWith(criteria: String? = nil, code: Code? = nil, address: String? = nil, isNearMeSearch: Bool? = false) {
         let searchData = OKHCPSearchData(criteria: criteria,
-                                         code: code,
+                                         codes: code != nil ? [code!] : nil,
                                          address: address,
                                          isNearMeSearch: isNearMeSearch,
                                          isQuickNearMeSearch: false,
