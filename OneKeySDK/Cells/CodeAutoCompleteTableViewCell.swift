@@ -16,13 +16,13 @@ class CodeAutoCompleteTableViewCell: UITableViewCell {
         separatorView.backgroundColor = theme.greyLighterColor
         codeLabel.font = theme.defaultFont
         codeLabel.textColor = theme.darkColor
-        let attibuteText = NSMutableAttributedString(string: code.longLbl)
+        guard let longLabel = code.longLbl else {return}
+        let attibuteText = NSMutableAttributedString(string: longLabel)
         if let highlightText = highlight {
             let range = NSString(string: attibuteText.mutableString.lowercased).range(of: highlightText.lowercased())
             attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor, range: range)
         }
         codeLabel.attributedText = attibuteText
-        
     }
     
 }

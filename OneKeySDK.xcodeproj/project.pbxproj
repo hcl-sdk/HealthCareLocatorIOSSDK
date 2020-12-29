@@ -15,18 +15,18 @@
 		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
 		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
 		582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582854FE2589E9020090FA68 /* SearchResultViewModel.swift */; };
-		5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */; };
+		5834823D25667A3D00A3F7BC /* SegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */; };
 		5836DD4B25934874002F776D /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD4A25934874002F776D /* String+Additional.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
-		584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */; };
-		5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */; };
-		5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */; };
+		584394272559282E009D2306 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* SearchInputViewController.swift */; };
+		5843942B25592AC2009D2306 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* SearchResultViewController.swift */; };
+		5843946325594FC6009D2306 /* SearchResultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843946225594FC6009D2306 /* SearchResultMapViewController.swift */; };
 		584394672559501C009D2306 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584394662559501C009D2306 /* MapKit.framework */; };
-		5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */; };
+		5843948A25595591009D2306 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843948925595591009D2306 /* SearchHomeViewController.swift */; };
 		5848D6BA256E10C700217EFC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6B9256E10C700217EFC /* Constants.swift */; };
-		5848D6C4256E144E00217EFC /* OKHCPSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */; };
-		5848D6DA256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */; };
-		585116AD256E42BC00E5C7D3 /* OKSortableResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */; };
+		5848D6C4256E144E00217EFC /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6C3256E144E00217EFC /* SearchData.swift */; };
+		5848D6DA256E1BE900217EFC /* SearchResultSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */; };
+		585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585116AC256E42BC00E5C7D3 /* SortableResultList.swift */; };
 		5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */; };
 		5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659269258B0D8C00A9A950 /* FullCardViewModel.swift */; };
 		58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659280258B23F500A9A950 /* Optional+Additional.swift */; };
@@ -44,10 +44,15 @@
 		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
 		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
 		587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */; };
-		588A99F32574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */; };
+		588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */; };
 		5891621F25875F41006C1E6C /* Mock-Activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5891621E25875F41006C1E6C /* Mock-Activities.json */; };
 		5891626925878831006C1E6C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891626825878831006C1E6C /* Activity.swift */; };
 		5891627F2587941D006C1E6C /* Individual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891627E2587941D006C1E6C /* Individual.swift */; };
+		589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553852595E7EB00DDE2FF /* ViewControllers.swift */; };
+		5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */; };
+		589553AE2595F6C900DDE2FF /* HomeFullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */; };
+		589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */; };
+		589553D92595FF9600DDE2FF /* SearchInputDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */; };
 		58A3645E2554F64700C62479 /* OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A364542554F64700C62479 /* OneKeySDK.framework */; };
 		58A364632554F64700C62479 /* OneKeySDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364622554F64700C62479 /* OneKeySDKTests.swift */; };
 		58A364652554F64700C62479 /* OneKeySDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A364572554F64700C62479 /* OneKeySDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,15 +63,15 @@
 		58A3647D2554F69C00C62479 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58A3647A2554F69C00C62479 /* README.md */; };
 		58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */; };
 		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
-		58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */; };
+		58A8BD1B256F6E8C00DAEBF3 /* HCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */; };
 		58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B30B21258A24E90036442F /* Mock-Activity-Detail.json */; };
 		58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */; };
-		58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */; };
+		58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */; };
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
 		58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */; };
 		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
-		58BAEE462574F10A003C5383 /* OKSearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */; };
-		58BAEE4C2574F2FC003C5383 /* OKSearchHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */; };
+		58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */; };
+		58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */; };
 		58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */; };
 		58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */; };
 		58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */; };
@@ -74,42 +79,44 @@
 		58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */; };
 		58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEB925751EAD003C5383 /* ActivityList.swift */; };
 		58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */; };
-		58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* OKActivityHandler.swift */; };
-		58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* OKActivityList.swift */; };
+		58C2997F256FBAE500236D91 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* ActivityHandler.swift */; };
+		58C29983256FBD1E00236D91 /* ActivityListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* ActivityListHandler.swift */; };
 		58C34B152570B7F800007DA2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C34B142570B7F800007DA2 /* Helpers.swift */; };
+		58CDED6D259AEFA700EC7746 /* LastHCPConsulted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */; };
+		58CDEDF6259B2CCB00EC7746 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */; };
 		58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */; };
 		58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */; };
-		58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */; };
-		58CF586725760340001ACD6C /* OkDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586625760340001ACD6C /* OkDatabase.swift */; };
+		58CF58632576001F001ACD6C /* LastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58622576001F001ACD6C /* LastSearch.swift */; };
+		58CF586725760340001ACD6C /* AppConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586625760340001ACD6C /* AppConfigure.swift */; };
 		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
 		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
-		58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* OKIndexAble.swift */; };
-		58D0E38D2591BC8200491C92 /* OKViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0E38C2591BC8200491C92 /* OKViewLoading.swift */; };
-		58D46590258C8E9B0084FA7A /* OKLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */; };
+		58CF588325766017001ACD6C /* IndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* IndexAble.swift */; };
+		58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0E38C2591BC8200491C92 /* ViewLoading.swift */; };
+		58D46590258C8E9B0084FA7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D4658F258C8E9B0084FA7A /* LocationManager.swift */; };
 		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
 		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
 		58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */; };
 		58DB2CAF25933C790022E6E0 /* OneKeySDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58DB2CB125933C790022E6E0 /* OneKeySDK.strings */; };
-		58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */; };
+		58E1D8EE256BB46E004AB056 /* SearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */; };
 		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
 		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
 		58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E73AA92562925100740548 /* SearchResultTableViewCell.xib */; };
-		58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* OKBaseButton.swift */; };
-		58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E77981255BE4740051F1FA /* OKViewDesign.swift */; };
+		58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* BaseButton.swift */; };
+		58E77982255BE4740051F1FA /* ViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E77981255BE4740051F1FA /* ViewDesign.swift */; };
 		58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */; };
-		58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */; };
-		58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */; };
-		58F104C42563917700AFD4B3 /* OkSegmentControlItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */; };
-		58F104C82563919B00AFD4B3 /* OkSegmentControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */; };
-		58F104CC2563AF6300AFD4B3 /* OkSegmentControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */; };
-		58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */; };
-		58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */; };
-		58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */; };
+		58F104BC2563904900AFD4B3 /* SegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104BB2563904900AFD4B3 /* SegmentControlView.xib */; };
+		58F104C02563905F00AFD4B3 /* SegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */; };
+		58F104C42563917700AFD4B3 /* SegmentControlItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104C32563917700AFD4B3 /* SegmentControlItem.xib */; };
+		58F104C82563919B00AFD4B3 /* SegmentControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */; };
+		58F104CC2563AF6300AFD4B3 /* SegmentControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */; };
+		58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */; };
+		58F5EE16255BACEC0029B0B4 /* SearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */; };
+		58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE1A255BADE70029B0B4 /* BaseView.swift */; };
 		58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */; };
 		58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */; };
 		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
-		58FD50DE2593041500402723 /* OKHCPMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50DD2593041500402723 /* OKHCPMapViewController.swift */; };
-		58FD50F22593208C00402723 /* OKHCPMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */; };
+		58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50DD2593041500402723 /* HCPMapViewController.swift */; };
+		58FD50F22593208C00402723 /* HCPMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50F12593208C00402723 /* HCPMapViewModel.swift */; };
 		68D6E2B8C6FD80D8E43E6DBC /* Pods_OneKeySDK_OneKeySDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB98B2E6204F8C9E73635A9C /* Pods_OneKeySDK_OneKeySDKTests.framework */; };
 		B6F023121E1352AAD3DE4931 /* Pods_OneKeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */; };
 /* End PBXBuildFile section */
@@ -135,18 +142,18 @@
 		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
 		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
 		582854FE2589E9020090FA68 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
-		5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlViewProtocol.swift; sourceTree = "<group>"; };
+		5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		5836DD4A25934874002F776D /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchInputViewController.swift; sourceTree = "<group>"; };
-		5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultViewController.swift; sourceTree = "<group>"; };
-		5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultMapViewController.swift; sourceTree = "<group>"; };
+		584394262559282E009D2306 /* SearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewController.swift; sourceTree = "<group>"; };
+		5843942A25592AC2009D2306 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		5843946225594FC6009D2306 /* SearchResultMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultMapViewController.swift; sourceTree = "<group>"; };
 		584394662559501C009D2306 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchHomeViewController.swift; sourceTree = "<group>"; };
+		5843948925595591009D2306 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewController.swift; sourceTree = "<group>"; };
 		5848D6B9256E10C700217EFC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchData.swift; sourceTree = "<group>"; };
-		5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultSortViewController.swift; sourceTree = "<group>"; };
-		585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSortableResultList.swift; sourceTree = "<group>"; };
+		5848D6C3256E144E00217EFC /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSortViewController.swift; sourceTree = "<group>"; };
+		585116AC256E42BC00E5C7D3 /* SortableResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableResultList.swift; sourceTree = "<group>"; };
 		5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputAutocompleteViewModel.swift; sourceTree = "<group>"; };
 		58659269258B0D8C00A9A950 /* FullCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCardViewModel.swift; sourceTree = "<group>"; };
 		58659280258B23F500A9A950 /* Optional+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Additional.swift"; sourceTree = "<group>"; };
@@ -164,10 +171,15 @@
 		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
 		587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
-		588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchHomeFullViewController.swift; sourceTree = "<group>"; };
+		588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeFullViewController.swift; sourceTree = "<group>"; };
 		5891621E25875F41006C1E6C /* Mock-Activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activities.json"; sourceTree = "<group>"; };
 		5891626825878831006C1E6C /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		5891627E2587941D006C1E6C /* Individual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Individual.swift; sourceTree = "<group>"; };
+		589553852595E7EB00DDE2FF /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewModel.swift; sourceTree = "<group>"; };
+		589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFullViewModel.swift; sourceTree = "<group>"; };
+		589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewModel.swift; sourceTree = "<group>"; };
+		589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputDataSource.swift; sourceTree = "<group>"; };
 		58A364542554F64700C62479 /* OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A364572554F64700C62479 /* OneKeySDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneKeySDK.h; sourceTree = "<group>"; };
 		58A364582554F64700C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,15 +193,15 @@
 		58A3647A2554F69C00C62479 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		58A364D32555435700C62479 /* OKHCPSearchNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchNavigationViewController.swift; sourceTree = "<group>"; };
 		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
-		58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPFullCardViewController.swift; sourceTree = "<group>"; };
+		58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPFullCardViewController.swift; sourceTree = "<group>"; };
 		58B30B21258A24E90036442F /* Mock-Activity-Detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activity-Detail.json"; sourceTree = "<group>"; };
 		58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServices.swift; sourceTree = "<group>"; };
-		58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesProtocol.swift; sourceTree = "<group>"; };
+		58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIsProtocol.swift; sourceTree = "<group>"; };
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
 		58B6A772255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
-		58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchHistoryViewModel.swift; sourceTree = "<group>"; };
-		58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchHistoryDataSource.swift; sourceTree = "<group>"; };
+		58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModel.swift; sourceTree = "<group>"; };
+		58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryDataSource.swift; sourceTree = "<group>"; };
 		58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewMoreTableViewCell.swift; sourceTree = "<group>"; };
 		58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderViewMoreTableViewCell.xib; sourceTree = "<group>"; };
 		58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMapTableViewCell.swift; sourceTree = "<group>"; };
@@ -197,43 +209,45 @@
 		58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorderTableViewCell.swift; sourceTree = "<group>"; };
 		58BAEEB925751EAD003C5383 /* ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityList.swift; sourceTree = "<group>"; };
 		58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Additional.swift"; sourceTree = "<group>"; };
-		58C2997E256FBAE500236D91 /* OKActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityHandler.swift; sourceTree = "<group>"; };
-		58C29982256FBD1E00236D91 /* OKActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKActivityList.swift; sourceTree = "<group>"; };
+		58C2997E256FBAE500236D91 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
+		58C29982256FBD1E00236D91 /* ActivityListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListHandler.swift; sourceTree = "<group>"; };
 		58C34B142570B7F800007DA2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastHCPConsulted.swift; sourceTree = "<group>"; };
+		58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPConsultedHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPConsultedHistoryTableViewCell.xib; sourceTree = "<group>"; };
-		58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPLastSearch.swift; sourceTree = "<group>"; };
-		58CF586625760340001ACD6C /* OkDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkDatabase.swift; sourceTree = "<group>"; };
+		58CF58622576001F001ACD6C /* LastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearch.swift; sourceTree = "<group>"; };
+		58CF586625760340001ACD6C /* AppConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigure.swift; sourceTree = "<group>"; };
 		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
-		58CF588225766017001ACD6C /* OKIndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIndexAble.swift; sourceTree = "<group>"; };
-		58D0E38C2591BC8200491C92 /* OKViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKViewLoading.swift; sourceTree = "<group>"; };
-		58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKLocationManager.swift; sourceTree = "<group>"; };
+		58CF588225766017001ACD6C /* IndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexAble.swift; sourceTree = "<group>"; };
+		58D0E38C2591BC8200491C92 /* ViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoading.swift; sourceTree = "<group>"; };
+		58D4658F258C8E9B0084FA7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
 		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
 		58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPickerTableViewCell.xib; sourceTree = "<group>"; };
 		58DB2CB025933C790022E6E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OneKeySDK.strings; sourceTree = "<group>"; };
 		58DB2CB425933C7C0022E6E0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/OneKeySDK.strings; sourceTree = "<group>"; };
-		58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchResultListViewController.swift; sourceTree = "<group>"; };
+		58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultListViewController.swift; sourceTree = "<group>"; };
 		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		58E73AA92562925100740548 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
-		58E7797C255BDCF80051F1FA /* OKBaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKBaseButton.swift; sourceTree = "<group>"; };
-		58E77981255BE4740051F1FA /* OKViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKViewDesign.swift; sourceTree = "<group>"; };
+		58E7797C255BDCF80051F1FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		58E77981255BE4740051F1FA /* ViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDesign.swift; sourceTree = "<group>"; };
 		58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQueryInput.swift; sourceTree = "<group>"; };
-		58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OKSegmentControlView.xib; sourceTree = "<group>"; };
-		58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSegmentControlView.swift; sourceTree = "<group>"; };
-		58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OkSegmentControlItem.xib; sourceTree = "<group>"; };
-		58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkSegmentControlItem.swift; sourceTree = "<group>"; };
-		58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkSegmentControlModel.swift; sourceTree = "<group>"; };
-		58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchTypeView.swift; sourceTree = "<group>"; };
-		58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OKSearchTypeView.xib; sourceTree = "<group>"; };
-		58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKBaseView.swift; sourceTree = "<group>"; };
+		58F104BB2563904900AFD4B3 /* SegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentControlView.xib; sourceTree = "<group>"; };
+		58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlView.swift; sourceTree = "<group>"; };
+		58F104C32563917700AFD4B3 /* SegmentControlItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentControlItem.xib; sourceTree = "<group>"; };
+		58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlItem.swift; sourceTree = "<group>"; };
+		58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlModel.swift; sourceTree = "<group>"; };
+		58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeView.swift; sourceTree = "<group>"; };
+		58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTypeView.xib; sourceTree = "<group>"; };
+		58F5EE1A255BADE70029B0B4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additional.swift"; sourceTree = "<group>"; };
 		58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKThemeConfigure.swift; sourceTree = "<group>"; };
 		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
-		58FD50DD2593041500402723 /* OKHCPMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPMapViewController.swift; sourceTree = "<group>"; };
-		58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPMapViewModel.swift; sourceTree = "<group>"; };
+		58FD50DD2593041500402723 /* HCPMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewController.swift; sourceTree = "<group>"; };
+		58FD50F12593208C00402723 /* HCPMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewModel.swift; sourceTree = "<group>"; };
 		964CD8A5EBED03C47FEE38AC /* Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B69914567407F7AFB21E8BC4 /* Pods_OneKeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4495B23A6AA127EB7CFA4F6 /* Pods-OneKeySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +277,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		584B7D49259ADBCA004AAE62 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5843948925595591009D2306 /* SearchHomeViewController.swift */,
+				58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */,
+				58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */,
+				589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		5875443C2588798A0000C126 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,18 +302,12 @@
 		587D21432564C4030009EA01 /* Result */ = {
 			isa = PBXGroup;
 			children = (
-				5843942A25592AC2009D2306 /* OKHCPSearchResultViewController.swift */,
-				5843946225594FC6009D2306 /* OKHCPSearchResultMapViewController.swift */,
-				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
-				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
-				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
-				58E1D8ED256BB46E004AB056 /* OKHCPSearchResultListViewController.swift */,
-				5848D6D9256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift */,
-				58A8BD1A256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift */,
+				58CDED40259AEB1500EC7746 /* Details */,
+				58CDED3F259AEAF500EC7746 /* Map */,
+				58CDED3E259AEAF000EC7746 /* List */,
+				5843942A25592AC2009D2306 /* SearchResultViewController.swift */,
+				5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */,
 				582854FE2589E9020090FA68 /* SearchResultViewModel.swift */,
-				58659269258B0D8C00A9A950 /* FullCardViewModel.swift */,
-				58FD50DD2593041500402723 /* OKHCPMapViewController.swift */,
-				58FD50F12593208C00402723 /* OKHCPMapViewModel.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -300,6 +319,17 @@
 				587D23A8256538CB0009EA01 /* APIModels.swift */,
 			);
 			path = GraphQLAPI;
+			sourceTree = "<group>";
+		};
+		589553C12595F93200DDE2FF /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */,
+				58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */,
+				58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */,
+				589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */,
+			);
+			path = Full;
 			sourceTree = "<group>";
 		};
 		58A3644A2554F64700C62479 = {
@@ -351,6 +381,7 @@
 			children = (
 				58A364622554F64700C62479 /* OneKeySDKTests.swift */,
 				58A364642554F64700C62479 /* Info.plist */,
+				58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */,
 			);
 			path = OneKeySDKTests;
 			sourceTree = "<group>";
@@ -370,9 +401,11 @@
 		58A8A587256286FC00A11F88 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				584394262559282E009D2306 /* OKHCPSearchInputViewController.swift */,
+				584394262559282E009D2306 /* SearchInputViewController.swift */,
 				5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */,
 				5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */,
+				589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */,
+				589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -382,16 +415,17 @@
 			children = (
 				5875443C2588798A0000C126 /* APIs */,
 				58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */,
-				58B6A764255AA1A600C1F6AF /* OKHCPSearchWebServicesProtocol.swift */,
+				58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */,
 				58B6A76E255AA2CB00C1F6AF /* OKError.swift */,
 				58F5EE32255BC9F50029B0B4 /* OKThemeConfigure.swift */,
-				58F104CB2563AF6300AFD4B3 /* OkSegmentControlModel.swift */,
+				58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */,
 				5848D6B9256E10C700217EFC /* Constants.swift */,
-				5848D6C3256E144E00217EFC /* OKHCPSearchData.swift */,
+				5848D6C3256E144E00217EFC /* SearchData.swift */,
 				5876089A256E666800F44787 /* OKSearchConfigure.swift */,
-				58CF58622576001F001ACD6C /* OKHCPLastSearch.swift */,
+				58CF58622576001F001ACD6C /* LastSearch.swift */,
 				5875442C25885E5A0000C126 /* SearchAutoComplete.swift */,
-				58D4658F258C8E9B0084FA7A /* OKLocationManager.swift */,
+				58D4658F258C8E9B0084FA7A /* LocationManager.swift */,
+				58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -415,6 +449,36 @@
 				58B96225255D5C14000B126D /* icons.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		58CDED3E259AEAF000EC7746 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
+				58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		58CDED3F259AEAF500EC7746 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				5843946225594FC6009D2306 /* SearchResultMapViewController.swift */,
+				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
+				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		58CDED40259AEB1500EC7746 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				58659269258B0D8C00A9A950 /* FullCardViewModel.swift */,
+				58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */,
+				58FD50DD2593041500402723 /* HCPMapViewController.swift */,
+				58FD50F12593208C00402723 /* HCPMapViewModel.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		58DB2C9E25933B0B0022E6E0 /* Strings */ = {
@@ -454,37 +518,33 @@
 		58E77980255BE43A0051F1FA /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				58E77981255BE4740051F1FA /* OKViewDesign.swift */,
-				585116AC256E42BC00E5C7D3 /* OKSortableResultList.swift */,
-				58C2997E256FBAE500236D91 /* OKActivityHandler.swift */,
-				58C29982256FBD1E00236D91 /* OKActivityList.swift */,
-				58CF588225766017001ACD6C /* OKIndexAble.swift */,
-				58D0E38C2591BC8200491C92 /* OKViewLoading.swift */,
+				58E77981255BE4740051F1FA /* ViewDesign.swift */,
+				585116AC256E42BC00E5C7D3 /* SortableResultList.swift */,
+				58C2997E256FBAE500236D91 /* ActivityHandler.swift */,
+				58C29982256FBD1E00236D91 /* ActivityListHandler.swift */,
+				58CF588225766017001ACD6C /* IndexAble.swift */,
+				58D0E38C2591BC8200491C92 /* ViewLoading.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
 		};
-		58F104BA2563902400AFD4B3 /* OKSegmentControlView */ = {
+		58F104BA2563902400AFD4B3 /* SegmentControlView */ = {
 			isa = PBXGroup;
 			children = (
-				58F104BB2563904900AFD4B3 /* OKSegmentControlView.xib */,
-				58F104BF2563905F00AFD4B3 /* OKSegmentControlView.swift */,
-				58F104C32563917700AFD4B3 /* OkSegmentControlItem.xib */,
-				58F104C72563919B00AFD4B3 /* OkSegmentControlItem.swift */,
-				5834823C25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift */,
+				58F104BB2563904900AFD4B3 /* SegmentControlView.xib */,
+				58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */,
+				58F104C32563917700AFD4B3 /* SegmentControlItem.xib */,
+				58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */,
+				5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */,
 			);
-			path = OKSegmentControlView;
+			path = SegmentControlView;
 			sourceTree = "<group>";
 		};
 		58F5EE10255BAC5E0029B0B4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5843948925595591009D2306 /* OKHCPSearchHomeViewController.swift */,
-				58F5EE11255BACD50029B0B4 /* OKSearchTypeView.swift */,
-				58F5EE15255BACEC0029B0B4 /* OKSearchTypeView.xib */,
-				588A99F22574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift */,
-				58BAEE452574F10A003C5383 /* OKSearchHistoryViewModel.swift */,
-				58BAEE4B2574F2FC003C5383 /* OKSearchHistoryDataSource.swift */,
+				584B7D49259ADBCA004AAE62 /* Base */,
+				589553C12595F93200DDE2FF /* Full */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -497,7 +557,8 @@
 				58F5EE20255BC54E0029B0B4 /* Views */,
 				58C34B142570B7F800007DA2 /* Helpers.swift */,
 				58BAEEB925751EAD003C5383 /* ActivityList.swift */,
-				58CF586625760340001ACD6C /* OkDatabase.swift */,
+				58CF586625760340001ACD6C /* AppConfigure.swift */,
+				589553852595E7EB00DDE2FF /* ViewControllers.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -505,9 +566,9 @@
 		58F5EE20255BC54E0029B0B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				58F104BA2563902400AFD4B3 /* OKSegmentControlView */,
-				58F5EE1A255BADE70029B0B4 /* OKBaseView.swift */,
-				58E7797C255BDCF80051F1FA /* OKBaseButton.swift */,
+				58F104BA2563902400AFD4B3 /* SegmentControlView */,
+				58F5EE1A255BADE70029B0B4 /* BaseView.swift */,
+				58E7797C255BDCF80051F1FA /* BaseButton.swift */,
 				58D88D622570F442008D2EE8 /* PickerListViewController.swift */,
 			);
 			path = Views;
@@ -649,7 +710,7 @@
 				58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */,
 				58091C822588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib in Resources */,
 				58DB2CAF25933C790022E6E0 /* OneKeySDK.strings in Resources */,
-				58F5EE16255BACEC0029B0B4 /* OKSearchTypeView.xib in Resources */,
+				58F5EE16255BACEC0029B0B4 /* SearchTypeView.xib in Resources */,
 				58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */,
 				58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */,
 				58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */,
@@ -662,9 +723,9 @@
 				587544312588790B0000C126 /* Mock-Codes.json in Resources */,
 				58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */,
 				58A3647C2554F69C00C62479 /* OneKeySDK.podspec in Resources */,
-				58F104BC2563904900AFD4B3 /* OKSegmentControlView.xib in Resources */,
+				58F104BC2563904900AFD4B3 /* SegmentControlView.xib in Resources */,
 				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
-				58F104C42563917700AFD4B3 /* OkSegmentControlItem.xib in Resources */,
+				58F104C42563917700AFD4B3 /* SegmentControlItem.xib in Resources */,
 				58754435258879390000C126 /* Mock-Individuals.json in Resources */,
 				58A3647B2554F69C00C62479 /* LICENSE in Resources */,
 			);
@@ -750,57 +811,62 @@
 			files = (
 				58A364722554F66900C62479 /* OkManagerProtocol.swift in Sources */,
 				5836DD4B25934874002F776D /* String+Additional.swift in Sources */,
-				58FD50F22593208C00402723 /* OKHCPMapViewModel.swift in Sources */,
+				58FD50F22593208C00402723 /* HCPMapViewModel.swift in Sources */,
 				58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */,
 				58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */,
 				582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */,
-				584394272559282E009D2306 /* OKHCPSearchInputViewController.swift in Sources */,
+				584394272559282E009D2306 /* SearchInputViewController.swift in Sources */,
 				58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */,
-				58E7797D255BDCF80051F1FA /* OKBaseButton.swift in Sources */,
-				58F5EE12255BACD50029B0B4 /* OKSearchTypeView.swift in Sources */,
+				58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */,
+				589553D92595FF9600DDE2FF /* SearchInputDataSource.swift in Sources */,
+				58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */,
 				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
-				58FD50DE2593041500402723 /* OKHCPMapViewController.swift in Sources */,
+				58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */,
 				5876089B256E666800F44787 /* OKSearchConfigure.swift in Sources */,
 				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,
 				58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */,
-				588A99F32574E41E002BCC74 /* OKHCPSearchHomeFullViewController.swift in Sources */,
+				588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */,
 				58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */,
-				58F104C82563919B00AFD4B3 /* OkSegmentControlItem.swift in Sources */,
+				58F104C82563919B00AFD4B3 /* SegmentControlItem.swift in Sources */,
 				58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */,
+				5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */,
 				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
-				58F104C02563905F00AFD4B3 /* OKSegmentControlView.swift in Sources */,
-				58B6A765255AA1A700C1F6AF /* OKHCPSearchWebServicesProtocol.swift in Sources */,
-				58D0E38D2591BC8200491C92 /* OKViewLoading.swift in Sources */,
+				58F104C02563905F00AFD4B3 /* SegmentControlView.swift in Sources */,
+				58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */,
+				589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */,
+				58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */,
 				58C34B152570B7F800007DA2 /* Helpers.swift in Sources */,
 				58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */,
-				58CF58632576001F001ACD6C /* OKHCPLastSearch.swift in Sources */,
-				58A8BD1B256F6E8C00DAEBF3 /* OKHCPFullCardViewController.swift in Sources */,
+				58CF58632576001F001ACD6C /* LastSearch.swift in Sources */,
+				58A8BD1B256F6E8C00DAEBF3 /* HCPFullCardViewController.swift in Sources */,
 				58754439258879860000C126 /* Codes.swift in Sources */,
 				58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */,
-				5843946325594FC6009D2306 /* OKHCPSearchResultMapViewController.swift in Sources */,
+				5843946325594FC6009D2306 /* SearchResultMapViewController.swift in Sources */,
 				587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */,
-				58F104CC2563AF6300AFD4B3 /* OkSegmentControlModel.swift in Sources */,
+				58F104CC2563AF6300AFD4B3 /* SegmentControlModel.swift in Sources */,
 				5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */,
-				5848D6DA256E1BE900217EFC /* OKHCPSearchResultSortViewController.swift in Sources */,
+				5848D6DA256E1BE900217EFC /* SearchResultSortViewController.swift in Sources */,
 				58F5EE33255BC9F50029B0B4 /* OKThemeConfigure.swift in Sources */,
 				587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */,
+				58CDED6D259AEFA700EC7746 /* LastHCPConsulted.swift in Sources */,
 				5891627F2587941D006C1E6C /* Individual.swift in Sources */,
-				58F5EE1B255BADE70029B0B4 /* OKBaseView.swift in Sources */,
+				58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */,
 				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
-				58BAEE462574F10A003C5383 /* OKSearchHistoryViewModel.swift in Sources */,
-				58BAEE4C2574F2FC003C5383 /* OKSearchHistoryDataSource.swift in Sources */,
-				5848D6C4256E144E00217EFC /* OKHCPSearchData.swift in Sources */,
+				58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */,
+				58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */,
+				5848D6C4256E144E00217EFC /* SearchData.swift in Sources */,
 				58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */,
-				58E77982255BE4740051F1FA /* OKViewDesign.swift in Sources */,
-				5843942B25592AC2009D2306 /* OKHCPSearchResultViewController.swift in Sources */,
+				58E77982255BE4740051F1FA /* ViewDesign.swift in Sources */,
+				5843942B25592AC2009D2306 /* SearchResultViewController.swift in Sources */,
+				589553AE2595F6C900DDE2FF /* HomeFullViewModel.swift in Sources */,
 				58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */,
 				58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */,
 				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
-				58E1D8EE256BB46E004AB056 /* OKHCPSearchResultListViewController.swift in Sources */,
+				58E1D8EE256BB46E004AB056 /* SearchResultListViewController.swift in Sources */,
 				587D237B25652F7F0009EA01 /* API.swift in Sources */,
-				5834823D25667A3D00A3F7BC /* OKSegmentControlViewProtocol.swift in Sources */,
-				5843948A25595591009D2306 /* OKHCPSearchHomeViewController.swift in Sources */,
-				585116AD256E42BC00E5C7D3 /* OKSortableResultList.swift in Sources */,
+				5834823D25667A3D00A3F7BC /* SegmentControlViewProtocol.swift in Sources */,
+				5843948A25595591009D2306 /* SearchHomeViewController.swift in Sources */,
+				585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */,
 				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
 				5872D740259098C3004E9892 /* Date+Additional.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockOKHCPSearchWebServices.swift in Sources */,
@@ -810,18 +876,19 @@
 				5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */,
 				5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */,
 				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
-				58CF586725760340001ACD6C /* OkDatabase.swift in Sources */,
+				58CF586725760340001ACD6C /* AppConfigure.swift in Sources */,
+				589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
 				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
 				58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */,
 				58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */,
-				58CF588325766017001ACD6C /* OKIndexAble.swift in Sources */,
+				58CF588325766017001ACD6C /* IndexAble.swift in Sources */,
 				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
-				58C29983256FBD1E00236D91 /* OKActivityList.swift in Sources */,
-				58C2997F256FBAE500236D91 /* OKActivityHandler.swift in Sources */,
-				58D46590258C8E9B0084FA7A /* OKLocationManager.swift in Sources */,
+				58C29983256FBD1E00236D91 /* ActivityListHandler.swift in Sources */,
+				58C2997F256FBAE500236D91 /* ActivityHandler.swift in Sources */,
+				58D46590258C8E9B0084FA7A /* LocationManager.swift in Sources */,
 				5891626925878831006C1E6C /* Activity.swift in Sources */,
 				58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */,
 			);
@@ -831,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CDEDF6259B2CCB00EC7746 /* StringExtensionTests.swift in Sources */,
 				58A364632554F64700C62479 /* OneKeySDKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

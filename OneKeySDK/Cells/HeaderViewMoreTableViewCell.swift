@@ -14,7 +14,7 @@ protocol HeaderViewMoreTableViewCellDelegate: class {
 class HeaderViewMoreTableViewCell: UITableViewCell {
     private var indexPath: IndexPath!
     
-    @IBOutlet weak var wrapperView: OKBaseView!
+    @IBOutlet weak var wrapperView: BaseView!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     weak var delegate: HeaderViewMoreTableViewCellDelegate?

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchTypeView" customModule="OneKeySDK" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="ZfR-xe-x3k" id="ys4-ru-tg1"/>
+                <outlet property="icon" destination="CkF-m3-nIc" id="XDE-TQ-lcd"/>
+                <outlet property="iconBgView" destination="0dQ-GJ-TQj" id="mDz-mx-BED"/>
+                <outlet property="titleLabel" destination="Oba-Lv-Yen" id="Uoh-rV-Mcd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" id="q71-In-C0E">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dQ-GJ-TQj" customClass="BaseView" customModule="OneKeySDK" customModuleProvider="target">
+                    <rect key="frame" x="141.5" y="0.0" width="32" height="32"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-m3-nIc">
+                            <rect key="frame" x="8" y="8.5" width="16" height="15.5"/>
+                            <color key="tintColor" red="0.3411764705882353" green="0.72549019607843135" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="eI8-h5-P6h"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.89411764705882346" green="0.95454019310000005" blue="0.87582063669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="CkF-m3-nIc" firstAttribute="centerX" secondItem="0dQ-GJ-TQj" secondAttribute="centerX" id="0dA-IY-vRu"/>
+                        <constraint firstAttribute="width" constant="32" id="hU1-5t-WKW"/>
+                        <constraint firstItem="CkF-m3-nIc" firstAttribute="centerY" secondItem="0dQ-GJ-TQj" secondAttribute="centerY" id="qAf-b9-Y80"/>
+                        <constraint firstAttribute="width" secondItem="0dQ-GJ-TQj" secondAttribute="height" id="qO7-rC-4KZ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mhn-gR-P15">
+                    <rect key="frame" x="139" y="47" width="37.5" height="153"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DEg-MP-4lp">
+                            <rect key="frame" x="0.0" y="0.0" width="37.5" height="32"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="_title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oba-Lv-Yen">
+                                    <rect key="frame" x="0.0" y="0.0" width="37.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                    <color key="textColor" red="0.16862745098039217" green="0.23529411764705882" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfR-xe-x3k">
+                                    <rect key="frame" x="0.0" y="16" width="37.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <variation key="widthClass=compact" alignment="fill" axis="vertical"/>
+                    <variation key="widthClass=regular" alignment="top" axis="horizontal"/>
+                </stackView>
+            </subviews>
+            <variation key="widthClass=compact" alignment="top" axis="horizontal"/>
+            <variation key="widthClass=regular" alignment="center" axis="vertical"/>
+            <point key="canvasLocation" x="-284.78260869565219" y="52.232142857142854"/>
+        </stackView>
+    </objects>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

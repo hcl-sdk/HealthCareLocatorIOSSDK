@@ -23,5 +23,6 @@ class TextMenuTableViewCell: UITableViewCell {
     func config(title: String, value: String?) {
         menuTitleLabel.text = title
         menuValueLabel.text = value
+        menuValueLabel.isHidden = value == nil
     }
 }

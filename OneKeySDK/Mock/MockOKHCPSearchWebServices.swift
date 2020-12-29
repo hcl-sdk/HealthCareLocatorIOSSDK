@@ -8,12 +8,15 @@
 import Foundation
 import Apollo
 
-class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
-    func fetchActivityWith(apiKey: String,
-                           userId: String?,
-                           id: String!,
+class MockOKHCPSearchWebServices: SearchAPIsProtocol {
+    
+    required init(apiKey: String, manager: OKServiceManager) {
+        
+    }
+    
+    func fetchActivityWith(id: String!,
                            locale: String?,
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
         completionHandler(getMockActivityDetail()!, nil)
     }
@@ -21,7 +24,7 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping (([Code]?, Error?) -> Void)) {
         completionHandler(getMockCodes(), nil)
     }
@@ -29,7 +32,7 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
     func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
-                                    manager: OKServiceManager,
+                                    userId: String?,
                                     completionHandler: @escaping (([IndividualWorkPlaceDetails]?, Error?) -> Void)) {
         completionHandler(getMockIndividuals(), nil)
     }
@@ -39,7 +42,7 @@ class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
                              location: GeopointQuery?,
                              county: String?,
                              criteria: String?,
-                             manager: OKServiceManager,
+                             userId: String?,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         completionHandler(getMockActivities(), nil)
     }

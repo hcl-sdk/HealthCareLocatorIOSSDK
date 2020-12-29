@@ -7,8 +7,16 @@
 
 import Foundation
 
-let kMenuNewSearchTitle = "New Search"
+let kMenuHomeTitle = "Home"
+
+let kMenuNewSearchTitle = "New Search Home"
+let kMenuNewNearMeSearchTitle = "New Search Near Me"
+let kMenuNewSearchFailedTitle = "New Search Initialize Failed"
+
 let kMenuSettingsTitle = "Settings"
+let kMenuPreConfiguredNearMeSearch1Title = "Search Pharmacy Around"
+let kMenuPreConfiguredNearMeSearch2Title = "Search Dental Anesthesiology Around"
+
 let kMenuAPIKeyTitle = "API Key"
 let kMenuThemeTitle = "Theme"
 let kMenuRedThemeTitle = "Red"
@@ -30,7 +38,6 @@ let kMenuCustomThemeFontsTitle3Title = "Title 3"
 let kMenuCustomThemeFontsSearchInputTitle = "Search input"
 let kMenuCustomThemeFontsButtonTitle = "Button"
 let kMenuCustomThemeFontsSmallTitle = "Small"
-let kMenuHomeTitle = "Home"
 let kSearchHomeFullTitle = "Full Mode"
 
 let kMenuLanguageTitle = "Language"

@@ -8,12 +8,19 @@
 import Foundation
 import Apollo
 
-class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
-    func fetchActivityWith(apiKey: String,
-                           userId: String?,
-                           id: String!,
+public class OKHCPSearchWebServices: SearchAPIsProtocol {
+    
+    private let apiKey: String!
+    private let manager: OKServiceManager!
+    
+    public required init(apiKey: String, manager: OKServiceManager) {
+        self.apiKey = apiKey
+        self.manager = manager
+    }
+    
+    public func fetchActivityWith(id: String!,
                            locale: String?,
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
         let query = ActivityByIdQuery(apiKey: apiKey,
                                       userId: userId,
@@ -35,15 +42,15 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
     }
     
 
-    func fetchCodesByLabel(info: GeneralQueryInput,
+    public func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
-                           manager: OKServiceManager,
+                           userId: String?,
                            completionHandler: @escaping (([Code]?, Error?) -> Void)) {
-        let query = CodesByLabelQuery(apiKey: info.apiKey,
+        let query = CodesByLabelQuery(apiKey: apiKey,
                                       first: info.first,
                                       offset: info.offset,
-                                      userId: info.userId,
+                                      userId: userId,
                                       criteria: criteria,
                                       codeTypes: codeTypes,
                                       locale: info.locale)
@@ -62,15 +69,15 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
         }
     }
     
-    func fetchIndividualsByNameWith(info: GeneralQueryInput,
+    public func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
-                                    manager: OKServiceManager,
+                                    userId: String?,
                                     completionHandler: @escaping (([IndividualWorkPlaceDetails]?, Error?) -> Void)) {
-        let query = IndividualsByNameQuery(apiKey: info.apiKey,
+        let query = IndividualsByNameQuery(apiKey: apiKey,
                                            first: info.first,
                                            offset: info.offset,
-                                           userId: info.userId,
+                                           userId: userId,
                                            criteria: criteria,
                                            locale: info.locale)
         manager.apollo.fetch(query: query) { result in
@@ -88,17 +95,17 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
         }
     }
     
-    func fetchActivitiesWith(info: GeneralQueryInput,
+    public func fetchActivitiesWith(info: GeneralQueryInput,
                              specialties: [String]?,
                              location: GeopointQuery?,
                              county: String?,
                              criteria: String?,
-                             manager: OKServiceManager,
+                             userId: String?,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        let query = ActivitiesQuery(apiKey: info.apiKey,
+        let query = ActivitiesQuery(apiKey: apiKey,
                                     first: info.first,
                                     offset: info.offset,
-                                    userId: info.userId,
+                                    userId: userId,
                                     locale: info.locale,
                                     professionalType: nil,
                                     specialties: specialties,

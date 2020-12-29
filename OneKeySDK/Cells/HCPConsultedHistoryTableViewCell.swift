@@ -15,9 +15,9 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
-    weak var delegate: OKSearchHistoryCellDelegate?
+    weak var delegate: SearchHistoryCellDelegate?
     
-    func configWith(theme: OKThemeConfigure?, lang: String,  activity: OKHCPLastHCP, isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, lang: String,  activity: LastHCPConsulted, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
         // Fonts
         drLabel.font = theme?.defaultFont
@@ -36,7 +36,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         drLabel.text = activity.activity.individual.mailingName
         categoryLabel.text = activity.activity.individual.specialties.first?.label
         addressLabel.text = activity.activity.workplace.address.longLabel
-        distanceLabel.text = String(format: "%@ ago", Date(timeIntervalSince1970: activity.timeInterval).timeAgo(locale: lang))
+        distanceLabel.text = String(format: "onekey_sdk_since_format".localized, Date(timeIntervalSince1970: activity.timeInterval).timeAgo(locale: lang))
     }
     
     @IBAction func onRemoveAction(_ sender: Any) {

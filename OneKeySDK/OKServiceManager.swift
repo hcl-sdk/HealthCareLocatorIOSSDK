@@ -8,14 +8,11 @@
 import UIKit
 import Apollo
 
-class OKServiceManager: NSObject {
-    var apiKey: String?
+public class OKServiceManager: NSObject {
+
     static let shared = OKServiceManager()
     lazy var apollo = ApolloClient(url: URL(string: "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query")!)
     
     private override init() {}
-    
-    func initializeClient(apiKey: String) {
-        self.apiKey = apiKey
-    }
+
 }

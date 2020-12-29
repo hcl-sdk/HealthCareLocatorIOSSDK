@@ -7,19 +7,15 @@
 
 import Foundation
 
-struct GeneralQueryInput {
-    let apiKey: String!
+public struct GeneralQueryInput {
     let first: Int?
     let offset: Int?
-    let userId: String?
     let locale: String?
     let criteria: String?
     
-    init(apiKey: String, first: Int? = 10, offset: Int? = 0, userId: String? = nil, locale: String? = "en", criteria: String? = nil) {
-        self.apiKey = apiKey
+    init(first: Int? = 10, offset: Int? = 0, locale: String? = "en", criteria: String? = nil) {
         self.first = first
         self.offset = offset
-        self.userId = userId
         self.locale = locale
         self.criteria = criteria
     }

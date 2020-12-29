@@ -9,73 +9,78 @@ import Foundation
 import UIKit
 import MapKit
 
-class SearchResultViewModel: OKViewLoading {
+class SearchResultViewModel: ViewLoading {
     lazy var indicator = UIActivityIndicatorView(style: .gray)
     
-    private var webServices: OKHCPSearchWebServicesProtocol!
-    private var search: OKHCPSearchData!
+    private var webServices: SearchAPIsProtocol!
+    private var search: SearchData!
     
-    init(webservices: OKHCPSearchWebServicesProtocol, search: OKHCPSearchData) {
+    init(webservices: SearchAPIsProtocol, search: SearchData) {
         self.webServices = webservices
         self.search = search
     }
     
     // MARK: Searching
-    func performSearch(_ completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        let info = GeneralQueryInput(apiKey: "1",
-                                     first: 50,
+    func performSearch(config: OKSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
+        let info = GeneralQueryInput(first: 50,
                                      offset: 0,
-                                     userId: nil,
-                                     locale: "en",
-                                     criteria: search.code != nil ? nil : search.criteria)
-        
+                                     locale: config.lang,
+                                     criteria: search.codes != nil ? nil : search.criteria)
+        let userId = config.userId
         if search.isNearMeSearch == true {
             performNearMeSearchWith(info: info,
+                                    userId: userId,
                                     completionHandler: completionHandler)
         } else if !search.address.orEmpty.isEmpty {
             performAddressSearchWith(address: search.address!,
                                      info: info,
+                                     userId: userId,
                                      completionHandler: completionHandler)
         } else {
             fetchActivitiesWith(info: info,
-                                specialties: search.code != nil ? [search.code!.id] : nil,
+                                specialties: search.codes?.map {$0.id},
                                 location: nil,
                                 county: "",
                                 criteria: info.criteria,
-                                manager: OKServiceManager.shared,
+                                userId: userId,
                                 completionHandler: completionHandler)
         }
     }
     
-    private func performNearMeSearchWith(info: GeneralQueryInput, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        OKLocationManager.shared.requestLocation {[weak self] (locations, error) in
+    private func performNearMeSearchWith(info: GeneralQueryInput,
+                                         userId: String?,
+                                         completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
+        LocationManager.shared.requestLocation {[weak self] (locations, error) in
             guard let strongSelf = self else {return}
             if let lastLocation = locations?.last {
                 strongSelf.fetchActivitiesWith(info: info,
-                                    specialties: strongSelf.search.code != nil ? [strongSelf.search.code!.id] : nil,
-                                    location: GeopointQuery(lat: 43.76438020602678,
-                                                            lon: -79.31803766618543),
-                                    county: "",
-                                    criteria: info.criteria,
-                                    manager: OKServiceManager.shared,
-                                    completionHandler: completionHandler)
+                                               specialties: strongSelf.search.codes?.map {$0.id},
+                                               location: GeopointQuery(lat: 43.76438020602678,
+                                                                       lon: -79.31803766618543),
+                                               county: "",
+                                               criteria: info.criteria,
+                                               userId: userId,
+                                               completionHandler: completionHandler)
             } else {
                 // TODO: Handle error
             }
         }
     }
     
-    private func performAddressSearchWith(address: String, info: GeneralQueryInput, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
+    private func performAddressSearchWith(address: String,
+                                          info: GeneralQueryInput,
+                                          userId: String?,
+                                          completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
             guard let strongSelf = self else {return}
             if let location = placeMarks?.first?.location {
                 strongSelf.fetchActivitiesWith(info: info,
-                                               specialties: strongSelf.search.code != nil ? [strongSelf.search.code!.id] : nil,
+                                               specialties: strongSelf.search.codes?.map {$0.id},
                                                location: GeopointQuery(lat: location.coordinate.latitude,
                                                                        lon: location.coordinate.longitude),
                                                county: "",
                                                criteria: info.criteria,
-                                               manager: OKServiceManager.shared,
+                                               userId: userId,
                                                completionHandler: completionHandler)
             } else {
                 print(error)
@@ -89,14 +94,14 @@ class SearchResultViewModel: OKViewLoading {
                                      location: GeopointQuery?,
                                      county: String?,
                                      criteria: String!,
-                                     manager: OKServiceManager,
+                                     userId: String?,
                                      completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         webServices.fetchActivitiesWith(info: info,
                                         specialties: specialties,
                                         location: location,
                                         county: county,
                                         criteria: criteria,
-                                        manager: OKServiceManager.shared) {[weak self] (result, error) in
+                                        userId: userId) {[weak self] (result, error) in
             if let unwrapResult = result {
                 self?.search.change(result: unwrapResult)
                 completionHandler(unwrapResult, nil)
@@ -112,7 +117,7 @@ class SearchResultViewModel: OKViewLoading {
     }
     
     // MARK: Sorting
-    func sortResultBy(_ sort: OKHCPSearchResultSortViewController.SortBy, _ completionHandler: ((OKHCPSearchData) -> Void)) {
+    func sortResultBy(_ sort: SearchResultSortViewController.SortBy, _ completionHandler: ((SearchData) -> Void)) {
         switch sort {
         case .name:
             search.result.sort { (lhs, rhs) -> Bool in

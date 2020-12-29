@@ -8,7 +8,7 @@
 import Foundation
 
 public enum OKError: LocalizedError {
-    case pageNotFound
+    case initializeConfigureValidateFailed
     case queryActivitiesFailed
     case locationAccessDenined
     case noResult

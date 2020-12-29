@@ -8,12 +8,12 @@
 import UIKit
 import MapKit
 
-class ActivityMapTableViewCell: CustomBorderTableViewCell, OKViewDesign {
+class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     var theme: OKThemeConfigure?
     
     @IBOutlet weak var mapView: MKMapView!
     
-    weak var delegate: OKSearchHistoryDataSourceDelegate?
+    weak var delegate: SearchHistoryDataSourceDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
