@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GeneralQueryInput {
+public struct GeneralQueryInput {
     let first: Int?
     let offset: Int?
     let locale: String?

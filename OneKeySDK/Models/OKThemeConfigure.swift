@@ -122,6 +122,5 @@ public struct OKThemeConfigure {
         self.greyDarkerColor = greyDarkerColor
         self.greyLightColor = greyLightColor
         self.greyLighterColor = greyLighterColor
-
     }
 }

@@ -9,24 +9,24 @@ import Foundation
 import UIKit
 import MapKit
 
-class SearchResultViewModel: OKViewLoading {
+class SearchResultViewModel: ViewLoading {
     lazy var indicator = UIActivityIndicatorView(style: .gray)
     
-    private var webServices: OKHCPSearchWebServicesProtocol!
-    private var search: OKHCPSearchData!
+    private var webServices: SearchAPIsProtocol!
+    private var search: SearchData!
     
-    init(webservices: OKHCPSearchWebServicesProtocol, search: OKHCPSearchData) {
+    init(webservices: SearchAPIsProtocol, search: SearchData) {
         self.webServices = webservices
         self.search = search
     }
     
     // MARK: Searching
-    func performSearch(_ completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
+    func performSearch(config: OKSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
-                                     locale: "en",
+                                     locale: config.lang,
                                      criteria: search.codes != nil ? nil : search.criteria)
-        let userId = OKManager.shared.userId
+        let userId = config.userId
         if search.isNearMeSearch == true {
             performNearMeSearchWith(info: info,
                                     userId: userId,
@@ -42,8 +42,7 @@ class SearchResultViewModel: OKViewLoading {
                                 location: nil,
                                 county: "",
                                 criteria: info.criteria,
-                                manager: OKServiceManager.shared,
-                                userId: OKManager.shared.userId,
+                                userId: userId,
                                 completionHandler: completionHandler)
         }
     }
@@ -51,7 +50,7 @@ class SearchResultViewModel: OKViewLoading {
     private func performNearMeSearchWith(info: GeneralQueryInput,
                                          userId: String?,
                                          completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        OKLocationManager.shared.requestLocation {[weak self] (locations, error) in
+        LocationManager.shared.requestLocation {[weak self] (locations, error) in
             guard let strongSelf = self else {return}
             if let lastLocation = locations?.last {
                 strongSelf.fetchActivitiesWith(info: info,
@@ -60,7 +59,6 @@ class SearchResultViewModel: OKViewLoading {
                                                                        lon: -79.31803766618543),
                                                county: "",
                                                criteria: info.criteria,
-                                               manager: OKServiceManager.shared,
                                                userId: userId,
                                                completionHandler: completionHandler)
             } else {
@@ -82,7 +80,6 @@ class SearchResultViewModel: OKViewLoading {
                                                                        lon: location.coordinate.longitude),
                                                county: "",
                                                criteria: info.criteria,
-                                               manager: OKServiceManager.shared,
                                                userId: userId,
                                                completionHandler: completionHandler)
             } else {
@@ -97,7 +94,6 @@ class SearchResultViewModel: OKViewLoading {
                                      location: GeopointQuery?,
                                      county: String?,
                                      criteria: String!,
-                                     manager: OKServiceManager,
                                      userId: String?,
                                      completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         webServices.fetchActivitiesWith(info: info,
@@ -121,7 +117,7 @@ class SearchResultViewModel: OKViewLoading {
     }
     
     // MARK: Sorting
-    func sortResultBy(_ sort: OKHCPSearchResultSortViewController.SortBy, _ completionHandler: ((OKHCPSearchData) -> Void)) {
+    func sortResultBy(_ sort: SearchResultSortViewController.SortBy, _ completionHandler: ((SearchData) -> Void)) {
         switch sort {
         case .name:
             search.result.sort { (lhs, rhs) -> Bool in

@@ -20,7 +20,8 @@ import Apollo
  - Note:
  This is just an example first look of the sdk
  */
-public class OKManager: NSObject {
+public class OKManager: NSObject, OKSDKConfigure {
+    
     static public let shared = OKManager()
     lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
 
@@ -28,7 +29,7 @@ public class OKManager: NSObject {
     private(set) var apiKey: String?
     private(set) var userId: String?
     private(set) var searchConfigure: OKSearchConfigure?
-    private(set) var lang: String = NSLocale.preferredLanguages.first ?? "en"
+    private(set) var lang: String!
 
     /**
      The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
@@ -37,7 +38,9 @@ public class OKManager: NSObject {
      */
     weak public var delegate: OkManagerDelegate?
     
-    private override init() {}
+    private override init() {
+        self.lang = NSLocale.preferredLanguages.first ?? "en"
+    }
 }
 
 
@@ -122,8 +125,8 @@ extension OKManager: OkManagerProtocol {
     public func searchNearMe(specialities: [String]) {
         if let searchVC = searchNavigationController,
            searchVC.isViewLoaded,
-           let resultVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultViewController") as? OKHCPSearchResultViewController {
-            resultVC.data = OKHCPSearchData(criteria: nil,
+           let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as? SearchResultViewController {
+            resultVC.data = SearchData(criteria: nil,
                                             codes: specialities.map {Code(id: $0, longLbl: nil)},
                                             address: nil,
                                             isNearMeSearch: false,

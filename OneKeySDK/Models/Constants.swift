@@ -8,6 +8,9 @@
 import Foundation
 import MapKit
 
+//
 let kDefaultZoomLevel: CLLocationDistance = 6000
-let kNearMeTitle = "Near me"
+
+//
+let kNearMeTitle = "onekey_sdk_near_me".localized
 let kLocalizedTableName = "OneKeySDK"

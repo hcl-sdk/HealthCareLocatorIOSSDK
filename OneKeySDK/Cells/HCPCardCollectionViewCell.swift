@@ -9,7 +9,7 @@ import UIKit
 
 class HCPCardCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var wrapper: OKBaseView!
+    @IBOutlet weak var wrapper: BaseView!
     @IBOutlet weak var drLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var parentWorkplaceLabel: UILabel!
@@ -42,7 +42,7 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         addressLabel.text = item.activity.workplace.address.composedAddress
         let distance = Int(item.distance ?? 0)
         if distance > 0 {
-            distanceLabel.text = "\(distance)m"
+            distanceLabel.text = String(format: "onekey_sdk_distance_unit".localized, distance)
         } else {
             distanceLabel.isHidden = true
         }

@@ -8,7 +8,7 @@
 import UIKit
 import Apollo
 
-class OKServiceManager: NSObject {
+public class OKServiceManager: NSObject {
 
     static let shared = OKServiceManager()
     lazy var apollo = ApolloClient(url: URL(string: "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query")!)

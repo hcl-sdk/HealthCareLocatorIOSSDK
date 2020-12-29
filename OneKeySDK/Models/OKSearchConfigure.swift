@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 /**
  The initialize configuration of the HCP/HCO searching`
  - Note:

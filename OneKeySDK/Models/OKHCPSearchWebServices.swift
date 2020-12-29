@@ -8,17 +8,17 @@
 import Foundation
 import Apollo
 
-class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
+public class OKHCPSearchWebServices: SearchAPIsProtocol {
     
     private let apiKey: String!
     private let manager: OKServiceManager!
     
-    required init(apiKey: String, manager: OKServiceManager) {
+    public required init(apiKey: String, manager: OKServiceManager) {
         self.apiKey = apiKey
         self.manager = manager
     }
     
-    func fetchActivityWith(id: String!,
+    public func fetchActivityWith(id: String!,
                            locale: String?,
                            userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
@@ -42,7 +42,7 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
     }
     
 
-    func fetchCodesByLabel(info: GeneralQueryInput,
+    public func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
                            userId: String?,
@@ -69,7 +69,7 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
         }
     }
     
-    func fetchIndividualsByNameWith(info: GeneralQueryInput,
+    public func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
                                     userId: String?,
@@ -95,7 +95,7 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
         }
     }
     
-    func fetchActivitiesWith(info: GeneralQueryInput,
+    public func fetchActivitiesWith(info: GeneralQueryInput,
                              specialties: [String]?,
                              location: GeopointQuery?,
                              county: String?,
@@ -112,7 +112,6 @@ class OKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
                                     county: county,
                                     criteria: criteria,
                                     location: location)
-//        manager.apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheData) { result in
         manager.apollo.fetch(query: query) { result in
             switch result {
             case .success(let response):

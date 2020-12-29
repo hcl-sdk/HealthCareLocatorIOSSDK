@@ -20,7 +20,6 @@ class SearchViewController: UIViewController {
         let shared = OKManager.shared
         //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
-        
         shared.initialize(apiKey: "123",
                           configure: config) {[weak self] (success, error) in
             if success {

@@ -8,7 +8,7 @@
 import Foundation
 import Apollo
 
-class MockOKHCPSearchWebServices: OKHCPSearchWebServicesProtocol {
+class MockOKHCPSearchWebServices: SearchAPIsProtocol {
     
     required init(apiKey: String, manager: OKServiceManager) {
         

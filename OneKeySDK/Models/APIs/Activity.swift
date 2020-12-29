@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct ActivityResponse: Codable {
+public struct ActivityResponse: Codable {
     let activities: [ActivityResult]?
 }
 
-struct ActivityResult: Codable {
+public struct ActivityResult: Codable {
     let distance: Double?
     let relevance: Int?
     let activity: Activity!
 }
 
-struct Activity: Codable {
+public struct Activity: Codable {
     let id: String!
     let phone: String?
     let fax: String?
@@ -26,7 +26,12 @@ struct Activity: Codable {
     let workplace: Workplace!
 }
 
-struct Individual: Codable {
+public struct Individual: Codable {
+    struct Activity: Codable {
+        let id: String!
+        let workplace: Workplace!
+    }
+    
     let id: String!
     let firstName: String?
     let lastName: String!
@@ -34,9 +39,32 @@ struct Individual: Codable {
     let mailingName: String?
     let professionalType: KeyedString?
     let specialties: [KeyedString]
+    
+    var otherActivities: [Individual.Activity]! {
+        return [Individual.Activity(id: "WCAA0001431701",
+                                    workplace: Workplace(name: nil,
+                                                         address: Address(longLabel: "243 Consumers Rd",
+                                                                          buildingLabel: nil,
+                                                                          county: nil,
+                                                                          city: KeyedString(code: "CA009375",
+                                                                                            label: "North York"),
+                                                                          country: nil,
+                                                                          postalCode: nil,
+                                                                          location: nil))),
+                Individual.Activity(id: "WCAM0009241805",
+                                            workplace: Workplace(name: nil,
+                                                                 address: Address(longLabel: "1403-2225 Sheppard Ave E",
+                                                                                  buildingLabel: nil,
+                                                                                  county: nil,
+                                                                                  city: KeyedString(code: "CA009375",
+                                                                                                    label: "North York"),
+                                                                                  country: nil,
+                                                                                  postalCode: nil,
+                                                                                  location: nil)))]
+    }
 }
 
-extension Individual {
+public extension Individual {
     var composedName: String {
         guard let mailingName = mailingName else {
             return String(format: "%@ %@ %@", firstName ?? "", middleName ?? "", lastName)
@@ -45,17 +73,17 @@ extension Individual {
     }
 }
 
-struct Workplace: Codable {
+public struct Workplace: Codable {
     let name: String?
     let address: Address!
 }
 
-struct KeyedString: Codable {
+public struct KeyedString: Codable {
     let code: String!
     let label: String!
 }
 
-struct Address: Codable {
+public struct Address: Codable {
     let longLabel: String!
     let buildingLabel: String!
     let county: KeyedString?
@@ -65,7 +93,7 @@ struct Address: Codable {
     let location: Geopoint?
 }
 
-extension Address {
+public extension Address {
     var composedAddress: String {
         var addComponents = [String]()
         if !longLabel.isEmpty {
@@ -79,7 +107,7 @@ extension Address {
     }
 }
 
-struct Geopoint: Codable {
+public struct Geopoint: Codable {
     let lat: Double!
     let lon: Double!
 }

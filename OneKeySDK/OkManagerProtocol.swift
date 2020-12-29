@@ -7,6 +7,14 @@
 
 import Foundation
 
+protocol OKSDKConfigure {
+    var searchNavigationController: OKHCPSearchNavigationViewController? { get }
+    var apiKey: String? { get }
+    var userId: String? { get }
+    var searchConfigure: OKSearchConfigure? { get }
+    var lang: String! { get }
+}
+
 protocol OkManagerProtocol {
     func initialize(apiKey: String, configure: OKSearchConfigure?, handler: ((Bool, Error?) -> Void)?)
     func set(userId: String)

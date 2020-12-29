@@ -43,15 +43,15 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
         case .home,
              .none:
             if fullMode {
-                let fullHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeFullViewController") as! OKHCPSearchHomeFullViewController
+                let fullHomeVC = ViewControllers.viewControllerWith(identity: .homeFull) as! SearchHomeFullViewController
                 super.init(rootViewController: fullHomeVC)
             } else {
-                let compactHomeVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchHomeViewController") as! OKHCPSearchHomeViewController
+                let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
                 super.init(rootViewController: compactHomeVC)
             }
         case .nearMe:
-            let resultVC = UIStoryboard(name: "HCPSearch", bundle: Bundle.internalBundle()).instantiateViewController(withIdentifier: "OKHCPSearchResultViewController") as! OKHCPSearchResultViewController
-            resultVC.data = OKHCPSearchData(criteria: nil,
+            let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as! SearchResultViewController
+            resultVC.data = SearchData(criteria: nil,
                                             codes: configure.favourites.map {Code(id: $0, longLbl: nil)},
                                             address: nil,
                                             isNearMeSearch: true,
@@ -73,7 +73,7 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
     }
     
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if let viewController = viewController as? OKViewDesign {
+        if let viewController = viewController as? ViewDesign {
             var editableVC = viewController
             editableVC.theme = theme
             super.pushViewController((editableVC as! UIViewController), animated: animated)
@@ -93,11 +93,11 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
 
 }
 
-extension OKHCPSearchNavigationViewController: OKViewDesign {
+extension OKHCPSearchNavigationViewController: ViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         navigationBar.barTintColor = theme.primaryColor
         for viewController in viewControllers {
-            if let designAbleVC = viewController as? OKViewDesign {
+            if let designAbleVC = viewController as? ViewDesign {
                 var editableVC = designAbleVC
                 editableVC.theme = theme
             }

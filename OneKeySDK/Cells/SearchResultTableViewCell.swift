@@ -9,7 +9,7 @@ import UIKit
 
 class SearchResultTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var iconBgView: OKBaseView!
+    @IBOutlet weak var iconBgView: BaseView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var resultTitleLabel: UILabel!
     @IBOutlet weak var separatorView: UIView!

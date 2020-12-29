@@ -26,7 +26,7 @@ class SearchInputAutocompleteViewModel {
         self.webServices = webServices
     }
     
-    func codesByLabelObservableWith(creteria: String, userId: String?) -> Observable<[Code]> {
+    func codesByLabelObservableWith(creteria: String, userId: String?, language: String? = "en") -> Observable<[Code]> {
         return Observable.create {[weak self] (observer) -> Disposable in
             if creteria.isEmpty {
                 observer.onNext([])
@@ -36,7 +36,7 @@ class SearchInputAutocompleteViewModel {
                     self?.isLoadingCodes.onNext(true)
                     webservice.fetchCodesByLabel(info: GeneralQueryInput(first: 5,
                                                                          offset: 0,
-                                                                         locale: "en"),
+                                                                         locale: language),
                                                  criteria: creteria,
                                                  codeTypes: ["SP"],
                                                  userId: userId) { (codes, error) in
@@ -57,7 +57,7 @@ class SearchInputAutocompleteViewModel {
         }
     }
     
-    func individualsByNameObservableWith(creteria: String, userId: String?) -> Observable<[IndividualWorkPlaceDetails]> {
+    func individualsByNameObservableWith(creteria: String, userId: String?, language: String? = "en") -> Observable<[IndividualWorkPlaceDetails]> {
         return Observable.create {[weak self] (observer) -> Disposable in
             if creteria.isEmpty {
                 observer.onNext([])
@@ -67,7 +67,7 @@ class SearchInputAutocompleteViewModel {
                     self?.isLoadingIndividuals.onNext(true)
                     webservice.fetchIndividualsByNameWith(info: GeneralQueryInput(first: 5,
                                                                                   offset: 0,
-                                                                                  locale: "en"),
+                                                                                  locale: language),
                                                           county: "",
                                                           criteria: creteria,
                                                           userId: userId) { (individuals, error) in
@@ -90,12 +90,12 @@ class SearchInputAutocompleteViewModel {
 }
 
 extension SearchInputAutocompleteViewModel {
-    func codesObservable() -> Observable<[Code]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in codesByLabelObservableWith(creteria: $0, userId: OKManager.shared.userId)}
+    func codesObservable(config: OKSDKConfigure) -> Observable<[Code]> {
+        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in codesByLabelObservableWith(creteria: $0, userId: config.userId, language: config.lang)}
     }
     
-    func individualsObservable() -> Observable<[IndividualWorkPlaceDetails]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in individualsByNameObservableWith(creteria: $0, userId: OKManager.shared.userId)}
+    func individualsObservable(config: OKSDKConfigure) -> Observable<[IndividualWorkPlaceDetails]> {
+        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in individualsByNameObservableWith(creteria: $0, userId: config.userId, language: config.lang)}
     }
     
     func isFirstFieldLoading() -> Observable<Bool> {
@@ -104,7 +104,7 @@ extension SearchInputAutocompleteViewModel {
 }
 
 extension SearchInputAutocompleteViewModel {
-    func set(data: OKHCPSearchData) {
+    func set(data: SearchData) {
         set(isNearMeSearch: (data.isNearMeSearch == true || data.isQuickNearMeSearch == true))
     }
     

@@ -23,7 +23,6 @@ class CodeAutoCompleteTableViewCell: UITableViewCell {
             attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor, range: range)
         }
         codeLabel.attributedText = attibuteText
-        
     }
     
 }

@@ -12,7 +12,7 @@ import CoreLocation
 extension MKMapView {
     func defaultZoomTo(location: CLLocationCoordinate2D) {
         setCamera(MKMapCamera(lookingAtCenter: location,
-                              fromDistance: 12000,
+                              fromDistance: kDefaultZoomLevel,
                               pitch: 0,
                               heading: 0),
                   animated: false)

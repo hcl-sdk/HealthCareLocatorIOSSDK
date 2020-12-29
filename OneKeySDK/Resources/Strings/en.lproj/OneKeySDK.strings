@@ -7,4 +7,42 @@
 */
 
 // HOME
-"search.home.introduce_title" = "Find and Locate\nHealthcare Professional";
+"onekey_sdk_home_title" = "Find and Locate\nHealthcare Professional";
+"onekey_sdk_start_new_search" = "Start a New Search";
+"onekey_sdk_hcps_near_me" = "HCPs near me";
+"onekey_sdk_last_searches" = "Last searches";
+"onekey_sdk_view_more" = "View more";
+"onekey_sdk_view_less" = "View less";
+"onekey_sdk_last_hcps_consulted" = "Last HCPs consulted";
+"onekey_sdk_find_healthcare_professional" = "Find Healthcare Professional";
+"onekey_sdk_since_format" = "%@ ago";
+
+// Search
+"onekey_sdk_search_first_field_label" = "Name, Specialty";
+"onekey_sdk_search_second_field_label" = "Where? (address, city...)";
+"onekey_sdk_near_me" = "Near me";
+
+// Results List View
+"onekey_sdk_results_label" = "Results";
+"onekey_sdk_list_label" = "List";
+"onekey_sdk_map_label" = "Map";
+"onekey_sdk_distance_unit" = "%dm";
+
+// Sort
+"onekey_sdk_sort_label" = "Sort";
+"onekey_sdk_relevance_item" = "Relevance";
+"onekey_sdk_distance_item" = "Distance";
+"onekey_sdk_name_item" = "Name";
+"onekey_sdk_apply_button" = "Apply";
+"onekey_sdk_reset_button" = "Reset";
+
+// HCP profile
+"onekey_sdk_main_information_label" = "Main Information";
+"onekey_sdk_rate_refunds_label" = "Rate and refunds";
+"onekey_sdk_specialities_label" = "Specialties";
+"onekey_sdk_information_label" = "Information";
+"onekey_sdk_information_description" = "Was the information you were given about this HCP correct?";
+"onekey_sdk_information_yes_label" = "Yes";
+"onekey_sdk_information_no_label" = "No";
+"onekey_sdk_improve_quality_label" = "Improve the data quality";
+"onekey_sdk_suggess_modification_button" = "Suggest a modification";
