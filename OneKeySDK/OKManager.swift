@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Apollo
 
 /**
  The manager class
@@ -23,8 +22,7 @@ import Apollo
 public class OKManager: NSObject, OKSDKConfigure {
     
     static public let shared = OKManager()
-    lazy var apollo = ApolloClient(url: URL(string: "https://dev-eastus-onekey-sdk-apim.azure-api.net/api/graphql")!)
-
+    
     private(set) var searchNavigationController: OKHCPSearchNavigationViewController?
     private(set) var apiKey: String?
     private(set) var userId: String?
@@ -99,7 +97,7 @@ extension OKManager: OkManagerProtocol {
      The default configuration for HCP/HCO searching will be use if no configure set
      */
     public func getDefaultSearchConfigure() -> OKSearchConfigure {
-        return OKSearchConfigure(favourites: [])
+        return OKSearchConfigure()
     }
     
     /**
@@ -122,7 +120,8 @@ extension OKManager: OkManagerProtocol {
                                 secondaryColor: UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1))
     }
     
-    public func searchNearMe(specialities: [String]) {
+    @discardableResult
+    public func searchNearMe(specialities: [String]) -> Bool {
         if let searchVC = searchNavigationController,
            searchVC.isViewLoaded,
            let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as? SearchResultViewController {
@@ -132,6 +131,9 @@ extension OKManager: OkManagerProtocol {
                                             isNearMeSearch: false,
                                             isQuickNearMeSearch: true)
             searchVC.pushViewController(resultVC, animated: true)
+            return true
+        } else {
+            return false
         }
     }
 }

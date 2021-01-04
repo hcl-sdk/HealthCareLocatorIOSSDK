@@ -44,6 +44,12 @@
 		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
 		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
 		587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */; };
+		587F182A259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F1829259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift */; };
+		58850548259C85CB00B38CF3 /* OKManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850547259C85CB00B38CF3 /* OKManagerTests.swift */; };
+		5885054C259C862200B38CF3 /* OKServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5885054B259C862200B38CF3 /* OKServiceManagerTests.swift */; };
+		58850550259C864900B38CF3 /* OKHCPSearchNavigationViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5885054F259C864900B38CF3 /* OKHCPSearchNavigationViewControllerTest.swift */; };
+		58850554259C866800B38CF3 /* OKSearchConfigureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850553259C866800B38CF3 /* OKSearchConfigureTests.swift */; };
+		58850558259C868100B38CF3 /* OKThemeConfigureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850557259C868100B38CF3 /* OKThemeConfigureTests.swift */; };
 		588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */; };
 		5891621F25875F41006C1E6C /* Mock-Activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5891621E25875F41006C1E6C /* Mock-Activities.json */; };
 		5891626925878831006C1E6C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891626825878831006C1E6C /* Activity.swift */; };
@@ -171,6 +177,12 @@
 		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
 		587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
+		587F1829259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesTests.swift; sourceTree = "<group>"; };
+		58850547259C85CB00B38CF3 /* OKManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKManagerTests.swift; sourceTree = "<group>"; };
+		5885054B259C862200B38CF3 /* OKServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKServiceManagerTests.swift; sourceTree = "<group>"; };
+		5885054F259C864900B38CF3 /* OKHCPSearchNavigationViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchNavigationViewControllerTest.swift; sourceTree = "<group>"; };
+		58850553259C866800B38CF3 /* OKSearchConfigureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKSearchConfigureTests.swift; sourceTree = "<group>"; };
+		58850557259C868100B38CF3 /* OKThemeConfigureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKThemeConfigureTests.swift; sourceTree = "<group>"; };
 		588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeFullViewController.swift; sourceTree = "<group>"; };
 		5891621E25875F41006C1E6C /* Mock-Activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activities.json"; sourceTree = "<group>"; };
 		5891626825878831006C1E6C /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -382,6 +394,12 @@
 				58A364622554F64700C62479 /* OneKeySDKTests.swift */,
 				58A364642554F64700C62479 /* Info.plist */,
 				58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */,
+				58850547259C85CB00B38CF3 /* OKManagerTests.swift */,
+				5885054B259C862200B38CF3 /* OKServiceManagerTests.swift */,
+				5885054F259C864900B38CF3 /* OKHCPSearchNavigationViewControllerTest.swift */,
+				58850553259C866800B38CF3 /* OKSearchConfigureTests.swift */,
+				58850557259C868100B38CF3 /* OKThemeConfigureTests.swift */,
+				587F1829259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift */,
 			);
 			path = OneKeySDKTests;
 			sourceTree = "<group>";
@@ -898,8 +916,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58850554259C866800B38CF3 /* OKSearchConfigureTests.swift in Sources */,
 				58CDEDF6259B2CCB00EC7746 /* StringExtensionTests.swift in Sources */,
+				58850548259C85CB00B38CF3 /* OKManagerTests.swift in Sources */,
+				58850550259C864900B38CF3 /* OKHCPSearchNavigationViewControllerTest.swift in Sources */,
+				587F182A259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift in Sources */,
 				58A364632554F64700C62479 /* OneKeySDKTests.swift in Sources */,
+				5885054C259C862200B38CF3 /* OKServiceManagerTests.swift in Sources */,
+				58850558259C868100B38CF3 /* OKThemeConfigureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

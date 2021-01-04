@@ -23,8 +23,6 @@ class SearchHomeViewController: UIViewController, ViewDesign {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
-        headerTitleLabel.text = "onekey_sdk_home_title".localized
-        
         if let theme = theme {
             layoutWith(theme: theme)
         }

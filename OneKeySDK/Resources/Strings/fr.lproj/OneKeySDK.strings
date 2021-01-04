@@ -8,14 +8,18 @@
 
 // HOME
 "onekey_sdk_home_title" = "Rechercher et Localiser\nProfessionnels de Santé";
+"onekey_sdk_home_feat_find_hcp_title" = "Trouver un professionnel";
+"onekey_sdk_home_feat_consult_profile_title" = "Consulter son profil";
+"onekey_sdk_home_feat_request_info_update_title" = "Demander une mise à jour de vos informations";
 "onekey_sdk_start_new_search" = "Démarrer une nouvelle recherche";
-"onekey_sdk_hcps_near_me" = "HCPs près de moi";
+"onekey_sdk_hcps_near_me" = "Professionnels autour de moi";
 "onekey_sdk_last_searches" = "Dernières recherches";
 "onekey_sdk_view_more" = "Voir plus";
 "onekey_sdk_view_less" = "Voir moins";
 "onekey_sdk_last_hcps_consulted" = "Derniers HCPs consultés";
 "onekey_sdk_find_healthcare_professional" = "Rechercher un Professionnel de Santé";
-"onekey_sdk_since_format" = "il y a %@";
+"onekey_sdk_search" = "Rechercher";
+"onekey_sdk_since_format" = "Il y a %@";
 
 // Search
 "onekey_sdk_search_first_field_label" = "Nom, Spécialité";
@@ -27,6 +31,7 @@
 "onekey_sdk_list_label" = "Liste";
 "onekey_sdk_map_label" = "Carte";
 "onekey_sdk_distance_unit" = "%dm";
+"onekey_sdk_back_to_search_results" = "Retour aux résultats de recherche";
 
 // Sort
 "onekey_sdk_sort_label" = "Trier";
@@ -46,3 +51,4 @@
 "onekey_sdk_information_no_label" = "Non";
 "onekey_sdk_improve_quality_label" = "Améliorer la qualité des données";
 "onekey_sdk_suggess_modification_button" = "Suggérer une modification";
+"onekey_sdk_back_to_home" = "Retour à l'accueil";

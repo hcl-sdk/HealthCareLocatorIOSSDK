@@ -123,9 +123,9 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     private func fetchActivityWith(id: String) {
-        contentWrapper.isHidden = true
-        loadingView.isHidden = false
-        loadingIndicator.startAnimating()
+//        contentWrapper.isHidden = true
+//        loadingView.isHidden = false
+//        loadingIndicator.startAnimating()
         // Fetch activity
         fullCardViewModel.fetchActivityDetail(activityID: id, config: OKManager.shared) {[weak self] (activity, error) in
             guard let strongSelf = self else {return}

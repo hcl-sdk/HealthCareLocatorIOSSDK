@@ -8,6 +8,9 @@
 
 // HOME
 "onekey_sdk_home_title" = "Find and Locate\nHealthcare Professional";
+"onekey_sdk_home_feat_find_hcp_title" = "Find and Locate other HCP";
+"onekey_sdk_home_feat_consult_profile_title" = "Consult Profile";
+"onekey_sdk_home_feat_request_info_update_title" = "Request my information update";
 "onekey_sdk_start_new_search" = "Start a New Search";
 "onekey_sdk_hcps_near_me" = "HCPs near me";
 "onekey_sdk_last_searches" = "Last searches";
@@ -15,6 +18,7 @@
 "onekey_sdk_view_less" = "View less";
 "onekey_sdk_last_hcps_consulted" = "Last HCPs consulted";
 "onekey_sdk_find_healthcare_professional" = "Find Healthcare Professional";
+"onekey_sdk_search" = "Search";
 "onekey_sdk_since_format" = "%@ ago";
 
 // Search
@@ -27,6 +31,7 @@
 "onekey_sdk_list_label" = "List";
 "onekey_sdk_map_label" = "Map";
 "onekey_sdk_distance_unit" = "%dm";
+"onekey_sdk_back_to_search_results" = "Back to search results";
 
 // Sort
 "onekey_sdk_sort_label" = "Sort";
@@ -46,3 +51,4 @@
 "onekey_sdk_information_no_label" = "No";
 "onekey_sdk_improve_quality_label" = "Improve the data quality";
 "onekey_sdk_suggess_modification_button" = "Suggest a modification";
+"onekey_sdk_back_to_home" = "Back to home";

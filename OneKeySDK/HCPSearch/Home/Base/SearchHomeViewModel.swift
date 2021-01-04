@@ -10,6 +10,8 @@ import UIKit
 
 class SearchHomeViewModel {
     func layout(view: SearchHomeViewController, with theme: OKThemeConfigure) {
+        view.headerTitleLabel.text = "onekey_sdk_home_title".localized
+        view.bottomSearchBtn.setTitle("onekey_sdk_start_new_search".localized, for: .normal)
         // Colors
         view.view.backgroundColor = theme.viewBkgColor
         view.searchTextField.textColor = theme.darkColor
@@ -33,19 +35,19 @@ class SearchHomeViewModel {
         
         let HCPView = SearchTypeView(theme: theme,
                                        image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                       title: "Find and Locate HCP",
+                                       title: "onekey_sdk_home_feat_find_hcp_title".localized,
                                        description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         view.bodyContentWrapper.addArrangedSubview(HCPView)
         
         let consultView = SearchTypeView(theme: theme,
                                            image: UIImage(named: "profile", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                           title: "Consult HCP's Profile",
+                                           title: "onekey_sdk_home_feat_consult_profile_title".localized,
                                            description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         view.bodyContentWrapper.addArrangedSubview(consultView)
         
         let informationView = SearchTypeView(theme: theme,
                                                image: UIImage(named: "edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
-                                               title: "Request HCP's information update",
+                                               title: "onekey_sdk_home_feat_request_info_update_title".localized,
                                                description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
         view.bodyContentWrapper.addArrangedSubview(informationView)
     }

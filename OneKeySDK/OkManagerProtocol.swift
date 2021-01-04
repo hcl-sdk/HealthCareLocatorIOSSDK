@@ -22,6 +22,6 @@ protocol OkManagerProtocol {
     func getDefaultSearchConfigure() -> OKSearchConfigure
     func getDefaultUIConfigure() -> OKThemeConfigure
     func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController
-    func searchNearMe(specialities: [String])
+    func searchNearMe(specialities: [String]) -> Bool
     func setLocale(lang: String)
 }
