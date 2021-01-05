@@ -1,5 +1,6 @@
 stages:
   - prepare
+  - test
   - build
   - deploy
 
@@ -41,6 +42,23 @@ prepare:clean:
   script:
     - rm -rf reports build ~/Library/Developer/Xcode/DerivedData/Spacetime*
     - xcodebuild clean -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo | xcpretty
+
+test:
+  interruptible: true
+  stage: test
+  tags:
+    - ios
+  except:
+    - tags
+  script:
+    - pod install
+    - xcodebuild test -workspace OneKeySDK.xcworkspace -scheme OneKeySDK -configuration Debug -derivedDataPath build -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.2.2" -enableCodeCoverage YES | xcpretty -s
+  allow_failure: false
+  artifacts:
+    name: "OneKeySDK_tests"
+    expire_in: 1 hour
+    paths:
+      - build/Logs/Test/*
 
 build:mr:
   extends: .build

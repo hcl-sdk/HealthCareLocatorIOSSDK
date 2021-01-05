@@ -36,6 +36,6 @@ class StringExtensionTests: XCTestCase {
         XCTAssertEqual(translatedTextEn3, "HCPs near me", "Key '\(key3)' did not return correct translation value for English")
         XCTAssertEqual(translatedTextFr1, "Rechercher et Localiser\nProfessionnels de Santé", "Key '\(key1)' did not return correct translation value for French")
         XCTAssertEqual(translatedTextFr2, "Démarrer une nouvelle recherche", "Key '\(key1)' did not return correct translation value for French")
-        XCTAssertEqual(translatedTextFr3, "HCPs près de moi", "Key '\(key1)' did not return correct translation value for French")
+        XCTAssertEqual(translatedTextFr3, "Professionnels autour de moi", "Key '\(key1)' did not return correct translation value for French")
     }
 }
