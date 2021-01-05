@@ -124,3 +124,44 @@ public struct OKThemeConfigure {
         self.greyLighterColor = greyLighterColor
     }
 }
+
+extension OKThemeConfigure: Equatable {
+    public static func == (lhs: OKThemeConfigure, rhs: OKThemeConfigure) -> Bool {
+        return lhs.defaultFont == rhs.defaultFont &&
+            lhs.defaultFont == rhs.defaultFont &&
+            lhs.titleMainFont == rhs.titleMainFont &&
+            lhs.titleSecondaryFont == rhs.titleSecondaryFont &&
+            lhs.searchResultTotalFont == rhs.searchResultTotalFont &&
+            lhs.searchResultTitleFont == rhs.searchResultTitleFont &&
+            lhs.resultTitleFont == rhs.resultTitleFont &&
+            lhs.resultSubTitleFont == rhs.resultSubTitleFont &&
+            lhs.profileTitleFont == rhs.profileTitleFont &&
+            lhs.profileSubTitleFont == rhs.profileSubTitleFont &&
+            lhs.profileTitleSectionFont == rhs.profileTitleSectionFont &&
+            lhs.cardTitleFont == rhs.cardTitleFont &&
+            lhs.modalTitleFont == rhs.modalTitleFont &&
+            lhs.searchInputFont == rhs.searchInputFont &&
+            lhs.sortCriteriaFont == rhs.sortCriteriaFont &&
+            lhs.buttonFont == rhs.buttonFont &&
+            lhs.smallFont == rhs.smallFont &&
+            lhs.primaryColor == rhs.primaryColor &&
+            lhs.secondaryColor == rhs.secondaryColor &&
+            lhs.buttonBkgColor == rhs.buttonBkgColor &&
+            lhs.buttonAcceptBkgColor == rhs.buttonAcceptBkgColor &&
+            lhs.buttonDiscardBkgColor == rhs.buttonDiscardBkgColor &&
+            lhs.buttonBorderColor == rhs.buttonBorderColor &&
+            lhs.cardBorderColor == rhs.cardBorderColor &&
+            lhs.markerColor == rhs.markerColor &&
+            lhs.markerSelectedColor == rhs.markerSelectedColor &&
+            lhs.viewBkgColor == rhs.viewBkgColor &&
+            lhs.listBkgColor == rhs.listBkgColor &&
+            lhs.voteUpColor == rhs.voteUpColor &&
+            lhs.voteDownColor == rhs.voteDownColor &&
+            lhs.darkColor == rhs.darkColor &&
+            lhs.greyColor == rhs.greyColor &&
+            lhs.greyDarkColor == rhs.greyDarkColor &&
+            lhs.greyDarkerColor == rhs.greyDarkerColor &&
+            lhs.greyLightColor == rhs.greyLightColor &&
+            lhs.greyLighterColor == rhs.greyLighterColor
+    }
+}

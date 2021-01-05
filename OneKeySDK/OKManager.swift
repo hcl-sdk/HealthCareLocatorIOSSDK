@@ -77,7 +77,7 @@ extension OKManager: OkManagerProtocol {
     /**
      The configuration for HCP/HCO searching
      */
-    public func configure(search: OKSearchConfigure) {
+    public func configure(search: OKSearchConfigure?) {
         self.searchConfigure = search
     }
     
@@ -116,8 +116,7 @@ extension OKManager: OkManagerProtocol {
      - Returns: An object of type *OKThemeConfigure* which can be use to configure for the search component UI
      */
     public func getDefaultUIConfigure() -> OKThemeConfigure {
-        return OKThemeConfigure(primaryColor: UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
-                                secondaryColor: UIColor(red: 227/255, green: 243/255, blue: 223/255, alpha: 1))
+        return OKThemeConfigure()
     }
     
     @discardableResult
