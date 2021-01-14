@@ -12,8 +12,7 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
     var theme: OKThemeConfigure?
     
     private let viewModel = HomeFullViewModel()
-    private let historyViewModel = SearchHistoryViewModel(webService: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
-                                                                                               manager: OKServiceManager.shared))
+    private let historyViewModel = SearchHistoryViewModel(webService: OKHCPSearchWebServices(manager: OKServiceManager.shared))
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBtn: BaseButton!
     @IBOutlet weak var separatorView: UIView!

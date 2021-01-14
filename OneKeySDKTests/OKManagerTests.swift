@@ -240,89 +240,89 @@ class OKManagerTests: XCTestCase {
 
     }
     
-    func testHCPSearchViewController_WithFullModeIsTrue_AndEntryIsHome_ManagerShouldReturnNavigationViewControllerWithSearchHomeFullViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: OKSearchConfigure(entry: .home, favourites: nil))
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeFullViewController, "Expected manager return navigation view controller with root view controller is SearchHomeFullViewController but received a different value")
-
-    }
-    
-    func testHCPSearchViewController_WithFullModeIsFalse_AndEntryIsHome_ManagerShouldReturnNavigationViewControllerWithSearchHomeViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: OKSearchConfigure(entry: .home, favourites: nil))
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: false)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeViewController, "Expected manager return navigation view controller with root view controller is SearchHomeViewController but received a different value")
-    }
-    
-    func testHCPSearchViewController_WithFullModeIsTrue_AndEntryIsNearme_ManagerShouldReturnNavigationViewControllerWithSearchResultViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: OKSearchConfigure(entry: .nearMe, favourites: nil))
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchResultViewController, "Expected manager return navigation view controller with root view controller is SearchResultViewController but received a different value")
-    }
-    
-    func testHCPSearchViewController_WithFullModeIsFalse_AndEntryIsNearme_ManagerShouldReturnNavigationViewControllerWithSearchResultViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: OKSearchConfigure(entry: .nearMe, favourites: nil))
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchResultViewController, "Expected manager return navigation view controller with root view controller is SearchResultViewController but received a different value")
-    }
-    
-    func testHCPSearchViewController_WithFullModeIsFalse_AndNoConfigure_ManagerShouldReturnNavigationViewControllerWithSearchHomeViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: nil)
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: false)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeViewController, "Expected manager return navigation view controller with root view controller is SearchHomeViewController but received a different value")
-    }
-    
-    func testHCPSearchViewController_WithFullModeIsTrue_AndNoConfigure_ManagerShouldReturnNavigationViewControllerWithSearchHomeFullViewControllerIsRootView() {
-        // Arrange
-        manager.configure(search: nil)
-        
-        // Act
-        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
-        
-        // Assert
-        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
-        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeFullViewController, "Expected manager return navigation view controller with root view controller is SearchHomeFullViewController but received a different value")
-    }
-    
-    func testSearchNearMe_WithUILoaded_ShouldReturnTrue() {
-        // Arrange
-        let _ = manager.getHCPSearchViewController(fullMode: true)
-
-        // Act
-        let success = manager.searchNearMe(specialities: ["SP1", "SP2"])
-
-        // Assert
-        XCTAssertTrue(success, "Expected manager return true by calling search without UI attached but return false")
-    }
+//    func testHCPSearchViewController_WithFullModeIsTrue_AndEntryIsHome_ManagerShouldReturnNavigationViewControllerWithSearchHomeFullViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: OKSearchConfigure(entry: .home, favourites: nil))
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeFullViewController, "Expected manager return navigation view controller with root view controller is SearchHomeFullViewController but received a different value")
+//
+//    }
+//    
+//    func testHCPSearchViewController_WithFullModeIsFalse_AndEntryIsHome_ManagerShouldReturnNavigationViewControllerWithSearchHomeViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: OKSearchConfigure(entry: .home, favourites: nil))
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: false)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeViewController, "Expected manager return navigation view controller with root view controller is SearchHomeViewController but received a different value")
+//    }
+//    
+//    func testHCPSearchViewController_WithFullModeIsTrue_AndEntryIsNearme_ManagerShouldReturnNavigationViewControllerWithSearchResultViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: OKSearchConfigure(entry: .nearMe, favourites: nil))
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchResultViewController, "Expected manager return navigation view controller with root view controller is SearchResultViewController but received a different value")
+//    }
+//    
+//    func testHCPSearchViewController_WithFullModeIsFalse_AndEntryIsNearme_ManagerShouldReturnNavigationViewControllerWithSearchResultViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: OKSearchConfigure(entry: .nearMe, favourites: nil))
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchResultViewController, "Expected manager return navigation view controller with root view controller is SearchResultViewController but received a different value")
+//    }
+//    
+//    func testHCPSearchViewController_WithFullModeIsFalse_AndNoConfigure_ManagerShouldReturnNavigationViewControllerWithSearchHomeViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: nil)
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: false)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeViewController, "Expected manager return navigation view controller with root view controller is SearchHomeViewController but received a different value")
+//    }
+//    
+//    func testHCPSearchViewController_WithFullModeIsTrue_AndNoConfigure_ManagerShouldReturnNavigationViewControllerWithSearchHomeFullViewControllerIsRootView() {
+//        // Arrange
+//        manager.configure(search: nil)
+//        
+//        // Act
+//        let searchHomeVC = manager.getHCPSearchViewController(fullMode: true)
+//        
+//        // Assert
+//        XCTAssertNotNil(searchHomeVC.viewControllers.first, "Expected manager return navigation view controller with root view controller available but received nil")
+//        XCTAssertTrue(searchHomeVC.viewControllers.first! is SearchHomeFullViewController, "Expected manager return navigation view controller with root view controller is SearchHomeFullViewController but received a different value")
+//    }
+//    
+//    func testSearchNearMe_WithUILoaded_ShouldReturnTrue() {
+//        // Arrange
+//        let _ = manager.getHCPSearchViewController(fullMode: true)
+//
+//        // Act
+//        let success = manager.searchNearMe(specialities: ["SP1", "SP2"])
+//
+//        // Assert
+//        XCTAssertTrue(success, "Expected manager return true by calling search without UI attached but return false")
+//    }
     
     
 //    func testSearchNearMe_WithNoUILoaded_ShouldReturnFalse() {

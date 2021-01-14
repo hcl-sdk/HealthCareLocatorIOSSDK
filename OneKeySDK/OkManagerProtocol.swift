@@ -7,21 +7,27 @@
 
 import Foundation
 
-protocol OKSDKConfigure {
+protocol  OKSDKConfigure {
     var searchNavigationController: OKHCPSearchNavigationViewController? { get }
-    var apiKey: String? { get }
     var userId: String? { get }
     var searchConfigure: OKSearchConfigure? { get }
+    var themConfigure: OKThemeConfigure? { get }
+    var iconsConfigure: OKIconsConfigure? { get }
     var lang: String! { get }
 }
 
 protocol OkManagerProtocol {
-    func initialize(apiKey: String, configure: OKSearchConfigure?, handler: ((Bool, Error?) -> Void)?)
+    func initialize(apiKey: String, configure: OKSearchConfigure?,
+                    theme: OKThemeConfigure?,
+                    icons: OKIconsConfigure?,
+                    handler: ((Bool, Error?) -> Void)?)
     func set(userId: String)
     func configure(search: OKSearchConfigure?)
+    func configure(theme: OKThemeConfigure?)
+    func configure(icons: OKIconsConfigure?)
     func getDefaultSearchConfigure() -> OKSearchConfigure
     func getDefaultUIConfigure() -> OKThemeConfigure
-    func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController
+    func getHCPSearchViewController() -> OKHCPSearchNavigationViewController
     func searchNearMe(specialities: [String]) -> Bool
     func setLocale(lang: String)
 }

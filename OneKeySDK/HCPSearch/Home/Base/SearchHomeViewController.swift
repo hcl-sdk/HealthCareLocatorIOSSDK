@@ -10,28 +10,44 @@ import UIKit
 class SearchHomeViewController: UIViewController, ViewDesign {
 
     var theme: OKThemeConfigure?
-    
+    var icons: OKIconsConfigure?
+
     private let viewModel = SearchHomeViewModel()
     
+    @IBOutlet weak var contentScrollView: UIScrollView!
     @IBOutlet weak var contentWrapperView: BaseView!
+    @IBOutlet weak var searchTextFieldWrapper: BaseView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var headerTitleLabel: UILabel!
     @IBOutlet weak var bodyContentWrapper: UIStackView!
     @IBOutlet weak var topSearchBtn: BaseButton!
     @IBOutlet weak var bottomSearchBtn: BaseButton!
     
+    private var isContentViewHidden = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentScrollView.alpha = isContentViewHidden ? 0 : 1
+        contentScrollView.isUserInteractionEnabled = !isContentViewHidden
+
         searchTextField.delegate = self
         if let theme = theme {
-            layoutWith(theme: theme)
+            layoutWith(theme: theme, icons: icons ?? OKIconsConfigure())
         }
         
         layoutWith(traitCollection: traitCollection)
     }
 
     func layoutWith(theme: OKThemeConfigure) {
-        viewModel.layout(view: self, with: theme)
+        layoutWith(theme: theme, icons: OKIconsConfigure())
+    }
+    
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        viewModel.layout(view: self, with: theme, icons: icons)
+    }
+    
+    func hideBodyView(isHidden: Bool) {
+        isContentViewHidden = isHidden
     }
     
     @IBAction func onSearchAction(_ sender: Any) {

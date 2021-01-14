@@ -55,8 +55,8 @@ class SearchResultViewModel: ViewLoading {
             if let lastLocation = locations?.last {
                 strongSelf.fetchActivitiesWith(info: info,
                                                specialties: strongSelf.search.codes?.map {$0.id},
-                                               location: GeopointQuery(lat: 43.76438020602678,
-                                                                       lon: -79.31803766618543),
+                                               location: GeopointQuery(lat: lastLocation.coordinate.latitude,
+                                                                       lon: lastLocation.coordinate.longitude),
                                                county: "",
                                                criteria: info.criteria,
                                                userId: userId,

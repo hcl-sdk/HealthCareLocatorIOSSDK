@@ -16,8 +16,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
     
     var theme: OKThemeConfigure?
 
-    private var webService: SearchAPIsProtocol = OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
-                                                                                    manager: OKServiceManager.shared)
+    private var webService: SearchAPIsProtocol = OKHCPSearchWebServices(manager: OKServiceManager.shared)
     
     private let viewModel = SearchInputViewModel()
     

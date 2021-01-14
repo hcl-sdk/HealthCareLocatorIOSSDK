@@ -14,8 +14,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     private let locationManager = CLLocationManager()
     
     var theme: OKThemeConfigure?
-    let fullCardViewModel: FullCardViewModel! = FullCardViewModel(webServices: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
-                                                                                                      manager: OKServiceManager.shared))
+    let fullCardViewModel: FullCardViewModel! = FullCardViewModel(webServices: OKHCPSearchWebServices(manager: OKServiceManager.shared))
     var activityID: String?
     private var activity: Activity?
     
@@ -94,6 +93,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        contentWrapper.isHidden = true
+        loadingView.isHidden = false
+        loadingIndicator.startAnimating()
+        
         if let id = activityID {
             fetchActivityWith(id: id)
             rating = AppConfigure.getVoteFor(activityId: id, by: AppConfigure.deviceId)
@@ -123,9 +126,6 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     private func fetchActivityWith(id: String) {
-//        contentWrapper.isHidden = true
-//        loadingView.isHidden = false
-//        loadingIndicator.startAnimating()
         // Fetch activity
         fullCardViewModel.fetchActivityDetail(activityID: id, config: OKManager.shared) {[weak self] (activity, error) in
             guard let strongSelf = self else {return}
@@ -150,6 +150,13 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     // MARK: Actions
     @IBAction func onBackAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func shareAction(_ sender: Any) {
+        let items = [activity?.workplace.address.composedAddress] as [Any]
+        let sharePanel = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        sharePanel.modalPresentationStyle = .overFullScreen
+        present(sharePanel, animated: true, completion: nil)
     }
     
     @IBAction func directionAction(_ sender: Any) {
@@ -193,11 +200,14 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                 guard let addressPicker = segue.destination as? PickerListViewController,
                       let activity = sender as? Activity else {return}
                 addressPicker.delegate = self
+                let allActivities = activity.allActivities
+                let selected = allActivities.firstIndex(where: { (other) -> Bool in
+                    return other.id == activity.id
+                 })
+                
                 addressPicker.configWith(theme: theme,
-                                         items: activity.individual.otherActivities.compactMap {$0.workplace.address.composedAddress},
-                                         selected: activity.individual.otherActivities.firstIndex(where: { (other) -> Bool in
-                                            return other.id == activity.id
-                                         }))
+                                         items: allActivities.map {$0.workplace.address.composedAddress},
+                                         selected: selected)
             case "showMapView":
                 guard let mapVC = segue.destination as? HCPMapViewController else {return}
                 mapVC.theme = theme
@@ -214,7 +224,7 @@ extension HCPFullCardViewController: PickerListViewControllerDelegate {
     func didSelect(item: String, at index: Int) {
         dismiss(animated: false) { [weak self] in
             guard let strongSelf = self,
-                  let activityID = strongSelf.activity?.individual.otherActivities[index].id else {return}
+                  let activityID = strongSelf.activity?.allActivities[index].id else {return}
             strongSelf.activityID = activityID
             strongSelf.fetchActivityWith(id: activityID)
         }

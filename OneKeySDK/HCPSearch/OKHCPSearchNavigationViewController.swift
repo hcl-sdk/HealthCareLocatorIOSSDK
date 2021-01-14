@@ -21,7 +21,6 @@ import UIKit
  Should create the *OKHCPSearchNavigationViewController* through *OKManager* instead of using it constructor directly
  */
 public class OKHCPSearchNavigationViewController: UINavigationController {
-
     /**
      The theme configuration object for dynamic UI displaying dependence on container app business
      */
@@ -34,42 +33,67 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
         }
     }
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        isNavigationBarHidden = true
+        if let theme = theme {
+            layoutWith(theme: theme)
+        }
     }
     
-    init(configure: OKSearchConfigure, fullMode: Bool) {
-        switch configure.entry {
+    public func configure(search: OKSearchConfigure) {
+        switch search.entry {
         case .home,
              .none:
-            if fullMode {
-                let fullHomeVC = ViewControllers.viewControllerWith(identity: .homeFull) as! SearchHomeFullViewController
-                super.init(rootViewController: fullHomeVC)
-            } else {
-                let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
-                super.init(rootViewController: compactHomeVC)
+            let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
+            compactHomeVC.hideBodyView(isHidden: true)
+            setViewControllers([compactHomeVC], animated: false)
+            LocationManager.shared.requestAuthorization {[weak self] (status) in
+                guard let strongSelf = self else {return}
+                let icons = OKManager.shared.iconsConfigure ?? OKIconsConfigure()
+                switch status {
+                case .denied, .notDetermined, .restricted:
+                    if AppConfigure.getLastSearchesHistory().count == 0 &&
+                        AppConfigure.getLastHCPsConsulted().count == 0 {
+                        strongSelf.layoutCompactMode(icons: icons)
+                    } else {
+                        strongSelf.layoutFullMode(icons: icons)
+                    }
+                default:
+                    strongSelf.layoutFullMode(icons: icons)
+                }
             }
         case .nearMe:
             let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as! SearchResultViewController
             resultVC.data = SearchData(criteria: nil,
-                                            codes: configure.favourites.map {Code(id: $0, longLbl: nil)},
+                                            codes: search.favourites.map {Code(id: $0, longLbl: nil)},
                                             address: nil,
                                             isNearMeSearch: true,
                                             isQuickNearMeSearch: true)
-            super.init(rootViewController: resultVC)
+            resultVC.shouldHideBackButton = true
+            setViewControllers([resultVC], animated: false)
         }
-        
-        isNavigationBarHidden = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func layoutCompactMode(icons: OKIconsConfigure) {
+        if viewControllers.count <= 1 {
+            DispatchQueue.main.async {
+                let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
+                compactHomeVC.theme = self.theme
+                compactHomeVC.icons = icons
+                self.setViewControllers([compactHomeVC], animated: false)
+            }
+        }
     }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        guard let theme = theme else {return}
-        layoutWith(theme: theme)
+    private func layoutFullMode(icons: OKIconsConfigure) {
+        if viewControllers.count <= 1 {
+            DispatchQueue.main.async {
+                let fullHomeVC = ViewControllers.viewControllerWith(identity: .homeFull) as! SearchHomeFullViewController
+                fullHomeVC.theme = self.theme
+                self.setViewControllers([fullHomeVC], animated: false)
+            }
+        }
     }
     
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {

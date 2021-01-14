@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     static func OKImageWith(name: String) -> UIImage? {
         return (UIImage(named: name, in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
     }

@@ -101,7 +101,8 @@ class FullCardViewModel {
             DispatchQueue.main.async {
                 view.drTitle.text = activity.individual.composedName
                 view.categoryTitle.text = activity.individual.professionalType?.label
-                view.selectedAddressWrapper.isHidden = activity.individual.otherActivities.count <= 1
+                
+                view.selectedAddressWrapper.isHidden = activity.individual.otherActivities.count < 1
                 
                 // Fill address label
                 view.selectedAddressLabel.text = activity.workplace.address.composedAddress
@@ -118,6 +119,7 @@ class FullCardViewModel {
                 if let address = activity.workplace.address.longLabel, !address.isEmpty {
                     addressComponent.append(address)
                 }
+                
                 view.addressLabel.text = addressComponent.joined(separator: "\n")
                 
                 // Fill specialities label

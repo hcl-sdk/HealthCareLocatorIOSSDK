@@ -24,9 +24,10 @@ public class OKManager: NSObject, OKSDKConfigure {
     static public let shared = OKManager()
     
     private(set) var searchNavigationController: OKHCPSearchNavigationViewController?
-    private(set) var apiKey: String?
     private(set) var userId: String?
     private(set) var searchConfigure: OKSearchConfigure?
+    private(set) var themConfigure: OKThemeConfigure?
+    private(set) var iconsConfigure: OKIconsConfigure?
     private(set) var lang: String!
 
     /**
@@ -44,13 +45,23 @@ public class OKManager: NSObject, OKSDKConfigure {
 
 extension OKManager: OkManagerProtocol {
     /**
-     The API key provide by the provisioning tools to authenticate with server, you need it to be set before using the searching
+     Initialize for the SDK,  you need it to be set before using the searching
+     - Parameters:
+        - apiKey: The API key provide by the provisioning tools to authenticate with server
+        - configure: Search configure
+        - theme: Theme configure
+        - icons: Icons configure
+        - handler: Handler configure
      - Important: the API key **MUST** be set before using the *Search* features OR it will raise an exception at run time
      */
     public func initialize(apiKey: String,
                            configure: OKSearchConfigure? = nil,
+                           theme: OKThemeConfigure? = nil,
+                           icons: OKIconsConfigure? = nil,
                            handler: ((Bool, Error?) -> Void)? = nil) {
-        self.apiKey = apiKey
+        OKServiceManager.shared.initialize(apiKey: apiKey)
+        self.themConfigure = theme
+        self.iconsConfigure = icons
         if let configure = configure {
             if OKSearchConfigureValidator.validate(configure: configure) {
                 searchConfigure = configure
@@ -81,6 +92,14 @@ extension OKManager: OkManagerProtocol {
         self.searchConfigure = search
     }
     
+    func configure(theme: OKThemeConfigure?) {
+        self.themConfigure = theme
+    }
+    
+    func configure(icons: OKIconsConfigure?) {
+        self.iconsConfigure = icons
+    }
+    
     /**
      Change displayed language for the SDK
         - Example:
@@ -104,9 +123,10 @@ extension OKManager: OkManagerProtocol {
      Retrive the instant for the HCP search process
      - Returns: The navigation controller of the search HCP process
      */
-    public func getHCPSearchViewController(fullMode: Bool) -> OKHCPSearchNavigationViewController {
-        let searchVC = OKHCPSearchNavigationViewController(configure: searchConfigure ?? getDefaultSearchConfigure(),
-                                                           fullMode: fullMode)
+    public func getHCPSearchViewController() -> OKHCPSearchNavigationViewController {
+        let searchVC = OKHCPSearchNavigationViewController()
+        searchVC.theme = themConfigure ?? getDefaultUIConfigure()
+        searchVC.configure(search: searchConfigure ?? getDefaultSearchConfigure())
         searchNavigationController = searchVC
         return searchVC
     }

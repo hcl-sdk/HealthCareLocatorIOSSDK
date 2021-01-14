@@ -17,6 +17,7 @@
 		582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582854FE2589E9020090FA68 /* SearchResultViewModel.swift */; };
 		5834823D25667A3D00A3F7BC /* SegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */; };
 		5836DD4B25934874002F776D /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD4A25934874002F776D /* String+Additional.swift */; };
+		583C1B6025AC3D9700CDB4F7 /* OKIconsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C1B5F25AC3D9700CDB4F7 /* OKIconsConfigure.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
 		584394272559282E009D2306 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* SearchInputViewController.swift */; };
 		5843942B25592AC2009D2306 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* SearchResultViewController.swift */; };
@@ -150,6 +151,7 @@
 		582854FE2589E9020090FA68 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		5836DD4A25934874002F776D /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
+		583C1B5F25AC3D9700CDB4F7 /* OKIconsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIconsConfigure.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		584394262559282E009D2306 /* SearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewController.swift; sourceTree = "<group>"; };
 		5843942A25592AC2009D2306 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				5875442C25885E5A0000C126 /* SearchAutoComplete.swift */,
 				58D4658F258C8E9B0084FA7A /* LocationManager.swift */,
 				58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */,
+				583C1B5F25AC3D9700CDB4F7 /* OKIconsConfigure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -895,6 +898,7 @@
 				5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */,
 				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
 				58CF586725760340001ACD6C /* AppConfigure.swift in Sources */,
+				583C1B6025AC3D9700CDB4F7 /* OKIconsConfigure.swift in Sources */,
 				589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
 				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,

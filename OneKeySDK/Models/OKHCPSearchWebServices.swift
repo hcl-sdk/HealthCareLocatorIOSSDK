@@ -10,11 +10,9 @@ import Apollo
 
 public class OKHCPSearchWebServices: SearchAPIsProtocol {
     
-    private let apiKey: String!
     private let manager: OKServiceManager!
     
-    public required init(apiKey: String, manager: OKServiceManager) {
-        self.apiKey = apiKey
+    public required init(manager: OKServiceManager) {
         self.manager = manager
     }
     
@@ -22,8 +20,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
                            locale: String?,
                            userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
-        let query = ActivityByIdQuery(apiKey: apiKey,
-                                      userId: userId,
+        let query = ActivityByIdQuery(userId: userId,
                                       id: id,
                                       locale: locale)
         manager.apollo.fetch(query: query) { result in
@@ -47,8 +44,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
                            codeTypes: [String],
                            userId: String?,
                            completionHandler: @escaping (([Code]?, Error?) -> Void)) {
-        let query = CodesByLabelQuery(apiKey: apiKey,
-                                      first: info.first,
+        let query = CodesByLabelQuery(first: info.first,
                                       offset: info.offset,
                                       userId: userId,
                                       criteria: criteria,
@@ -74,8 +70,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
                                     criteria: String!,
                                     userId: String?,
                                     completionHandler: @escaping (([IndividualWorkPlaceDetails]?, Error?) -> Void)) {
-        let query = IndividualsByNameQuery(apiKey: apiKey,
-                                           first: info.first,
+        let query = IndividualsByNameQuery(first: info.first,
                                            offset: info.offset,
                                            userId: userId,
                                            criteria: criteria,
@@ -102,8 +97,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
                              criteria: String?,
                              userId: String?,
                              completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        let query = ActivitiesQuery(apiKey: apiKey,
-                                    first: info.first,
+        let query = ActivitiesQuery(first: info.first,
                                     offset: info.offset,
                                     userId: userId,
                                     locale: info.locale,

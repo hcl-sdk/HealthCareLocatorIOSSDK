@@ -1,5 +1,4 @@
 query CodesByLabel(
-  $apiKey: String!
   $first: Int = 5
   $offset: Int = 0
   $userId: String
@@ -8,7 +7,6 @@ query CodesByLabel(
   $locale: String
 ) {
   codesByLabel(
-    apiKey: $apiKey
     first: $first
     offset: $offset
     userId: $userId
@@ -24,7 +22,6 @@ query CodesByLabel(
 }
 
 query IndividualsByName(
-  $apiKey: String!
   $first: Int = 5
   $offset: Int = 0
   $userId: String
@@ -32,7 +29,6 @@ query IndividualsByName(
   $locale: String
 ) {
   individualsByName(
-    apiKey: $apiKey
     first: $first
     offset: $offset
     userId: $userId
@@ -81,7 +77,6 @@ query IndividualsByName(
 }
 
 query Activities(
-  $apiKey: String!
   $first: Int = 10
   $offset: Int = 0
   $userId: String
@@ -93,7 +88,6 @@ query Activities(
   $location: GeopointQuery
 ) {
   activities(
-    apiKey: $apiKey
     first: $first
     offset: $offset
     userId: $userId
@@ -147,13 +141,8 @@ query Activities(
   }
 }
 
-query ActivityByID(
-  $apiKey: String!
-  $userId: String
-  $id: ID!
-  $locale: String
-) {
-  activityByID(apiKey: $apiKey, userId: $userId, id: $id, locale: $locale) {
+query ActivityByID($userId: String, $id: ID!, $locale: String) {
+  activityByID(userId: $userId, id: $id, locale: $locale) {
     id
     phone
     fax
@@ -171,6 +160,50 @@ query ActivityByID(
       specialties {
         code
         label
+      }
+      mainActivity {
+        id
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
+      }
+      otherActivities {
+        id
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
       }
     }
     workplace {

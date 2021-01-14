@@ -6,17 +6,20 @@
   
 */
 
-// HOME
-"onekey_sdk_home_title" = "Rechercher et Localiser\nProfessionnels de Santé";
-"onekey_sdk_home_feat_find_hcp_title" = "Trouver un professionnel";
-"onekey_sdk_home_feat_consult_profile_title" = "Consulter son profil";
-"onekey_sdk_home_feat_request_info_update_title" = "Demander une mise à jour de vos informations";
+// Home page
+"onekey_sdk_home_title" = "Rechercher et Localiser\ndes Professionnels de Santé";
+"onekey_sdk_home_feat_find_hcp_title" = "Trouver un professionnel de santé ";
+"onekey_sdk_home_feat_find_hcp_text" = "Trouver un professionnel de santé ou un établissement de soin par localisation, nom, spécialité ou à proximité";
+"onekey_sdk_home_feat_consult_profile_title" = "Consulter le profil d'un professionnel de santé ";
+"onekey_sdk_home_feat_consult_profile_text" = "Accéder au profil détaillé du professionnel de santé qui inclut ses spécialités, son lieu d'exercice et ses coordonnées.";
+"onekey_sdk_home_feat_request_info_update_title" = "Partager le profil d'un professionnel de santé ";
+"onekey_sdk_home_feat_request_info_update_text" = "Partager les profils par SMS ou par email avec vos proches. ";
 "onekey_sdk_start_new_search" = "Démarrer une nouvelle recherche";
-"onekey_sdk_hcps_near_me" = "Professionnels autour de moi";
+"onekey_sdk_hcps_near_me" = "Professionnels de santé autour de moi";
 "onekey_sdk_last_searches" = "Dernières recherches";
 "onekey_sdk_view_more" = "Voir plus";
 "onekey_sdk_view_less" = "Voir moins";
-"onekey_sdk_last_hcps_consulted" = "Derniers HCPs consultés";
+"onekey_sdk_last_hcps_consulted" = "Derniers profils consultés";
 "onekey_sdk_find_healthcare_professional" = "Rechercher un Professionnel de Santé";
 "onekey_sdk_search" = "Rechercher";
 "onekey_sdk_since_format" = "Il y a %@";
@@ -39,16 +42,17 @@
 "onekey_sdk_distance_item" = "Distance";
 "onekey_sdk_name_item" = "Nom";
 "onekey_sdk_apply_button" = "Appliquer";
-"onekey_sdk_reset_button" = "Annuler";
+"onekey_sdk_reset_button" = "Réinitialiser";
 
 // HCP profile
 "onekey_sdk_main_information_label" = "Informations générales";
-"onekey_sdk_rate_refunds_label" = "Prix et remboursements";
+"onekey_sdk_rate_refunds_label" = "Tarif et remboursements";
 "onekey_sdk_specialities_label" = "Spécialités";
-"onekey_sdk_information_label" = "Informations";
-"onekey_sdk_information_description" = "Les informations à propos de ce HCP étaient-elles correctes?";
+"onekey_sdk_information_label" = "Information";
+"onekey_sdk_information_description" = "Les informations à propos de ce professionnel de santé sont-elles correctes?";
 "onekey_sdk_information_yes_label" = "Oui";
 "onekey_sdk_information_no_label" = "Non";
 "onekey_sdk_improve_quality_label" = "Améliorer la qualité des données";
+"onekey_sdk_improve_quality_text" = "Partagez avec nous plus d'information sur ce professionnel de santé.";
 "onekey_sdk_suggess_modification_button" = "Suggérer une modification";
 "onekey_sdk_back_to_home" = "Retour à l'accueil";

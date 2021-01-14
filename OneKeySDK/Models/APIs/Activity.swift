@@ -24,6 +24,12 @@ public struct Activity: Codable {
     let webAddress: String?
     let individual: Individual!
     let workplace: Workplace!
+    
+    var allActivities: [Individual.Activity] {
+        var allActivities: [Individual.Activity] = [individual.mainActivity]
+        allActivities.append(contentsOf: individual.otherActivities)
+        return allActivities
+    }
 }
 
 public struct Individual: Codable {
@@ -39,37 +45,13 @@ public struct Individual: Codable {
     let mailingName: String?
     let professionalType: KeyedString?
     let specialties: [KeyedString]
-    
-    var otherActivities: [Individual.Activity]! {
-        return [Individual.Activity(id: "WCAA0001431701",
-                                    workplace: Workplace(name: nil,
-                                                         address: Address(longLabel: "243 Consumers Rd",
-                                                                          buildingLabel: nil,
-                                                                          county: nil,
-                                                                          city: KeyedString(code: "CA009375",
-                                                                                            label: "North York"),
-                                                                          country: nil,
-                                                                          postalCode: nil,
-                                                                          location: nil))),
-                Individual.Activity(id: "WCAM0009241805",
-                                            workplace: Workplace(name: nil,
-                                                                 address: Address(longLabel: "1403-2225 Sheppard Ave E",
-                                                                                  buildingLabel: nil,
-                                                                                  county: nil,
-                                                                                  city: KeyedString(code: "CA009375",
-                                                                                                    label: "North York"),
-                                                                                  country: nil,
-                                                                                  postalCode: nil,
-                                                                                  location: nil)))]
-    }
+    let mainActivity: Individual.Activity!
+    let otherActivities: [Individual.Activity]!
 }
 
 public extension Individual {
     var composedName: String {
-        guard let mailingName = mailingName else {
-            return String(format: "%@ %@ %@", firstName ?? "", middleName ?? "", lastName)
-        }
-        return mailingName
+        return [firstName, middleName, lastName].compactMap {$0}.joined(separator: " ")
     }
 }
 

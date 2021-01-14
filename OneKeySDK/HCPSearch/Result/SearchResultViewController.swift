@@ -9,7 +9,8 @@ import UIKit
 
 class SearchResultViewController: UIViewController, ViewDesign {
     var theme: OKThemeConfigure?
-
+    var shouldHideBackButton = false
+    
     var resultNavigationVC: UINavigationController!
     var data: SearchData?
     
@@ -27,6 +28,8 @@ class SearchResultViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var topLabelsWrapper: UIStackView!
     @IBOutlet weak var topInputWrapper: UIStackView!
+    @IBOutlet weak var topInputMarginLeftView: UIView!
+    
     @IBOutlet weak var topInputTextField: UITextField!
     @IBOutlet weak var searchButton: BaseButton!
     
@@ -45,10 +48,11 @@ class SearchResultViewController: UIViewController, ViewDesign {
     override func viewDidLoad() {
         super.viewDidLoad()
         topInputTextField.delegate = self
-        
+        backButton.isHidden = shouldHideBackButton
+        topInputMarginLeftView.isHidden = !shouldHideBackButton
+
         if let search = data {
-            searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(apiKey: OKManager.shared.apiKey.orEmpty,
-                                                                                              manager: OKServiceManager.shared),
+            searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(manager: OKServiceManager.shared),
                                                           search: search)
         }
         

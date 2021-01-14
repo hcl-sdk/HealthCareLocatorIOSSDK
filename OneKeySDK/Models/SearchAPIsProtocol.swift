@@ -9,7 +9,7 @@ import Foundation
 
 protocol SearchAPIsProtocol {
     
-    init(apiKey: String, manager: OKServiceManager)
+    init(manager: OKServiceManager)
     
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,

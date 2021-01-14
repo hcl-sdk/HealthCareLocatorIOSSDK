@@ -38,7 +38,6 @@ let kMenuCustomThemeFontsTitle3Title = "Title 3"
 let kMenuCustomThemeFontsSearchInputTitle = "Search input"
 let kMenuCustomThemeFontsButtonTitle = "Button"
 let kMenuCustomThemeFontsSmallTitle = "Small"
-let kSearchHomeFullTitle = "Full Mode"
 
 let kMenuLanguageTitle = "Language"
 let kMenuLanguageLabel = "Language"

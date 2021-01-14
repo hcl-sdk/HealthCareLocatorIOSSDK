@@ -39,8 +39,7 @@ class SettingsViewController: UIViewController {
         let isCustomThemeSelected = !isGreenThemeSelected && !isBlueThemeSelected && !isRedThemeSelected && !isPurpleThemeSelected
         
         var themeSection: MenuSection!
-        let homeModeSection = MenuSection(title: kMenuHomeTitle,
-                                          menus: [Menu.toggleMenu(title: kSearchHomeFullTitle, isOn: AppSettings.fullHomeModeEnabled)])
+
         let languageSection = MenuSection(title: kMenuLanguageTitle,
                                           menus: [Menu.detailMenu(title: AppSettings.language.title)], colapsedLimit: nil)
         
@@ -68,8 +67,7 @@ class SettingsViewController: UIViewController {
         
         menus = [Menu.APIKeyMenu,
                  languageSection,
-                 themeSection,
-                 homeModeSection]
+                 themeSection]
         menuVC.reloadData(menus: menus)
     }
     
@@ -139,13 +137,6 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
         switch menu {
         case .toggleMenu(let title, _):
             switch title {
-            case kSearchHomeFullTitle:
-                if let newBool = newValue as? Bool {
-                    AppSettings.fullHomeModeEnabled = newBool
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        self.reloadSettings()
-                    }
-                }
             default:
                 break
             }

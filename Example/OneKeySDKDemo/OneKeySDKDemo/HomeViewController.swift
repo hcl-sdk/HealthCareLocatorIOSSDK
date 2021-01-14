@@ -32,6 +32,11 @@ class HomeViewController: UIViewController {
         configBuggerMenu(menu: buggerMenuAnimationView)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        homeNavigationController.popToRootViewController(animated: true)
+    }
+    
     private func configBuggerMenu(menu: AnimationView) {
         menu.translatesAutoresizingMaskIntoConstraints = false
         menu.clipsToBounds = false

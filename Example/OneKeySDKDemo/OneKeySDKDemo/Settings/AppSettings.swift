@@ -15,7 +15,6 @@ class AppSettings {
         case APIKey
         case selectedThemeMenu
         case selectedTheme
-        case fullHomeModeEnabled
         case language
     }
     
@@ -92,17 +91,6 @@ class AppSettings {
         
         set {
             AppSettings.set(value: (try? JSONEncoder().encode(newValue)), for: Key.selectedTheme.rawValue)
-        }
-    }
-    
-    static var fullHomeModeEnabled: Bool {
-        get {
-            guard let isOn = AppSettings.getValueFor(key: Key.fullHomeModeEnabled.rawValue) as? String else {return false}
-            return isOn == "true"
-        }
-        
-        set {
-            AppSettings.set(value: newValue ? "true" : "false", for: Key.fullHomeModeEnabled.rawValue)
         }
     }
     

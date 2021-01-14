@@ -10,7 +10,7 @@ import Apollo
 
 class MockOKHCPSearchWebServices: SearchAPIsProtocol {
     
-    required init(apiKey: String, manager: OKServiceManager) {
+    required init(manager: OKServiceManager) {
         
     }
     

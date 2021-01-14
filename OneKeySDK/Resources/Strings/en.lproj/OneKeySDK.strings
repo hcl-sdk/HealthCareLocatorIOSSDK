@@ -6,11 +6,14 @@
   
 */
 
-// HOME
-"onekey_sdk_home_title" = "Find and Locate\nHealthcare Professional";
-"onekey_sdk_home_feat_find_hcp_title" = "Find and Locate other HCP";
-"onekey_sdk_home_feat_consult_profile_title" = "Consult Profile";
-"onekey_sdk_home_feat_request_info_update_title" = "Request my information update";
+// Home page
+"onekey_sdk_home_title" = "Find and Locate\nHealthcare Professionals";
+"onekey_sdk_home_feat_find_hcp_title" = "Find HCPs/HCOs ";
+"onekey_sdk_home_feat_find_hcp_text" = "Find Healthcare providers by location, name, specialty, or by searching nearby";
+"onekey_sdk_home_feat_consult_profile_title" = "Access to HCPs/HCOs profiles";
+"onekey_sdk_home_feat_consult_profile_text" = "Review detailed provider profiles, including specialties, location, and contact information";
+"onekey_sdk_home_feat_request_info_update_title" = "Share HCPs/HCOs";
+"onekey_sdk_home_feat_request_info_update_text" = "Use SMS or email to share profiles with friends and family ";
 "onekey_sdk_start_new_search" = "Start a New Search";
 "onekey_sdk_hcps_near_me" = "HCPs near me";
 "onekey_sdk_last_searches" = "Last searches";
@@ -46,9 +49,10 @@
 "onekey_sdk_rate_refunds_label" = "Rate and refunds";
 "onekey_sdk_specialities_label" = "Specialties";
 "onekey_sdk_information_label" = "Information";
-"onekey_sdk_information_description" = "Was the information you were given about this HCP correct?";
+"onekey_sdk_information_description" = "Is the information you were given about this HCP correct?";
 "onekey_sdk_information_yes_label" = "Yes";
 "onekey_sdk_information_no_label" = "No";
 "onekey_sdk_improve_quality_label" = "Improve the data quality";
+"onekey_sdk_improve_quality_text" = "Share with us more information about this HCP/HCO. ";
 "onekey_sdk_suggess_modification_button" = "Suggest a modification";
 "onekey_sdk_back_to_home" = "Back to home";

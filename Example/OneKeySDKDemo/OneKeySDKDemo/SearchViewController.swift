@@ -18,9 +18,12 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // Get manager and assign the delegate to listen for search process events
         let shared = OKManager.shared
+        let iconsConfig = OKIconsConfigure(searchIcon: UIImage(named: "iconStar")!,
+                                           profileIcon: UIImage(named: "iconStar")!,
+                                           editIcon: UIImage(named: "iconStar")!)
         //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
-        shared.initialize(apiKey: "123",
+        shared.initialize(apiKey: "",
                           configure: config) {[weak self] (success, error) in
             if success {
                 shared.delegate = self
@@ -36,7 +39,7 @@ class SearchViewController: UIViewController {
 
     private func initSearchUI() {
         // Get the initial HCP search instants
-        let HCPSearchVC = OKManager.shared.getHCPSearchViewController(fullMode: AppSettings.fullHomeModeEnabled)
+        let HCPSearchVC = OKManager.shared.getHCPSearchViewController()
         let storedTheme = AppSettings.selectedTheme
         let theme = OKThemeConfigure(defaultFont: UIFont.from(core: storedTheme.defaultFont),
                                      titleMainFont: UIFont.from(core: storedTheme.titleMainFont),
@@ -78,6 +81,8 @@ class SearchViewController: UIViewController {
     }
     
     private func setupSearchView(searchVC: OKHCPSearchNavigationViewController) {
+//        searchVC.modalPresentationStyle = .overFullScreen
+//        present(searchVC, animated: true, completion: nil)
         let searchView = searchVC.view!
         searchView.translatesAutoresizingMaskIntoConstraints = false
         searchVC.willMove(toParent: self)

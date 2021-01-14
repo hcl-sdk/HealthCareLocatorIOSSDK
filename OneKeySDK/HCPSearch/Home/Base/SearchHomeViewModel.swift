@@ -9,11 +9,14 @@ import Foundation
 import UIKit
 
 class SearchHomeViewModel {
-    func layout(view: SearchHomeViewController, with theme: OKThemeConfigure) {
+    func layout(view: SearchHomeViewController, with theme: OKThemeConfigure, icons: OKIconsConfigure) {
         view.headerTitleLabel.text = "onekey_sdk_home_title".localized
         view.bottomSearchBtn.setTitle("onekey_sdk_start_new_search".localized, for: .normal)
+        view.topSearchBtn.setImage(icons.searchIcon, for: .normal)
+        
         // Colors
         view.view.backgroundColor = theme.viewBkgColor
+        view.searchTextFieldWrapper.borderColor = theme.cardBorderColor
         view.searchTextField.textColor = theme.darkColor
         view.searchTextField.attributedPlaceholder = NSAttributedString(string: "onekey_sdk_find_healthcare_professional".localized,
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
@@ -34,21 +37,21 @@ class SearchHomeViewModel {
         }
         
         let HCPView = SearchTypeView(theme: theme,
-                                       image: UIImage(named: "magnifier", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                     image: icons.searchIcon.withRenderingMode(.alwaysTemplate),
                                        title: "onekey_sdk_home_feat_find_hcp_title".localized,
-                                       description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
+                                       description: "onekey_sdk_home_feat_find_hcp_text".localized)
         view.bodyContentWrapper.addArrangedSubview(HCPView)
         
         let consultView = SearchTypeView(theme: theme,
-                                           image: UIImage(named: "profile", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                         image: icons.profileIcon.withRenderingMode(.alwaysTemplate),
                                            title: "onekey_sdk_home_feat_consult_profile_title".localized,
-                                           description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
+                                           description: "onekey_sdk_home_feat_consult_profile_text".localized)
         view.bodyContentWrapper.addArrangedSubview(consultView)
         
         let informationView = SearchTypeView(theme: theme,
-                                               image: UIImage(named: "edit", in: Bundle.internalBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+                                             image: icons.editIcon.withRenderingMode(.alwaysTemplate),
                                                title: "onekey_sdk_home_feat_request_info_update_title".localized,
-                                               description: "Lorem ipsum dolor sit amet, consect adipiscing elit")
+                                               description: "onekey_sdk_home_feat_request_info_update_text".localized)
         view.bodyContentWrapper.addArrangedSubview(informationView)
     }
     
