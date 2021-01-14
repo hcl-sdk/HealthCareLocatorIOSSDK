@@ -128,7 +128,7 @@ class SearchHistoryViewModel: ViewLoading {
                 } else if let error = error {
                     single(.error(error))
                 } else {
-                    single(.error(OKError.noResult))
+                    single(.success([]))
                 }
             }
             return Disposables.create {}
