@@ -53,8 +53,14 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
             layoutWith(theme: theme)
         }
         
-        if let currentLocation = LocationManager.shared.currentLocation {
-            defaultZoomTo(location: currentLocation.coordinate)
+        if searchData?.isNearMeSearch == true || searchData?.isQuickNearMeSearch == true {
+            if let currentLocation = LocationManager.shared.currentLocation {
+                defaultZoomTo(location: currentLocation.coordinate)
+            }
+        } else {
+            if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
+                defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
+            }
         }
     }
     
