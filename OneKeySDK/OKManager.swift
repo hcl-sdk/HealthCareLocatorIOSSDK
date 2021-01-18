@@ -25,6 +25,8 @@ public class OKManager: NSObject, OKSDKConfigure {
     
     private(set) var searchNavigationController: OKHCPSearchNavigationViewController?
     private(set) var userId: String?
+    private(set) var appName: String?
+    private(set) var appDownloadLink: String?
     private(set) var searchConfigure: OKSearchConfigure?
     private(set) var themConfigure: OKThemeConfigure?
     private(set) var iconsConfigure: OKIconsConfigure?
@@ -83,6 +85,17 @@ extension OKManager: OkManagerProtocol {
      */
     public func set(userId: String) {
         self.userId = userId
+    }
+    
+    /**
+     Parent app name and download link to be configured
+     - Parameters:
+        - appName: the app name which interact this SDK, the app name could be display somewhere while user using search feature
+        - appDownloadLink: The URL to download the parent app which contains this SDK
+     */
+    public func set(appName: String, appDownloadLink: String?) {
+        self.appName = appName
+        self.appDownloadLink = appDownloadLink
     }
     
     /**

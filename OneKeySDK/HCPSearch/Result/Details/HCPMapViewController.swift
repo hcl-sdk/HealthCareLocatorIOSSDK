@@ -20,6 +20,7 @@ class HCPMapViewController: UIViewController, ViewDesign {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var mapWrapper: BaseView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var currentLocationWrapper: BaseView!
     @IBOutlet weak var currentLocationButton: BaseButton!
     
     override func viewDidLoad() {

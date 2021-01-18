@@ -25,8 +25,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXK-am-lkD">
-                                                <rect key="frame" x="123" y="7" width="129.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                <rect key="frame" x="138.5" y="15.5" width="98" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1462,31 +1462,8 @@
             </objects>
             <point key="canvasLocation" x="636" y="1147"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="3fl-1j-qYg">
-            <objects>
-                <viewController id="RsW-ig-vSV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xwg-ZJ-TfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mCM-wT-09G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-835" y="-157"/>
-        </scene>
     </scenes>
     <designables>
-        <designable name="08d-EA-Al1">
-            <size key="intrinsicContentSize" width="70" height="45"/>
-        </designable>
-        <designable name="55u-Lg-ZxV">
-            <size key="intrinsicContentSize" width="70" height="45"/>
-        </designable>
-        <designable name="InO-f8-eJ7">
-            <size key="intrinsicContentSize" width="70" height="45"/>
-        </designable>
         <designable name="U8V-XF-qGn"/>
         <designable name="bJg-Zy-YWN">
             <size key="intrinsicContentSize" width="30" height="41"/>

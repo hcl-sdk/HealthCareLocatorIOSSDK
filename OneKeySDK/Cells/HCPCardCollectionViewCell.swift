@@ -18,9 +18,9 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moreDetailIcon: UIImageView!
     
     func configWith(theme: OKThemeConfigure?, item: ActivityResult, selected: Bool) {
-        wrapper.setBorderWith(width: selected ? 2 : 0,
+        wrapper.setBorderWith(width: selected ? 2 : 1,
                               cornerRadius: 8,
-                              borderColor: selected ? (theme?.markerSelectedColor ?? UIColor.red) : UIColor.clear )
+                              borderColor: selected ? (theme?.markerSelectedColor ?? UIColor.red) : (theme?.cardBorderColor ?? UIColor.darkGray))
         
         // Fonts
         drLabel.font = theme?.resultTitleFont

@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SearchResultViewController: UIViewController, ViewDesign {
+    enum ViewMode {
+        case list
+        case map
+    }
+    
     var theme: OKThemeConfigure?
     var shouldHideBackButton = false
     
     var resultNavigationVC: UINavigationController!
     var data: SearchData?
     
-    var result: [ActivityResult] {
-        return data?.result ?? []
-    }
+    var result: [ActivityResult] = []
     
     var sort = SearchResultSortViewController.SortBy.relevance {
         didSet {
@@ -25,6 +29,14 @@ class SearchResultViewController: UIViewController, ViewDesign {
     }
     
     private var searchResultViewModel: SearchResultViewModel?
+    
+    private var mode = ViewMode.list {
+        didSet {
+            if let viewModel = searchResultViewModel {
+                viewModel.layout(view: self, theme: theme ?? OKThemeConfigure(), mode: mode)
+            }
+        }
+    }
     
     @IBOutlet weak var topLabelsWrapper: UIStackView!
     @IBOutlet weak var topInputWrapper: UIStackView!
@@ -39,31 +51,37 @@ class SearchResultViewController: UIViewController, ViewDesign {
     @IBOutlet weak var secondSeparatorView: UIView!
     @IBOutlet weak var criteriaLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var displayModeSegmentView: SegmentControlView!
     @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var activityCountLabel: UILabel!
     @IBOutlet weak var sortButtonWrapper: BaseView!
     @IBOutlet weak var sortButton: UIButton!
     
+    // Result mode List
+    @IBOutlet weak var selectedListViewBackgroundView: BaseView!
+    @IBOutlet weak var listIcon: UIImageView!
+    @IBOutlet weak var listLabel: UILabel!
+    
+    // Result mode Map
+    @IBOutlet weak var selectedMapViewBackgroundView: BaseView!
+    @IBOutlet weak var mapIcon: UIImageView!
+    @IBOutlet weak var mapLabel: UILabel!
+    
+    @IBOutlet weak var noResultWrapper: UIView!
+    private var noResultVC: NoSearchResultViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         topInputTextField.delegate = self
         backButton.isHidden = shouldHideBackButton
         topInputMarginLeftView.isHidden = !shouldHideBackButton
-
+        noResultWrapper.isHidden = true
+        
         if let search = data {
             searchResultViewModel = SearchResultViewModel(webservices: OKHCPSearchWebServices(manager: OKServiceManager.shared),
                                                           search: search)
+            layoutWith(searchData: search)
         }
-        
-        if let unwrap = data {
-            layoutWith(searchData: unwrap)
-        }
-        
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
-        
+
         sort = .relevance
         
         // Initialize search
@@ -74,89 +92,73 @@ class SearchResultViewController: UIViewController, ViewDesign {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.performSearch(config: OKManager.shared, completionHandler: {[weak self] (result, error) in
             guard let strongSelf = self else {return}
-            if let result = result {
-                strongSelf.data?.change(result: result)
-                strongSelf.reloadWith(data: strongSelf.data!)
-                strongSelf.searchResultViewModel?.hideLoading()
-            } else {
-                print(error)
+            strongSelf.handleSearch(result: result)
+            // Move map to the suitable coordinate base on search action (normal, near me, quick near me)
+            let shouldMoveToCurrentLocation = (strongSelf.data?.isNearMeSearch == true || strongSelf.data?.isQuickNearMeSearch == true)
+            for resultVC in strongSelf.resultNavigationVC.viewControllers {
+                if let resultMapVC = resultVC as? SearchResultMapViewController {
+                    if shouldMoveToCurrentLocation {
+                        if let currentLocation = LocationManager.shared.currentLocation {
+                            resultMapVC.defaultZoomTo(location: currentLocation.coordinate)
+                        }
+                    } else if let location = result?.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
+                        resultMapVC.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
+                    }
+                    return
+                }
             }
         })
     }
     
-    func reloadWith(data: SearchData) {
-        layoutWith(searchData: data)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            for resultChildVC in self.resultNavigationVC.viewControllers {
+    private func handleSearch(result: [ActivityResult]?) {
+        if let result = result, result.count > 0 {
+            noResultWrapper.isHidden = true
+            self.result = result
+            reloadWith(result: result)
+            searchResultViewModel?.hideLoading()
+        } else {
+            noResultWrapper.isHidden = false
+        }
+    }
+    
+    func reloadWith(result: [ActivityResult]) {
+        activityCountLabel.text = "\(result.count)"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let strongSelf = self else {return}
+            for resultChildVC in strongSelf.resultNavigationVC.viewControllers {
                 if let resultVC = resultChildVC as? SortableResultList {
-                    resultVC.reloadWith(data: data.result)
+                    resultVC.reloadWith(data: result)
                 }
             }
         }
     }
     
     func layoutWith(searchData: SearchData) {
-        activityCountLabel.text = "\(searchData.result.count)"
         criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria
-        // Display map by default if the user active near me search at home screen
-        if searchData.isQuickNearMeSearch == true {
+        if searchData.isQuickNearMeSearch == true  {
             topInputWrapper.isHidden = false
             topLabelsWrapper.isHidden = true
-            if let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as? SearchResultMapViewController {
-                viewMapVC.result = result
-                viewMapVC.theme = theme
-                displayModeSegmentView.selectedIndex = 1
-                resultNavigationVC.pushViewController(viewMapVC, animated: false)
-            }
         } else {
             topInputWrapper.isHidden = true
             topLabelsWrapper.isHidden = false
         }
         
-        if searchData.isNearMeSearch == true {
+        mode = (searchData.isNearMeSearch == true || searchData.isQuickNearMeSearch == true) ? .map : .list
+        
+        // Display map by default if the user active near me search at home screen
+        if mode == .map {
             addressLabel.text = kNearMeTitle
+            // Add map view to stack as this mode require the map should be display first
+            let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as! SearchResultMapViewController
+            configResultMap(viewMapVC: viewMapVC)
+            resultNavigationVC.pushViewController(viewMapVC, animated: false)
         } else {
             addressLabel.text = searchData.address
         }
     }
     
     func layoutWith(theme: OKThemeConfigure) {
-        resultsLabel.text = "onekey_sdk_results_label".localized
-        
-        // Fonts
-        resultsLabel.font = theme.searchResultTotalFont
-        criteriaLabel.font = theme.searchResultTitleFont
-        addressLabel.font = theme.smallFont
-        activityCountLabel.font = theme.smallFont
-        topInputTextField.font = theme.searchInputFont
-        
-        // Colors
-        resultsLabel.textColor = theme.darkColor
-        sortButton.backgroundColor = theme.secondaryColor
-        activityCountLabel.textColor = theme.primaryColor
-        criteriaLabel.textColor = theme.darkColor
-        addressLabel.textColor = theme.greyColor
-        backButton.tintColor = theme.darkColor
-        firstSeparatorView.backgroundColor = theme.greyLighterColor
-        secondSeparatorView.backgroundColor = theme.greyLighterColor
-        topInputTextField.textColor = theme.darkColor
-        topInputTextField.attributedPlaceholder = NSAttributedString(string: "onekey_sdk_find_healthcare_professional".localized,
-                                                                     attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
-        
-        displayModeSegmentView.items = [SegmentControlModel(icon: UIImage.OKImageWith(name: "list-view"),
-                                                            title: "onekey_sdk_list_label".localized,
-                                                              selectedBackgroundColor: theme.primaryColor,
-                                                              selectedForcegroundColor: UIColor.white,
-                                                              nonSelectedBackgroundColor: UIColor.white,
-                                                              nonSelectedForcegroundColor: UIColor.darkGray),
-                                        SegmentControlModel(icon: UIImage.OKImageWith(name: "map-view"),
-                                                            title: "onekey_sdk_map_label".localized,
-                                                              selectedBackgroundColor: theme.primaryColor,
-                                                              selectedForcegroundColor: UIColor.white,
-                                                              nonSelectedBackgroundColor: UIColor.white,
-                                                              nonSelectedForcegroundColor: UIColor.darkGray)]
-        displayModeSegmentView.selectedIndex = 0
-        displayModeSegmentView.delegate = self
+        searchResultViewModel?.layout(view: self, theme: theme)
     }
 
     @IBAction func onBackAction(_ sender: Any) {
@@ -171,12 +173,36 @@ class SearchResultViewController: UIViewController, ViewDesign {
                                                                                   isQuickNearMeSearch: true))
     }
     
+    @IBAction func listViewAction(_ sender: Any) {
+        mode = .list
+        if let resultListVC = resultNavigationVC.viewControllers.first as? SearchResultListViewController {
+            resultListVC.result = result
+            resultListVC.theme = theme
+            resultNavigationVC.popToViewController(resultListVC, animated: true)
+        }
+    }
+    
+    @IBAction func mapViewAction(_ sender: Any) {
+        mode = .map
+        if let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as? SearchResultMapViewController {
+            configResultMap(viewMapVC: viewMapVC)
+            resultNavigationVC.pushViewController(viewMapVC, animated: true)
+        }
+    }
+    
     func sortResultBy(sort: SearchResultSortViewController.SortBy) {
-        searchResultViewModel?.sortResultBy(sort, {[weak self] (data) in
+        searchResultViewModel?.sortResultBy(sort: sort, result: result, {[weak self] (sortedResult) in
             guard let strongSelf = self else {return}
-            strongSelf.data = data
-            strongSelf.reloadWith(data: data)
+            strongSelf.result = sortedResult
+            strongSelf.reloadWith(result: sortedResult)
         })
+    }
+    
+    private func configResultMap(viewMapVC: SearchResultMapViewController) {
+        viewMapVC.result = result
+        viewMapVC.theme = theme
+        viewMapVC.searchData = data
+        viewMapVC.mapDelegate = self
     }
     
     // MARK: - Navigation
@@ -213,34 +239,18 @@ class SearchResultViewController: UIViewController, ViewDesign {
                         desVC.data = data
                     }
                 }
+            case "showNoResultVC":
+                if let desVC = segue.destination as? NoSearchResultViewController {
+                    noResultVC = desVC
+                    desVC.theme = theme
+                    desVC.delegate = self
+                }
             default:
                 return
             }
         }
     }
 
-}
-
-extension SearchResultViewController: SegmentControlViewProtocol {
-    func didSelect(item: SegmentControlItem) {
-        displayModeSegmentView.selectedIndex = item.index
-        switch item.index {
-        case 0:
-            if let resultListVC = resultNavigationVC.viewControllers.first as? SearchResultListViewController {
-                resultListVC.result = result
-                resultListVC.theme = theme
-            }
-            resultNavigationVC.popToRootViewController(animated: true)
-        case 1:
-            if let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as? SearchResultMapViewController {
-                viewMapVC.result = result
-                viewMapVC.theme = theme
-                resultNavigationVC.pushViewController(viewMapVC, animated: true)
-            }
-        default:
-            return
-        }
-    }
 }
 
 extension SearchResultViewController: UINavigationControllerDelegate {
@@ -275,5 +285,48 @@ extension SearchResultViewController: UITextFieldDelegate {
                                                                                       isNearMeSearch: true,
                                                                                       isQuickNearMeSearch: true))
         }
+    }
+}
+
+extension SearchResultViewController: NoSearchResultViewControllerDelegate {
+    func shouldStartANewSearch() {
+        guard let navigationController = self.navigationController else {return}
+        for viewController in navigationController.viewControllers {
+            if viewController is SearchInputViewController {
+                navigationController.popToViewController(viewController, animated: true)
+                return
+            }
+        }
+        performSegue(withIdentifier: "showSearchInputVC", sender: data)
+    }
+}
+
+extension SearchResultViewController: SearchResultMapViewControllerDelegate {
+    func startNewSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController) {
+        searchResultViewModel?.showLoadingOn(view: bodyWrapper)
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: location.latitude,
+                                                       longitude: location.longitude)) {[weak self] (places, error) in
+            guard let strongSelf = self else {return}
+            if let place = places?.first {
+                strongSelf.addressLabel.text = place.name
+            }
+        }
+        searchResultViewModel?.performSearchWith(config: OKManager.shared,
+                                                 coordinate: location,
+                                                 completionHandler: {[weak self] (result, error) in
+                                                    guard let strongSelf = self else {return}
+                                                    strongSelf.handleSearch(result: result)
+                                                 })
+    }
+    
+    func startNewNearMeSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController) {
+        searchResultViewModel?.showLoadingOn(view: bodyWrapper)
+        addressLabel.text = kNearMeTitle
+        searchResultViewModel?.performSearchWith(config: OKManager.shared,
+                                                 coordinate: location,
+                                                 completionHandler: {[weak self] (result, error) in
+                                                    guard let strongSelf = self else {return}
+                                                    strongSelf.handleSearch(result: result)
+                                                 })
     }
 }

@@ -25,8 +25,8 @@ class IndividualAutoCompleteTableViewCell: UITableViewCell {
         
         // Fonts
         individualNameLabel.font = theme.resultTitleFont
-        specialtiesLabel.font = theme.resultSubTitleFont
-        addressLabel.font = theme.resultSubTitleFont
+        specialtiesLabel.font = theme.smallFont
+        addressLabel.font = theme.smallFont
         
         // Fullfill data
         specialtiesLabel.text = individual.professionalType?.label

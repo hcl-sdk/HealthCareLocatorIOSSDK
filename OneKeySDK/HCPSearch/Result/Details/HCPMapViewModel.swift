@@ -10,6 +10,7 @@ import MapKit
 
 class HCPMapViewModel {
     func layout(view: HCPMapViewController, with theme: OKThemeConfigure) {
+        view.currentLocationWrapper.borderColor = theme.cardBorderColor
         view.workplaceLabel.font = theme.defaultFont
         view.addressLabel.font = theme.defaultFont
         

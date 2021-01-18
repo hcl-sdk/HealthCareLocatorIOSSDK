@@ -9,6 +9,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol SearchResultMapViewControllerDelegate {
+    func startNewNearMeSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController)
+    func startNewSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController)
+}
+
 class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListHandler {
     //
     weak var delegate: ActivityHandler? {
@@ -20,44 +25,57 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     //
     var theme: OKThemeConfigure?
-    
-    private let locationManager = CLLocationManager()
-    
     var result: [ActivityResult] = []
 
     @IBOutlet weak var currentLocationBtn: BaseButton!
+    @IBOutlet weak var currentLocationWrapper: BaseView!
+    @IBOutlet weak var geolocIcon: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     
+    // Re-launch UI
+    @IBOutlet weak var reLaunchWrapper: BaseView!
+    @IBOutlet weak var relaunchIcon: UIImageView!
+    @IBOutlet weak var relaunchLabel: UILabel!
+    
+    
+    var searchData: SearchData?
+    var mapDelegate: SearchResultMapViewControllerDelegate?
+
     private var cardCollectionViewController: HCPCardCollectionViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure(manager: locationManager)
+        currentLocationWrapper.borderWidth = 1
+        currentLocationWrapper.borderColor = theme?.cardBorderColor ?? UIColor.darkGray
         configure(mapView: mapView)
         reloadWith(data: result)
+        if let theme = theme {
+            layoutWith(theme: theme)
+        }
+        
+        if let currentLocation = LocationManager.shared.currentLocation {
+            defaultZoomTo(location: currentLocation.coordinate)
+        }
     }
     
-    private func configure(manager: CLLocationManager) {
-        manager.delegate = self
-        manager.requestLocation()
-        manager.requestAlwaysAuthorization()
+    func layoutWith(theme: OKThemeConfigure) {
+        reLaunchWrapper.backgroundColor = theme.secondaryColor
+        relaunchIcon.tintColor = .white
+        relaunchLabel.textColor = .white
+        relaunchLabel.font = theme.defaultFont
+        relaunchLabel.text = "onekey_sdk_relaunch".localized
     }
     
     private func configure(mapView: MKMapView) {
         mapView.delegate = self
         mapView.isRotateEnabled = false
+        mapView.showsUserLocation = true
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
-        if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
-            mapView.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
-        }
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
-        DispatchQueue.main.async {
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.mapView.addAnnotations(ActivityList(activities: result).getAnotations())
-        }
+        mapView.reload(annotations: ActivityList(activities: result).getAnotations())
     }
     
     private func reloadHorizontalListWith(selectedIndex: Int) {
@@ -66,8 +84,20 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     @IBAction func currentLocationAction(_ sender: Any) {
-        guard let coordinate = locationManager.location?.coordinate else {return}
-        mapView.setCenter(coordinate, animated: true)
+        LocationManager.shared.requestLocation({[weak self] (locations, error) in
+            guard let strongSelf = self, let coordinate = locations?.first?.coordinate else {return}
+            strongSelf.defaultZoomTo(location: coordinate)
+            strongSelf.mapDelegate?.startNewNearMeSearchWith(location: coordinate, from: strongSelf)
+        })
+    }
+    
+    @IBAction func relaunchAction(_ sender: Any) {
+        reLaunchWrapper.isHidden = true
+        mapDelegate?.startNewSearchWith(location: mapView.centerCoordinate, from: self)
+    }
+    
+    func defaultZoomTo(location: CLLocationCoordinate2D) {
+        mapView.defaultZoomTo(location: location)
     }
     
     // MARK: - Navigation
@@ -90,37 +120,15 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
 }
 
-extension SearchResultMapViewController: CLLocationManagerDelegate {
-    @available(iOS 14.0, *)
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
-            manager.requestLocation()
-        default:
-            return
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .authorizedAlways,
-             .authorizedWhenInUse:
-            manager.requestLocation()
-        default:
-            return
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        mapView.showsUserLocation = true
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-}
-
 extension SearchResultMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if let currentLocation = LocationManager.shared.currentLocation {
+            reLaunchWrapper.isHidden = mapView.visibleMapRect.contains(MKMapPoint(currentLocation.coordinate))
+        } else {
+            reLaunchWrapper.isHidden = false
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
           return nil
@@ -157,10 +165,15 @@ extension SearchResultMapViewController: MKMapViewDelegate {
 
 extension SearchResultMapViewController: SortableResultList {
     func reloadWith(data: [ActivityResult]) {
-        result = data
+        self.result = data
         if isViewLoaded {
             addMapPinFor(result: data)
             cardCollectionViewController.reloadWith(data: data)
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                guard let strongSelf = self else {return}
+                strongSelf.reloadWith(data: data)
+            }
         }
     }
 }

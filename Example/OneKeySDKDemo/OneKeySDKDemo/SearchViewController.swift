@@ -23,8 +23,10 @@ class SearchViewController: UIViewController {
                                            editIcon: UIImage(named: "iconStar")!)
         //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
+        shared.set(appName: "Caretiny", appDownloadLink: "https://www.example.com")
         shared.initialize(apiKey: "",
-                          configure: config) {[weak self] (success, error) in
+                          configure: config,
+                          theme: AppSettings.selectedTheme.sdkThemeConfigure) {[weak self] (success, error) in
             if success {
                 shared.delegate = self
                 self?.initSearchUI()
@@ -40,43 +42,6 @@ class SearchViewController: UIViewController {
     private func initSearchUI() {
         // Get the initial HCP search instants
         let HCPSearchVC = OKManager.shared.getHCPSearchViewController()
-        let storedTheme = AppSettings.selectedTheme
-        let theme = OKThemeConfigure(defaultFont: UIFont.from(core: storedTheme.defaultFont),
-                                     titleMainFont: UIFont.from(core: storedTheme.titleMainFont),
-                                     titleSecondaryFont: UIFont.from(core: storedTheme.titleSecondaryFont),
-                                     searchResultTotalFont: UIFont.from(core: storedTheme.searchResultTotalFont),
-                                     searchResultTitleFont: UIFont.from(core: storedTheme.searchResultTitleFont),
-                                     resultTitleFont: UIFont.from(core: storedTheme.resultTitleFont),
-                                     resultSubTitleFont: UIFont.from(core: storedTheme.resultSubTitleFont),
-                                     profileTitleFont: UIFont.from(core: storedTheme.profileTitleFont),
-                                     profileSubTitleFont: UIFont.from(core: storedTheme.profileSubTitleFont),
-                                     profileTitleSectionFont: UIFont.from(core: storedTheme.profileTitleSectionFont),
-                                     cardTitleFont: UIFont.from(core: storedTheme.cardTitleFont),
-                                     modalTitleFont: UIFont.from(core: storedTheme.modalTitleFont),
-                                     searchInputFont: UIFont.from(core: storedTheme.searchInputFont),
-                                     sortCriteriaFont: UIFont.from(core: storedTheme.sortCriteriaFont),
-                                     buttonFont: UIFont.from(core: storedTheme.buttonFont),
-                                     smallFont: UIFont.from(core: storedTheme.smallFont),
-                                     primaryColor: UIColor.init(hexString: storedTheme.primaryColor),
-                                     secondaryColor: UIColor.init(hexString: storedTheme.secondaryColor),
-                                     buttonBkgColor: UIColor.init(hexString: storedTheme.buttonBkgColor),
-                                     buttonAcceptBkgColor: UIColor.init(hexString: storedTheme.buttonAcceptBkgColor),
-                                     buttonDiscardBkgColor: UIColor.init(hexString: storedTheme.buttonDiscardBkgColor),
-                                     buttonBorderColor: UIColor.init(hexString: storedTheme.buttonBorderColor),
-                                     cardBorderColor: UIColor.init(hexString: storedTheme.cardBorderColor),
-                                     markerColor: UIColor.init(hexString: storedTheme.markerColor),
-                                     markerSelectedColor: UIColor.init(hexString: storedTheme.markerSelectedColor),
-                                     viewBkgColor: UIColor.init(hexString: storedTheme.viewBkgColor),
-                                     listBkgColor: UIColor.init(hexString: storedTheme.listBkgColor),
-                                     voteUpColor: UIColor.init(hexString: storedTheme.voteUpColor),
-                                     voteDownColor: UIColor.init(hexString: storedTheme.voteDownColor),
-                                     darkColor: UIColor.init(hexString: storedTheme.darkColor),
-                                     greyColor: UIColor.init(hexString: storedTheme.greyColor),
-                                     greyDarkColor: UIColor.init(hexString: storedTheme.greyDarkColor),
-                                     greyDarkerColor: UIColor.init(hexString: storedTheme.greyDarkerColor),
-                                     greyLightColor: UIColor.init(hexString: storedTheme.greyLightColor),
-                                     greyLighterColor: UIColor.init(hexString: storedTheme.greyLighterColor))
-        HCPSearchVC.theme = theme
         setupSearchView(searchVC: HCPSearchVC)
     }
     

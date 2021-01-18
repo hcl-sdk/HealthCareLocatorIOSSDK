@@ -17,4 +17,11 @@ extension MKMapView {
                               heading: 0),
                   animated: false)
     }
+    
+    func reload(annotations: [MKAnnotation]) {
+        DispatchQueue.main.async {
+            self.removeAnnotations(self.annotations)
+            self.addAnnotations(annotations)
+        }
+    }
 }

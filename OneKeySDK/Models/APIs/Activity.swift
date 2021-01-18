@@ -30,6 +30,37 @@ public struct Activity: Codable {
         allActivities.append(contentsOf: individual.otherActivities)
         return allActivities
     }
+    
+    var contactMessage: String {
+        return [workplace.name, workplace.address.composedAddress, phone].compactMap {$0}.joined(separator: "\n")
+    }
+    
+    func shareMessageWith(appName: String?, and downloadUrl: String?) -> String {
+        if let unwrapAppName = appName {
+            if let unwrapUrl = downloadUrl {
+                return String(format: "onekey_sdk_share_template_full".localized,
+                              individual.composedName,
+                              (individual.professionalType?.label ?? ""),
+                              individual.specialties.compactMap {$0.label}.joined(separator: ", "),
+                              contactMessage,
+                              unwrapAppName,
+                              unwrapUrl)
+            } else {
+                return String(format: "onekey_sdk_share_template_without_parent_url".localized,
+                              individual.composedName,
+                              (individual.professionalType?.label ?? ""),
+                              individual.specialties.compactMap {$0.label}.joined(separator: ", "),
+                              contactMessage,
+                              unwrapAppName)
+            }
+        } else {
+            return String(format: "onekey_sdk_share_template_without_parent_info".localized,
+                          individual.composedName,
+                          (individual.professionalType?.label ?? ""),
+                          individual.specialties.compactMap {$0.label}.joined(separator: ", "),
+                          contactMessage)
+        }
+    }
 }
 
 public struct Individual: Codable {

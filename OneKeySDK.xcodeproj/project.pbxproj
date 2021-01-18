@@ -15,7 +15,6 @@
 		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
 		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
 		582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582854FE2589E9020090FA68 /* SearchResultViewModel.swift */; };
-		5834823D25667A3D00A3F7BC /* SegmentControlViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */; };
 		5836DD4B25934874002F776D /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD4A25934874002F776D /* String+Additional.swift */; };
 		583C1B6025AC3D9700CDB4F7 /* OKIconsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C1B5F25AC3D9700CDB4F7 /* OKIconsConfigure.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
@@ -28,6 +27,7 @@
 		5848D6C4256E144E00217EFC /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6C3256E144E00217EFC /* SearchData.swift */; };
 		5848D6DA256E1BE900217EFC /* SearchResultSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */; };
 		585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585116AC256E42BC00E5C7D3 /* SortableResultList.swift */; };
+		5859C14A25B56B3D009B946A /* NoSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */; };
 		5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */; };
 		5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659269258B0D8C00A9A950 /* FullCardViewModel.swift */; };
 		58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659280258B23F500A9A950 /* Optional+Additional.swift */; };
@@ -111,10 +111,6 @@
 		58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* BaseButton.swift */; };
 		58E77982255BE4740051F1FA /* ViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E77981255BE4740051F1FA /* ViewDesign.swift */; };
 		58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */; };
-		58F104BC2563904900AFD4B3 /* SegmentControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104BB2563904900AFD4B3 /* SegmentControlView.xib */; };
-		58F104C02563905F00AFD4B3 /* SegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */; };
-		58F104C42563917700AFD4B3 /* SegmentControlItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F104C32563917700AFD4B3 /* SegmentControlItem.xib */; };
-		58F104C82563919B00AFD4B3 /* SegmentControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */; };
 		58F104CC2563AF6300AFD4B3 /* SegmentControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */; };
 		58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */; };
 		58F5EE16255BACEC0029B0B4 /* SearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */; };
@@ -149,7 +145,6 @@
 		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
 		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
 		582854FE2589E9020090FA68 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
-		5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewProtocol.swift; sourceTree = "<group>"; };
 		5836DD4A25934874002F776D /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		583C1B5F25AC3D9700CDB4F7 /* OKIconsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKIconsConfigure.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -162,6 +157,7 @@
 		5848D6C3256E144E00217EFC /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSortViewController.swift; sourceTree = "<group>"; };
 		585116AC256E42BC00E5C7D3 /* SortableResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableResultList.swift; sourceTree = "<group>"; };
+		5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSearchResultViewController.swift; sourceTree = "<group>"; };
 		5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputAutocompleteViewModel.swift; sourceTree = "<group>"; };
 		58659269258B0D8C00A9A950 /* FullCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCardViewModel.swift; sourceTree = "<group>"; };
 		58659280258B23F500A9A950 /* Optional+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Additional.swift"; sourceTree = "<group>"; };
@@ -249,10 +245,6 @@
 		58E7797C255BDCF80051F1FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		58E77981255BE4740051F1FA /* ViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDesign.swift; sourceTree = "<group>"; };
 		58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQueryInput.swift; sourceTree = "<group>"; };
-		58F104BB2563904900AFD4B3 /* SegmentControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentControlView.xib; sourceTree = "<group>"; };
-		58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlView.swift; sourceTree = "<group>"; };
-		58F104C32563917700AFD4B3 /* SegmentControlItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentControlItem.xib; sourceTree = "<group>"; };
-		58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlItem.swift; sourceTree = "<group>"; };
 		58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlModel.swift; sourceTree = "<group>"; };
 		58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeView.swift; sourceTree = "<group>"; };
 		58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTypeView.xib; sourceTree = "<group>"; };
@@ -322,6 +314,7 @@
 				5843942A25592AC2009D2306 /* SearchResultViewController.swift */,
 				5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */,
 				582854FE2589E9020090FA68 /* SearchResultViewModel.swift */,
+				5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -549,18 +542,6 @@
 			path = Adapters;
 			sourceTree = "<group>";
 		};
-		58F104BA2563902400AFD4B3 /* SegmentControlView */ = {
-			isa = PBXGroup;
-			children = (
-				58F104BB2563904900AFD4B3 /* SegmentControlView.xib */,
-				58F104BF2563905F00AFD4B3 /* SegmentControlView.swift */,
-				58F104C32563917700AFD4B3 /* SegmentControlItem.xib */,
-				58F104C72563919B00AFD4B3 /* SegmentControlItem.swift */,
-				5834823C25667A3D00A3F7BC /* SegmentControlViewProtocol.swift */,
-			);
-			path = SegmentControlView;
-			sourceTree = "<group>";
-		};
 		58F5EE10255BAC5E0029B0B4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,7 +568,6 @@
 		58F5EE20255BC54E0029B0B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				58F104BA2563902400AFD4B3 /* SegmentControlView */,
 				58F5EE1A255BADE70029B0B4 /* BaseView.swift */,
 				58E7797C255BDCF80051F1FA /* BaseButton.swift */,
 				58D88D622570F442008D2EE8 /* PickerListViewController.swift */,
@@ -744,9 +724,7 @@
 				587544312588790B0000C126 /* Mock-Codes.json in Resources */,
 				58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */,
 				58A3647C2554F69C00C62479 /* OneKeySDK.podspec in Resources */,
-				58F104BC2563904900AFD4B3 /* SegmentControlView.xib in Resources */,
 				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
-				58F104C42563917700AFD4B3 /* SegmentControlItem.xib in Resources */,
 				58754435258879390000C126 /* Mock-Individuals.json in Resources */,
 				58A3647B2554F69C00C62479 /* LICENSE in Resources */,
 			);
@@ -848,11 +826,9 @@
 				58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */,
 				588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */,
 				58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */,
-				58F104C82563919B00AFD4B3 /* SegmentControlItem.swift in Sources */,
 				58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */,
 				5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */,
 				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
-				58F104C02563905F00AFD4B3 /* SegmentControlView.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */,
 				589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */,
 				58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */,
@@ -885,7 +861,6 @@
 				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
 				58E1D8EE256BB46E004AB056 /* SearchResultListViewController.swift in Sources */,
 				587D237B25652F7F0009EA01 /* API.swift in Sources */,
-				5834823D25667A3D00A3F7BC /* SegmentControlViewProtocol.swift in Sources */,
 				5843948A25595591009D2306 /* SearchHomeViewController.swift in Sources */,
 				585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */,
 				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
@@ -908,6 +883,7 @@
 				58CF588325766017001ACD6C /* IndexAble.swift in Sources */,
 				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
 				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
+				5859C14A25B56B3D009B946A /* NoSearchResultViewController.swift in Sources */,
 				58C29983256FBD1E00236D91 /* ActivityListHandler.swift in Sources */,
 				58C2997F256FBAE500236D91 /* ActivityHandler.swift in Sources */,
 				58D46590258C8E9B0084FA7A /* LocationManager.swift in Sources */,

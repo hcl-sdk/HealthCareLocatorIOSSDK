@@ -27,6 +27,8 @@ public struct OKThemeConfigure {
     public let sortCriteriaFont: UIFont!
     public let buttonFont: UIFont!
     public let smallFont: UIFont!
+    public let noResultTitleFont: UIFont!
+    public let noResultDescFont: UIFont!
 
     // MARK: Colors
     public let primaryColor: UIColor!
@@ -51,20 +53,22 @@ public struct OKThemeConfigure {
 
     public init(defaultFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
                 titleMainFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
-                titleSecondaryFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                searchResultTotalFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
+                titleSecondaryFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 16.0),
+                searchResultTotalFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 14.0),
                 searchResultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
                 resultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
                 resultSubTitleFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
                 profileTitleFont: UIFont? = UIFont(name: "Helvetica", size: 18.0),
                 profileSubTitleFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
                 profileTitleSectionFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                cardTitleFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
+                cardTitleFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 16.0),
                 modalTitleFont: UIFont? = UIFont(name: "Helvetica", size: 18.0),
                 searchInputFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
                 sortCriteriaFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
                 buttonFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
                 smallFont: UIFont? = UIFont(name: "Helvetica", size: 12.0),
+                noResultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
+                noResultDescFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
                 primaryColor: UIColor? = UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
                 secondaryColor: UIColor? = UIColor(red: 0/255, green: 163/255, blue: 224/255, alpha: 1),
                 buttonBkgColor: UIColor? = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1),
@@ -101,6 +105,8 @@ public struct OKThemeConfigure {
         self.sortCriteriaFont = sortCriteriaFont
         self.buttonFont = buttonFont
         self.smallFont = smallFont
+        self.noResultTitleFont = noResultTitleFont
+        self.noResultDescFont = noResultDescFont
         
         // Colors
         self.primaryColor = primaryColor

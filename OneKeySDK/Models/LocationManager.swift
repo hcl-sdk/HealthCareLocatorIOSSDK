@@ -19,6 +19,10 @@ class LocationManager: NSObject {
     private var requestLocationHandler: RequestLocationHandler?
     private var requestAuthorizationHandler: RequestAuthorizationHandler?
 
+    var currentLocation: CLLocation? {
+        return locationManager.location
+    }
+    
     private override init() {
         super.init()
         locationManager = CLLocationManager()

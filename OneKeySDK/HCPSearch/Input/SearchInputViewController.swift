@@ -170,8 +170,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
                                          codes: code != nil ? [code!] : nil,
                                          address: address,
                                          isNearMeSearch: isNearMeSearch,
-                                         isQuickNearMeSearch: false,
-                                         result: [])
+                                         isQuickNearMeSearch: false)
         // Save last search
         AppConfigure.save(search: searchData)
         // Go search

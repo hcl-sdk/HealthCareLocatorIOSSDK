@@ -106,7 +106,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
                                     county: county,
                                     criteria: criteria,
                                     location: location)
-        manager.apollo.fetch(query: query) { result in
+        manager.apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheCompletely) { result in
             switch result {
             case .success(let response):
                 if let json = response.data?.jsonObject,

@@ -35,6 +35,9 @@
 "onekey_sdk_map_label" = "Map";
 "onekey_sdk_distance_unit" = "%dm";
 "onekey_sdk_back_to_search_results" = "Back to search results";
+"onekey_sdk_no_result_found" = "No Results found";
+"onekey_sdk_no_result_message" = "Oups, it's looks like there is no matches for your search.";
+"onekey_sdk_relaunch" = "Relaunch";
 
 // Sort
 "onekey_sdk_sort_label" = "Sort";
@@ -56,3 +59,6 @@
 "onekey_sdk_improve_quality_text" = "Share with us more information about this HCP/HCO. ";
 "onekey_sdk_suggess_modification_button" = "Suggest a modification";
 "onekey_sdk_back_to_home" = "Back to home";
+"onekey_sdk_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"onekey_sdk_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"onekey_sdk_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";

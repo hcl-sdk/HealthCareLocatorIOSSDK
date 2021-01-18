@@ -7,10 +7,11 @@
 
 import Foundation
 import UIKit
+import OneKeySDK
 
 struct Theme: Encodable, Decodable, Equatable {
     static let defaultSystemFontName = "HelveticaNeue"
-    static let defaultSystemBoldFontName = "HelveticaNeue-Bold"
+    static let defaultSystemBoldFontName = "HelveticaNeue-Medium"
     
     // Fonts
     var defaultFont: FontInfo!
@@ -29,6 +30,8 @@ struct Theme: Encodable, Decodable, Equatable {
     var sortCriteriaFont: FontInfo!
     var buttonFont: FontInfo!
     var smallFont: FontInfo!
+    var noResultTitleFont: FontInfo!
+    var noResultDescFont: FontInfo!
     
     // Colors
     var primaryColor: String!
@@ -67,6 +70,8 @@ struct Theme: Encodable, Decodable, Equatable {
          sortCriteriaFont: FontInfo!,
          buttonFont: FontInfo!,
          smallFont: FontInfo!,
+         noResultTitleFont: FontInfo!,
+         noResultDescFont: FontInfo!,
          primaryColor: String!,
          secondaryColor: String!,
          buttonBkgColor: String!,
@@ -103,6 +108,8 @@ struct Theme: Encodable, Decodable, Equatable {
         self.sortCriteriaFont = sortCriteriaFont
         self.buttonFont = buttonFont
         self.smallFont = smallFont
+        self.noResultTitleFont = noResultTitleFont
+        self.noResultDescFont = noResultDescFont
         
         // Colors
         self.primaryColor = primaryColor
@@ -145,6 +152,8 @@ struct Theme: Encodable, Decodable, Equatable {
         sortCriteriaFont = try container.decode(FontInfo.self, forKey: .sortCriteriaFont)
         buttonFont = try container.decode(FontInfo.self, forKey: .buttonFont)
         smallFont = try container.decode(FontInfo.self, forKey: .smallFont)
+        noResultTitleFont = try container.decode(FontInfo.self, forKey: .noResultTitleFont)
+        noResultDescFont = try container.decode(FontInfo.self, forKey: .noResultDescFont)
         
         // Colors
         primaryColor = try container.decode(String.self, forKey: .primaryColor)
@@ -178,5 +187,47 @@ struct Theme: Encodable, Decodable, Equatable {
             }
         }
         return nil
+    }
+}
+
+extension Theme {
+    var sdkThemeConfigure: OKThemeConfigure {
+        return OKThemeConfigure(defaultFont: UIFont.from(core: defaultFont),
+                                titleMainFont: UIFont.from(core: titleMainFont),
+                                titleSecondaryFont: UIFont.from(core: titleSecondaryFont),
+                                searchResultTotalFont: UIFont.from(core: searchResultTotalFont),
+                                searchResultTitleFont: UIFont.from(core: searchResultTitleFont),
+                                resultTitleFont: UIFont.from(core: resultTitleFont),
+                                resultSubTitleFont: UIFont.from(core: resultSubTitleFont),
+                                profileTitleFont: UIFont.from(core: profileTitleFont),
+                                profileSubTitleFont: UIFont.from(core: profileSubTitleFont),
+                                profileTitleSectionFont: UIFont.from(core: profileTitleSectionFont),
+                                cardTitleFont: UIFont.from(core: cardTitleFont),
+                                modalTitleFont: UIFont.from(core: modalTitleFont),
+                                searchInputFont: UIFont.from(core: searchInputFont),
+                                sortCriteriaFont: UIFont.from(core: sortCriteriaFont),
+                                buttonFont: UIFont.from(core: buttonFont),
+                                smallFont: UIFont.from(core: smallFont),
+                                noResultTitleFont: UIFont.from(core: noResultTitleFont),
+                                noResultDescFont: UIFont.from(core: noResultDescFont),
+                                primaryColor: UIColor.init(hexString: primaryColor),
+                                secondaryColor: UIColor.init(hexString: secondaryColor),
+                                buttonBkgColor: UIColor.init(hexString: buttonBkgColor),
+                                buttonAcceptBkgColor: UIColor.init(hexString: buttonAcceptBkgColor),
+                                buttonDiscardBkgColor: UIColor.init(hexString: buttonDiscardBkgColor),
+                                buttonBorderColor: UIColor.init(hexString: buttonBorderColor),
+                                cardBorderColor: UIColor.init(hexString: cardBorderColor),
+                                markerColor: UIColor.init(hexString: markerColor),
+                                markerSelectedColor: UIColor.init(hexString: markerSelectedColor),
+                                viewBkgColor: UIColor.init(hexString: viewBkgColor),
+                                listBkgColor: UIColor.init(hexString: listBkgColor),
+                                voteUpColor: UIColor.init(hexString: voteUpColor),
+                                voteDownColor: UIColor.init(hexString: voteDownColor),
+                                darkColor: UIColor.init(hexString: darkColor),
+                                greyColor: UIColor.init(hexString: greyColor),
+                                greyDarkColor: UIColor.init(hexString: greyDarkColor),
+                                greyDarkerColor: UIColor.init(hexString: greyDarkerColor),
+                                greyLightColor: UIColor.init(hexString: greyLightColor),
+                                greyLighterColor: UIColor.init(hexString: greyLighterColor))
     }
 }

@@ -153,7 +153,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        let items = [activity?.workplace.address.composedAddress] as [Any]
+        let items = [activity?.shareMessageWith(appName: OKManager.shared.appName, and: OKManager.shared.appDownloadLink)] as [Any]
         let sharePanel = UIActivityViewController(activityItems: items, applicationActivities: nil)
         sharePanel.modalPresentationStyle = .overFullScreen
         present(sharePanel, animated: true, completion: nil)

@@ -26,7 +26,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
         super.config(theme: theme, isLastRow: isLastRow)
         self.theme = theme
         let activityList = ActivityList(activities: activities)
-        mapView.addAnnotations(activityList.getAnotations())
+        mapView.reload(annotations: activityList.getAnotations())
         if let location = activityList.getLocations().first {
             mapView.defaultZoomTo(location: location)
         }

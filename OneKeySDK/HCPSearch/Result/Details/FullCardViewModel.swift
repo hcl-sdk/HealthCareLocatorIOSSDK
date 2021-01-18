@@ -65,7 +65,10 @@ class FullCardViewModel {
             view.drTitle.textColor = theme.secondaryColor
             view.categoryTitle.textColor = theme.darkColor
             view.phoneButton.tintColor = theme.secondaryColor
+            view.phoneButton.borderColor = theme.buttonBorderColor
             view.directionButton.tintColor = theme.secondaryColor
+            view.directionButton.borderColor = theme.buttonBorderColor
+            view.selectedAddressWrapper.borderColor = theme.buttonBorderColor
             view.editIcon.tintColor = theme.secondaryColor
             view.markerIcon.tintColor = theme.markerColor
         }

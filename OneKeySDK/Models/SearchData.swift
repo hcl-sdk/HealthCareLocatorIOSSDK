@@ -18,12 +18,6 @@ struct SearchData: Codable {
     
     // search access from Home OR Input
     let isQuickNearMeSearch: Bool?
-    
-    var result: [ActivityResult]! = []
-    
-    mutating func change(result: [ActivityResult]) {
-        self.result = result
-    }
 }
 
 extension SearchData: Equatable {
