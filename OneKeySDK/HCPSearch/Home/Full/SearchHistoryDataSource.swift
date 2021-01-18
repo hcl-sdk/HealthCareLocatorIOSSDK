@@ -132,7 +132,10 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
             switch data[indexPath.section] {
             case .nearMe(_, let activities):
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityMapTableViewCell") as! ActivityMapTableViewCell
-                cell.configWith(theme: theme, activities: activities, isLastRow: true)
+                cell.configWith(theme: theme,
+                                activities: activities,
+                                center: LocationManager.shared.currentLocation?.coordinate,
+                                isLastRow: true)
                 cell.delegate = self.delegate
                 return cell
             case .lastSearchs(_ , let searches):

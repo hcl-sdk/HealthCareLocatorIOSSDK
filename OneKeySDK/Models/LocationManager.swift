@@ -19,9 +19,7 @@ class LocationManager: NSObject {
     private var requestLocationHandler: RequestLocationHandler?
     private var requestAuthorizationHandler: RequestAuthorizationHandler?
 
-    var currentLocation: CLLocation? {
-        return locationManager.location
-    }
+    var currentLocation: CLLocation?
     
     private override init() {
         super.init()
@@ -75,6 +73,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last
         if let handler = requestLocationHandler {
             handler(locations, nil)
         }

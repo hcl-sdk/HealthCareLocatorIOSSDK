@@ -22,12 +22,12 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
         mapView.delegate = self
     }
     
-    func configWith(theme: OKThemeConfigure?, activities: [ActivityResult], isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, activities: [ActivityResult], center: CLLocationCoordinate2D?, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
         self.theme = theme
         let activityList = ActivityList(activities: activities)
         mapView.reload(annotations: activityList.getAnotations())
-        if let location = activityList.getLocations().first {
+        if let location = center {
             mapView.defaultZoomTo(location: location)
         }
     }
@@ -45,10 +45,12 @@ extension ActivityMapTableViewCell: MKMapViewDelegate {
         } else {
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
                 annotationView.markerTintColor = theme?.markerColor
+                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             } else {
                 let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
                 annotationView.markerTintColor = theme?.markerColor
+                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             }
         }
