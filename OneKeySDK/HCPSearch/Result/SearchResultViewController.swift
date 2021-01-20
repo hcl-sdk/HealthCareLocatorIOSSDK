@@ -35,7 +35,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     private var mode = ViewMode.list {
         didSet {
             if let viewModel = searchResultViewModel {
-                viewModel.layout(view: self, theme: theme ?? OKThemeConfigure(), mode: mode)
+                viewModel.layout(view: self, theme: theme, mode: mode)
             }
         }
     }
@@ -205,7 +205,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
         mode = .list
         if let resultListVC = resultNavigationVC.viewControllers.first as? SearchResultListViewController {
             resultListVC.result = result
-            resultListVC.theme = theme
             resultNavigationVC.popToViewController(resultListVC, animated: true)
         }
     }

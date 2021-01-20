@@ -11,9 +11,6 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     
     weak var delegate: ActivityHandler?
     
-    var theme: OKThemeConfigure?
-    var icons: OKIconsConfigure?
-    
     var result: [ActivityResult] = []
 
     override func viewDidLoad() {
