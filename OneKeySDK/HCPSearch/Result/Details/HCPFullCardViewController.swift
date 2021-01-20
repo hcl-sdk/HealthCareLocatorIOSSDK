@@ -50,6 +50,9 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     // Main Information
     @IBOutlet weak var mainInformationTitleLabel: UILabel!
+    @IBOutlet weak var phoneIcon: UIImageView!
+    @IBOutlet weak var faxIcon: UIImageView!
+    @IBOutlet weak var websiteIcon: UIImageView!
     
     // Specialities
     @IBOutlet weak var specialitiesTitleLabel: UILabel!
@@ -252,12 +255,12 @@ extension HCPFullCardViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
           return nil
         } else {
-            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-                annotationView.markerTintColor = theme.markerColor
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) {
                 return annotationView
             } else {
-                let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-                annotationView.markerTintColor = theme.markerColor
+                let annotationView = SearchResultAnnotationView(annotation: annotation,
+                                                                reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                annotationView.set(selected: true)
                 return annotationView
             }
         }

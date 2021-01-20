@@ -52,6 +52,15 @@ class FullCardViewModel {
                 line.backgroundColor = theme.greyLighterColor
             }
             
+            // Icons
+            view.markerIcon.image = icons.markerMinIcon
+            view.phoneIcon.image = icons.phoneIcon
+            view.faxIcon.image = icons.faxIcon
+            view.websiteIcon.image = icons.websiteIcon
+            view.yesIcon.image = icons.voteUpIcon
+            view.noIcon.image = icons.voteDownIcon
+            view.editIcon.image = icons.editIcon
+
             // Fonts
             view.drTitle.font = theme.profileTitleFont
             view.categoryTitle.font = theme.profileSubTitleFont
@@ -71,6 +80,9 @@ class FullCardViewModel {
             view.selectedAddressWrapper.borderColor = theme.buttonBorderColor
             view.editIcon.tintColor = theme.secondaryColor
             view.markerIcon.tintColor = theme.markerColor
+            view.phoneIcon.tintColor = theme.greyColor
+            view.faxIcon.tintColor = theme.greyColor
+            view.websiteIcon.tintColor = theme.greyColor
         }
     }
     

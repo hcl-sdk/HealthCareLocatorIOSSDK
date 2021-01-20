@@ -17,25 +17,27 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var moreDetailIcon: UIImageView!
     
-    func configWith(theme: OKThemeConfigure?, item: ActivityResult, selected: Bool) {
+    func configWith(theme: OKThemeConfigure, icons: OKIconsConfigure, item: ActivityResult, selected: Bool) {
         wrapper.setBorderWith(width: selected ? 2 : 1,
                               cornerRadius: 8,
-                              borderColor: selected ? (theme?.markerSelectedColor ?? UIColor.red) : (theme?.cardBorderColor ?? UIColor.darkGray))
+                              borderColor: selected ? (theme.markerSelectedColor ?? UIColor.red) : (theme.cardBorderColor ?? UIColor.darkGray))
+        // Icons
+        moreDetailIcon.image = icons.arrowRightIcon
         
         // Fonts
-        drLabel.font = theme?.resultTitleFont
-        categoryLabel.font = theme?.defaultFont
-        parentWorkplaceLabel.font = theme?.defaultFont
-        addressLabel.font = theme?.defaultFont
-        distanceLabel.font = theme?.defaultFont
+        drLabel.font = theme.resultTitleFont
+        categoryLabel.font = theme.defaultFont
+        parentWorkplaceLabel.font = theme.defaultFont
+        addressLabel.font = theme.defaultFont
+        distanceLabel.font = theme.defaultFont
         
         // Colors
-        drLabel.textColor = theme?.secondaryColor
-        moreDetailIcon.tintColor = theme?.secondaryColor
-        parentWorkplaceLabel.textColor = theme?.darkColor
-        categoryLabel.textColor = theme?.darkColor
-        addressLabel.textColor = theme?.greyDarkColor
-        distanceLabel.textColor = theme?.darkColor
+        drLabel.textColor = theme.secondaryColor
+        moreDetailIcon.tintColor = theme.secondaryColor
+        parentWorkplaceLabel.textColor = theme.darkColor
+        categoryLabel.textColor = theme.darkColor
+        addressLabel.textColor = theme.greyDarkColor
+        distanceLabel.textColor = theme.darkColor
         
         drLabel.text = item.activity.individual.composedName
         categoryLabel.text = item.activity.individual.professionalType?.label

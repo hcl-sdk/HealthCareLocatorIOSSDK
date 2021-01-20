@@ -157,12 +157,14 @@ class SearchResultViewModel: ViewLoading {
     }
     
     func layout(view: SearchResultViewController, theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        view.searchButton.setImage(icons.searchIcon, for: .normal)
         view.resultsLabel.text = "onekey_sdk_results_label".localized
         view.listLabel.text = "onekey_sdk_list_label".localized
         view.mapLabel.text = "onekey_sdk_map_label".localized
-        view.listIcon.image = UIImage.OKImageWith(name: "list-view")
-        view.mapIcon.image = UIImage.OKImageWith(name: "map-view")
-
+        view.listIcon.image = icons.listIcon
+        view.mapIcon.image = icons.mapIcon
+        view.sortButton.setImage(icons.sortIcon, for: .normal)
+        
         // Fonts
         view.resultsLabel.font = theme.searchResultTotalFont
         view.criteriaLabel.font = theme.searchResultTitleFont

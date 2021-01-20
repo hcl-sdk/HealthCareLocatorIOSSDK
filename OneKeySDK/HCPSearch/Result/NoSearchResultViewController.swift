@@ -31,7 +31,9 @@ class NoSearchResultViewController: UIViewController, ViewDesign {
     }
     
     func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
-
+        // Icons
+        searchImageView.image = icons.noResultsIcon
+        
         // Fonts
         topTitleLabel.font = theme.noResultTitleFont
         descLabel.font = theme.noResultDescFont

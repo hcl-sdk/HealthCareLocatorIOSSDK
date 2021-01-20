@@ -44,7 +44,6 @@
 		587D237B25652F7F0009EA01 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D237A25652F7F0009EA01 /* API.swift */; };
 		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
 		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
-		587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */; };
 		587F182A259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F1829259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift */; };
 		58850548259C85CB00B38CF3 /* OKManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850547259C85CB00B38CF3 /* OKManagerTests.swift */; };
 		5885054C259C862200B38CF3 /* OKServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5885054B259C862200B38CF3 /* OKServiceManagerTests.swift */; };
@@ -174,7 +173,6 @@
 		587D237A25652F7F0009EA01 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
-		587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
 		587F1829259D7D3400BC3B2B /* OKHCPSearchWebServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServicesTests.swift; sourceTree = "<group>"; };
 		58850547259C85CB00B38CF3 /* OKManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKManagerTests.swift; sourceTree = "<group>"; };
 		5885054B259C862200B38CF3 /* OKServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKServiceManagerTests.swift; sourceTree = "<group>"; };
@@ -479,7 +477,6 @@
 			children = (
 				5843946225594FC6009D2306 /* SearchResultMapViewController.swift */,
 				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
-				587D9045255AC085009EC0DE /* SearchResultClusterAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -876,7 +873,6 @@
 				583C1B6025AC3D9700CDB4F7 /* OKIconsConfigure.swift in Sources */,
 				589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */,
 				58A364D42555435700C62479 /* OKHCPSearchNavigationViewController.swift in Sources */,
-				587D9046255AC085009EC0DE /* SearchResultClusterAnnotationView.swift in Sources */,
 				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
 				58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */,
 				58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */,

@@ -98,15 +98,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
             viewModel.resultByActionsObservable().subscribe(onNext: {[weak self] result in
                 guard let strongSelf = self else {return}
                 strongSelf.addressLabel.text = result.title
-                strongSelf.handleSearch(result: result.result)
-                if let mapCenter = result.zoomTo {
-                    for resultVC in strongSelf.resultNavigationVC.viewControllers {
-                        if let resultMapVC = resultVC as? SearchResultMapViewController {
-                            resultMapVC.defaultZoomTo(location: mapCenter)
-                            break
-                        }
-                    }
-                }
+                strongSelf.handleSearch(result: result.result, zoomTo: (result.zoomTo ?? ActivityList(activities: result.result).getActivitiesCenter()))
             }, onError: { error in
                 print(error)
             }).disposed(by: disposeBag)
@@ -117,30 +109,33 @@ class SearchResultViewController: UIViewController, ViewDesign {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.performSearch(config: OKManager.shared, completionHandler: {[weak self] (result, error) in
             guard let strongSelf = self else {return}
-            strongSelf.handleSearch(result: result)
-            // Move map to the suitable coordinate base on search action (normal, near me, quick near me)
             let shouldMoveToCurrentLocation = strongSelf.data?.isNearMeSearch == true
-            for resultVC in strongSelf.resultNavigationVC.viewControllers {
-                if let resultMapVC = resultVC as? SearchResultMapViewController {
-                    if shouldMoveToCurrentLocation {
-                        if let currentLocation = LocationManager.shared.currentLocation {
-                            resultMapVC.defaultZoomTo(location: currentLocation.coordinate)
-                        }
-                    } else if let location = result?.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
-                        resultMapVC.defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
-                    }
-                    return
-                }
+            if shouldMoveToCurrentLocation {
+                strongSelf.handleSearch(result: result, zoomTo: LocationManager.shared.currentLocation?.coordinate)
+            } else {
+                strongSelf.handleSearch(result: result, zoomTo: nil)
             }
         })
     }
     
-    private func handleSearch(result: [ActivityResult]?) {
+    private func handleSearch(result: [ActivityResult]?, zoomTo: CLLocationCoordinate2D?) {
         if let result = result, result.count > 0 {
             noResultWrapper.isHidden = true
             self.result = result
             reloadWith(result: result)
             searchResultViewModel?.hideLoading()
+            
+            // Map zoom
+            if let unwrap = zoomTo ?? (ActivityList(activities: result).getActivitiesCenter()) {
+                let distance = ActivityList(activities: result).getFarestDistanceFrom(center: unwrap)
+                for resultVC in resultNavigationVC.viewControllers {
+                    if let resultMapVC = resultVC as? SearchResultMapViewController {
+                        resultMapVC.defaultZoomTo(location: unwrap, distance: distance)
+                        break
+                    }
+                }
+            }
+            
         } else {
             noResultWrapper.isHidden = false
         }

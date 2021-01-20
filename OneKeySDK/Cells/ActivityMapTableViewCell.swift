@@ -16,8 +16,8 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        mapView.isRotateEnabled = false
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.isRotateEnabled = false
         mapView.delegate = self
     }
     
@@ -41,15 +41,11 @@ extension ActivityMapTableViewCell: MKMapViewDelegate {
         if annotation is MKUserLocation {
           return nil
         } else {
-            let theme = self.theme
-            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-                annotationView.markerTintColor = theme.markerColor
-                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) {
                 return annotationView
             } else {
-                let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-                annotationView.markerTintColor = theme.markerColor
-                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
+                let annotationView = SearchResultAnnotationView(annotation: annotation,
+                                                                reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
                 return annotationView
             }
         }

@@ -17,6 +17,7 @@ public struct OKIconsConfigure {
     let geolocIcon: UIImage!
     let markerMinIcon: UIImage!
     let mapIcon: UIImage!
+    let mapMarkerIcon: UIImage!
     let listIcon: UIImage!
     let sortIcon: UIImage!
     let arrowRightIcon: UIImage!
@@ -26,7 +27,8 @@ public struct OKIconsConfigure {
     let websiteIcon: UIImage!
     let voteUpIcon: UIImage!
     let voteDownIcon: UIImage!
-    
+    let noResultsIcon: UIImage!
+
     public init(searchIcon: UIImage = UIImage.OKImageWith(name: "magnifier")!,
          profileIcon: UIImage = UIImage.OKImageWith(name: "profile")!,
          editIcon: UIImage = UIImage.OKImageWith(name: "edit")!,
@@ -35,6 +37,7 @@ public struct OKIconsConfigure {
          geolocIcon: UIImage = UIImage.OKImageWith(name: "geoloc")!,
          markerMinIcon: UIImage = UIImage.OKImageWith(name: "marker")!,
          mapIcon: UIImage = UIImage.OKImageWith(name: "map-view")!,
+         mapMarker: UIImage = UIImage.OKImageWith(name: "map-marker")!,
          listIcon: UIImage = UIImage.OKImageWith(name: "list-view")!,
          sortIcon: UIImage = UIImage.OKImageWith(name: "sort")!,
          arrowRightIcon: UIImage = UIImage.OKImageWith(name: "arrow-right")!,
@@ -43,7 +46,8 @@ public struct OKIconsConfigure {
          faxIcon: UIImage = UIImage.OKImageWith(name: "fax-grey")!,
          websiteIcon: UIImage = UIImage.OKImageWith(name: "website")!,
          voteUpIcon: UIImage = UIImage.OKImageWith(name: "thumb_up")!,
-         voteDownIcon: UIImage = UIImage.OKImageWith(name: "thumb_down")!) {
+         voteDownIcon: UIImage = UIImage.OKImageWith(name: "thumb_down")!,
+         noResults: UIImage = UIImage.OKImageWith(name: "magnifier")!) {
         self.searchIcon = searchIcon
         self.profileIcon = profileIcon
         self.editIcon = editIcon
@@ -52,6 +56,7 @@ public struct OKIconsConfigure {
         self.geolocIcon = geolocIcon
         self.markerMinIcon = markerMinIcon
         self.mapIcon = mapIcon
+        self.mapMarkerIcon = mapMarker
         self.listIcon = listIcon
         self.sortIcon = sortIcon
         self.arrowRightIcon = arrowRightIcon
@@ -61,5 +66,6 @@ public struct OKIconsConfigure {
         self.websiteIcon = websiteIcon
         self.voteUpIcon = voteUpIcon
         self.voteDownIcon = voteDownIcon
+        self.noResultsIcon = noResults
     }
 }

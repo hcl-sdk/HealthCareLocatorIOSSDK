@@ -10,11 +10,11 @@ import MapKit
 import CoreLocation
 
 extension MKMapView {
-    func defaultZoomTo(location: CLLocationCoordinate2D) {
-        setCamera(MKMapCamera(lookingAtCenter: location,
-                              fromDistance: kDefaultZoomLevel,
-                              pitch: 0,
-                              heading: 0),
+    func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
+        let distanceForRegion = distance*1.1*2
+        setRegion(MKCoordinateRegion(center: location,
+                                     latitudinalMeters: distanceForRegion,
+                                     longitudinalMeters: distanceForRegion),
                   animated: false)
     }
     

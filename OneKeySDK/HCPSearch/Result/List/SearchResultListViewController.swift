@@ -40,7 +40,7 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HCPCardTableViewCell", for: indexPath) as! HCPCardTableViewCell
-        cell.configWith(theme: theme, item: result[indexPath.row])
+        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row])
         
         return cell
     }

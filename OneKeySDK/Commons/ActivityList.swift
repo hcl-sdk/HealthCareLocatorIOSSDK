@@ -26,4 +26,61 @@ struct ActivityList {
             return annotation
         }
     }
+    
+    func getActivitiesCenter() -> CLLocationCoordinate2D? {
+        if activities.count == 0 {
+            return nil
+        } else if activities.count == 1 {
+            if let coordinate = activities.first?.activity.workplace.address.location {
+                return CLLocationCoordinate2DMake(coordinate.lat,
+                                                  coordinate.lon)
+            } else {
+                return nil
+            }
+        } else {
+            var maxLatitude: Double = -200;
+            var maxLongitude: Double = -200;
+            var minLatitude: Double = Double(MAXFLOAT);
+            var minLongitude: Double = Double(MAXFLOAT);
+            
+            for activity in activities where activity.activity.workplace.address.location != nil {
+                let lat = activity.activity.workplace.address.location!.lat!
+                let long = activity.activity.workplace.address.location!.lon!
+                
+                if lat < minLatitude {
+                    minLatitude = lat
+                }
+                
+                if long < minLongitude {
+                    minLongitude = long
+                }
+                
+                if lat > maxLatitude {
+                    maxLatitude = lat
+                }
+                
+                if long > maxLongitude {
+                    maxLongitude = long
+                }
+                
+            }
+            return CLLocationCoordinate2DMake(CLLocationDegrees((maxLatitude + minLatitude) * 0.5),
+                                              CLLocationDegrees((maxLongitude + minLongitude) * 0.5));
+        }
+    }
+    
+    func getFarestDistanceFrom(center: CLLocationCoordinate2D) -> CLLocationDistance {
+        var distance: CLLocationDistance = 200 // The minimum distance from center to the map bounds
+        let centerLocation = CLLocation(latitude: center.latitude, longitude: center.longitude)
+        for activity in activities where activity.activity.workplace.address.location != nil {
+            let lat = activity.activity.workplace.address.location!.lat!
+            let long = activity.activity.workplace.address.location!.lon!
+            let location = CLLocation(latitude: lat, longitude: long)
+            let newDistance = centerLocation.distance(from: location)
+            if newDistance > distance {
+                distance = newDistance
+            }
+        }
+        return distance
+    }
 }

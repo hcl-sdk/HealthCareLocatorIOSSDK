@@ -111,6 +111,9 @@ extension SearchResultSortViewController: ViewDesign {
         distanceLabel.font = theme.sortCriteriaFont
         nameLabel.font = theme.sortCriteriaFont
         
+        // Icons
+        closeButton.setImage(icons.crossIcon, for: .normal)
+        
         // Colors
         view.backgroundColor = theme.viewBkgColor
         topLabel.textColor = theme.secondaryColor

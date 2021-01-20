@@ -14,8 +14,12 @@ class IndividualAutoCompleteTableViewCell: UITableViewCell {
     @IBOutlet weak var arrowIcon: UIImageView!
     @IBOutlet weak var separatorView: UIView!
 
-    func configWith(theme: OKThemeConfigure, individual: IndividualWorkPlaceDetails, highlight: String?) {
+    func configWith(theme: OKThemeConfigure,
+                    icons: OKIconsConfigure,
+                    individual: IndividualWorkPlaceDetails,
+                    highlight: String?) {
         // Themes layout
+        arrowIcon.image = icons.arrowRightIcon
         // Colors
         separatorView.backgroundColor = theme.greyLighterColor
         individualNameLabel.textColor = theme.secondaryColor

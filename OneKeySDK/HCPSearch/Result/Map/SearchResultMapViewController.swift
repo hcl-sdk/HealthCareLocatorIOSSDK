@@ -46,23 +46,18 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         configure(mapView: mapView)
         reloadWith(data: result)
         layoutWith(theme: theme, icons: icons)
-
-        if let data = searchData {
-            switch data.mode {
-            case .nearMeSearch,
-                 .quickNearMeSearch:
-                if let currentLocation = LocationManager.shared.currentLocation {
-                    defaultZoomTo(location: currentLocation.coordinate)
-                }
-            default:
-                if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
-                    defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
-                }
+        if result.count > 0 {
+            let activityList = ActivityList(activities: result)
+            if let center = activityList.getActivitiesCenter() {
+                defaultZoomTo(location: center, distance: activityList.getFarestDistanceFrom(center: center))
             }
+        } else if let currentLocation = LocationManager.shared.currentLocation {
+            defaultZoomTo(location: currentLocation.coordinate)
         }
     }
     
     func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        geolocIcon.image = icons.geolocIcon
         currentLocationWrapper.borderWidth = 1
         currentLocationWrapper.borderColor = theme.cardBorderColor
         reLaunchWrapper.backgroundColor = theme.secondaryColor
@@ -77,7 +72,6 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        mapView.register(SearchResultClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
@@ -98,8 +92,8 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         mapDelegate?.startNewSearchWith(location: mapView.centerCoordinate, from: self)
     }
     
-    func defaultZoomTo(location: CLLocationCoordinate2D) {
-        mapView.defaultZoomTo(location: location)
+    func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
+        mapView.defaultZoomTo(location: location, distance: distance)
     }
     
     // MARK: - Navigation
@@ -134,22 +128,19 @@ extension SearchResultMapViewController: MKMapViewDelegate {
         if annotation is MKUserLocation {
           return nil
         } else {
-            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-                annotationView.markerTintColor = theme.markerColor
-                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) {
                 return annotationView
             } else {
-                let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-                annotationView.markerTintColor = theme.markerColor
-                annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
+                let annotationView = SearchResultAnnotationView(annotation: annotation,
+                                                                reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
                 return annotationView
             }
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let marker = view as? MKMarkerAnnotationView {
-            marker.markerTintColor = theme.markerSelectedColor
+        if let marker = view as? SearchResultAnnotationView {
+            marker.set(selected: true)
             let annotation = view.annotation
             if let index = result.firstIndex(where: {$0.activity.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.activity.workplace.address.location?.lon == annotation?.coordinate.longitude}) {
                 reloadHorizontalListWith(selectedIndex: index)
@@ -158,8 +149,8 @@ extension SearchResultMapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if let marker = view as? MKMarkerAnnotationView {
-            marker.markerTintColor = theme.markerColor
+        if let marker = view as? SearchResultAnnotationView {
+            marker.set(selected: false)
         }
     }
 }

@@ -50,7 +50,7 @@ class HCPCardCollectionViewController: UICollectionViewController, ViewDesign, A
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as!  HCPCardCollectionViewCell
-        cell.configWith(theme: theme, item: result[indexPath.row], selected: selectedIndex == indexPath.row)
+        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row], selected: selectedIndex == indexPath.row)
         return cell
     }
 

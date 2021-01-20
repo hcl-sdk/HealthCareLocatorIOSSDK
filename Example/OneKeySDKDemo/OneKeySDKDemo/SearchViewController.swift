@@ -26,6 +26,7 @@ class SearchViewController: UIViewController {
                                            geolocIcon: UIImage(named: "iconStar")!,
                                            markerMinIcon: UIImage(named: "iconStar")!,
                                            mapIcon: UIImage(named: "iconStar")!,
+                                           mapMarker: UIImage(named: "iconStar")!,
                                            listIcon: UIImage(named: "iconStar")!,
                                            sortIcon: UIImage(named: "iconStar")!,
                                            arrowRightIcon: UIImage(named: "iconStar")!,
@@ -34,7 +35,8 @@ class SearchViewController: UIViewController {
                                            faxIcon: UIImage(named: "iconStar")!,
                                            websiteIcon: UIImage(named: "iconStar")!,
                                            voteUpIcon: UIImage(named: "iconStar")!,
-                                           voteDownIcon: UIImage(named: "iconStar")!)
+                                           voteDownIcon: UIImage(named: "iconStar")!,
+                                           noResults: UIImage(named: "iconStar")!)
         //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
         shared.set(appName: "Caretiny", appDownloadLink: "https://www.example.com")

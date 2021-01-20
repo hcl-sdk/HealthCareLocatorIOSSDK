@@ -69,6 +69,7 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
         case .Individual(let individual):
             let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
             cell.configWith(theme: theme,
+                            icons: icons,
                             individual: individual,
                             highlight: input)
             return cell
