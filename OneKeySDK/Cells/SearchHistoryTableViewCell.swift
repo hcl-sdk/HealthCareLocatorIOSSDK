@@ -15,8 +15,10 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
     
     weak var delegate: SearchHistoryCellDelegate?
 
-    func configWith(theme: OKThemeConfigure?, lang: String, search: LastSearch, isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, icons: OKIconsConfigure, lang: String, search: LastSearch, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
+        closeButton.setImage(icons.crossIcon, for: .normal)
+        
         // Fonts
         criteriabel.font = theme?.defaultFont
         addressLabel.font = theme?.defaultFont

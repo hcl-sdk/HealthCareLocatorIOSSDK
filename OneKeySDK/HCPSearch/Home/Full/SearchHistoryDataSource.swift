@@ -33,8 +33,6 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
     private let colapseItemMax = 4
     private let expandItemMax = 11
     
-    var theme: OKThemeConfigure?
-    
     weak var tableView: UITableView?
     var data: [HistorySection] = []
     var expandedSection: [Int] = []
@@ -58,11 +56,6 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
                                  bundle: Bundle.internalBundle()),
                            forCellReuseIdentifier: "SearchHistoryTableViewCell")
         self.tableView = tableView
-    }
-    
-    func layoutWith(theme: OKThemeConfigure) {
-        self.theme = theme
-        tableView?.reloadData()
     }
     
     func reloadWith(data: [HistorySection]) {
@@ -145,7 +138,7 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
                     min(colapseItemMax, searches.count + 1) :
                     min(expandItemMax, searches.count + 1)
                 let isLastRow = lastCellIndex == (indexPath.row + 1)
-                cell.configWith(theme: theme, lang: OKManager.shared.lang, search: search, isLastRow: isLastRow)
+                cell.configWith(theme: theme, icons: icons, lang: OKManager.shared.lang, search: search, isLastRow: isLastRow)
                 cell.indexPath = indexPath
                 cell.delegate = self
                 return cell
@@ -156,7 +149,7 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
                     min(colapseItemMax, activities.count + 1) :
                     min(expandItemMax, activities.count + 1)
                 let isLastRow = lastCellIndex == (indexPath.row + 1)
-                cell.configWith(theme: theme, lang: OKManager.shared.lang, activity: activity, isLastRow: isLastRow)
+                cell.configWith(theme: theme, icons: icons, lang: OKManager.shared.lang, activity: activity, isLastRow: isLastRow)
                 cell.indexPath = indexPath
                 cell.delegate = self
                 return cell

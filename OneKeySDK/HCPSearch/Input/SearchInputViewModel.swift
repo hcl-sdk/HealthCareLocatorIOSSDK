@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class SearchInputViewModel {
-    func layout(view: SearchInputViewController, with theme: OKThemeConfigure) {
+    func layout(view: SearchInputViewController, with theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        view.searchBtn.setImage(icons.searchIcon, for: .normal)
+        
         // Colors
         view.backButton.tintColor = theme.darkColor
         view.separatorView.backgroundColor = theme.greyLighterColor

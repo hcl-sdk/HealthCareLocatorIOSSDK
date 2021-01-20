@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 import MapKit
+import RxSwift
 
 class SearchResultViewModel: ViewLoading {
     lazy var indicator = UIActivityIndicatorView(style: .gray)
     
     private var webServices: SearchAPIsProtocol!
     private var search: SearchData!
+    private let searchActions = PublishSubject<SearchResultViewModel.SearchAction>()
     
     init(webservices: SearchAPIsProtocol, search: SearchData) {
         self.webServices = webservices
@@ -27,16 +29,18 @@ class SearchResultViewModel: ViewLoading {
                                      locale: config.lang,
                                      criteria: search.codes != nil ? nil : search.criteria)
         let userId = config.userId
-        if search.isNearMeSearch == true {
+        switch search.mode {
+        case .nearMeSearch,
+             .quickNearMeSearch:
             performNearMeSearchWith(info: info,
                                     userId: userId,
                                     completionHandler: completionHandler)
-        } else if !search.address.orEmpty.isEmpty {
-            performAddressSearchWith(address: search.address!,
+        case .addressSearch(let address):
+            performAddressSearchWith(address: address,
                                      info: info,
                                      userId: userId,
                                      completionHandler: completionHandler)
-        } else {
+        default:
             fetchActivitiesWith(info: info,
                                 specialties: search.codes?.map {$0.id},
                                 location: nil,
@@ -152,7 +156,7 @@ class SearchResultViewModel: ViewLoading {
         completionHandler(mutableResult)
     }
     
-    func layout(view: SearchResultViewController, theme: OKThemeConfigure) {
+    func layout(view: SearchResultViewController, theme: OKThemeConfigure, icons: OKIconsConfigure) {
         view.resultsLabel.text = "onekey_sdk_results_label".localized
         view.listLabel.text = "onekey_sdk_list_label".localized
         view.mapLabel.text = "onekey_sdk_map_label".localized
@@ -167,8 +171,9 @@ class SearchResultViewModel: ViewLoading {
         view.topInputTextField.font = theme.searchInputFont
         
         // Colors
+        view.searchButton.backgroundColor = theme.primaryColor
         view.resultsLabel.textColor = theme.darkColor
-        view.sortButton.backgroundColor = theme.secondaryColor
+        view.sortButtonBackground.backgroundColor = theme.secondaryColor
         view.activityCountLabel.textColor = theme.primaryColor
         view.criteriaLabel.textColor = theme.darkColor
         view.addressLabel.textColor = theme.greyColor
@@ -200,6 +205,89 @@ class SearchResultViewModel: ViewLoading {
             view.selectedListViewBackgroundView.backgroundColor = UIColor.clear
             view.listLabel.textColor = theme.darkColor
             view.listIcon.tintColor = theme.darkColor
+        }
+    }
+}
+
+// MARK: Convert user action on map to the search request, handle race conditions to avoid wrong result displyed while the user is continous spam on the button
+extension SearchResultViewModel {
+    
+    struct SearchAction {
+        let isNearMeSearch: Bool
+        let coordinate: CLLocationCoordinate2D?
+    }
+    
+    private func reverseGeocodeLocation(location: CLLocation) -> Single<String?> {
+        return Single.create { single in
+            CLGeocoder().reverseGeocodeLocation(location) {(places, _) in
+                single(.success(places?.first?.name))
+            }
+            return Disposables.create {}
+        }
+    }
+    
+    private func requestCurrentLocation() -> Single<CLLocation?> {
+        return Single.create { single in
+            LocationManager.shared.requestLocation { (locations, error) in
+                single(.success(locations?.last))
+            }
+            return Disposables.create {}
+        }
+    }
+    
+    private func searchWith(config: OKSDKConfigure, coordinate: CLLocationCoordinate2D) -> Single<[ActivityResult]> {
+        return Single.create {[weak self] single in
+            if let strongSelf = self {
+                strongSelf.performSearchWith(config: config, coordinate: coordinate,
+                                                         completionHandler: { (result, error) in
+                                                            single(.success(result ?? []))
+                                                         })
+            } else {
+                single(.success([]))
+            }
+            return Disposables.create {}
+        }
+    }
+    
+    func perform(action: SearchAction) {
+        searchActions.onNext(action)
+    }
+    
+    func newSearchWith(config: OKSDKConfigure, location: CLLocationCoordinate2D) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+        return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: location.latitude,
+                                                                      longitude: location.longitude)),
+                          searchWith(config: config, coordinate: location)).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+    }
+    
+    func newNearMeSearchWith(config: OKSDKConfigure) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+        return requestCurrentLocation().flatMap {[weak self] (location) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+            if let strongSelf = self, let unwrap = location {
+                return strongSelf.searchWith(config: config, coordinate: unwrap.coordinate).map {(title: kNearMeTitle, $0, zoomTo: unwrap.coordinate)}
+            } else {
+                return Single.create { single in
+                    single(.success((title: nil, result: [], zoomTo: nil)))
+                    return Disposables.create {}
+                }
+            }
+        }
+    }
+    
+    func resultByActionsObservable() -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+        return searchActions.throttle(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance).flatMapLatest {[weak self] (action) -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+            if let strongSelf = self {
+                if action.isNearMeSearch {
+                    return strongSelf.newNearMeSearchWith(config: OKManager.shared).asObservable()
+                } else {
+                    return strongSelf.newSearchWith(config: OKManager.shared,
+                                                    location: action.coordinate!).asObservable()
+                }
+            } else {
+                return Observable.create { (observer) -> Disposable in
+                    observer.on(.next((title: nil, result: [], zoomTo: nil)))
+                    return Disposables.create {}
+                }
+            }
+            
         }
     }
 }

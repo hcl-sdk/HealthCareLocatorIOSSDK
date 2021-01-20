@@ -25,7 +25,7 @@ class FullCardViewModel {
         }
     }
     
-    func layout(view: HCPFullCardViewController, with theme: OKThemeConfigure) {
+    func layout(view: HCPFullCardViewController, with theme: OKThemeConfigure, icons: OKIconsConfigure) {
         DispatchQueue.main.async {
             
             view.mainInformationTitleLabel.text = "onekey_sdk_main_information_label".localized

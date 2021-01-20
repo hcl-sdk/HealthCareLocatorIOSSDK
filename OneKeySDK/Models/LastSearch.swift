@@ -9,7 +9,7 @@ import Foundation
 
 struct LastSearch: Codable {
     let timeInterval: Double!
-    let search: SearchData
+    let search: SearchDataCore
 }
 
 extension LastSearch: Equatable {

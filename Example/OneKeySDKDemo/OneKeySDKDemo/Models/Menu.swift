@@ -25,7 +25,4 @@ enum Menu {
     
     static let preconfiguredSearchMenus = [Menu.textMenu(title: kMenuPreConfiguredNearMeSearch1Title, value: nil),
                                            Menu.textMenu(title: kMenuPreConfiguredNearMeSearch2Title, value: nil)]
-    
-    static let APIKeyMenu = MenuSection(title: kMenuAPIKeyTitle,
-                                        menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
 }

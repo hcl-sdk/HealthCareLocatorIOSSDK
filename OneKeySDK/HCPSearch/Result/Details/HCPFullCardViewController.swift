@@ -12,8 +12,6 @@ import MapKit
 class HCPFullCardViewController: UIViewController, ViewDesign {
     
     private let locationManager = CLLocationManager()
-    
-    var theme: OKThemeConfigure?
     let fullCardViewModel: FullCardViewModel! = FullCardViewModel(webServices: OKHCPSearchWebServices(manager: OKServiceManager.shared))
     var activityID: String?
     private var activity: Activity?
@@ -84,9 +82,6 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     var rating: Bool? {
         didSet {
-            guard let theme = theme else {
-                return
-            }
             layoutRatingWith(theme: theme, value: rating)
         }
     }
@@ -97,6 +92,9 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         loadingView.isHidden = false
         loadingIndicator.startAnimating()
         
+        placeMapView.delegate = self
+        placeMapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+
         if let id = activityID {
             fetchActivityWith(id: id)
             rating = AppConfigure.getVoteFor(activityId: id, by: AppConfigure.deviceId)
@@ -104,9 +102,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
             fatalError("Missing Activity ID")
         }
         
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme, icons: icons)
         
         fixWebURLViewDisplaying()
     }
@@ -141,8 +137,8 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         }
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
-        fullCardViewModel.layout(view: self, with: theme)
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        fullCardViewModel.layout(view: self, with: theme, icons: icons)
         fullCardViewModel.layoutViewRating(view: self, with: theme, value: rating)
     }
     
@@ -205,12 +201,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                     return other.id == activity.id
                  })
                 
-                addressPicker.configWith(theme: theme,
-                                         items: allActivities.map {$0.workplace.address.composedAddress},
+                addressPicker.configWith(items: allActivities.map {$0.workplace.address.composedAddress},
                                          selected: selected)
             case "showMapView":
                 guard let mapVC = segue.destination as? HCPMapViewController else {return}
-                mapVC.theme = theme
                 mapVC.activity = activity
             default:
                 return
@@ -250,5 +244,22 @@ extension HCPFullCardViewController {
     
     func layoutRatingWith(theme: OKThemeConfigure, value: Bool?) {
         fullCardViewModel.layoutViewRating(view: self, with: theme, value: value)
+    }
+}
+
+extension HCPFullCardViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+          return nil
+        } else {
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
+                annotationView.markerTintColor = theme.markerColor
+                return annotationView
+            } else {
+                let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                annotationView.markerTintColor = theme.markerColor
+                return annotationView
+            }
+        }
     }
 }

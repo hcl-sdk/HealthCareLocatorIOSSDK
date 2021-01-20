@@ -9,8 +9,7 @@ import UIKit
 import MapKit
 
 class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
-    var theme: OKThemeConfigure?
-    
+
     @IBOutlet weak var mapView: MKMapView!
     
     weak var delegate: SearchHistoryDataSourceDelegate?
@@ -24,7 +23,6 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     func configWith(theme: OKThemeConfigure?, activities: [ActivityResult], center: CLLocationCoordinate2D?, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
-        self.theme = theme
         let activityList = ActivityList(activities: activities)
         mapView.reload(annotations: activityList.getAnotations())
         if let location = center {
@@ -43,13 +41,14 @@ extension ActivityMapTableViewCell: MKMapViewDelegate {
         if annotation is MKUserLocation {
           return nil
         } else {
+            let theme = self.theme
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-                annotationView.markerTintColor = theme?.markerColor
+                annotationView.markerTintColor = theme.markerColor
                 annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             } else {
                 let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-                annotationView.markerTintColor = theme?.markerColor
+                annotationView.markerTintColor = theme.markerColor
                 annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             }

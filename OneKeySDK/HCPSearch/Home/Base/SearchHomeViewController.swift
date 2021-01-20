@@ -9,9 +9,6 @@ import UIKit
 
 class SearchHomeViewController: UIViewController, ViewDesign {
 
-    var theme: OKThemeConfigure?
-    var icons: OKIconsConfigure?
-
     private let viewModel = SearchHomeViewModel()
     
     @IBOutlet weak var contentScrollView: UIScrollView!
@@ -31,15 +28,8 @@ class SearchHomeViewController: UIViewController, ViewDesign {
         contentScrollView.isUserInteractionEnabled = !isContentViewHidden
 
         searchTextField.delegate = self
-        if let theme = theme {
-            layoutWith(theme: theme, icons: icons ?? OKIconsConfigure())
-        }
-        
+        layoutWith(theme: theme, icons: icons)
         layoutWith(traitCollection: traitCollection)
-    }
-
-    func layoutWith(theme: OKThemeConfigure) {
-        layoutWith(theme: theme, icons: OKIconsConfigure())
     }
     
     func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
@@ -66,18 +56,8 @@ class SearchHomeViewController: UIViewController, ViewDesign {
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "showSearchInputVC":
-                if let desVC = segue.destination as? SearchInputViewController {
-                    desVC.theme = theme
-                }
-            default:
-                return
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         layoutWith(traitCollection: traitCollection)

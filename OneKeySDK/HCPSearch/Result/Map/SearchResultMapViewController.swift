@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 
 protocol SearchResultMapViewControllerDelegate {
-    func startNewNearMeSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController)
+    func startNewNearMeSearchFrom(view: SearchResultMapViewController)
     func startNewSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController)
 }
 
@@ -23,8 +23,6 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
             }
         }
     }
-    //
-    var theme: OKThemeConfigure?
     var result: [ActivityResult] = []
 
     @IBOutlet weak var currentLocationBtn: BaseButton!
@@ -45,26 +43,28 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentLocationWrapper.borderWidth = 1
-        currentLocationWrapper.borderColor = theme?.cardBorderColor ?? UIColor.darkGray
         configure(mapView: mapView)
         reloadWith(data: result)
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
-        
-        if searchData?.isNearMeSearch == true || searchData?.isQuickNearMeSearch == true {
-            if let currentLocation = LocationManager.shared.currentLocation {
-                defaultZoomTo(location: currentLocation.coordinate)
-            }
-        } else {
-            if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
-                defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
+        layoutWith(theme: theme, icons: icons)
+
+        if let data = searchData {
+            switch data.mode {
+            case .nearMeSearch,
+                 .quickNearMeSearch:
+                if let currentLocation = LocationManager.shared.currentLocation {
+                    defaultZoomTo(location: currentLocation.coordinate)
+                }
+            default:
+                if let location = result.first(where: {$0.activity.workplace.address.location != nil})?.activity.workplace.address.location {
+                    defaultZoomTo(location: CLLocationCoordinate2DMake(location.lat, location.lon))
+                }
             }
         }
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        currentLocationWrapper.borderWidth = 1
+        currentLocationWrapper.borderColor = theme.cardBorderColor
         reLaunchWrapper.backgroundColor = theme.secondaryColor
         relaunchIcon.tintColor = .white
         relaunchLabel.textColor = .white
@@ -90,11 +90,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     @IBAction func currentLocationAction(_ sender: Any) {
-        LocationManager.shared.requestLocation({[weak self] (locations, error) in
-            guard let strongSelf = self, let coordinate = locations?.first?.coordinate else {return}
-            strongSelf.defaultZoomTo(location: coordinate)
-            strongSelf.mapDelegate?.startNewNearMeSearchWith(location: coordinate, from: strongSelf)
-        })
+        mapDelegate?.startNewNearMeSearchFrom(view: self)
     }
     
     @IBAction func relaunchAction(_ sender: Any) {
@@ -115,7 +111,6 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
             case "EmbedHCPCard":
                 if let desVC = segue.destination as? HCPCardCollectionViewController {
                     desVC.result = result
-                    desVC.theme = theme
                     desVC.delegate = delegate
                     cardCollectionViewController = desVC
                 }
@@ -140,12 +135,12 @@ extension SearchResultMapViewController: MKMapViewDelegate {
           return nil
         } else {
             if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
-                annotationView.markerTintColor = theme?.markerColor
+                annotationView.markerTintColor = theme.markerColor
                 annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             } else {
                 let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-                annotationView.markerTintColor = theme?.markerColor
+                annotationView.markerTintColor = theme.markerColor
                 annotationView.clusteringIdentifier = SearchResultAnnotationView.preferredClusteringIdentifier
                 return annotationView
             }
@@ -154,7 +149,7 @@ extension SearchResultMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let marker = view as? MKMarkerAnnotationView {
-            marker.markerTintColor = theme?.markerSelectedColor
+            marker.markerTintColor = theme.markerSelectedColor
             let annotation = view.annotation
             if let index = result.firstIndex(where: {$0.activity.workplace.address.location?.lat == annotation?.coordinate.latitude && $0.activity.workplace.address.location?.lon == annotation?.coordinate.longitude}) {
                 reloadHorizontalListWith(selectedIndex: index)
@@ -164,7 +159,7 @@ extension SearchResultMapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if let marker = view as? MKMarkerAnnotationView {
-            marker.markerTintColor = theme?.markerColor
+            marker.markerTintColor = theme.markerColor
         }
     }
 }

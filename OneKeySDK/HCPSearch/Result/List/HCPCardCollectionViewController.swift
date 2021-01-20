@@ -21,18 +21,10 @@ class HCPCardCollectionViewController: UICollectionViewController, ViewDesign, A
         }
     }
     
-    var theme: OKThemeConfigure?
     var result: [ActivityResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
-    }
-
-    func layoutWith(theme: OKThemeConfigure) {
-        collectionView.reloadData()
     }
     
     /*

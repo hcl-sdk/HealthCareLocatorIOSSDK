@@ -26,6 +26,7 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
         headerTitleLabel.font = theme?.cardTitleFont
         headerTitleLabel.text = title
         if let action = actionTitle {
+            
             actionButton.isHidden = false
             actionButton.setTitle(action, for: .normal)
             actionButton.setTitleColor(theme?.primaryColor, for: .normal)

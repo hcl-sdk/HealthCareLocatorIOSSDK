@@ -21,24 +21,11 @@ import UIKit
  Should create the *OKHCPSearchNavigationViewController* through *OKManager* instead of using it constructor directly
  */
 public class OKHCPSearchNavigationViewController: UINavigationController {
-    /**
-     The theme configuration object for dynamic UI displaying dependence on container app business
-     */
-    public var theme: OKThemeConfigure? {
-        didSet {
-            guard let theme = self.theme else {return}
-            if isViewLoaded {
-                layoutWith(theme: theme)
-            }
-        }
-    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         isNavigationBarHidden = true
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme)
     }
     
     public func configure(search: OKSearchConfigure) {
@@ -50,61 +37,48 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
             setViewControllers([compactHomeVC], animated: false)
             LocationManager.shared.requestAuthorization {[weak self] (status) in
                 guard let strongSelf = self else {return}
-                let icons = OKManager.shared.iconsConfigure ?? OKIconsConfigure()
+                let icons = strongSelf.icons
+                let theme = strongSelf.theme
                 switch status {
                 case .denied, .notDetermined, .restricted:
                     if AppConfigure.getLastSearchesHistory().count == 0 &&
                         AppConfigure.getLastHCPsConsulted().count == 0 {
-                        strongSelf.layoutCompactMode(icons: icons)
+                        strongSelf.layoutCompactMode(theme: theme, icons: icons)
                     } else {
-                        strongSelf.layoutFullMode(icons: icons)
+                        strongSelf.layoutFullMode(theme: theme, icons: icons)
                     }
                 default:
-                    strongSelf.layoutFullMode(icons: icons)
+                    strongSelf.layoutFullMode(theme: theme, icons: icons)
                 }
             }
         case .nearMe:
             let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as! SearchResultViewController
             resultVC.data = SearchData(criteria: nil,
-                                            codes: search.favourites.map {Code(id: $0, longLbl: nil)},
-                                            address: nil,
-                                            isNearMeSearch: true,
-                                            isQuickNearMeSearch: true)
+                                       codes: search.favourites.map {Code(id: $0, longLbl: nil)},
+                                       mode: .quickNearMeSearch)
             resultVC.shouldHideBackButton = true
             setViewControllers([resultVC], animated: false)
         }
     }
     
-    private func layoutCompactMode(icons: OKIconsConfigure) {
+    private func layoutCompactMode(theme: OKThemeConfigure, icons: OKIconsConfigure) {
         if viewControllers.count <= 1 {
             DispatchQueue.main.async {
                 let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
-                compactHomeVC.theme = self.theme
-                compactHomeVC.icons = icons
                 self.setViewControllers([compactHomeVC], animated: false)
             }
         }
     }
     
-    private func layoutFullMode(icons: OKIconsConfigure) {
+    private func layoutFullMode(theme: OKThemeConfigure, icons: OKIconsConfigure) {
         if viewControllers.count <= 1 {
             DispatchQueue.main.async {
                 let fullHomeVC = ViewControllers.viewControllerWith(identity: .homeFull) as! SearchHomeFullViewController
-                fullHomeVC.theme = self.theme
                 self.setViewControllers([fullHomeVC], animated: false)
             }
         }
     }
     
-    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        if let viewController = viewController as? ViewDesign {
-            var editableVC = viewController
-            editableVC.theme = theme
-            super.pushViewController((editableVC as! UIViewController), animated: animated)
-        } else {
-            super.pushViewController(viewController, animated: animated)
-        }
-    }
     /*
     // MARK: - Navigation
 
@@ -120,11 +94,5 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
 extension OKHCPSearchNavigationViewController: ViewDesign {
     func layoutWith(theme: OKThemeConfigure) {
         navigationBar.barTintColor = theme.primaryColor
-        for viewController in viewControllers {
-            if let designAbleVC = viewController as? ViewDesign {
-                var editableVC = designAbleVC
-                editableVC.theme = theme
-            }
-        }
     }
 }

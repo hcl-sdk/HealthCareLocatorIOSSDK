@@ -8,10 +8,19 @@
 import Foundation
 
 protocol ViewDesign {
-    var theme: OKThemeConfigure? { get set }
     func layoutWith(theme: OKThemeConfigure)
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure)
 }
 
 extension ViewDesign {
+    var theme: OKThemeConfigure {
+        return OKManager.shared.themConfigure ?? OKThemeConfigure()
+    }
+    
+    var icons: OKIconsConfigure {
+        return OKManager.shared.iconsConfigure ?? OKIconsConfigure()
+    }
+    
     func layoutWith(theme: OKThemeConfigure) {}
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {}
 }

@@ -23,8 +23,6 @@ class SearchResultSortViewController: UIViewController {
         }
     }
     
-    var theme: OKThemeConfigure?
-
     @IBOutlet weak var wrapperView: BaseView!
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var topLabel: UILabel!
@@ -42,23 +40,21 @@ class SearchResultSortViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme, icons: icons)
     }
     
     private func layoutWith(sort: SortBy) {
         switch sort {
         case .distance:
             relevenceBackground.backgroundColor = .white
-            distanceBackground.backgroundColor = theme?.primaryColor
+            distanceBackground.backgroundColor = theme.primaryColor
             nameBackground.backgroundColor = .white
         case .name:
             relevenceBackground.backgroundColor = .white
             distanceBackground.backgroundColor = .white
-            nameBackground.backgroundColor = theme?.primaryColor
+            nameBackground.backgroundColor = theme.primaryColor
         case .relevance:
-            relevenceBackground.backgroundColor = theme?.primaryColor
+            relevenceBackground.backgroundColor = theme.primaryColor
             distanceBackground.backgroundColor = .white
             nameBackground.backgroundColor = .white
         }
@@ -100,7 +96,7 @@ class SearchResultSortViewController: UIViewController {
 
 extension SearchResultSortViewController: ViewDesign {
 
-    func layoutWith(theme: OKThemeConfigure) {
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
         topLabel.text = "onekey_sdk_sort_label".localized
         relevanceLabel.text = "onekey_sdk_relevance_item".localized
         distanceLabel.text = "onekey_sdk_distance_item".localized

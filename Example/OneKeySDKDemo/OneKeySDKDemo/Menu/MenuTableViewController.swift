@@ -110,6 +110,7 @@ class MenuTableViewController: UITableViewController {
         case .inputMenu(let placeHolder, let value):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellInput", for: indexPath) as! InputMenuTableViewCell
             cell.configWith(placeHolder: placeHolder, value: value)
+            cell.delegate = self
             return cell
         case .selectMenu(let title, let selected, _):
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCellSelect", for: indexPath) as! SelectMenuTableViewCell
@@ -195,4 +196,12 @@ class MenuTableViewController: UITableViewController {
      }
      */
     
+}
+
+extension MenuTableViewController: InputMenuTableViewCellDelegate {
+    func didChangeText(newText: String?, for cell: InputMenuTableViewCell) {
+        delegate?.didChangeValueFor(menu: .inputMenu(placeHolder: cell.inputTextField.placeholder ?? "",
+                                                     value: nil),
+                                    newValue: newText)
+    }
 }

@@ -9,7 +9,6 @@ import UIKit
 import MapKit
 
 class HCPMapViewController: UIViewController, ViewDesign {
-    var theme: OKThemeConfigure?
     var activity: Activity?
     
     private let viewModel = HCPMapViewModel()
@@ -25,17 +24,17 @@ class HCPMapViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
-        
+        mapView.delegate = self
+        mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+
+        layoutWith(theme: theme, icons: icons)
         if let activity = activity {
             layoutWith(activity: activity)
         }
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
-        viewModel.layout(view: self, with: theme)
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        viewModel.layout(view: self, with: theme, icons: icons)
     }
     
     func layoutWith(activity: Activity) {
@@ -48,5 +47,22 @@ class HCPMapViewController: UIViewController, ViewDesign {
     
     @IBAction func currentLocationAction(_ sender: Any) {
         viewModel.moveMapToCurrentLocation(map: mapView)
+    }
+}
+
+extension HCPMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+          return nil
+        } else {
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? MKMarkerAnnotationView {
+                annotationView.markerTintColor = theme.markerColor
+                return annotationView
+            } else {
+                let annotationView = SearchResultAnnotationView(annotation: annotation, reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                annotationView.markerTintColor = theme.markerColor
+                return annotationView
+            }
+        }
     }
 }

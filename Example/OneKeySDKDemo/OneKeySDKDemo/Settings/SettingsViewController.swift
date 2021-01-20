@@ -40,6 +40,9 @@ class SettingsViewController: UIViewController {
         
         var themeSection: MenuSection!
 
+        let apiSection = MenuSection(title: kMenuAPIKeyTitle,
+                                     menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
+        
         let languageSection = MenuSection(title: kMenuLanguageTitle,
                                           menus: [Menu.detailMenu(title: AppSettings.language.title)], colapsedLimit: nil)
         
@@ -65,7 +68,7 @@ class SettingsViewController: UIViewController {
         themeSection = MenuSection(title: kMenuThemeTitle,
                                    menus: themeMenus)
         
-        menus = [Menu.APIKeyMenu,
+        menus = [apiSection,
                  languageSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
@@ -137,6 +140,13 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
         switch menu {
         case .toggleMenu(let title, _):
             switch title {
+            default:
+                break
+            }
+        case .inputMenu(let title, _):
+            switch title {
+            case kMenuAPIKeyTitle:
+                AppSettings.APIKey = (newValue as? String)
             default:
                 break
             }

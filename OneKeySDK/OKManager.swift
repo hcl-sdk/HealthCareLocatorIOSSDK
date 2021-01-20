@@ -138,7 +138,6 @@ extension OKManager: OkManagerProtocol {
      */
     public func getHCPSearchViewController() -> OKHCPSearchNavigationViewController {
         let searchVC = OKHCPSearchNavigationViewController()
-        searchVC.theme = themConfigure ?? getDefaultUIConfigure()
         searchVC.configure(search: searchConfigure ?? getDefaultSearchConfigure())
         searchNavigationController = searchVC
         return searchVC
@@ -158,10 +157,8 @@ extension OKManager: OkManagerProtocol {
            searchVC.isViewLoaded,
            let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as? SearchResultViewController {
             resultVC.data = SearchData(criteria: nil,
-                                            codes: specialities.map {Code(id: $0, longLbl: nil)},
-                                            address: nil,
-                                            isNearMeSearch: false,
-                                            isQuickNearMeSearch: true)
+                                       codes: specialities.map {Code(id: $0, longLbl: nil)},
+                                       mode: .quickNearMeSearch)
             searchVC.pushViewController(resultVC, animated: true)
             return true
         } else {

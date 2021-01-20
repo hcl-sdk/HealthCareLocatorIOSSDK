@@ -105,7 +105,7 @@ extension SearchInputAutocompleteViewModel {
 
 extension SearchInputAutocompleteViewModel {
     func set(data: SearchData) {
-        set(isNearMeSearch: (data.isNearMeSearch == true || data.isQuickNearMeSearch == true))
+        set(isNearMeSearch: data.isNearMeSearch)
     }
     
     func set(criteria: String) {

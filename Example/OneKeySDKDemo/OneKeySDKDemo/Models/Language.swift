@@ -9,7 +9,7 @@ import Foundation
 
 enum Language: String, CaseIterable {
     case english = "en"
-    case french = "fr"
+    case french = "fr_CA"
 
     var title: String {
         switch self {

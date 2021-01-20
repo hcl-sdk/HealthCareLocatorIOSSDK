@@ -14,11 +14,10 @@ import MapKit
 class SearchInputViewController: UIViewController, ViewDesign {
     private let disposeBag = DisposeBag()
     
-    var theme: OKThemeConfigure?
-
     private var webService: SearchAPIsProtocol = OKHCPSearchWebServices(manager: OKServiceManager.shared)
-    
     private let viewModel = SearchInputViewModel()
+    private var resultDataSource: SearchInputDataSource!
+    private var searchInput: String = ""
     
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -29,7 +28,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
     private var searchResult = [SearchAutoComplete]() {
         didSet {
             if isViewLoaded {
-                searchResultTableView.reloadData()
+                resultDataSource.reloadWith(result: searchResult, input: searchInput)
             }
         }
     }
@@ -43,22 +42,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultDataSource = SearchInputDataSource(tableView: searchResultTableView,
+                                                 theme: theme,
+                                                 icons: icons)
+        resultDataSource.delegate = self
         searchCompleter.delegate = self
-        searchResultTableView.register(UINib(nibName: "SearchResultTableViewCell",
-                                             bundle: Bundle.internalBundle()),
-                                       forCellReuseIdentifier: "SearchResultTableViewCell")
-        
-        searchResultTableView.register(UINib(nibName: "CodeAutoCompleteTableViewCell",
-                                             bundle: Bundle.internalBundle()),
-                                       forCellReuseIdentifier: "CodeAutoCompleteTableViewCell")
-        
-        searchResultTableView.register(UINib(nibName: "IndividualAutoCompleteTableViewCell",
-                                             bundle: Bundle.internalBundle()),
-                                       forCellReuseIdentifier: "IndividualAutoCompleteTableViewCell")
-        
-        searchResultTableView.dataSource = self
-        searchResultTableView.delegate = self
-        searchResultTableView.tableFooterView = UIView()
         categorySearchTextField.delegate = self
         categorySearchTextField.rightViewMode = .always
         locationSearchTextField.delegate = self
@@ -66,9 +54,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
 
         searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService as! OKHCPSearchWebServices)
         
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme, icons: icons)
         
         if let data = data {
             initializeWith(data: data)
@@ -88,7 +74,12 @@ class SearchInputViewController: UIViewController, ViewDesign {
     }
     
     func initializeWith(data: SearchData) {
-        locationSearchTextField.text = (data.isNearMeSearch == true || data.isQuickNearMeSearch == true) ? kNearMeTitle : data.address
+        switch data.mode {
+        case .addressSearch(let address):
+            locationSearchTextField.text = address
+        default:
+            locationSearchTextField.text = kNearMeTitle
+        }
         searchInputAutocompleteModelView.set(data: data)
     }
     
@@ -124,17 +115,19 @@ class SearchInputViewController: UIViewController, ViewDesign {
             }).disposed(by: disposeBag)
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
-        viewModel.layout(view: self, with: theme)
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        viewModel.layout(view: self, with: theme, icons: icons)
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
         let validator = SearchInputValidator()
         // Search near me criteria is not mandatory
-        let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
+        let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text) || searchInputAutocompleteModelView.isNearMeSearch
         
         if !isCriteriaValid {
             categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
+        } else {
+            categorySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: UIColor.clear)
         }
         
         if isCriteriaValid {
@@ -165,12 +158,21 @@ class SearchInputViewController: UIViewController, ViewDesign {
         navigationController?.popViewController(animated: true)
     }
     
-    private func performSearchingWith(criteria: String? = nil, code: Code? = nil, address: String? = nil, isNearMeSearch: Bool? = false) {
-        let searchData = SearchData(criteria: criteria,
-                                         codes: code != nil ? [code!] : nil,
-                                         address: address,
-                                         isNearMeSearch: isNearMeSearch,
-                                         isQuickNearMeSearch: false)
+    private func performSearchingWith(criteria: String? = nil,
+                                      code: Code? = nil,
+                                      address: String? = nil,
+                                      isNearMeSearch: Bool? = false) {
+        var searchData: SearchData!
+        if isNearMeSearch == true {
+            searchData = SearchData(criteria: criteria,
+                                    codes: code != nil ? [code!] : nil,
+                                    mode: .nearMeSearch)
+        } else {
+            searchData = SearchData(criteria: criteria,
+                                    codes: code != nil ? [code!] : nil,
+                                    mode: .addressSearch(address: address.orEmpty))
+        }
+        
         // Save last search
         AppConfigure.save(search: searchData)
         // Go search
@@ -191,11 +193,9 @@ class SearchInputViewController: UIViewController, ViewDesign {
                 if let desVC = segue.destination as? SearchResultViewController,
                    let data = sender as? SearchData {
                     desVC.data = data
-                    desVC.theme = theme
                 }
             case "showFullCardVC":
                 if let desVC = segue.destination as? HCPFullCardViewController {
-                    desVC.theme = theme
                     if let individual = sender as? IndividualWorkPlaceDetails {
                         desVC.activityID = individual.mainActivity.id
                     }
@@ -203,71 +203,6 @@ class SearchInputViewController: UIViewController, ViewDesign {
             default:
                 return
             }
-        }
-    }
-}
-
-// MARK: TableView datasource
-extension SearchInputViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResult.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let theme = theme {
-            switch searchResult[indexPath.row] {
-            case .Code(let code):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CodeAutoCompleteTableViewCell") as! CodeAutoCompleteTableViewCell
-                cell.configWith(theme: theme,
-                                code: code,
-                                highlight: categorySearchTextField.text)
-                return cell
-            case .Individual(let individual):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
-                cell.configWith(theme: theme,
-                                individual: individual,
-                                highlight: categorySearchTextField.text)
-                return cell
-            case .NearMe:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
-                cell.configWith(theme: theme,
-                                iconImage: UIImage.OKImageWith(name: "geoloc")!,
-                                title: kNearMeTitle)
-                return cell
-            case .Address(let address):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
-                cell.configWith(theme: theme,
-                                iconImage: UIImage.OKImageWith(name: "marker")!,
-                                title: "\(address.title), \(address.subtitle)")
-                return cell
-            default:
-                return UITableViewCell()
-            }
-        }
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch searchResult[indexPath.row] {
-        case .NearMe:
-            locationSearchTextField.text = kNearMeTitle
-            searchInputAutocompleteModelView.set(isNearMeSearch: true)
-            searchResult = []
-        case .Address(let address):
-            let composedAdd = "\(address.title), \(address.subtitle)"
-            locationSearchTextField.text = composedAdd
-            searchInputAutocompleteModelView.set(address: composedAdd)
-            searchResult = []
-        case .Code(let code):
-            categorySearchTextField.text = code.longLbl
-            searchInputAutocompleteModelView.set(code: code)
-            locationSearchTextField.becomeFirstResponder()
-        case .Individual(let individual):
-            performSegue(withIdentifier: "showFullCardVC", sender: individual)
         }
     }
 }
@@ -299,6 +234,7 @@ extension SearchInputViewController: UITextFieldDelegate {
                 searchCompleter.queryFragment = searchText
             } else {
                 searchInputAutocompleteModelView.set(criteria: searchText)
+                searchInput = searchText
             }
         }
         
@@ -308,7 +244,6 @@ extension SearchInputViewController: UITextFieldDelegate {
 
 // MARK: Place autocomplete delegate
 extension SearchInputViewController: MKLocalSearchCompleterDelegate {
-
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         var newList: [SearchAutoComplete] = [.NearMe]
         newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
@@ -317,5 +252,27 @@ extension SearchInputViewController: MKLocalSearchCompleterDelegate {
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+extension SearchInputViewController: SearchInputDataSourceDelegate {
+    func didSelect(result: SearchAutoComplete) {
+        switch result {
+        case .NearMe:
+            locationSearchTextField.text = kNearMeTitle
+            searchInputAutocompleteModelView.set(isNearMeSearch: true)
+            searchResult = []
+        case .Address(let address):
+            let composedAdd = "\(address.title), \(address.subtitle)"
+            locationSearchTextField.text = composedAdd
+            searchInputAutocompleteModelView.set(address: composedAdd)
+            searchResult = []
+        case .Code(let code):
+            categorySearchTextField.text = code.longLbl
+            searchInputAutocompleteModelView.set(code: code)
+            locationSearchTextField.becomeFirstResponder()
+        case .Individual(let individual):
+            performSegue(withIdentifier: "showFullCardVC", sender: individual)
+        }
     }
 }

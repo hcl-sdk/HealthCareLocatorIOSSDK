@@ -15,17 +15,33 @@ protocol SearchInputDataSourceDelegate: class {
 class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var searchResult: [SearchAutoComplete] = []
     private var input: String = ""
-    private var theme: OKThemeConfigure?
+    private var theme: OKThemeConfigure!
+    private var icons: OKIconsConfigure!
     private var tableView: UITableView!
     
     weak var delegate: SearchInputDataSourceDelegate?
     
-    init(tableView: UITableView, theme: OKThemeConfigure?) {
+    init(tableView: UITableView, theme: OKThemeConfigure, icons: OKIconsConfigure) {
         super.init()
-        self.tableView = tableView
-        self.theme = theme
+        // Register cell
+        tableView.register(UINib(nibName: "SearchResultTableViewCell",
+                                 bundle: Bundle.internalBundle()),
+                           forCellReuseIdentifier: "SearchResultTableViewCell")
+        
+        tableView.register(UINib(nibName: "CodeAutoCompleteTableViewCell",
+                                 bundle: Bundle.internalBundle()),
+                           forCellReuseIdentifier: "CodeAutoCompleteTableViewCell")
+        
+        tableView.register(UINib(nibName: "IndividualAutoCompleteTableViewCell",
+                                 bundle: Bundle.internalBundle()),
+                           forCellReuseIdentifier: "IndividualAutoCompleteTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
+
+        self.tableView = tableView
+        self.theme = theme
+        self.icons = icons
     }
     
     func reloadWith(result: [SearchAutoComplete], input: String) {
@@ -43,37 +59,32 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let theme = theme {
-            switch searchResult[indexPath.row] {
-            case .Code(let code):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CodeAutoCompleteTableViewCell") as! CodeAutoCompleteTableViewCell
-                cell.configWith(theme: theme,
-                                code: code,
-                                highlight: input)
-                return cell
-            case .Individual(let individual):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
-                cell.configWith(theme: theme,
-                                individual: individual,
-                                highlight: input)
-                return cell
-            case .NearMe:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
-                cell.configWith(theme: theme,
-                                iconImage: UIImage.OKImageWith(name: "geoloc")!,
-                                title: kNearMeTitle)
-                return cell
-            case .Address(let address):
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
-                cell.configWith(theme: theme,
-                                iconImage: UIImage.OKImageWith(name: "marker")!,
-                                title: "\(address.title), \(address.subtitle)")
-                return cell
-            default:
-                return UITableViewCell()
-            }
+        switch searchResult[indexPath.row] {
+        case .Code(let code):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CodeAutoCompleteTableViewCell") as! CodeAutoCompleteTableViewCell
+            cell.configWith(theme: theme,
+                            code: code,
+                            highlight: input)
+            return cell
+        case .Individual(let individual):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
+            cell.configWith(theme: theme,
+                            individual: individual,
+                            highlight: input)
+            return cell
+        case .NearMe:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
+            cell.configWith(theme: theme,
+                            iconImage: icons.geolocIcon,
+                            title: kNearMeTitle)
+            return cell
+        case .Address(let address):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
+            cell.configWith(theme: theme,
+                            iconImage: icons.markerMinIcon,
+                            title: "\(address.title), \(address.subtitle)")
+            return cell
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

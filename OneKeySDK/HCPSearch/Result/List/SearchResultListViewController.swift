@@ -12,14 +12,14 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     weak var delegate: ActivityHandler?
     
     var theme: OKThemeConfigure?
+    var icons: OKIconsConfigure?
+    
     var result: [ActivityResult] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme)
     }
 
     override func viewWillAppear(_ animated: Bool) {

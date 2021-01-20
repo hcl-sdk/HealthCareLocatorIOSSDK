@@ -12,7 +12,6 @@ protocol NoSearchResultViewControllerDelegate {
 }
 
 class NoSearchResultViewController: UIViewController, ViewDesign {
-    var theme: OKThemeConfigure?
     
     @IBOutlet weak var wrapper: BaseView!
     @IBOutlet weak var topTitleLabel: UILabel!
@@ -28,13 +27,10 @@ class NoSearchResultViewController: UIViewController, ViewDesign {
         topTitleLabel.text = "onekey_sdk_no_result_found".localized
         descLabel.text = "onekey_sdk_no_result_message".localized
         startNewSearchButton.setTitle("onekey_sdk_start_new_search".localized, for: .normal)
-        
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme, icons: icons)
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
 
         // Fonts
         topTitleLabel.font = theme.noResultTitleFont

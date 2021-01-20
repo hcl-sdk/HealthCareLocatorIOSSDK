@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class HomeFullViewModel {
-    func layout(view: SearchHomeFullViewController, with theme: OKThemeConfigure) {
+    func layout(view: SearchHomeFullViewController, with theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        view.searchBtn.setImage(icons.searchIcon, for: .normal)
+        
         // Colors
         view.view.backgroundColor = theme.viewBkgColor
         view.separatorView.backgroundColor = theme.cardBorderColor
@@ -19,6 +21,6 @@ class HomeFullViewModel {
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         // Fonts
         view.searchTextField.font = theme.searchInputFont
-        view.tableViewDataSource.layoutWith(theme: theme)
+        view.tableViewDataSource.layoutWith(theme: theme, icons: icons)
     }
 }

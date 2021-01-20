@@ -13,7 +13,7 @@ protocol PickerListViewControllerDelegate: class {
 }
 
 class PickerListViewController: UIViewController, ViewDesign {
-    var theme: OKThemeConfigure?
+
     var selectedIndex: Int?
     
     private let cellIdentifier = "TextPickerTableViewCell"
@@ -44,8 +44,7 @@ class PickerListViewController: UIViewController, ViewDesign {
         delegate?.backAction()
     }
     
-    func configWith(theme: OKThemeConfigure?, items: [String], selected: Int?) {
-        self.theme = theme
+    func configWith(items: [String], selected: Int?) {
         self.items = items
         self.selectedIndex = selected
     }

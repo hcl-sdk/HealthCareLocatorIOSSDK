@@ -17,8 +17,10 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
     
     weak var delegate: SearchHistoryCellDelegate?
     
-    func configWith(theme: OKThemeConfigure?, lang: String,  activity: LastHCPConsulted, isLastRow: Bool) {
+    func configWith(theme: OKThemeConfigure?, icons: OKIconsConfigure, lang: String,  activity: LastHCPConsulted, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
+        closeButton.setImage(icons.crossIcon, for: .normal)
+        
         // Fonts
         drLabel.font = theme?.defaultFont
         categoryLabel.font = theme?.defaultFont

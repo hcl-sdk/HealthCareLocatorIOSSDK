@@ -9,8 +9,6 @@ import UIKit
 import RxSwift
 
 class SearchHomeFullViewController: UIViewController, ViewDesign {
-    var theme: OKThemeConfigure?
-    
     private let viewModel = HomeFullViewModel()
     private let historyViewModel = SearchHistoryViewModel(webService: OKHCPSearchWebServices(manager: OKServiceManager.shared))
     @IBOutlet weak var searchTextField: UITextField!
@@ -28,9 +26,7 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
         searchTextField.delegate = self
         tableViewDataSource = SearchHistoryDataSource(tableView: historyTableView)
         tableViewDataSource.delegate = self
-        if let theme = theme {
-            layoutWith(theme: theme)
-        }
+        layoutWith(theme: theme, icons: icons)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +47,8 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
         }).disposed(by: disposeBag)
     }
     
-    func layoutWith(theme: OKThemeConfigure) {
-        viewModel.layout(view: self, with: theme)
+    func layoutWith(theme: OKThemeConfigure, icons: OKIconsConfigure) {
+        viewModel.layout(view: self, with: theme, icons: icons)
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
@@ -66,20 +62,21 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
         if let identifier = segue.identifier {
             switch identifier {
             case "showSearchInputVC":
-                if let desVC = segue.destination as? SearchInputViewController {
-                    desVC.theme = theme
-                }
+                break
             case "showFullCardVC":
                 if let desVC = segue.destination as? HCPFullCardViewController,
                    let activity = sender as? Activity {
-                    desVC.theme = theme
                     desVC.activityID = activity.id
                 }
             case "showResultVC":
-                if let desVC = segue.destination as? SearchResultViewController,
-                   let data = sender as? SearchData {
-                    desVC.data = data
-                    desVC.theme = theme
+                if let desVC = segue.destination as? SearchResultViewController {
+                    if let data = sender as? SearchDataCore {
+                        desVC.data = SearchData.from(core: data)
+                    } else {
+                        desVC.data = SearchData(criteria: nil,
+                                                codes: nil,
+                                                mode: .nearMeSearch)
+                    }
                 }
             default:
                 return
@@ -108,10 +105,8 @@ extension SearchHomeFullViewController: SearchHistoryDataSourceDelegate {
     
     func didSelectNearMeSearch() {
         let searchData = SearchData(criteria: nil,
-                                         codes: OKManager.shared.searchConfigure?.favourites.map {Code(id: $0, longLbl: nil)},
-                                         address: nil,
-                                         isNearMeSearch: true,
-                                         isQuickNearMeSearch: true)
+                                    codes: OKManager.shared.searchConfigure?.favourites.map {Code(id: $0, longLbl: nil)},
+                                    mode: .nearMeSearch)
         AppConfigure.save(search: searchData)
         performSegue(withIdentifier: "showResultVC", sender: searchData)
     }

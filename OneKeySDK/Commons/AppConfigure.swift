@@ -50,7 +50,7 @@ class AppConfigure {
     }
     
     static func save(search: SearchData) {
-        let toSave = LastSearch(timeInterval: Date().timeIntervalSince1970, search: search)
+        let toSave = LastSearch(timeInterval: Date().timeIntervalSince1970, search: search.core())
         var savedSearches = getLastSearchesHistory()
         if let index = savedSearches.firstIndex(of: toSave) {
             savedSearches.remove(at: index)
