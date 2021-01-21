@@ -35,6 +35,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     @IBOutlet weak var relaunchIcon: UIImageView!
     @IBOutlet weak var relaunchLabel: UILabel!
     
+    private var lastCenter: CLLocationCoordinate2D?
     
     var searchData: SearchData?
     var mapDelegate: SearchResultMapViewControllerDelegate?
@@ -93,7 +94,9 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
+        lastCenter = location
         mapView.defaultZoomTo(location: location, distance: distance)
+        reLaunchWrapper.isHidden = true
     }
     
     // MARK: - Navigation
@@ -117,9 +120,8 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
 
 extension SearchResultMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        if let currentLocation = LocationManager.shared.currentLocation {
-            reLaunchWrapper.isHidden = mapView.visibleMapRect.contains(MKMapPoint(currentLocation.coordinate))
-        } else {
+        if let lastCenter = lastCenter,
+           lastCenter.latitude != mapView.centerCoordinate.latitude && lastCenter.longitude != mapView.centerCoordinate.longitude {
             reLaunchWrapper.isHidden = false
         }
     }
