@@ -457,12 +457,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_iqvia.png" translatesAutoresizingMaskIntoConstraints="NO" id="kS5-Nv-z1x">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_healthcare_locator.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kS5-Nv-z1x">
                                 <rect key="frame" x="19" y="260.5" width="337.5" height="102"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kS5-Nv-z1x" secondAttribute="height" multiplier="382:115" id="nb7-Pg-QLH"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oUs-4L-Pbe"/>
@@ -471,7 +468,6 @@
                             <constraint firstItem="kS5-Nv-z1x" firstAttribute="width" secondItem="Yyq-7c-5lg" secondAttribute="width" multiplier="0.9" id="jFM-9z-ciF"/>
                             <constraint firstItem="kS5-Nv-z1x" firstAttribute="centerY" secondItem="Yyq-7c-5lg" secondAttribute="centerY" id="mgL-wb-VhW"/>
                             <constraint firstItem="kS5-Nv-z1x" firstAttribute="centerX" secondItem="Yyq-7c-5lg" secondAttribute="centerX" id="rR2-Ds-JU3"/>
-                            <constraint firstItem="kS5-Nv-z1x" firstAttribute="width" secondItem="kS5-Nv-z1x" secondAttribute="height" multiplier="382:115" id="v1p-7c-1nj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="M9E-HU-XdO"/>
@@ -1464,7 +1460,6 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="U8V-XF-qGn"/>
         <designable name="bJg-Zy-YWN">
             <size key="intrinsicContentSize" width="30" height="41"/>
         </designable>
@@ -1479,7 +1474,7 @@
         <image name="arrow-down" width="14.5" height="8.5"/>
         <image name="arrow-right" width="6.5" height="10.5"/>
         <image name="iconBackGrey" width="19" height="14"/>
-        <image name="logo_iqvia.png" width="1200" height="211"/>
+        <image name="logo_healthcare_locator.jpg" width="1025.395751953125" height="1025.395751953125"/>
         <image name="select" width="26" height="26"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

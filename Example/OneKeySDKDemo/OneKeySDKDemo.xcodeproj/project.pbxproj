@@ -20,6 +20,7 @@
 		5888D27A2581DA9900FA5539 /* Sequence+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2792581DA9900FA5539 /* Sequence+Additional.swift */; };
 		5888D27F2581DCB900FA5539 /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D27E2581DCB900FA5539 /* String+Additional.swift */; };
 		588A99C42574AF9B002BCC74 /* ToogleMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */; };
+		588B61D625BA852400FD7770 /* logo_healthcare_locator.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588B61D525BA852400FD7770 /* logo_healthcare_locator.jpg */; };
 		5895536F2595ACD600DDE2FF /* Specialities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5895536E2595ACD600DDE2FF /* Specialities.swift */; };
 		5898C2632580BF4C00D983B5 /* FontMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2622580BF4C00D983B5 /* FontMapping.swift */; };
 		5898C2682580C6DA00D983B5 /* FontSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2672580C6DA00D983B5 /* FontSettingsTableViewCell.swift */; };
@@ -92,6 +93,7 @@
 		5888D2792581DA9900FA5539 /* Sequence+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Additional.swift"; sourceTree = "<group>"; };
 		5888D27E2581DCB900FA5539 /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleMenuTableViewCell.swift; sourceTree = "<group>"; };
+		588B61D525BA852400FD7770 /* logo_healthcare_locator.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_healthcare_locator.jpg; sourceTree = "<group>"; };
 		5895536E2595ACD600DDE2FF /* Specialities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialities.swift; sourceTree = "<group>"; };
 		5898C2622580BF4C00D983B5 /* FontMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMapping.swift; sourceTree = "<group>"; };
 		5898C2672580C6DA00D983B5 /* FontSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		5805F97E255A5CB400D93CD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				588B61D525BA852400FD7770 /* logo_healthcare_locator.jpg */,
 				58D465A3258CA0BC0084FA7A /* location.gpx */,
 				58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */,
 				5805F97F255A5CB400D93CD0 /* burger-menu.json */,
@@ -441,6 +444,7 @@
 				58A364992555082000C62479 /* LaunchScreen.storyboard in Resources */,
 				5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */,
 				58A364962555082000C62479 /* Assets.xcassets in Resources */,
+				588B61D625BA852400FD7770 /* logo_healthcare_locator.jpg in Resources */,
 				58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */,
 				58D465A4258CA0BC0084FA7A /* location.gpx in Resources */,
 				58A364942555081E00C62479 /* Main.storyboard in Resources */,

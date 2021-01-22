@@ -27,6 +27,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     // General
     @IBOutlet weak var wrapperView: BaseView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareIcon: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
     
     @IBOutlet weak var avatar: UIImageView!

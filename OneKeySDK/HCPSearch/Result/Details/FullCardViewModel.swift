@@ -68,6 +68,7 @@ class FullCardViewModel {
             view.webUrlView.font = theme.defaultFont
             
             // Colors
+            view.shareIcon.tintColor = theme.greyColor
             view.wrapperView.borderColor = theme.cardBorderColor
             view.webUrlView.textColor = theme.darkColor
             view.webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: theme.darkColor!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "geolock.png",
+      "filename" : "map_geoloc.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "geolock@2x.png",
+      "filename" : "map_geoloc@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "geolock@3x.png",
+      "filename" : "map_geoloc@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
