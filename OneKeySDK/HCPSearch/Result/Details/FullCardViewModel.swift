@@ -37,6 +37,7 @@ class FullCardViewModel {
             view.noLabel.text = "onekey_sdk_information_no_label".localized
             view.qualityTitleLabel.text = "onekey_sdk_improve_quality_label".localized
             view.editButtonTitleLabel.text = "onekey_sdk_suggess_modification_button".localized
+            view.qualityDescriptionLabel.text = "onekey_sdk_improve_quality_text".localized
             
             for titleLabel in view.titleLabels {
                 titleLabel.textColor = theme.secondaryColor
