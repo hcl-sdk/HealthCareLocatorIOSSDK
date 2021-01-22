@@ -164,9 +164,10 @@ class SearchInputViewController: UIViewController, ViewDesign {
                                       isNearMeSearch: Bool? = false) {
         var searchData: SearchData!
         if isNearMeSearch == true {
+            let mode: SearchData.Mode = (criteria == nil && code == nil) ? .quickNearMeSearch : .nearMeSearch
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,
-                                    mode: .nearMeSearch)
+                                    mode: mode)
         } else {
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,

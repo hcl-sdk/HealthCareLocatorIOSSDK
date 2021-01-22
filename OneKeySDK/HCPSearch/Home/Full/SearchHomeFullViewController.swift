@@ -72,6 +72,8 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
                 if let desVC = segue.destination as? SearchResultViewController {
                     if let data = sender as? SearchDataCore {
                         desVC.data = SearchData.from(core: data)
+                    } else if let search = sender as? SearchData {
+                        desVC.data = search
                     } else {
                         desVC.data = SearchData(criteria: nil,
                                                 codes: nil,
@@ -106,7 +108,7 @@ extension SearchHomeFullViewController: SearchHistoryDataSourceDelegate {
     func didSelectNearMeSearch() {
         let searchData = SearchData(criteria: nil,
                                     codes: OKManager.shared.searchConfigure?.favourites.map {Code(id: $0, longLbl: nil)},
-                                    mode: .nearMeSearch)
+                                    mode: .quickNearMeSearch)
         AppConfigure.save(search: searchData)
         performSegue(withIdentifier: "showResultVC", sender: searchData)
     }
