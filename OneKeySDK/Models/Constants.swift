@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 //
-let kDefaultZoomLevel: CLLocationDistance = 6000
+let kDefaultZoomLevel: CLLocationDistance = 2000
 
 //
 let kNearMeTitle = "onekey_sdk_near_me".localized

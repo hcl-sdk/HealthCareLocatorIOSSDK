@@ -13,7 +13,7 @@ class HCPCardCollectionViewController: UICollectionViewController, ViewDesign, A
     
     weak var delegate: ActivityHandler?
     
-    var selectedIndex: Int? {
+    var selectedIndexs: [Int]? {
         didSet {
             if isViewLoaded {
                 collectionView.reloadData()
@@ -50,7 +50,7 @@ class HCPCardCollectionViewController: UICollectionViewController, ViewDesign, A
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as!  HCPCardCollectionViewCell
-        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row], selected: selectedIndex == indexPath.row)
+        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row], selected: selectedIndexs?.contains(indexPath.row) == true)
         return cell
     }
 

@@ -71,6 +71,7 @@
 		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
 		58A8BD1B256F6E8C00DAEBF3 /* HCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */; };
 		58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B30B21258A24E90036442F /* Mock-Activity-Detail.json */; };
+		58B502BD25BE806400A327BB /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */; };
 		58B6A761255AA17F00C1F6AF /* OKHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */; };
 		58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */; };
 		58B6A76F255AA2CB00C1F6AF /* OKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* OKError.swift */; };
@@ -203,6 +204,7 @@
 		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
 		58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPFullCardViewController.swift; sourceTree = "<group>"; };
 		58B30B21258A24E90036442F /* Mock-Activity-Detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activity-Detail.json"; sourceTree = "<group>"; };
+		58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
 		58B6A760255AA17F00C1F6AF /* OKHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKHCPSearchWebServices.swift; sourceTree = "<group>"; };
 		58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIsProtocol.swift; sourceTree = "<group>"; };
 		58B6A76E255AA2CB00C1F6AF /* OKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKError.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 			children = (
 				5843946225594FC6009D2306 /* SearchResultMapViewController.swift */,
 				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
+				58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */,
 				5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */,
 				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
+				58B502BD25BE806400A327BB /* SearchResultClusterAnnotationView.swift in Sources */,
 				58CF586725760340001ACD6C /* AppConfigure.swift in Sources */,
 				583C1B6025AC3D9700CDB4F7 /* OKIconsConfigure.swift in Sources */,
 				589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */,

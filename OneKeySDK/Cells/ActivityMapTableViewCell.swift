@@ -26,7 +26,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
         let activityList = ActivityList(activities: activities)
         mapView.reload(annotations: activityList.getAnotations())
         if let location = center {
-            mapView.defaultZoomTo(location: location)
+            mapView.defaultZoomTo(location: location, distance: ActivityList(activities: activities).getFarestDistanceFrom(center: location))
         }
     }
     
