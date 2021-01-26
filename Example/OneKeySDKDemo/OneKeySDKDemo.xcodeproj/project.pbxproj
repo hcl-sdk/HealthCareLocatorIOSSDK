@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22B4E06B90B60754F28C7D89 /* Pods_OneKeySDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2CB2009D2B307496D19215E /* Pods_OneKeySDKDemo.framework */; };
+		211F7FA8CD43ED6C9298FB1B /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A491E2D8F85DC6A283D58525 /* Pods_OneKeySDKDemoTests.framework */; };
+		35AD27256FA6DDA09B26CE04 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE97CA8DA1AADF970CF935DA /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
 		5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
 		5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */; };
 		582BBDFF257FA786009BC23E /* UIFont+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBDFE257FA786009BC23E /* UIFont+Additional.swift */; };
@@ -55,8 +56,7 @@
 		58D465A4258CA0BC0084FA7A /* location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 58D465A3258CA0BC0084FA7A /* location.gpx */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
-		DC8C5B12DA86425E33665257 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB69FE734A777D370C07A824 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */; };
-		F886DE425A730ED548A6926B /* Pods_OneKeySDKDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038FAA2F58D199B01C4A3E1F /* Pods_OneKeySDKDemoTests.framework */; };
+		B161C5ADEEC4001E556D14C9 /* Pods_OneKeySDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FBA1D3D8E4D23F57F4094F1 /* Pods_OneKeySDKDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,10 +77,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		038FAA2F58D199B01C4A3E1F /* Pods_OneKeySDKDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21B7CC2C6FCED73D4B74A1F2 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3EF20C7918BD4F55626E05DB /* Pods-OneKeySDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		40CF106CE26888C986BC09F8 /* Pods-OneKeySDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		0A9A14AD7ED29869F6DBF4B1 /* Pods-OneKeySDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		0FBA1D3D8E4D23F57F4094F1 /* Pods_OneKeySDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9CFBE3D8FB0F370A3918A7 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
 		5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemesViewController.swift; sourceTree = "<group>"; };
 		582BBDFE257FA786009BC23E /* UIFont+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additional.swift"; sourceTree = "<group>"; };
@@ -134,11 +133,12 @@
 		58D465A3258CA0BC0084FA7A /* location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = location.gpx; sourceTree = "<group>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		7DD7486FEFA2B354CA4E2418 /* Pods-OneKeySDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC8F57FB25E1661D0E465E51 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		BB69FE734A777D370C07A824 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2CB2009D2B307496D19215E /* Pods_OneKeySDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4BF4EFFFF9C54EFFB374077 /* Pods-OneKeySDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		72A6932BD34DADE95C573CCD /* Pods-OneKeySDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemoTests/Pods-OneKeySDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		79059D40805B24CE22BD21B8 /* Pods-OneKeySDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A491E2D8F85DC6A283D58525 /* Pods_OneKeySDKDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89ADBAC3EEE57F2B063F3E4 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E5D1F140BD0D6AEF6386A3A4 /* Pods-OneKeySDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDKDemo.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FE97CA8DA1AADF970CF935DA /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22B4E06B90B60754F28C7D89 /* Pods_OneKeySDKDemo.framework in Frameworks */,
+				B161C5ADEEC4001E556D14C9 /* Pods_OneKeySDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F886DE425A730ED548A6926B /* Pods_OneKeySDKDemoTests.framework in Frameworks */,
+				211F7FA8CD43ED6C9298FB1B /* Pods_OneKeySDKDemoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,23 +162,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC8C5B12DA86425E33665257 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */,
+				35AD27256FA6DDA09B26CE04 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		044387A04307C50857AEBE22 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C2CB2009D2B307496D19215E /* Pods_OneKeySDKDemo.framework */,
-				BB69FE734A777D370C07A824 /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */,
-				038FAA2F58D199B01C4A3E1F /* Pods_OneKeySDKDemoTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5805F97E255A5CB400D93CD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +189,7 @@
 				58A364AD2555082000C62479 /* OneKeySDKDemoUITests */,
 				58A3648A2555081E00C62479 /* Products */,
 				5C25B71665839002B4EE617B /* Pods */,
-				044387A04307C50857AEBE22 /* Frameworks */,
+				F9E5151A4F013273792BA670 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -323,14 +313,24 @@
 		5C25B71665839002B4EE617B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3EF20C7918BD4F55626E05DB /* Pods-OneKeySDKDemo.debug.xcconfig */,
-				40CF106CE26888C986BC09F8 /* Pods-OneKeySDKDemo.release.xcconfig */,
-				AC8F57FB25E1661D0E465E51 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */,
-				21B7CC2C6FCED73D4B74A1F2 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */,
-				7DD7486FEFA2B354CA4E2418 /* Pods-OneKeySDKDemoTests.debug.xcconfig */,
-				C4BF4EFFFF9C54EFFB374077 /* Pods-OneKeySDKDemoTests.release.xcconfig */,
+				79059D40805B24CE22BD21B8 /* Pods-OneKeySDKDemo.debug.xcconfig */,
+				E5D1F140BD0D6AEF6386A3A4 /* Pods-OneKeySDKDemo.release.xcconfig */,
+				A89ADBAC3EEE57F2B063F3E4 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */,
+				3B9CFBE3D8FB0F370A3918A7 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */,
+				72A6932BD34DADE95C573CCD /* Pods-OneKeySDKDemoTests.debug.xcconfig */,
+				0A9A14AD7ED29869F6DBF4B1 /* Pods-OneKeySDKDemoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F9E5151A4F013273792BA670 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FBA1D3D8E4D23F57F4094F1 /* Pods_OneKeySDKDemo.framework */,
+				FE97CA8DA1AADF970CF935DA /* Pods_OneKeySDKDemo_OneKeySDKDemoUITests.framework */,
+				A491E2D8F85DC6A283D58525 /* Pods_OneKeySDKDemoTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +340,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B32555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemo" */;
 			buildPhases = (
-				4083F615D917A076D496293B /* [CP] Check Pods Manifest.lock */,
+				9CB6E251B888700972CB5A41 /* [CP] Check Pods Manifest.lock */,
 				58A364852555081E00C62479 /* Sources */,
 				58A364862555081E00C62479 /* Frameworks */,
 				58A364872555081E00C62479 /* Resources */,
-				19A1B4FB3B1CC5BA8A839CA5 /* [CP] Embed Pods Frameworks */,
+				AA742DA0C14C4A6A87BAB06F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -359,7 +359,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B62555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemoTests" */;
 			buildPhases = (
-				6BA3CE6597F889FD44EA1BC4 /* [CP] Check Pods Manifest.lock */,
+				647E7608D802EF19207DE21C /* [CP] Check Pods Manifest.lock */,
 				58A3649B2555082000C62479 /* Sources */,
 				58A3649C2555082000C62479 /* Frameworks */,
 				58A3649D2555082000C62479 /* Resources */,
@@ -378,11 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B92555082000C62479 /* Build configuration list for PBXNativeTarget "OneKeySDKDemoUITests" */;
 			buildPhases = (
-				FFC868048BA79F242FBB4F60 /* [CP] Check Pods Manifest.lock */,
+				923A0A8B583993EB05DC764F /* [CP] Check Pods Manifest.lock */,
 				58A364A62555082000C62479 /* Sources */,
 				58A364A72555082000C62479 /* Frameworks */,
 				58A364A82555082000C62479 /* Resources */,
-				242C89BE3388C68CA10288A5 /* [CP] Embed Pods Frameworks */,
+				279729C5639457F5878708D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,24 +468,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		19A1B4FB3B1CC5BA8A839CA5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		242C89BE3388C68CA10288A5 /* [CP] Embed Pods Frameworks */ = {
+		279729C5639457F5878708D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -502,29 +485,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo-OneKeySDKDemoUITests/Pods-OneKeySDKDemo-OneKeySDKDemoUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4083F615D917A076D496293B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6BA3CE6597F889FD44EA1BC4 /* [CP] Check Pods Manifest.lock */ = {
+		647E7608D802EF19207DE21C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,7 +507,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFC868048BA79F242FBB4F60 /* [CP] Check Pods Manifest.lock */ = {
+		923A0A8B583993EB05DC764F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,6 +527,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CB6E251B888700972CB5A41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneKeySDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA742DA0C14C4A6A87BAB06F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OneKeySDKDemo/Pods-OneKeySDKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -787,7 +787,7 @@
 		};
 		58A364B42555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EF20C7918BD4F55626E05DB /* Pods-OneKeySDKDemo.debug.xcconfig */;
+			baseConfigurationReference = 79059D40805B24CE22BD21B8 /* Pods-OneKeySDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -808,7 +808,7 @@
 		};
 		58A364B52555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40CF106CE26888C986BC09F8 /* Pods-OneKeySDKDemo.release.xcconfig */;
+			baseConfigurationReference = E5D1F140BD0D6AEF6386A3A4 /* Pods-OneKeySDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -829,7 +829,7 @@
 		};
 		58A364B72555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD7486FEFA2B354CA4E2418 /* Pods-OneKeySDKDemoTests.debug.xcconfig */;
+			baseConfigurationReference = 72A6932BD34DADE95C573CCD /* Pods-OneKeySDKDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -852,7 +852,7 @@
 		};
 		58A364B82555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4BF4EFFFF9C54EFFB374077 /* Pods-OneKeySDKDemoTests.release.xcconfig */;
+			baseConfigurationReference = 0A9A14AD7ED29869F6DBF4B1 /* Pods-OneKeySDKDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -875,7 +875,7 @@
 		};
 		58A364BA2555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC8F57FB25E1661D0E465E51 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */;
+			baseConfigurationReference = A89ADBAC3EEE57F2B063F3E4 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -896,7 +896,7 @@
 		};
 		58A364BB2555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21B7CC2C6FCED73D4B74A1F2 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */;
+			baseConfigurationReference = 3B9CFBE3D8FB0F370A3918A7 /* Pods-OneKeySDKDemo-OneKeySDKDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
