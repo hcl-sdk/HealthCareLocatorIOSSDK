@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */; };
 		58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */; };
 		58091C692588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */; };
 		58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */; };
@@ -137,7 +136,6 @@
 /* Begin PBXFileReference section */
 		2A943288E8B4ADB0D0D2B606 /* Pods-OneKeySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK/Pods-OneKeySDK.release.xcconfig"; sourceTree = "<group>"; };
 		358A41ADC4BAB55B22E4961D /* Pods-OneKeySDK-OneKeySDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; path = "Target Support Files/Pods-OneKeySDK-OneKeySDKTests/Pods-OneKeySDK-OneKeySDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkManagerDelegate.swift; sourceTree = "<group>"; };
 		58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
 		58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodeAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
 		58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 				58B6A752255A9D2100C1F6AF /* Models */,
 				58A364D72555436000C62479 /* HCPSearch */,
 				58A364712554F66900C62479 /* OKManager.swift */,
-				5805F993255A8A0D00D93CD0 /* OkManagerDelegate.swift */,
 				58A364702554F66800C62479 /* OkManagerProtocol.swift */,
 				58A364572554F64700C62479 /* OneKeySDK.h */,
 				58A364582554F64700C62479 /* Info.plist */,
@@ -819,7 +816,6 @@
 				58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */,
 				589553D92595FF9600DDE2FF /* SearchInputDataSource.swift in Sources */,
 				58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */,
-				5805F994255A8A0D00D93CD0 /* OkManagerDelegate.swift in Sources */,
 				58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */,
 				5876089B256E666800F44787 /* OKSearchConfigure.swift in Sources */,
 				587D2307256515680009EA01 /* OKServiceManager.swift in Sources */,

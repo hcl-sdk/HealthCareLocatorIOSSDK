@@ -37,14 +37,12 @@ class SearchViewController: UIViewController {
                                            voteUpIcon: UIImage(named: "iconStar")!,
                                            voteDownIcon: UIImage(named: "iconStar")!,
                                            noResults: UIImage(named: "iconStar")!)
-        //        shared.configure(search: OKSearchConfigure(favourites: Specialities.allCases.map {$0.code}))
         shared.setLocale(lang: AppSettings.language.rawValue)
         shared.set(appName: "Caretiny", appDownloadLink: "https://www.example.com")
         shared.initialize(apiKey: AppSettings.APIKey ?? "",
                           configure: config,
                           theme: AppSettings.selectedTheme.sdkThemeConfigure) {[weak self] (success, error) in
             if success {
-                shared.delegate = self
                 self?.initSearchUI()
             } else {
                 let alertView = UIAlertController(title: "Error", message: "Unknow error", preferredStyle: .alert)
@@ -86,14 +84,4 @@ class SearchViewController: UIViewController {
     }
     */
 
-}
-
-
-extension SearchViewController: OkManagerDelegate {
-    func HCPSearchWasCancelled() {
-        for childVC in children {
-            childVC.view.removeFromSuperview()
-            childVC.removeFromParent()
-        }
-    }
 }

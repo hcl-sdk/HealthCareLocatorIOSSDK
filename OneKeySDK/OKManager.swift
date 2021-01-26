@@ -9,15 +9,23 @@ import Foundation
 import UIKit
 
 /**
- The manager class
+ The manager class which control UI customization and access ability of the SDK
  - Example:  This show how to use the **OKManager**
  
  ````
     let manager = OKManager.share
-    manager.test()
+    manager.initialize(apiKey: <YOUR_API_KEY>,
+                       configure: <SEARCH_CONFIGURATION_BASE_ON_YOUR_BUSINESS>,
+                       theme: <FONT_AND_COLOR_CUSTOMIZATION>,
+                       icons: <ICONS_CUSTOMIZATION>,
+                       handler: <CALLBACK_TO_HANDLE_INITILAZATION_RESULT>)
+    let searchHCPVC = manager.getHCPSearchViewController()
+    present(searchHCPVC, animated: true)
  ````
  - Note:
- This is just an example first look of the sdk
+Except the api key, all of other params is optional so you can simple start a new searching just by providing the api key
+ - Important:
+ The search view should be access through OKManager instance, don't try to create *OKHCPSearchNavigationViewController* your-self
  */
 public class OKManager: NSObject, OKSDKConfigure {
     
@@ -31,13 +39,6 @@ public class OKManager: NSObject, OKSDKConfigure {
     private(set) var themConfigure: OKThemeConfigure?
     private(set) var iconsConfigure: OKIconsConfigure?
     private(set) var lang: String!
-
-    /**
-     The callback handler of the manager, setup this property and implement *OkManagerDelegate* to listen for the event of search process
-     - Note:
-        **OKManager** only support one delegate at the same time so the latest object set to this property will cause the previous setup is replaced
-     */
-    weak public var delegate: OkManagerDelegate?
     
     private override init() {
         self.lang = NSLocale.preferredLanguages.first ?? "en"
@@ -100,6 +101,8 @@ extension OKManager: OkManagerProtocol {
     
     /**
      The configuration for HCP/HCO searching
+     - Parameters:
+        - search:Customize searching by provide your own values
      */
     public func configure(search: OKSearchConfigure?) {
         self.searchConfigure = search
@@ -115,26 +118,27 @@ extension OKManager: OkManagerProtocol {
     
     /**
      Change displayed language for the SDK
-        - Example:
-     ````
-     OKManager.shared.setLocale(lang: "en")
-     ````
+     - Parameters:
+        - lang: Language code
      - Note: By default the SDK will use the device language, if the device langue is not in supported range, the language will fallback to English
+     - Important:
+    The language code should be one of the supported language: en, fr_CA
      */
     public func setLocale(lang: String) {
         self.lang = lang
     }
     
     /**
-     The default configuration for HCP/HCO searching will be use if no configure set
+     The default configuration for HCP/HCO searching will be used if no configure set
      */
     public func getDefaultSearchConfigure() -> OKSearchConfigure {
         return OKSearchConfigure()
     }
     
     /**
-     Retrive the instant for the HCP search process
-     - Returns: The navigation controller of the search HCP process
+     Retrive the root instant for the HCP search screens
+     - Returns:
+        - OKHCPSearchNavigationViewController: The navigation controller of the search HCP process
      */
     public func getHCPSearchViewController() -> OKHCPSearchNavigationViewController {
         let searchVC = OKHCPSearchNavigationViewController()
@@ -145,12 +149,22 @@ extension OKManager: OkManagerProtocol {
     
     /**
      Retrive the default theme configuration for the user interface displaying
-     - Returns: An object of type *OKThemeConfigure* which can be use to configure for the search component UI
+     - Returns:
+        - OKThemeConfigure: An object  which can be used to configure for the screens displaying
      */
     public func getDefaultUIConfigure() -> OKThemeConfigure {
         return OKThemeConfigure()
     }
     
+    /**
+     Start a new search quickly after attaching the search navigation into your app's UI
+     - Example:
+    Depend on your business, sometimes you may want to display a searching quickly from you own UI component like menus or buttons...
+     - Parameters:
+        - specialities: The list of specialities which you want to search for
+     - Returns: a boolen value to indicate the action is success or not
+     - Note: The result may be failed of you're not attach the root search navigation to your screen yet.
+     */
     @discardableResult
     public func searchNearMe(specialities: [String]) -> Bool {
         if let searchVC = searchNavigationController,

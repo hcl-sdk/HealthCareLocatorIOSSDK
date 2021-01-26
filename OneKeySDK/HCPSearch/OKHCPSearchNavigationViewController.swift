@@ -8,16 +8,17 @@
 import UIKit
 
 /**
- The instance of the HCP search navigation controller, by default this instance process the whole search process internally, implement *OKManagerDelegateProtocol* to listen for its callbacks
+ The root UI to  begin the whole search process internally
  - Example:  This show how to use the **OKHCPSearchNavigationViewController**
  
  ````
     let manager = OKManager.share
-    manager.delegate = self
-    let searchHCPVC = manager.OKHCPSearchNavigationViewController()
+    let searchHCPVC = manager.getHCPSearchViewController()
     present(searchHCPVC, animated: true)
  ````
  - Note:
+ The user interface could be configure through settings of *theme* and *icons* while the initilazing the **OKManager** instance
+ - Important:
  Should create the *OKHCPSearchNavigationViewController* through *OKManager* instead of using it constructor directly
  */
 public class OKHCPSearchNavigationViewController: UINavigationController {
@@ -28,7 +29,7 @@ public class OKHCPSearchNavigationViewController: UINavigationController {
         layoutWith(theme: theme)
     }
     
-    public func configure(search: OKSearchConfigure) {
+    func configure(search: OKSearchConfigure) {
         switch search.entry {
         case .home,
              .none:

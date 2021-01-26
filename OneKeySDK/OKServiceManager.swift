@@ -8,7 +8,7 @@
 import UIKit
 import Apollo
 
-public class OKServiceManager: NSObject {
+class OKServiceManager: NSObject {
 
     static let shared = OKServiceManager()
     private var apiKey: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum OKError: LocalizedError {
+enum OKError: LocalizedError {
     case initializeConfigureValidateFailed
     case queryActivitiesFailed
     case locationAccessDenined

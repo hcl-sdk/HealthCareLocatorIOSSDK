@@ -8,15 +8,15 @@
 import Foundation
 import Apollo
 
-public class OKHCPSearchWebServices: SearchAPIsProtocol {
+class OKHCPSearchWebServices: SearchAPIsProtocol {
     
     private let manager: OKServiceManager!
     
-    public required init(manager: OKServiceManager) {
+    required init(manager: OKServiceManager) {
         self.manager = manager
     }
     
-    public func fetchActivityWith(id: String!,
+    func fetchActivityWith(id: String!,
                            locale: String?,
                            userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
@@ -39,7 +39,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
     }
     
 
-    public func fetchCodesByLabel(info: GeneralQueryInput,
+    func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
                            userId: String?,
@@ -65,7 +65,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
         }
     }
     
-    public func fetchIndividualsByNameWith(info: GeneralQueryInput,
+    func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
                                     userId: String?,
@@ -90,7 +90,7 @@ public class OKHCPSearchWebServices: SearchAPIsProtocol {
         }
     }
     
-    public func fetchActivitiesWith(info: GeneralQueryInput,
+    func fetchActivitiesWith(info: GeneralQueryInput,
                              specialties: [String]?,
                              location: GeopointQuery?,
                              county: String?,

@@ -8,6 +8,28 @@
 import Foundation
 import UIKit
 
+/**
+ The theme configuration object which can be used to customize user interface for the screen of the seaching process
+````
+ let theme = OKThemeConfigure(defaultFont: UIFont(name: "HelveticaNeue", size: 14.0),
+                              titleMainFont: UIFont(name: "HelveticaNeue", size: 20.0),
+                              titleSecondaryFont: UIFont(name: "HelveticaNeue-Medium", size: 16.0),
+                              searchResultTotalFont: UIFont(name: "HelveticaNeue-Medium", size: 14.0),
+                              searchResultTitleFont: UIFont(name: "HelveticaNeue", size: 16.0),...
+ let manager = OkManager.shared
+ manager.initialize(apiKey: <YOUR_API_KEY>, theme: theme)
+ ````
+ - Note:
+ All of the properties of the theme configuration are optional, if the values is not set then a default value will be load to the UI
+ - Important:
+ Assign the them configuration while init the **OkManager** and before adding search screens into your app, If the theme configuration is not provided during initilization of **OkManager**, a default theme will be loaded into the UI
+ 
+ Reference to the
+ 
+ [document]: https://appnucleus.dvnet.com/onekey-sdk-help/index.htm#t=About_customizing_pre-built_search_screens.htm%23Home_screen_full_size_&rhsearch=ios&rhsyns=%20  "Theme configuration"
+ 
+ to get more detail how the theme value will be used
+ */
 public struct OKThemeConfigure {
 
     // MARK: Fonts
@@ -51,24 +73,24 @@ public struct OKThemeConfigure {
     public let greyLightColor: UIColor!
     public let greyLighterColor: UIColor!
 
-    public init(defaultFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
-                titleMainFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
-                titleSecondaryFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 16.0),
-                searchResultTotalFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 14.0),
-                searchResultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                resultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
-                resultSubTitleFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
-                profileTitleFont: UIFont? = UIFont(name: "Helvetica", size: 18.0),
-                profileSubTitleFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                profileTitleSectionFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                cardTitleFont: UIFont? = UIFont(name: "Helvetica-Medium", size: 16.0),
-                modalTitleFont: UIFont? = UIFont(name: "Helvetica", size: 18.0),
-                searchInputFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                sortCriteriaFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
-                buttonFont: UIFont? = UIFont(name: "Helvetica", size: 14.0),
-                smallFont: UIFont? = UIFont(name: "Helvetica", size: 12.0),
-                noResultTitleFont: UIFont? = UIFont(name: "Helvetica", size: 20.0),
-                noResultDescFont: UIFont? = UIFont(name: "Helvetica", size: 16.0),
+    public init(defaultFont: UIFont? = UIFont(name: "HelveticaNeue", size: 14.0),
+                titleMainFont: UIFont? = UIFont(name: "HelveticaNeue", size: 20.0),
+                titleSecondaryFont: UIFont? = UIFont(name: "HelveticaNeue-Medium", size: 16.0),
+                searchResultTotalFont: UIFont? = UIFont(name: "HelveticaNeue-Medium", size: 14.0),
+                searchResultTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
+                resultTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 14.0),
+                resultSubTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 14.0),
+                profileTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 18.0),
+                profileSubTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
+                profileTitleSectionFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
+                cardTitleFont: UIFont? = UIFont(name: "HelveticaNeue-Medium", size: 16.0),
+                modalTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 18.0),
+                searchInputFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
+                sortCriteriaFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
+                buttonFont: UIFont? = UIFont(name: "HelveticaNeue", size: 14.0),
+                smallFont: UIFont? = UIFont(name: "HelveticaNeue", size: 12.0),
+                noResultTitleFont: UIFont? = UIFont(name: "HelveticaNeue", size: 20.0),
+                noResultDescFont: UIFont? = UIFont(name: "HelveticaNeue", size: 16.0),
                 primaryColor: UIColor? = UIColor(red: 67/255, green: 176/255, blue: 42/255, alpha: 1),
                 secondaryColor: UIColor? = UIColor(red: 0/255, green: 163/255, blue: 224/255, alpha: 1),
                 buttonBkgColor: UIColor? = UIColor(red: 252/255, green: 252/255, blue: 252/255, alpha: 1),

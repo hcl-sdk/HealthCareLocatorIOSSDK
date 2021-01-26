@@ -7,17 +7,17 @@
 
 import Foundation
 
-public struct CodeResult: Codable {
+struct CodeResult: Codable {
     let codes: [Code]?
 }
 
-public struct Code: Codable {
+struct Code: Codable {
     let id: String!
     let longLbl: String?
 }
 
 extension Code: Equatable {
-    public static func == (lhs: Code, rhs: Code) -> Bool {
+    static func == (lhs: Code, rhs: Code) -> Bool {
         return lhs.id == rhs.id
     }
 }

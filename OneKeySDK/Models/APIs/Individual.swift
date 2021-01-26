@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct IndividualResult: Codable {
+struct IndividualResult: Codable {
     let individuals: [IndividualWorkPlaceDetails]?
 }
 
-public struct IndividualWorkPlaceDetails: Codable {
+struct IndividualWorkPlaceDetails: Codable {
     struct Activity: Codable {
         let id: String!
         let workplace: Workplace?
@@ -28,7 +28,7 @@ public struct IndividualWorkPlaceDetails: Codable {
     let mainActivity: IndividualWorkPlaceDetails.Activity!
 }
 
-public extension IndividualWorkPlaceDetails {
+extension IndividualWorkPlaceDetails {
     var composedName: String {
         guard let mailingName = mailingName else {
             return String(format: "%@ %@ %@", firstName ?? "", middleName ?? "", lastName)

@@ -8,6 +8,26 @@
 import Foundation
 import UIKit
 
+/**
+ The icons configuration object which can be used to customize icons for the screen of the seaching process
+````
+ let icons = OKThemeConfigure(searchIcon: UIImage(named: "search-icon")!,
+                              profileIcon: UIImage(named: "profile"),...
+ let manager = OkManager.shared
+ manager.initialize(apiKey: <YOUR_API_KEY>, icons: icons)
+ ````
+ - Note:
+ All of the properties of the icons configuration are optional, if the values is not set then a default value will be load to the UI
+ - Important:
+ Assign the icons configuration while init the **OkManager** and before adding search screens into your app, If the icons configuration is not provided during initilization of **OkManager**, a default icons set will be loaded into the UI
+ 
+ Reference to the
+ 
+ [document]: https://appnucleus.dvnet.com/onekey-sdk-help/index.htm#t=About_customizing_pre-built_search_screens.htm%23Home_screen_full_size_&rhsearch=ios&rhsyns=%20  "icons configuration"
+ 
+ to get more detail how the icons will be used
+ */
+
 public struct OKIconsConfigure {
     let searchIcon: UIImage!
     let profileIcon: UIImage!
