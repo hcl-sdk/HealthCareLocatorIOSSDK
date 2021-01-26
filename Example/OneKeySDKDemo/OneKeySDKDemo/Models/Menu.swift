@@ -20,7 +20,6 @@ enum Menu {
     static let allMainMenus = [Menu.textMenu(title: kMenuHomeTitle, value: nil),
                                Menu.textMenu(title: kMenuNewSearchTitle, value: nil),
                                Menu.textMenu(title: kMenuNewNearMeSearchTitle, value: nil),
-//                               Menu.textMenu(title: kMenuNewSearchFailedTitle, value: nil),
                                Menu.textMenu(title: kMenuSettingsTitle, value: nil)]
     
     static let preconfiguredSearchMenus = [Menu.textMenu(title: kMenuPreConfiguredNearMeSearch1Title, value: nil),

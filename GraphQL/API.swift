@@ -223,7 +223,6 @@ public final class IndividualsByNameQuery: GraphQLQuery {
         individuals {
           __typename
           id
-          title
           firstName
           lastName
           middleName
@@ -364,7 +363,6 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-            GraphQLField("title", type: .scalar(String.self)),
             GraphQLField("firstName", type: .scalar(String.self)),
             GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("middleName", type: .scalar(String.self)),
@@ -381,8 +379,8 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty], mainActivity: MainActivity) {
-          self.init(unsafeResultMap: ["__typename": "IndividualWorkPlaceDetails", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap])
+        public init(id: GraphQLID, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty], mainActivity: MainActivity) {
+          self.init(unsafeResultMap: ["__typename": "IndividualWorkPlaceDetails", "id": id, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap])
         }
 
         public var __typename: String {
@@ -400,15 +398,6 @@ public final class IndividualsByNameQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "id")
-          }
-        }
-
-        public var title: String? {
-          get {
-            return resultMap["title"] as? String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "title")
           }
         }
 
@@ -934,7 +923,6 @@ public final class ActivitiesQuery: GraphQLQuery {
           individual {
             __typename
             id
-            title
             firstName
             lastName
             middleName
@@ -1158,7 +1146,6 @@ public final class ActivitiesQuery: GraphQLQuery {
             return [
               GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
               GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-              GraphQLField("title", type: .scalar(String.self)),
               GraphQLField("firstName", type: .scalar(String.self)),
               GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
               GraphQLField("middleName", type: .scalar(String.self)),
@@ -1174,8 +1161,8 @@ public final class ActivitiesQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID, title: String? = nil, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty]) {
-            self.init(unsafeResultMap: ["__typename": "IndividualFragment", "id": id, "title": title, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }])
+          public init(id: GraphQLID, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty]) {
+            self.init(unsafeResultMap: ["__typename": "IndividualFragment", "id": id, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }])
           }
 
           public var __typename: String {
@@ -1193,15 +1180,6 @@ public final class ActivitiesQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "id")
-            }
-          }
-
-          public var title: String? {
-            get {
-              return resultMap["title"] as? String
-            }
-            set {
-              resultMap.updateValue(newValue, forKey: "title")
             }
           }
 

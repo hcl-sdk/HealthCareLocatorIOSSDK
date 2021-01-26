@@ -106,7 +106,8 @@ class SearchResultViewModel: ViewLoading {
                                                completionHandler: completionHandler)
             } else {
                 print(error)
-                // TODO: Handle error
+                // Can not detect location
+                completionHandler([], nil)
             }
         }
     }

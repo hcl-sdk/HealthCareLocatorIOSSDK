@@ -12,9 +12,10 @@ import CoreLocation
 extension MKMapView {
     func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
         let distanceForRegion = distance*1.1*2
+        let maxDistance: CLLocationDistance = 1000000 // 1000km
         setRegion(MKCoordinateRegion(center: location,
-                                     latitudinalMeters: distanceForRegion,
-                                     longitudinalMeters: distanceForRegion),
+                                     latitudinalMeters: min(maxDistance, distanceForRegion),
+                                     longitudinalMeters: min(maxDistance, distanceForRegion)),
                   animated: false)
     }
     

@@ -11,7 +11,6 @@ let kMenuHomeTitle = "Home"
 
 let kMenuNewSearchTitle = "New Search Home"
 let kMenuNewNearMeSearchTitle = "New Search Near Me"
-let kMenuNewSearchFailedTitle = "New Search Initialize Failed"
 
 let kMenuSettingsTitle = "Settings"
 let kMenuPreConfiguredNearMeSearch1Title = "Search Pharmacy Around"

@@ -108,7 +108,7 @@ extension SearchInputAutocompleteViewModel {
         set(isNearMeSearch: data.isNearMeSearch)
     }
     
-    func set(criteria: String) {
+    func set(criteria: String?) {
         self.creteria = criteria
         self.selectedCode = nil
     }

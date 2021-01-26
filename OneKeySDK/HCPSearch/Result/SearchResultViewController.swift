@@ -156,6 +156,10 @@ class SearchResultViewController: UIViewController, ViewDesign {
     func layoutWith(searchData: SearchData) {
         criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria
         switch searchData.mode {
+        case .baseSearch:
+            topInputWrapper.isHidden = false
+            topLabelsWrapper.isHidden = true
+            mode = .list
         case .quickNearMeSearch:
             addressLabel.text = kNearMeTitle
             topInputWrapper.isHidden = false

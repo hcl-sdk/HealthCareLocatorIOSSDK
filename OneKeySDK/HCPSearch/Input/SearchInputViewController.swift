@@ -168,10 +168,14 @@ class SearchInputViewController: UIViewController, ViewDesign {
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,
                                     mode: mode)
+        } else if let unwrapAddress = address, !unwrapAddress.isEmpty {
+            searchData = SearchData(criteria: criteria,
+                                    codes: code != nil ? [code!] : nil,
+                                    mode: .addressSearch(address: unwrapAddress))
         } else {
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,
-                                    mode: .addressSearch(address: address.orEmpty))
+                                    mode: .baseSearch)
         }
         
         // Save last search
@@ -237,6 +241,14 @@ extension SearchInputViewController: UITextFieldDelegate {
                 searchInputAutocompleteModelView.set(criteria: searchText)
                 searchInput = searchText
             }
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == categorySearchTextField {
+            searchInputAutocompleteModelView.set(criteria: nil)
         }
         
         return true

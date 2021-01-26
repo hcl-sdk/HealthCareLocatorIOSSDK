@@ -26,6 +26,7 @@ struct SearchDataCore: Codable, Equatable {
 
 struct SearchData {
     enum Mode {
+        case baseSearch
         case addressSearch(address: String)
         case nearMeSearch
         case quickNearMeSearch
@@ -91,6 +92,13 @@ extension SearchData: Equatable {
 extension SearchData.Mode: Equatable  {
     static func == (lhs: SearchData.Mode, rhs: SearchData.Mode) -> Bool {
         switch lhs {
+        case .baseSearch:
+            switch rhs {
+            case .baseSearch:
+                return true
+            default:
+                return false
+            }
         case .addressSearch(let addressLhs):
             switch rhs {
             case .addressSearch(let addressRhs):
