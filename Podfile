@@ -1,17 +1,17 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'OneKeySDK' do
+target 'HealthCareLocatorSDK' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for OneKeySDK
+  # Pods for HealthCareLocatorSDK
   pod 'Apollo'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxSwiftExt'
 
-  target 'OneKeySDKTests' do
+  target 'HealthCareLocatorSDKTests' do
     # Pods for testing
   end
   
