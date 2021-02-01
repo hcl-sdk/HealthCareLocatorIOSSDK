@@ -12,7 +12,7 @@ prepare:install-pods:
   except:
     - tags
   before_script:
-    - cd ./Example/OneKeySDKDemo/
+    - cd ./Example/HealthCareLocatorSDKDemo/
   script:
     - bundle install
     - bundle exec pod install
@@ -27,7 +27,7 @@ prepare:install-pods:
     name: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_SLUG}_dependencies"
     expire_in: 1 hour
     paths:
-      - ./Example/OneKeySDKDemo/Pods/
+      - ./Example/HealthCareLocatorSDKDemo/Pods/
       # - Pods/
 
 prepare:clean:
@@ -38,10 +38,10 @@ prepare:clean:
   except:
     - tags
   before_script:
-    - cd ./Example/OneKeySDKDemo/
+    - cd ./Example/HealthCareLocatorSDKDemo/
   script:
     - rm -rf reports build ~/Library/Developer/Xcode/DerivedData/Spacetime*
-    - xcodebuild clean -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo | xcpretty
+    - xcodebuild clean -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo | xcpretty
 
 test:
   interruptible: true
@@ -52,10 +52,10 @@ test:
     - tags
   script:
     - pod install
-    - xcodebuild test -workspace OneKeySDK.xcworkspace -scheme OneKeySDK -configuration Debug -derivedDataPath build -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.2.2" -enableCodeCoverage YES | xcpretty -s
+    - xcodebuild test -workspace HealthCareLocatorSDK.xcworkspace -scheme HealthCareLocatorSDK -configuration Debug -derivedDataPath build -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.2.2" -enableCodeCoverage YES | xcpretty -s
   allow_failure: true
   artifacts:
-    name: "OneKeySDK_tests"
+    name: "HealthCareLocatorSDK_tests"
     expire_in: 1 hour
     paths:
       - build/Logs/Test/*
@@ -74,7 +74,7 @@ build:mr:
     - hotfixes
     - tags
   script:
-    - xcodebuild build -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo -configuration Release -derivedDataPath build -allowProvisioningUpdates | xcpretty -s
+    - xcodebuild build -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo -configuration Release -derivedDataPath build -allowProvisioningUpdates | xcpretty -s
   needs:
     - job: prepare:install-pods
       artifacts: true
@@ -86,16 +86,16 @@ build:dev:
     - develop
   script:
     - ls
-    - xcodebuild archive -workspace OneKeySDKDemo.xcworkspace -scheme OneKeySDKDemo -configuration Release -archivePath build/OneKeySDKDemo.xcarchive -derivedDataPath build -allowProvisioningUpdates | xcpretty -s;
-    - xcodebuild -exportArchive -archivePath "build/OneKeySDKDemo.xcarchive" -exportOptionsPlist exportInHouseOptions.plist -exportPath build -allowProvisioningUpdates | xcpretty -s;
-    - ditto -c -k -rsrc build/OneKeySDKDemo.xcarchive/dSYMs build/OneKeySDKDemo-dSYM.zip
+    - xcodebuild archive -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo -configuration Release -archivePath build/HealthCareLocatorSDKDemo.xcarchive -derivedDataPath build -allowProvisioningUpdates | xcpretty -s;
+    - xcodebuild -exportArchive -archivePath "build/HealthCareLocatorSDKDemo.xcarchive" -exportOptionsPlist exportInHouseOptions.plist -exportPath build -allowProvisioningUpdates | xcpretty -s;
+    - ditto -c -k -rsrc build/HealthCareLocatorSDKDemo.xcarchive/dSYMs build/HealthCareLocatorSDKDemo-dSYM.zip
   artifacts:
     name: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_SLUG}_release-dev"
     expire_in: 30 days
     paths:
-      - ./Example/OneKeySDKDemo/build/OneKeySDKDemo.ipa
-      - ./Example/OneKeySDKDemo/build/OneKeySDKDemo-dSYM.zip
-      - ./Example/OneKeySDKDemo/build/OneKeySDKDemo.xcarchive
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo.ipa
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo-dSYM.zip
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo.xcarchive
 
 deploy:dev:
   extends: .deploy
@@ -104,7 +104,7 @@ deploy:dev:
   script:
     - ls
     - ls ./build
-    - VERSION=$(/usr/libexec/PlistBuddy -c "Print :ApplicationProperties:CFBundleShortVersionString" "${PWD}/build/OneKeySDKDemo.xcarchive/Info.plist") bundle exec fastlane dev_deploy
+    - VERSION=$(/usr/libexec/PlistBuddy -c "Print :ApplicationProperties:CFBundleShortVersionString" "${PWD}/build/HealthCareLocatorSDKDemo.xcarchive/Info.plist") bundle exec fastlane dev_deploy
   needs:
     - job: build:dev
       artifacts: true
@@ -116,7 +116,7 @@ deploy:dev:
   tags:
     - ios
   before_script:
-    - cd ./Example/OneKeySDKDemo/
+    - cd ./Example/HealthCareLocatorSDKDemo/
     - rm -rf container/*
     - /usr/bin/agvtool new-version -all $CI_PIPELINE_IID
   allow_failure: false
@@ -132,9 +132,9 @@ deploy:dev:
     BUILD_NUMBER: "${CI_PIPELINE_IID}"
   before_script:
     # Force to use SSH (for tags pushing)
-    - git remote set-url origin git@gitlab.ekino.com:iqvia/OneKeySDK-iOS.git
+    - git remote set-url origin git@gitlab.ekino.com:iqvia/HealthCareLocatorSDK-iOS.git
     - git fetch --all --tags
-    - cd ./Example/OneKeySDKDemo/
+    - cd ./Example/HealthCareLocatorSDKDemo/
     - bundle install
     - bundle update fastlane
   allow_failure: false
