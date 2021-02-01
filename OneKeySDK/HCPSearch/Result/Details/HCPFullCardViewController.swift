@@ -77,6 +77,8 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var noLabel: UILabel!
     
     // Improve the data quality
+    
+    @IBOutlet weak var suggestEditWrapper: UIStackView!
     @IBOutlet weak var qualityTitleLabel: UILabel!
     @IBOutlet weak var qualityDescriptionLabel: UILabel!
     
@@ -92,6 +94,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        suggestEditWrapper.isHidden = !OKManager.shared.isSuggestEditHCPEnable        
         contentWrapper.isHidden = true
         loadingView.isHidden = false
         loadingIndicator.startAnimating()
@@ -187,7 +190,12 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func modifyAction(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://www.ekino.vn")!, options: [:], completionHandler: nil)
+        let manager = OKManager.shared
+        if let apiKey = manager.apiKey,
+           let language = manager.lang,
+           let individualID = activity?.individual.id {
+            fullCardViewModel.suggestModification(apiKey: apiKey, language: language, individualID: individualID)
+        }
     }
     
     // MARK: - Navigation

@@ -182,4 +182,11 @@ class FullCardViewModel {
             }
         }
     }
+    
+    func suggestModification(apiKey: String, language: String, individualID: String) {
+        let formatedLanguage = language == "fr" ? "fr" : "en"
+        let urlString = String(format: AppConfigure.kModifyActivityURLFormat, formatedLanguage, apiKey, individualID)
+        guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {return}
+        UIApplication.shared.open(url)
+    }
 }

@@ -86,7 +86,7 @@ extension HomeViewController: MenuTableViewControllerDelegate {
             case kMenuHomeTitle:
                 homeNavigationController.popToRootViewController(animated: true)
             case kMenuNewSearchTitle:
-                handleStartNewSearch()
+                handleStartNewSearch(config: OKSearchConfigure())
             case kMenuNewNearMeSearchTitle:
                 handleStartNewSearch(config: OKSearchConfigure(entry: .nearMe,
                                                                favourites: Specialities.allCases.map {$0.code}))

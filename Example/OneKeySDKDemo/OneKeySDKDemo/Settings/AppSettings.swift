@@ -16,6 +16,7 @@ class AppSettings {
         case selectedThemeMenu
         case selectedTheme
         case language
+        case isSuggestEditHCPEnabled
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -103,6 +104,17 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue.rawValue, for: Key.language.rawValue)
+        }
+    }
+    
+    static var isSuggestEditHCPEnabled: Bool {
+        get {
+            guard let val = AppSettings.getValueFor(key: Key.isSuggestEditHCPEnabled.rawValue) as? String else {return true}
+            return val == "true"
+        }
+        
+        set {
+            AppSettings.set(value: newValue ? "true" : "false", for: Key.isSuggestEditHCPEnabled.rawValue)
         }
     }
 }

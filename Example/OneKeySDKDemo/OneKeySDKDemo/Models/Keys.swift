@@ -18,6 +18,8 @@ let kMenuPreConfiguredNearMeSearch2Title = "Search Dental Anesthesiology Around"
 
 let kMenuAPIKeyTitle = "API Key"
 let kMenuThemeTitle = "Theme"
+let kMenuSuggestEditHCPEnabledTitle = "Suggest Edit HCP"
+let kMenuEnableEditHCPTitle = "Show HCP suggest modification"
 let kMenuRedThemeTitle = "Red"
 let kMenuGreenThemeTitle = "Green"
 let kMenuBlueThemeTitle = "Blue"

@@ -46,6 +46,10 @@ class SettingsViewController: UIViewController {
         let languageSection = MenuSection(title: kMenuLanguageTitle,
                                           menus: [Menu.detailMenu(title: AppSettings.language.title)], colapsedLimit: nil)
         
+        let editHCPSection = MenuSection(title: kMenuSuggestEditHCPEnabledTitle,
+                                         menus: [Menu.toggleMenu(title: kMenuEnableEditHCPTitle, isOn: AppSettings.isSuggestEditHCPEnabled)],
+                                         colapsedLimit: nil)
+        
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
         
         if isCustomThemeSelected {
@@ -70,6 +74,7 @@ class SettingsViewController: UIViewController {
         
         menus = [apiSection,
                  languageSection,
+                 editHCPSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
     }
@@ -140,6 +145,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
         switch menu {
         case .toggleMenu(let title, _):
             switch title {
+            case kMenuEnableEditHCPTitle:
+                AppSettings.isSuggestEditHCPEnabled = (newValue as? Bool) == true
             default:
                 break
             }

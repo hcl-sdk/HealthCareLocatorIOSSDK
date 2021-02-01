@@ -15,7 +15,8 @@ class AppConfigure {
     }
     
     static let kSupportedCodeTypes = ["sp"]
-    
+    static let kModifyActivityURLFormat = "https://onekeysdk.ekinoffy.com/%@/suggest-modification?apiKey=%@&id=%@"
+
     static var deviceId: String {
         get {
             if let deviceId = UserDefaults.standard.string(forKey: Keys.deviceId.rawValue) {

@@ -30,7 +30,7 @@ Except the api key, all of other params is optional so you can simple start a ne
 public class OKManager: NSObject, OKSDKConfigure {
     
     static public let shared = OKManager()
-    
+    private(set) var apiKey: String?
     private(set) var searchNavigationController: OKHCPSearchNavigationViewController?
     private(set) var userId: String?
     private(set) var appName: String?
@@ -39,7 +39,8 @@ public class OKManager: NSObject, OKSDKConfigure {
     private(set) var themConfigure: OKThemeConfigure?
     private(set) var iconsConfigure: OKIconsConfigure?
     private(set) var lang: String!
-    
+    private(set) var isSuggestEditHCPEnable: Bool! = true
+
     private override init() {
         self.lang = NSLocale.preferredLanguages.first ?? "en"
     }
@@ -62,6 +63,7 @@ extension OKManager: OkManagerProtocol {
                            theme: OKThemeConfigure? = nil,
                            icons: OKIconsConfigure? = nil,
                            handler: ((Bool, Error?) -> Void)? = nil) {
+        self.apiKey = apiKey
         OKServiceManager.shared.initialize(apiKey: apiKey)
         self.themConfigure = theme
         self.iconsConfigure = icons
@@ -77,6 +79,11 @@ extension OKManager: OkManagerProtocol {
             searchConfigure = getDefaultSearchConfigure()
             handler?(true, nil)
         }
+    }
+    
+    
+    public func set(suggestEditHCPEnable: Bool) {
+        self.isSuggestEditHCPEnable = suggestEditHCPEnable
     }
     
     /**
