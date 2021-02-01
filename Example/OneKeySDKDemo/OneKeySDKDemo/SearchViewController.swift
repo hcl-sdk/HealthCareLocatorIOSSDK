@@ -42,6 +42,10 @@ class SearchViewController: UIViewController {
         shared.initialize(apiKey: AppSettings.APIKey ?? "",
                           configure: config,
                           theme: AppSettings.selectedTheme.sdkThemeConfigure) {[weak self] (success, error) in
+//            let apis = OKManager.shared.getWebServices()
+//            apis.fetchActivityWith(id: "WCAA0000274703", locale: "en", userId: "truong") { (result, error) in
+//                print(result)
+//            }
             if success {
                 self?.initSearchUI()
             } else {

@@ -14,6 +14,8 @@ class AppConfigure {
         case LastHCPsConsoulted
     }
     
+    static let kSupportedCodeTypes = ["sp"]
+    
     static var deviceId: String {
         get {
             if let deviceId = UserDefaults.standard.string(forKey: Keys.deviceId.rawValue) {

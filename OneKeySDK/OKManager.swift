@@ -148,6 +148,27 @@ extension OKManager: OkManagerProtocol {
     }
     
     /**
+     Retrive the instant for calling the APIs directly without attach default search UI If you want to build your own search UI from scratch
+     - Returns:
+        - OKHCPSearchWebServices: The web services instant for calling search APIs
+     - Important:
+     The initialize need to be finish fist before using the web services.
+     - Example:
+     ````
+     OKManager.share.initialize(apiKey: <YOUR_API_KEY>,
+                        handler: {[unowned manager = OKManager.share] success in
+        if success {
+            let webService = manager.getWebServices()
+        }
+     })
+     ````
+     */
+    public func getWebServices() -> OKHCPSearchWebServices {
+        let webService = OKHCPSearchWebServices(manager: OKServiceManager.shared)
+        return webService
+    }
+    
+    /**
      Retrive the default theme configuration for the user interface displaying
      - Returns:
         - OKThemeConfigure: An object  which can be used to configure for the screens displaying

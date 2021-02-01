@@ -89,7 +89,7 @@ extension HomeViewController: MenuTableViewControllerDelegate {
                 handleStartNewSearch()
             case kMenuNewNearMeSearchTitle:
                 handleStartNewSearch(config: OKSearchConfigure(entry: .nearMe,
-                                                               favourites: []))
+                                                               favourites: Specialities.allCases.map {$0.code}))
             case kMenuSettingsTitle:
                 showSettingsScreen()
             case kMenuPreConfiguredNearMeSearch1Title:

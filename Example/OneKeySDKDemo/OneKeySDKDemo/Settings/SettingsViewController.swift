@@ -146,7 +146,7 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
         case .inputMenu(let title, _):
             switch title {
             case kMenuAPIKeyTitle:
-                AppSettings.APIKey = (newValue as? String)
+                AppSettings.APIKey = (newValue as? String) ?? ""
             default:
                 break
             }

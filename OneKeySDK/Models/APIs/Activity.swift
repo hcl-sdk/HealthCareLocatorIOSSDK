@@ -11,19 +11,19 @@ struct ActivityResponse: Codable {
     let activities: [ActivityResult]?
 }
 
-struct ActivityResult: Codable {
+public struct ActivityResult: Codable {
     let distance: Double?
     let relevance: Int?
     let activity: Activity!
 }
 
-struct Activity: Codable {
-    let id: String!
-    let phone: String?
-    let fax: String?
-    let webAddress: String?
-    let individual: Individual!
-    let workplace: Workplace!
+public struct Activity: Codable {
+    public let id: String!
+    public let phone: String?
+    public let fax: String?
+    public let webAddress: String?
+    public let individual: Individual!
+    public let workplace: Workplace!
     
     var allActivities: [Individual.Activity] {
         var allActivities: [Individual.Activity] = [individual.mainActivity]
@@ -63,21 +63,21 @@ struct Activity: Codable {
     }
 }
 
-struct Individual: Codable {
-    struct Activity: Codable {
-        let id: String!
-        let workplace: Workplace!
+public struct Individual: Codable {
+    public struct Activity: Codable {
+        public let id: String!
+        public let workplace: Workplace!
     }
     
-    let id: String!
-    let firstName: String?
-    let lastName: String!
-    let middleName: String?
-    let mailingName: String?
-    let professionalType: KeyedString?
-    let specialties: [KeyedString]
-    let mainActivity: Individual.Activity!
-    let otherActivities: [Individual.Activity]!
+    public let id: String!
+    public let firstName: String?
+    public let lastName: String!
+    public let middleName: String?
+    public let mailingName: String?
+    public let professionalType: KeyedString?
+    public let specialties: [KeyedString]
+    public let mainActivity: Individual.Activity!
+    public let otherActivities: [Individual.Activity]!
 }
 
 extension Individual {
@@ -86,24 +86,24 @@ extension Individual {
     }
 }
 
-struct Workplace: Codable {
-    let name: String?
-    let address: Address!
+public struct Workplace: Codable {
+    public let name: String?
+    public let address: Address!
 }
 
-struct KeyedString: Codable {
-    let code: String!
-    let label: String!
+public struct KeyedString: Codable {
+    public let code: String!
+    public let label: String!
 }
 
-struct Address: Codable {
-    let longLabel: String!
-    let buildingLabel: String!
-    let county: KeyedString?
-    let city: KeyedString!
-    let country: String!
-    let postalCode: String?
-    let location: Geopoint?
+public struct Address: Codable {
+    public let longLabel: String!
+    public let buildingLabel: String!
+    public let county: KeyedString?
+    public let city: KeyedString!
+    public let country: String!
+    public let postalCode: String?
+    public let location: Geopoint?
 }
 
 extension Address {
@@ -120,7 +120,7 @@ extension Address {
     }
 }
 
-struct Geopoint: Codable {
-    let lat: Double!
-    let lon: Double!
+public struct Geopoint: Codable {
+    public let lat: Double!
+    public let lon: Double!
 }

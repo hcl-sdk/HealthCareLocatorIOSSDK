@@ -1637,6 +1637,11 @@ public final class ActivityByIdQuery: GraphQLQuery {
         individual {
           __typename
           id
+          title {
+            __typename
+            code
+            label
+          }
           firstName
           lastName
           middleName
@@ -1878,6 +1883,7 @@ public final class ActivityByIdQuery: GraphQLQuery {
           return [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("title", type: .nonNull(.object(Title.selections))),
             GraphQLField("firstName", type: .scalar(String.self)),
             GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
             GraphQLField("middleName", type: .scalar(String.self)),
@@ -1895,8 +1901,8 @@ public final class ActivityByIdQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty], mainActivity: MainActivity, otherActivities: [OtherActivity]) {
-          self.init(unsafeResultMap: ["__typename": "Individual", "id": id, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap, "otherActivities": otherActivities.map { (value: OtherActivity) -> ResultMap in value.resultMap }])
+        public init(id: GraphQLID, title: Title, firstName: String? = nil, lastName: String, middleName: String? = nil, mailingName: String? = nil, professionalType: ProfessionalType, specialties: [Specialty], mainActivity: MainActivity, otherActivities: [OtherActivity]) {
+          self.init(unsafeResultMap: ["__typename": "Individual", "id": id, "title": title.resultMap, "firstName": firstName, "lastName": lastName, "middleName": middleName, "mailingName": mailingName, "professionalType": professionalType.resultMap, "specialties": specialties.map { (value: Specialty) -> ResultMap in value.resultMap }, "mainActivity": mainActivity.resultMap, "otherActivities": otherActivities.map { (value: OtherActivity) -> ResultMap in value.resultMap }])
         }
 
         public var __typename: String {
@@ -1914,6 +1920,15 @@ public final class ActivityByIdQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var title: Title {
+          get {
+            return Title(unsafeResultMap: resultMap["title"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "title")
           }
         }
 
@@ -1986,6 +2001,57 @@ public final class ActivityByIdQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue.map { (value: OtherActivity) -> ResultMap in value.resultMap }, forKey: "otherActivities")
+          }
+        }
+
+        public struct Title: GraphQLSelectionSet {
+          public static let possibleTypes: [String] = ["KeyedString"]
+
+          public static var selections: [GraphQLSelection] {
+            return [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLField("code", type: .nonNull(.scalar(String.self))),
+              GraphQLField("label", type: .nonNull(.scalar(String.self))),
+            ]
+          }
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public init(code: String, label: String) {
+            self.init(unsafeResultMap: ["__typename": "KeyedString", "code": code, "label": label])
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// A unique key that can be used to identify this string
+          public var code: String {
+            get {
+              return resultMap["code"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "code")
+            }
+          }
+
+          /// Contains the label corresponding to this key expressed in the requested locale ( refer to query )
+          public var label: String {
+            get {
+              return resultMap["label"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "label")
+            }
           }
         }
 

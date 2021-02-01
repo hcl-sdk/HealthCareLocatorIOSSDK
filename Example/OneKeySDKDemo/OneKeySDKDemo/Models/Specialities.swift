@@ -8,15 +8,13 @@
 import Foundation
 
 enum Specialities: CaseIterable {
-   case RegisteredPracticalNurse
-   case FamilyMedicine
-   case Neurosurgery
+   case Cardiology
+   case InternalMedicine
    
    var code: String {
        switch self {
-       case .RegisteredPracticalNurse: return "SP.WCA.RN"
-       case .FamilyMedicine: return "SP.WCA.3C"
-       case .Neurosurgery: return "SP.WCA.37"
+       case .Cardiology: return "1SP.0800"
+       case .InternalMedicine: return "1SP.2900"
        }
    }
 }

@@ -53,10 +53,10 @@ class AppSettings {
         }
     }
     
-    static var APIKey: String? {
+    static var APIKey: String {
         get {
-            guard let key = AppSettings.getValueFor(key: Key.APIKey.rawValue) as? String else {return nil}
-            return key
+            guard let key = AppSettings.getValueFor(key: Key.APIKey.rawValue) as? String else {return "10000254863a293c"}
+            return key.count > 0 ? key : "10000254863a293c"
         }
         
         set {

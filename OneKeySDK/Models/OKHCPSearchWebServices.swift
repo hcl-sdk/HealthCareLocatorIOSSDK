@@ -8,7 +8,7 @@
 import Foundation
 import Apollo
 
-class OKHCPSearchWebServices: SearchAPIsProtocol {
+public class OKHCPSearchWebServices: SearchAPIsProtocol {
     
     private let manager: OKServiceManager!
     
@@ -16,7 +16,7 @@ class OKHCPSearchWebServices: SearchAPIsProtocol {
         self.manager = manager
     }
     
-    func fetchActivityWith(id: String!,
+    public func fetchActivityWith(id: String!,
                            locale: String?,
                            userId: String?,
                            completionHandler: @escaping ((Activity?, Error?) -> Void)) {
@@ -39,7 +39,7 @@ class OKHCPSearchWebServices: SearchAPIsProtocol {
     }
     
 
-    func fetchCodesByLabel(info: GeneralQueryInput,
+    public func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],
                            userId: String?,
@@ -65,7 +65,7 @@ class OKHCPSearchWebServices: SearchAPIsProtocol {
         }
     }
     
-    func fetchIndividualsByNameWith(info: GeneralQueryInput,
+    public func fetchIndividualsByNameWith(info: GeneralQueryInput,
                                     county: String?,
                                     criteria: String!,
                                     userId: String?,
@@ -90,7 +90,7 @@ class OKHCPSearchWebServices: SearchAPIsProtocol {
         }
     }
     
-    func fetchActivitiesWith(info: GeneralQueryInput,
+    public func fetchActivitiesWith(info: GeneralQueryInput,
                              specialties: [String]?,
                              location: GeopointQuery?,
                              county: String?,

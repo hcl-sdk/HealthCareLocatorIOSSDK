@@ -147,6 +147,10 @@ query ActivityByID($userId: String, $id: ID!, $locale: String) {
     webAddress
     individual {
       id
+      title {
+        code
+        label
+      }
       firstName
       lastName
       middleName

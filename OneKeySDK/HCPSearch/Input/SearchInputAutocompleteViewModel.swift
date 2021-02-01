@@ -38,7 +38,7 @@ class SearchInputAutocompleteViewModel {
                                                                          offset: 0,
                                                                          locale: language),
                                                  criteria: creteria,
-                                                 codeTypes: ["SP"],
+                                                 codeTypes: AppConfigure.kSupportedCodeTypes,
                                                  userId: userId) { (codes, error) in
                         if let error = error {
                             observer.onError(error)

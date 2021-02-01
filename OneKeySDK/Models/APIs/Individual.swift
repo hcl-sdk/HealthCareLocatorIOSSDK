@@ -11,26 +11,26 @@ struct IndividualResult: Codable {
     let individuals: [IndividualWorkPlaceDetails]?
 }
 
-struct IndividualWorkPlaceDetails: Codable {
-    struct Activity: Codable {
-        let id: String!
-        let workplace: Workplace?
+public struct IndividualWorkPlaceDetails: Codable {
+    public struct Activity: Codable {
+        public let id: String!
+        public let workplace: Workplace?
     }
     
-    let id: String!
-    let title: String?
-    let firstName: String?
-    let lastName: String!
-    let middleName: String?
-    let mailingName: String?
-    let specialties: [KeyedString]
-    let professionalType: KeyedString?
-    let mainActivity: IndividualWorkPlaceDetails.Activity!
+    public let id: String!
+    public let title: KeyedString?
+    public let firstName: String?
+    public let lastName: String!
+    public let middleName: String?
+    public let mailingName: String?
+    public let specialties: [KeyedString]
+    public let professionalType: KeyedString?
+    public let mainActivity: IndividualWorkPlaceDetails.Activity!
 }
 
 extension IndividualWorkPlaceDetails {
     var composedName: String {
-        guard let mailingName = mailingName else {
+        guard let mailingName = mailingName, !mailingName.isEmpty else {
             return String(format: "%@ %@ %@", firstName ?? "", middleName ?? "", lastName)
         }
         return mailingName

@@ -11,13 +11,13 @@ struct CodeResult: Codable {
     let codes: [Code]?
 }
 
-struct Code: Codable {
-    let id: String!
-    let longLbl: String?
+public struct Code: Codable {
+    public let id: String!
+    public let longLbl: String?
 }
 
 extension Code: Equatable {
-    static func == (lhs: Code, rhs: Code) -> Bool {
+    public static func == (lhs: Code, rhs: Code) -> Bool {
         return lhs.id == rhs.id
     }
 }
