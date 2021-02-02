@@ -132,7 +132,7 @@ deploy:dev:
     BUILD_NUMBER: "${CI_PIPELINE_IID}"
   before_script:
     # Force to use SSH (for tags pushing)
-    - git remote set-url origin git@gitlab.ekino.com:iqvia/HealthCareLocatorSDK-iOS.git
+    - git remote set-url origin git@gitlab.ekino.com:iqvia/OneKeySDK-iOS.git
     - git fetch --all --tags
     - cd ./Example/HealthCareLocatorSDKDemo/
     - bundle install
