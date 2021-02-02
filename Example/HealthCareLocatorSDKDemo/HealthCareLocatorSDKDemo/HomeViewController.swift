@@ -93,9 +93,9 @@ extension HomeViewController: MenuTableViewControllerDelegate {
             case kMenuSettingsTitle:
                 showSettingsScreen()
             case kMenuPreConfiguredNearMeSearch1Title:
-                startQuickPharmacySearch()
+                startQuickCardilogySearch()
             case kMenuPreConfiguredNearMeSearch2Title:
-                startQuickDentalSearch()
+                startQuickInternalMedicineSearch()
             default:
                 return
             }
@@ -123,12 +123,12 @@ extension HomeViewController: MenuTableViewControllerDelegate {
         performSegue(withIdentifier: "showSettingsVC", sender: nil)
     }
     
-    private func startQuickPharmacySearch() {
-        HCLManager.shared.searchNearMe(specialities: ["SP.WCA.88"])
+    private func startQuickCardilogySearch() {
+        HCLManager.shared.searchNearMe(specialities: ["1SP.0800"])
     }
     
-    private func startQuickDentalSearch() {
-        HCLManager.shared.searchNearMe(specialities: ["SP.WCA.05"])
+    private func startQuickInternalMedicineSearch() {
+        HCLManager.shared.searchNearMe(specialities: ["1SP.2900"])
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {

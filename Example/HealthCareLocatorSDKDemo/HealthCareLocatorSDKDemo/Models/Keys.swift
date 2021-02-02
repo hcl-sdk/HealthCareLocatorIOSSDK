@@ -13,8 +13,8 @@ let kMenuNewSearchTitle = "New Search Home"
 let kMenuNewNearMeSearchTitle = "New Search Near Me"
 
 let kMenuSettingsTitle = "Settings"
-let kMenuPreConfiguredNearMeSearch1Title = "Search Pharmacy Around"
-let kMenuPreConfiguredNearMeSearch2Title = "Search Dental Anesthesiology Around"
+let kMenuPreConfiguredNearMeSearch1Title = "Search Cardiology Around"
+let kMenuPreConfiguredNearMeSearch2Title = "Search Internal Medicine Around"
 
 let kMenuAPIKeyTitle = "API Key"
 let kMenuThemeTitle = "Theme"

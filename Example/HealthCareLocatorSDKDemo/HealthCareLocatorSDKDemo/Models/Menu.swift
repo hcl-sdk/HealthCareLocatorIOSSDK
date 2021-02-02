@@ -22,6 +22,6 @@ enum Menu {
                                Menu.textMenu(title: kMenuNewNearMeSearchTitle, value: nil),
                                Menu.textMenu(title: kMenuSettingsTitle, value: nil)]
     
-    static let preconfiguredSearchMenus = [Menu.textMenu(title: kMenuPreConfiguredNearMeSearch1Title, value: nil),
-                                           Menu.textMenu(title: kMenuPreConfiguredNearMeSearch2Title, value: nil)]
+    static let preconfiguredSearchMenus = [Menu.textMenu(title: kMenuPreConfiguredNearMeSearch1Title, value: nil)]//,
+//                                           Menu.textMenu(title: kMenuPreConfiguredNearMeSearch2Title, value: nil)]
 }
