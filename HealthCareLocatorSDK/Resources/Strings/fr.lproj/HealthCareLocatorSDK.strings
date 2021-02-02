@@ -35,8 +35,8 @@
 "hcl_map_label" = "Carte";
 "hcl_distance_unit" = "%dm";
 "hcl_back_to_search_results" = "Retour aux résultats de recherche";
-"hcl_no_result_found" = "No Results found";
-"hcl_no_result_message" = "Oups, it's looks like there is no matches for your search.";
+"hcl_no_result_found" = "Aucun résultat trouvé";
+"hcl_no_result_message" = "Oups, il semble qu'il n'y ait aucune correspondance pour votre recherche.";
 
 // Sort
 "hcl_sort_label" = "Trier";
@@ -45,7 +45,7 @@
 "hcl_name_item" = "Nom";
 "hcl_apply_button" = "Appliquer";
 "hcl_reset_button" = "Réinitialiser";
-"hcl_relaunch" = "Relaunch";
+"hcl_relaunch" = "Relancer";
 
 // HCP profile
 "hcl_main_information_label" = "Informations générales";
