@@ -88,7 +88,6 @@
 		58F32B4825CA631F006C6F8A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961DA255CF7C2000B126D /* SettingsViewController.swift */; };
 		58F32B4925CA631F006C6F8A /* DefaultThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */; };
 		58F32B4A25CA631F006C6F8A /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD6325935B4D002F776D /* LanguagesViewController.swift */; };
-		58F32B4C25CA631F006C6F8A /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */; };
 		58F32B4E25CA631F006C6F8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364972555082000C62479 /* LaunchScreen.storyboard */; };
 		58F32B4F25CA631F006C6F8A /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
 		58F32B5025CA631F006C6F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A364952555082000C62479 /* Assets.xcassets */; };
@@ -99,11 +98,14 @@
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
 		99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */; };
+		B08551F95C44B350E1D93ED6 /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */; };
+		FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCLDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
 		5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemesViewController.swift; sourceTree = "<group>"; };
 		582BBDFE257FA786009BC23E /* UIFont+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additional.swift"; sourceTree = "<group>"; };
@@ -153,7 +155,9 @@
 		58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "HCLDemo-Info.plist"; path = "/Users/truongle/Documents/Projects/Work/IQVIA/Ekino/HealthCareLocatorSDK-iOS/Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"; sourceTree = "<absolute>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.debug.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.release.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
+				FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58F32B4C25CA631F006C6F8A /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
+				B08551F95C44B350E1D93ED6 /* Pods_HCLDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +307,8 @@
 			children = (
 				3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */,
 				04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */,
+				720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */,
+				85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -309,7 +316,8 @@
 		CD1EDD80DF00816D23242E5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */,
+				41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */,
+				C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -435,7 +443,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HealthCareLocatorSDKDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HCLDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -448,15 +456,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7512E3F813FA033A63A1F4C1 /* [CP] Check Pods Manifest.lock */ = {
@@ -775,7 +783,7 @@
 		};
 		58F32B5725CA631F006C6F8A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */;
+			baseConfigurationReference = 720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -796,7 +804,7 @@
 		};
 		58F32B5825CA631F006C6F8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */;
+			baseConfigurationReference = 85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
