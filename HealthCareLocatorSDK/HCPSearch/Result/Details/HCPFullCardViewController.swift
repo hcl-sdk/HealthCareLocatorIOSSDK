@@ -60,6 +60,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var specialitiesDescriptionLabel: UILabel!
     
     // Rate and refunds
+    @IBOutlet weak var rateAndRefundWrapper: UIStackView!
     @IBOutlet weak var rateAndFundTitleLabel: UILabel!
     @IBOutlet weak var rateAndFundDescriptionLabel: UILabel!
     @IBOutlet weak var rateAmountLabel: UILabel!
@@ -77,7 +78,6 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var noLabel: UILabel!
     
     // Improve the data quality
-    
     @IBOutlet weak var suggestEditWrapper: UIStackView!
     @IBOutlet weak var qualityTitleLabel: UILabel!
     @IBOutlet weak var qualityDescriptionLabel: UILabel!
@@ -94,6 +94,8 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // NOTE: Temporary disable rateAndRefund block as the service is not provided yet
+        rateAndRefundWrapper.isHidden = true
         suggestEditWrapper.isHidden = !HCLManager.shared.isSuggestEditHCPEnable        
         contentWrapper.isHidden = true
         loadingView.isHidden = false
