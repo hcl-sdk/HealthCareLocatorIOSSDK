@@ -50,6 +50,52 @@
 		58D10D3C255E4941008471F3 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */; };
 		58D10D52255E7354008471F3 /* CustomThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D51255E7354008471F3 /* CustomThemeViewController.swift */; };
 		58D465A4258CA0BC0084FA7A /* location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 58D465A3258CA0BC0084FA7A /* location.gpx */; };
+		58F32B2525CA631F006C6F8A /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B820C1256F70B00005DA26 /* BaseButton.swift */; };
+		58F32B2625CA631F006C6F8A /* SelectMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D36255E4931008471F3 /* SelectMenuTableViewCell.swift */; };
+		58F32B2725CA631F006C6F8A /* Character+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2742581DA2700FA5539 /* Character+Additional.swift */; };
+		58F32B2825CA631F006C6F8A /* FontMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2622580BF4C00D983B5 /* FontMapping.swift */; };
+		58F32B2925CA631F006C6F8A /* CustomThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D51255E7354008471F3 /* CustomThemeViewController.swift */; };
+		58F32B2A25CA631F006C6F8A /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */; };
+		58F32B2B25CA631F006C6F8A /* FontSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5898C2672580C6DA00D983B5 /* FontSettingsTableViewCell.swift */; };
+		58F32B2C25CA631F006C6F8A /* UIFont+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBDFE257FA786009BC23E /* UIFont+Additional.swift */; };
+		58F32B2D25CA631F006C6F8A /* CustomThemeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A57D256270D000A11F88 /* CustomThemeDelegate.swift */; };
+		58F32B2E25CA631F006C6F8A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
+		58F32B2F25CA631F006C6F8A /* ColorPickerWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B9620D255D4BC3000B126D /* ColorPickerWrapperViewController.swift */; };
+		58F32B3025CA631F006C6F8A /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A56E25623A2900A11F88 /* FontMenuTableViewCell.swift */; };
+		58F32B3125CA631F006C6F8A /* CustomFontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A573256241CF00A11F88 /* CustomFontViewController.swift */; };
+		58F32B3225CA631F006C6F8A /* ConfigFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5822562750600A11F88 /* ConfigFont.swift */; };
+		58F32B3325CA631F006C6F8A /* ToogleMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99C32574AF9B002BCC74 /* ToogleMenuTableViewCell.swift */; };
+		58F32B3425CA631F006C6F8A /* InputMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D31255E491F008471F3 /* InputMenuTableViewCell.swift */; };
+		58F32B3525CA631F006C6F8A /* FontFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8A5782562607A00A11F88 /* FontFamilyTableViewCell.swift */; };
+		58F32B3625CA631F006C6F8A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58322BCE255E81FD00847919 /* Keys.swift */; };
+		58F32B3725CA631F006C6F8A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B820C0256F70B00005DA26 /* BaseView.swift */; };
+		58F32B3825CA631F006C6F8A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D2C255E4814008471F3 /* Menu.swift */; };
+		58F32B3925CA631F006C6F8A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E7255CFDC9000B126D /* UIColor+Hex.swift */; };
+		58F32B3A25CA631F006C6F8A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD5E25935958002F776D /* Language.swift */; };
+		58F32B3B25CA631F006C6F8A /* Specialities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5895536E2595ACD600DDE2FF /* Specialities.swift */; };
+		58F32B3C25CA631F006C6F8A /* TextMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96200255D44C2000B126D /* TextMenuTableViewCell.swift */; };
+		58F32B3D25CA631F006C6F8A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D10D27255E47A1008471F3 /* Theme.swift */; };
+		58F32B3E25CA631F006C6F8A /* Theme+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBE03257FA8A6009BC23E /* Theme+Additional.swift */; };
+		58F32B3F25CA631F006C6F8A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843945D25594D2B009D2306 /* MenuTableViewController.swift */; };
+		58F32B4025CA631F006C6F8A /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961E2255CFBE3000B126D /* AppSettings.swift */; };
+		58F32B4125CA631F006C6F8A /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D27E2581DCB900FA5539 /* String+Additional.swift */; };
+		58F32B4225CA631F006C6F8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364902555081E00C62479 /* HomeViewController.swift */; };
+		58F32B4325CA631F006C6F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648C2555081E00C62479 /* AppDelegate.swift */; };
+		58F32B4425CA631F006C6F8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A3648E2555081E00C62479 /* SceneDelegate.swift */; };
+		58F32B4525CA631F006C6F8A /* ColorMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B96208255D46C3000B126D /* ColorMenuTableViewCell.swift */; };
+		58F32B4625CA631F006C6F8A /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6112255E459900696AA1 /* MenuSection.swift */; };
+		58F32B4725CA631F006C6F8A /* Sequence+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5888D2792581DA9900FA5539 /* Sequence+Additional.swift */; };
+		58F32B4825CA631F006C6F8A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B961DA255CF7C2000B126D /* SettingsViewController.swift */; };
+		58F32B4925CA631F006C6F8A /* DefaultThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */; };
+		58F32B4A25CA631F006C6F8A /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD6325935B4D002F776D /* LanguagesViewController.swift */; };
+		58F32B4C25CA631F006C6F8A /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */; };
+		58F32B4E25CA631F006C6F8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364972555082000C62479 /* LaunchScreen.storyboard */; };
+		58F32B4F25CA631F006C6F8A /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
+		58F32B5025CA631F006C6F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A364952555082000C62479 /* Assets.xcassets */; };
+		58F32B5125CA631F006C6F8A /* logo_healthcare_locator.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 588B61D525BA852400FD7770 /* logo_healthcare_locator.jpg */; };
+		58F32B5225CA631F006C6F8A /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
+		58F32B5325CA631F006C6F8A /* location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 58D465A3258CA0BC0084FA7A /* location.gpx */; };
+		58F32B5425CA631F006C6F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364922555081E00C62479 /* Main.storyboard */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
 		99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */; };
@@ -103,6 +149,8 @@
 		58D10D3B255E4941008471F3 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		58D10D51255E7354008471F3 /* CustomThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomThemeViewController.swift; sourceTree = "<group>"; };
 		58D465A3258CA0BC0084FA7A /* location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = location.gpx; sourceTree = "<group>"; };
+		58F32B5925CA631F006C6F8A /* HCLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "HCLDemo-Info.plist"; path = "/Users/truongle/Documents/Projects/Work/IQVIA/Ekino/HealthCareLocatorSDK-iOS/Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"; sourceTree = "<absolute>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +162,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F32B4B25CA631F006C6F8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F32B4C25CA631F006C6F8A /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +195,7 @@
 				58A3648A2555081E00C62479 /* Products */,
 				5C25B71665839002B4EE617B /* Pods */,
 				CD1EDD80DF00816D23242E5E /* Frameworks */,
+				58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				58A364892555081E00C62479 /* HealthCareLocatorSDKDemo.app */,
+				58F32B5925CA631F006C6F8A /* HCLDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +336,25 @@
 			productReference = 58A364892555081E00C62479 /* HealthCareLocatorSDKDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		58F32B2225CA631F006C6F8A /* HCLDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58F32B5625CA631F006C6F8A /* Build configuration list for PBXNativeTarget "HCLDemo" */;
+			buildPhases = (
+				58F32B2325CA631F006C6F8A /* [CP] Check Pods Manifest.lock */,
+				58F32B2425CA631F006C6F8A /* Sources */,
+				58F32B4B25CA631F006C6F8A /* Frameworks */,
+				58F32B4D25CA631F006C6F8A /* Resources */,
+				58F32B5525CA631F006C6F8A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HCLDemo;
+			productName = OneKeySDKDemo;
+			productReference = 58F32B5925CA631F006C6F8A /* HCLDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -306,6 +383,7 @@
 			projectRoot = "";
 			targets = (
 				58A364882555081E00C62479 /* HealthCareLocatorSDKDemo */,
+				58F32B2225CA631F006C6F8A /* HCLDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -325,9 +403,62 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		58F32B4D25CA631F006C6F8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F32B4E25CA631F006C6F8A /* LaunchScreen.storyboard in Resources */,
+				58F32B4F25CA631F006C6F8A /* burger-menu.json in Resources */,
+				58F32B5025CA631F006C6F8A /* Assets.xcassets in Resources */,
+				58F32B5125CA631F006C6F8A /* logo_healthcare_locator.jpg in Resources */,
+				58F32B5225CA631F006C6F8A /* logo_iqvia.png in Resources */,
+				58F32B5325CA631F006C6F8A /* location.gpx in Resources */,
+				58F32B5425CA631F006C6F8A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		58F32B2325CA631F006C6F8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthCareLocatorSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58F32B5525CA631F006C6F8A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7512E3F813FA033A63A1F4C1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,6 +543,51 @@
 				58B961DB255CF7C2000B126D /* SettingsViewController.swift in Sources */,
 				5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */,
 				5836DD6425935B4D002F776D /* LanguagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F32B2425CA631F006C6F8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F32B2525CA631F006C6F8A /* BaseButton.swift in Sources */,
+				58F32B2625CA631F006C6F8A /* SelectMenuTableViewCell.swift in Sources */,
+				58F32B2725CA631F006C6F8A /* Character+Additional.swift in Sources */,
+				58F32B2825CA631F006C6F8A /* FontMapping.swift in Sources */,
+				58F32B2925CA631F006C6F8A /* CustomThemeViewController.swift in Sources */,
+				58F32B2A25CA631F006C6F8A /* DetailTableViewCell.swift in Sources */,
+				58F32B2B25CA631F006C6F8A /* FontSettingsTableViewCell.swift in Sources */,
+				58F32B2C25CA631F006C6F8A /* UIFont+Additional.swift in Sources */,
+				58F32B2D25CA631F006C6F8A /* CustomThemeDelegate.swift in Sources */,
+				58F32B2E25CA631F006C6F8A /* SearchViewController.swift in Sources */,
+				58F32B2F25CA631F006C6F8A /* ColorPickerWrapperViewController.swift in Sources */,
+				58F32B3025CA631F006C6F8A /* FontMenuTableViewCell.swift in Sources */,
+				58F32B3125CA631F006C6F8A /* CustomFontViewController.swift in Sources */,
+				58F32B3225CA631F006C6F8A /* ConfigFont.swift in Sources */,
+				58F32B3325CA631F006C6F8A /* ToogleMenuTableViewCell.swift in Sources */,
+				58F32B3425CA631F006C6F8A /* InputMenuTableViewCell.swift in Sources */,
+				58F32B3525CA631F006C6F8A /* FontFamilyTableViewCell.swift in Sources */,
+				58F32B3625CA631F006C6F8A /* Keys.swift in Sources */,
+				58F32B3725CA631F006C6F8A /* BaseView.swift in Sources */,
+				58F32B3825CA631F006C6F8A /* Menu.swift in Sources */,
+				58F32B3925CA631F006C6F8A /* UIColor+Hex.swift in Sources */,
+				58F32B3A25CA631F006C6F8A /* Language.swift in Sources */,
+				58F32B3B25CA631F006C6F8A /* Specialities.swift in Sources */,
+				58F32B3C25CA631F006C6F8A /* TextMenuTableViewCell.swift in Sources */,
+				58F32B3D25CA631F006C6F8A /* Theme.swift in Sources */,
+				58F32B3E25CA631F006C6F8A /* Theme+Additional.swift in Sources */,
+				58F32B3F25CA631F006C6F8A /* MenuTableViewController.swift in Sources */,
+				58F32B4025CA631F006C6F8A /* AppSettings.swift in Sources */,
+				58F32B4125CA631F006C6F8A /* String+Additional.swift in Sources */,
+				58F32B4225CA631F006C6F8A /* HomeViewController.swift in Sources */,
+				58F32B4325CA631F006C6F8A /* AppDelegate.swift in Sources */,
+				58F32B4425CA631F006C6F8A /* SceneDelegate.swift in Sources */,
+				58F32B4525CA631F006C6F8A /* ColorMenuTableViewCell.swift in Sources */,
+				58F32B4625CA631F006C6F8A /* MenuSection.swift in Sources */,
+				58F32B4725CA631F006C6F8A /* Sequence+Additional.swift in Sources */,
+				58F32B4825CA631F006C6F8A /* SettingsViewController.swift in Sources */,
+				58F32B4925CA631F006C6F8A /* DefaultThemesViewController.swift in Sources */,
+				58F32B4A25CA631F006C6F8A /* LanguagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +773,48 @@
 			};
 			name = Release;
 		};
+		58F32B5725CA631F006C6F8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44587AUDJY;
+				INFOPLIST_FILE = "HCLDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iqvia.onekey.hclapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58F32B5825CA631F006C6F8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44587AUDJY;
+				INFOPLIST_FILE = "HCLDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.iqvia.onekey.hclapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,6 +832,15 @@
 			buildConfigurations = (
 				58A364B42555082000C62479 /* Debug */,
 				58A364B52555082000C62479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58F32B5625CA631F006C6F8A /* Build configuration list for PBXNativeTarget "HCLDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58F32B5725CA631F006C6F8A /* Debug */,
+				58F32B5825CA631F006C6F8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
