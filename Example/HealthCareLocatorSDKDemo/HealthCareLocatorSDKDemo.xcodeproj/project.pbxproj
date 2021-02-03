@@ -97,7 +97,7 @@
 		58F32B5425CA631F006C6F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364922555081E00C62479 /* Main.storyboard */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
-		99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65943B72492B4F5FDC105AD /* Pods_HealthCareLocatorSDKDemo.framework */; };
+		99B63C8C6A40F85120549528 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B08551F95C44B350E1D93ED6 /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */; };
 		FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */; };
 /* End PBXBuildFile section */
@@ -165,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B63C8C6A40F85120549528 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
+				99B63C8C6A40F85120549528 /* (null) in Frameworks */,
 				FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,8 +787,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 44587AUDJY;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HCLDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -797,6 +797,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iqvia.onekey.hclapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -808,8 +809,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 44587AUDJY;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "HCLDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -818,6 +819,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iqvia.onekey.hclapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
