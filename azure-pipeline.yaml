@@ -68,6 +68,15 @@ steps:
       artifactName: "drop"
       publishLocation: "Container"
 
+  - task: AppCenterDistribute@3
+    inputs:
+      serverEndpoint: 'AppCenter'
+      appSlug: 'EValentin-fr.imshealth.com/HCLAppForIOS'
+      appFile: '$(build.artifactstagingdirectory)/**/*.ipa'
+      releaseNotesOption: 'input'
+      releaseNotesInput: 'New Version'
+      destinationType: 'groups'      
+
   - task: AppStoreRelease@1
     inputs:
       serviceEndpoint: "IQVIA Apple Dev Account"
