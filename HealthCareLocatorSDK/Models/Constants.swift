@@ -16,5 +16,8 @@ let kServerURL = "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query
 let kDefaultZoomLevel: CLLocationDistance = 2000
 
 //
-let kNearMeTitle = "hcl_near_me".localized
+var kNearMeTitle: String {
+    return "hcl_near_me".localized
+}
+
 let kLocalizedTableName = "HealthCareLocatorSDK"
