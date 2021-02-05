@@ -68,23 +68,12 @@ steps:
       artifactName: "drop"
       publishLocation: "Container"
 
-  - task: AppCenterDistribute@3
-    inputs:
-      serverEndpoint: 'AppCenter'
-      appSlug: 'EValentin-fr.imshealth.com/HCLAppForIOS'
-      appFile: '$(build.artifactstagingdirectory)/**/*.ipa'
-      releaseNotesOption: 'input'
-      releaseNotesInput: 'New Version'
-      destinationType: 'groups'      
+- task: CmdLine@2
+  inputs:
+    script: pod repo add onekey-sdk-ios-lib https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb
+   
+- task: CmdLine@2
+  inputs:
+    script: pod repo push https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb.git onekey.podspec    
 
-  - task: AppStoreRelease@1
-    inputs:
-      serviceEndpoint: "IQVIA Apple Dev Account"
-      appIdentifier: "com.iqvia.onekey.hclapp"
-      ipaPath: "$(build.artifactstagingdirectory)/**/*.ipa"
-      appType: "iOS"
-      releaseTrack: "TestFlight"
-      shouldSkipSubmission: true
-      appSpecificId: "1550833826"
-      teamId: "357923"
-      teamName: "IQVIA Inc."
+ 
