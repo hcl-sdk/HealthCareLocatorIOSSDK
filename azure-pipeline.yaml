@@ -8,8 +8,17 @@
 pool:
   vmImage: "macos-latest"
 
+parameters:
+  - name: GitHubconnection
+    displayName: Git hub private repo
+    type: string
+    default: IQVIAGITACCOUNT
+
 variables:
   p12Password: $(p12Secret)
+  gitUSer : "iqvia-web"
+  gitPassword : "44d7293b15a61413b6ea4c2e5e507a69b6111950"
+  gitConnection: ${{ parameters.GitHubconnection }}
 
 steps:
   - checkout: self
