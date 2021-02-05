@@ -37,11 +37,11 @@ public class HCLManager: NSObject, HCLSDKConfigure {
     private(set) var searchConfigure: HCLSearchConfigure?
     private(set) var themConfigure: HCLThemeConfigure?
     private(set) var iconsConfigure: HCLIconsConfigure?
-    private(set) var lang: String!
+    private(set) var lang: HCLLanguage!
     private(set) var isSuggestEditHCPEnable: Bool! = true
 
     private override init() {
-        self.lang = NSLocale.preferredLanguages.first ?? "en"
+        self.lang = .english
     }
 }
 
@@ -130,8 +130,8 @@ extension HCLManager: HCLManagerProtocol {
      - Important:
     The language code should be one of the supported language: en, fr_CA
      */
-    public func setLocale(lang: String) {
-        self.lang = lang
+    public func setLocale(language: HCLLanguage) {
+        self.lang = language
     }
     
     /**

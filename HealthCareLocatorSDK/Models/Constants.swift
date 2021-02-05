@@ -8,6 +8,10 @@
 import Foundation
 import MapKit
 
+let kSupportedCodeTypes = ["SP"]
+let kModifyActivityURLFormat = "https://onekeysdk.ekinoffy.com/%@/suggest-modification?apiKey=%@&id=%@"
+let kServerURL = "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query"
+
 //
 let kDefaultZoomLevel: CLLocationDistance = 2000
 

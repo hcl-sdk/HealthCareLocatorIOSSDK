@@ -21,7 +21,7 @@ class HCLServiceManager: NSObject {
         
         let provider = LegacyInterceptorProvider(client: client, shouldInvalidateClientOnDeinit: true, store: store)
         
-        let url = URL(string: "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query")!
+        let url = URL(string: kServerURL)!
         
         let requestChainTransport = RequestChainNetworkTransport(interceptorProvider: provider,
                                                                  endpointURL: url,

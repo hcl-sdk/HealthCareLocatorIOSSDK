@@ -26,7 +26,7 @@ class SearchResultViewModel: ViewLoading {
     func performSearch(config: HCLSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
-                                     locale: config.lang,
+                                     locale: config.lang.apiCode,
                                      criteria: search.codes != nil ? nil : search.criteria)
         let userId = config.userId
         switch search.mode {
@@ -56,7 +56,7 @@ class SearchResultViewModel: ViewLoading {
                            completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
-                                     locale: config.lang,
+                                     locale: config.lang.apiCode,
                                      criteria: search.codes != nil ? nil : search.criteria)
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},

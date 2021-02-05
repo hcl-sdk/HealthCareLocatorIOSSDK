@@ -14,6 +14,7 @@
 		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
 		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
 		582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582854FE2589E9020090FA68 /* SearchResultViewModel.swift */; };
+		58351B1825CCF5C3007DE500 /* HCLLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58351B1725CCF5C3007DE500 /* HCLLanguage.swift */; };
 		5836DD4B25934874002F776D /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD4A25934874002F776D /* String+Additional.swift */; };
 		583C1B6025AC3D9700CDB4F7 /* HCLIconsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */; };
 		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
@@ -142,6 +143,7 @@
 		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
 		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
 		582854FE2589E9020090FA68 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		58351B1725CCF5C3007DE500 /* HCLLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLLanguage.swift; sourceTree = "<group>"; };
 		5836DD4A25934874002F776D /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
 		583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLIconsConfigure.swift; sourceTree = "<group>"; };
 		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -434,6 +436,7 @@
 				58D4658F258C8E9B0084FA7A /* LocationManager.swift */,
 				58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */,
 				583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */,
+				58351B1725CCF5C3007DE500 /* HCLLanguage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				58CDED6D259AEFA700EC7746 /* LastHCPConsulted.swift in Sources */,
 				5891627F2587941D006C1E6C /* Individual.swift in Sources */,
 				58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */,
+				58351B1825CCF5C3007DE500 /* HCLLanguage.swift in Sources */,
 				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
 				58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */,
 				58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */,

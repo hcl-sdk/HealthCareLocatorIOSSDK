@@ -43,8 +43,9 @@ class SettingsViewController: UIViewController {
         let apiSection = MenuSection(title: kMenuAPIKeyTitle,
                                      menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
         
+        let language = Language(rawValue: AppSettings.language) ?? .english
         let languageSection = MenuSection(title: kMenuLanguageTitle,
-                                          menus: [Menu.detailMenu(title: AppSettings.language.title)], colapsedLimit: nil)
+                                          menus: [Menu.detailMenu(title: language.title)], colapsedLimit: nil)
         
         let editHCPSection = MenuSection(title: kMenuSuggestEditHCPEnabledTitle,
                                          menus: [Menu.toggleMenu(title: kMenuEnableEditHCPTitle, isOn: AppSettings.isSuggestEditHCPEnabled)],

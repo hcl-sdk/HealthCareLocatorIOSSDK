@@ -18,7 +18,9 @@ class LanguagesViewController: UIViewController {
     
     func menus() -> [MenuSection] {
         let selectedLang = AppSettings.language
-        let languageMenus = Language.allCases.map {Menu.selectMenu(title: $0.title, selected: $0 == selectedLang, data: $0)}
+        let languageMenus = Language.allCases.map {Menu.selectMenu(title: $0.title,
+                                                                   selected: $0.rawValue == selectedLang,
+                                                                   data: $0)}
         return [MenuSection(title: kMenuLanguageTitle, menus: languageMenus, colapsedLimit: nil)]
     }
 
@@ -46,7 +48,7 @@ extension LanguagesViewController: MenuTableViewControllerDelegate {
         switch menu {
         case .selectMenu(_, _, let lang):
             if let language = lang as? Language {
-                AppSettings.language = language
+                AppSettings.language = language.rawValue
             }
             menuTable.reloadData(menus: menus())
         default:

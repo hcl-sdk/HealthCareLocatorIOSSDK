@@ -95,15 +95,14 @@ class AppSettings {
         }
     }
     
-    static var language: Language {
+    static var language: String {
         get {
-            guard let code = AppSettings.getValueFor(key: Key.language.rawValue) as? String,
-                  let lang = Language(rawValue: code) else {return Language.english}
+            guard let lang = (AppSettings.getValueFor(key: Key.language.rawValue) as? String) ?? NSLocale.preferredLanguages.first else {return "en"}
             return lang
         }
         
         set {
-            AppSettings.set(value: newValue.rawValue, for: Key.language.rawValue)
+            AppSettings.set(value: newValue, for: Key.language.rawValue)
         }
     }
     

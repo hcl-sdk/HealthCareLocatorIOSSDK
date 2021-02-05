@@ -74,7 +74,7 @@ class SearchHistoryViewModel: ViewLoading {
                 let location = GeopointQuery(lat: coordinate.latitude, lon: coordinate.longitude)
                 let query = GeneralQueryInput(first: 50,
                                               offset: 0,
-                                              locale: config.lang,
+                                              locale: config.lang.apiCode,
                                               criteria: nil)
                 let userId = config.userId
                 return strongSelf.fetchActivitiesWith(info: query,

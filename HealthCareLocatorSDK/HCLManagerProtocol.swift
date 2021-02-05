@@ -15,7 +15,7 @@ protocol  HCLSDKConfigure {
     var searchConfigure: HCLSearchConfigure? { get }
     var themConfigure: HCLThemeConfigure? { get }
     var iconsConfigure: HCLIconsConfigure? { get }
-    var lang: String! { get }
+    var lang: HCLLanguage! { get }
 }
 
 protocol HCLManagerProtocol {
@@ -32,5 +32,5 @@ protocol HCLManagerProtocol {
     func getDefaultUIConfigure() -> HCLThemeConfigure
     func getHCPSearchViewController() -> HCLHCPSearchNavigationViewController
     func searchNearMe(specialities: [String]) -> Bool
-    func setLocale(lang: String)
+    func setLocale(language: HCLLanguage)
 }

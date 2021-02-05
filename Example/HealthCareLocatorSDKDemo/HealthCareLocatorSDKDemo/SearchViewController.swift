@@ -38,7 +38,9 @@ class SearchViewController: UIViewController {
                                            voteDownIcon: UIImage(named: "iconStar")!,
                                            noResults: UIImage(named: "iconStar")!)
         shared.set(suggestEditHCPEnable: AppSettings.isSuggestEditHCPEnabled)
-        shared.setLocale(lang: AppSettings.language.rawValue)
+        if let language = HCLLanguage(rawValue: AppSettings.language) {
+            shared.setLocale(language: language)
+        }
         shared.set(appName: "Caretiny", appDownloadLink: "https://www.example.com")
         shared.initialize(apiKey: AppSettings.APIKey ?? "",
                           configure: config,

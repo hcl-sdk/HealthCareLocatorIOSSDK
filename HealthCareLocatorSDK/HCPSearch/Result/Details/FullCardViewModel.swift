@@ -19,7 +19,7 @@ class FullCardViewModel {
                              config: HCLSDKConfigure,
                              completionHandler: @escaping ((Activity?, Error?) -> Void)) {
         webServices.fetchActivityWith(id: activityID,
-                                      locale: config.lang,
+                                      locale: config.lang.apiCode,
                                       userId: config.userId) { (activity, error) in
             completionHandler(activity, error)
         }
@@ -185,7 +185,7 @@ class FullCardViewModel {
     
     func suggestModification(apiKey: String, language: String, individualID: String) {
         let formatedLanguage = language == "fr" ? "fr" : "en"
-        let urlString = String(format: AppConfigure.kModifyActivityURLFormat, formatedLanguage, apiKey, individualID)
+        let urlString = String(format: kModifyActivityURLFormat, formatedLanguage, apiKey, individualID)
         guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {return}
         UIApplication.shared.open(url)
     }

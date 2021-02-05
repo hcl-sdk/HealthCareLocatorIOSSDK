@@ -196,7 +196,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         if let apiKey = manager.apiKey,
            let language = manager.lang,
            let individualID = activity?.individual.id {
-            fullCardViewModel.suggestModification(apiKey: apiKey, language: language, individualID: individualID)
+            fullCardViewModel.suggestModification(apiKey: apiKey, language: language.code, individualID: individualID)
         }
     }
     

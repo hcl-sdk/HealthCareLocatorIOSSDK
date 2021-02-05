@@ -13,9 +13,6 @@ class AppConfigure {
         case LastSearches
         case LastHCPsConsoulted
     }
-    
-    static let kSupportedCodeTypes = ["sp"]
-    static let kModifyActivityURLFormat = "https://onekeysdk.ekinoffy.com/%@/suggest-modification?apiKey=%@&id=%@"
 
     static var deviceId: String {
         get {
