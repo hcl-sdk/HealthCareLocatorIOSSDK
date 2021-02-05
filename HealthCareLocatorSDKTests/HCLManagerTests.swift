@@ -117,8 +117,8 @@ class HCLManagerTests: XCTestCase {
     }
     
     func testSetLocale_WithSpecificStringProvided_ManagerShouldRecordLanguage() {
-        let mockLanguage = "fr"
-        manager.setLocale(lang: mockLanguage)
+        let mockLanguage = HCLLanguage(rawValue: "fr") ?? .english
+        manager.setLocale(language: mockLanguage)
         XCTAssertEqual(mockLanguage, manager.lang, "Expected the language code is stored after set but received a different language code")
     }
     
