@@ -51,6 +51,13 @@ public class HCLHCPSearchWebServices: SearchAPIsProtocol {
     }
     
     /**
+     Fetch detail info for a code to get its name
+     */
+    public func fetchLabelBy(code: String, completionHandler: @escaping ((Code?, Error?) -> Void)) {
+        manager.fetchLabelBy(code: code, completionHandler: completionHandler)
+    }
+    
+    /**
      Fetch the list of simple individual objects
      - Note: This API does not return the full detail of individual but it light enough to perform quick suggestion on list
      */

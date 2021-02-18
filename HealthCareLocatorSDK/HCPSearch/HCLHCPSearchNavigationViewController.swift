@@ -53,12 +53,12 @@ public class HCLHCPSearchNavigationViewController: UINavigationController {
                 }
             }
         case .nearMe:
+            let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
             let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as! SearchResultViewController
             resultVC.data = SearchData(criteria: nil,
-                                       codes: search.favourites.map {Code(id: $0, longLbl: nil)},
-                                       mode: .quickNearMeSearch)
-            resultVC.shouldHideBackButton = true
-            setViewControllers([resultVC], animated: false)
+                                       codes: [Code(id: search.speciality, longLbl: nil)],
+                                       mode: .nearMeSearch)
+            setViewControllers([compactHomeVC, resultVC], animated: false)
         }
     }
     

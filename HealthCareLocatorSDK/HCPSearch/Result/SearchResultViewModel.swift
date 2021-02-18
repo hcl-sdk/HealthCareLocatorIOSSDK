@@ -137,6 +137,10 @@ class SearchResultViewModel: ViewLoading {
         }
     }
     
+    func fetchLabelFor(code: String, completionHandler: @escaping ((Code?, Error?) -> Void)) {
+        webServices.fetchLabelBy(code: code, completionHandler: completionHandler)
+    }
+    
     // MARK: Sorting
     func sortResultBy(sort: SearchResultSortViewController.SortBy, result: [ActivityResult], _ completionHandler: (([ActivityResult]) -> Void)) {
         var mutableResult = result
@@ -208,6 +212,37 @@ class SearchResultViewModel: ViewLoading {
             view.selectedListViewBackgroundView.backgroundColor = UIColor.clear
             view.listLabel.textColor = theme.darkColor
             view.listIcon.tintColor = theme.darkColor
+        }
+    }
+    
+    func layoutWith(view: SearchResultViewController, searchData: SearchData) {
+        view.criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria ?? " "
+        switch searchData.mode {
+        case .baseSearch:
+            view.topInputWrapper.isHidden = false
+            view.topLabelsWrapper.isHidden = true
+            view.mode = .list
+        case .quickNearMeSearch:
+            view.addressLabel.text = kNearMeTitle
+            view.topInputWrapper.isHidden = false
+            view.topLabelsWrapper.isHidden = true
+            view.mode = .map
+        case .addressSearch(let address):
+            view.addressLabel.text = address
+            view.topInputWrapper.isHidden = true
+            view.topLabelsWrapper.isHidden = false
+            view.mode = .list
+        default:
+            view.addressLabel.text = kNearMeTitle
+            view.topInputWrapper.isHidden = true
+            view.topLabelsWrapper.isHidden = false
+            view.mode = .map
+        }
+        // Try to fetch label for code
+        if let code = searchData.codes?.first {
+            fetchLabelFor(code: code.id) {[weak view] (codeObj, error) in
+                view?.criteriaLabel.text = codeObj?.longLbl ?? code.id
+            }
         }
     }
 }

@@ -9,12 +9,12 @@ import Foundation
 
 let kMenuHomeTitle = "Home"
 
-let kMenuNewSearchTitle = "New Search Home"
+let kMenuNewSearchTitle = "Search For HCPs"
 let kMenuNewNearMeSearchTitle = "New Search Near Me"
 
 let kMenuSettingsTitle = "Settings"
-let kMenuPreConfiguredNearMeSearch1Title = "Search Cardiology Around"
-let kMenuPreConfiguredNearMeSearch2Title = "Search Internal Medicine Around"
+let kMenuFindDentistNearMeTitle = "Find A Dentist Near Me"
+let kMenuFindCardiologistNearMeTitle = "Find A Cardiologist Near Me"
 
 let kMenuAPIKeyTitle = "API Key"
 let kMenuThemeTitle = "Theme"

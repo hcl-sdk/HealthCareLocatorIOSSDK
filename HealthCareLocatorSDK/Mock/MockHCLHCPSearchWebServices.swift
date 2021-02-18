@@ -14,6 +14,10 @@ class MockHCLHCPSearchWebServices: SearchAPIsProtocol {
         
     }
     
+    func fetchLabelBy(code: String, completionHandler: @escaping ((Code?, Error?) -> Void)) {
+        
+    }
+    
     func fetchActivityWith(id: String!,
                            locale: String?,
                            userId: String?,

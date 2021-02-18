@@ -23,21 +23,21 @@ public struct HCLSearchConfigure {
     }
     
     let entry: SearchEntry!
-    let favourites: [String]
+    let speciality: String?
     
     /**
      - Params:
         - entry: The first UI will be displyed for the user
-        - favourites: The list of specialities will be use to perform the quick search action
+        - speciality: The code of specialities will be use to perform the quick search action
      */
-    public init(entry: SearchEntry? = nil, favourites: [String]? = nil) {
+    public init(entry: SearchEntry? = nil, speciality: String? = nil) {
         self.entry = entry ?? .home
-        self.favourites = favourites ?? []
+        self.speciality = speciality
     }
 }
 
 class HCLSearchConfigureValidator {
     static func validate(configure: HCLSearchConfigure) -> Bool {
-        return (configure.entry == .home && configure.favourites.count > 0) ? false : true
+        return (configure.entry == .home && configure.speciality != nil) ? false : true
     }
 }

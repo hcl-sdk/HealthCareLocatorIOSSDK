@@ -16,9 +16,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     }
     
     private let disposeBag = DisposeBag()
-   
-    var shouldHideBackButton = false
-    
+       
     var resultNavigationVC: UINavigationController!
     var data: SearchData?
     
@@ -32,7 +30,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     
     private var searchResultViewModel: SearchResultViewModel?
     
-    private var mode = ViewMode.list {
+    var mode = ViewMode.list {
         didSet {
             if let viewModel = searchResultViewModel {
                 viewModel.layout(view: self, theme: theme, mode: mode)
@@ -42,7 +40,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var topLabelsWrapper: UIStackView!
     @IBOutlet weak var topInputWrapper: UIStackView!
-    @IBOutlet weak var topInputMarginLeftView: UIView!
     
     @IBOutlet weak var topInputTextField: UITextField!
     @IBOutlet weak var searchButton: BaseButton!
@@ -75,8 +72,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
     override func viewDidLoad() {
         super.viewDidLoad()
         topInputTextField.delegate = self
-        backButton.isHidden = shouldHideBackButton
-        topInputMarginLeftView.isHidden = !shouldHideBackButton
         noResultWrapper.isHidden = true
         if let search = data {
             searchResultViewModel = SearchResultViewModel(webservices: HCLHCPSearchWebServices(manager: HCLServiceManager.shared),
@@ -154,29 +149,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     }
     
     func layoutWith(searchData: SearchData) {
-        criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria
-        switch searchData.mode {
-        case .baseSearch:
-            topInputWrapper.isHidden = false
-            topLabelsWrapper.isHidden = true
-            mode = .list
-        case .quickNearMeSearch:
-            addressLabel.text = kNearMeTitle
-            topInputWrapper.isHidden = false
-            topLabelsWrapper.isHidden = true
-            mode = .map
-        case .addressSearch(let address):
-            addressLabel.text = address
-            topInputWrapper.isHidden = true
-            topLabelsWrapper.isHidden = false
-            mode = .list
-        default:
-            addressLabel.text = kNearMeTitle
-            topInputWrapper.isHidden = true
-            topLabelsWrapper.isHidden = false
-            mode = .map
-        }
-                
+        searchResultViewModel?.layoutWith(view: self, searchData: searchData)
         // Display map by default if the user active near me search at home screen
         if mode == .map {
             // Add map view to stack as this mode require the map should be display first

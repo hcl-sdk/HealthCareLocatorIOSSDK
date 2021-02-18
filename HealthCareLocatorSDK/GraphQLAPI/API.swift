@@ -107,7 +107,7 @@ public final class CodesByLabelQuery: GraphQLQuery {
       self.init(unsafeResultMap: ["__typename": "Query", "codesByLabel": codesByLabel.flatMap { (value: CodesByLabel) -> ResultMap in value.resultMap }])
     }
 
-    /// criteria would be on longLbl code types can be Liscode
+    /// CodesByLabel:criteria would be on longLbl code types can be Liscode
     public var codesByLabel: CodesByLabel? {
       get {
         return (resultMap["codesByLabel"] as? ResultMap).flatMap { CodesByLabel(unsafeResultMap: $0) }
@@ -118,6 +118,155 @@ public final class CodesByLabelQuery: GraphQLQuery {
     }
 
     public struct CodesByLabel: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CodeResult"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("codes", type: .list(.object(Code.selections))),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(codes: [Code?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "CodeResult", "codes": codes.flatMap { (value: [Code?]) -> [ResultMap?] in value.map { (value: Code?) -> ResultMap? in value.flatMap { (value: Code) -> ResultMap in value.resultMap } } }])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var codes: [Code?]? {
+        get {
+          return (resultMap["codes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Code?] in value.map { (value: ResultMap?) -> Code? in value.flatMap { (value: ResultMap) -> Code in Code(unsafeResultMap: value) } } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Code?]) -> [ResultMap?] in value.map { (value: Code?) -> ResultMap? in value.flatMap { (value: Code) -> ResultMap in value.resultMap } } }, forKey: "codes")
+        }
+      }
+
+      public struct Code: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Code"]
+
+        public static var selections: [GraphQLSelection] {
+          return [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLField("id", type: .scalar(String.self)),
+            GraphQLField("longLbl", type: .nonNull(.scalar(String.self))),
+          ]
+        }
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: String? = nil, longLbl: String) {
+          self.init(unsafeResultMap: ["__typename": "Code", "id": id, "longLbl": longLbl])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var id: String? {
+          get {
+            return resultMap["id"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var longLbl: String {
+          get {
+            return resultMap["longLbl"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "longLbl")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class LabelsByCodeQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query LabelsByCode($criteria: String!, $codeTypes: [String!]!) {
+      labelsByCode(criteria: $criteria, codeTypes: $codeTypes) {
+        __typename
+        codes {
+          __typename
+          id
+          longLbl
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "LabelsByCode"
+
+  public var criteria: String
+  public var codeTypes: [String]
+
+  public init(criteria: String, codeTypes: [String]) {
+    self.criteria = criteria
+    self.codeTypes = codeTypes
+  }
+
+  public var variables: GraphQLMap? {
+    return ["criteria": criteria, "codeTypes": codeTypes]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("labelsByCode", arguments: ["criteria": GraphQLVariable("criteria"), "codeTypes": GraphQLVariable("codeTypes")], type: .object(LabelsByCode.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(labelsByCode: LabelsByCode? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "labelsByCode": labelsByCode.flatMap { (value: LabelsByCode) -> ResultMap in value.resultMap }])
+    }
+
+    /// CodesByLabel:criteria would be on longLbl code types can be Liscode
+    public var labelsByCode: LabelsByCode? {
+      get {
+        return (resultMap["labelsByCode"] as? ResultMap).flatMap { LabelsByCode(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "labelsByCode")
+      }
+    }
+
+    public struct LabelsByCode: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["CodeResult"]
 
       public static var selections: [GraphQLSelection] {

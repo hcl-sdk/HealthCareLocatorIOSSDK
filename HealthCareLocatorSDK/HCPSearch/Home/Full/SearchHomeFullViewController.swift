@@ -107,7 +107,7 @@ extension SearchHomeFullViewController: SearchHistoryDataSourceDelegate {
     
     func didSelectNearMeSearch() {
         let searchData = SearchData(criteria: nil,
-                                    codes: HCLManager.shared.searchConfigure?.favourites.map {Code(id: $0, longLbl: nil)},
+                                    codes: [],
                                     mode: .quickNearMeSearch)
         AppConfigure.save(search: searchData)
         performSegue(withIdentifier: "showResultVC", sender: searchData)

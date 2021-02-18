@@ -63,8 +63,7 @@ class HomeViewController: UIViewController {
             case "EmbedMenuTableView":
                 if let menuVC = segue.destination as? MenuTableViewController {
                     menuVC.delegate = self
-                    menuVC.menus = [MenuSection(title: nil, menus: Menu.allMainMenus),
-                                    MenuSection(title: "Near Me Search", menus: Menu.preconfiguredSearchMenus)]
+                    menuVC.menus = [MenuSection(title: nil, menus: Menu.allMainMenus)]
                 }
             case "embedHomeNavigationVC":
                 if let desVC = segue.destination as? UINavigationController {
@@ -87,15 +86,12 @@ extension HomeViewController: MenuTableViewControllerDelegate {
                 homeNavigationController.popToRootViewController(animated: true)
             case kMenuNewSearchTitle:
                 handleStartNewSearch(config: HCLSearchConfigure())
-            case kMenuNewNearMeSearchTitle:
-                handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe,
-                                                               favourites: Specialities.allCases.map {$0.code}))
-            case kMenuSettingsTitle:
-                showSettingsScreen()
-            case kMenuPreConfiguredNearMeSearch1Title:
+            case kMenuFindDentistNearMeTitle:
+                startQuickDentistSearch()
+            case kMenuFindCardiologistNearMeTitle:
                 startQuickCardilogySearch()
-            case kMenuPreConfiguredNearMeSearch2Title:
-                startQuickInternalMedicineSearch()
+           case kMenuSettingsTitle:
+                showSettingsScreen()
             default:
                 return
             }
@@ -124,11 +120,11 @@ extension HomeViewController: MenuTableViewControllerDelegate {
     }
     
     private func startQuickCardilogySearch() {
-        HCLManager.shared.searchNearMe(specialities: ["1SP.0800"])
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.0800"))
     }
     
-    private func startQuickInternalMedicineSearch() {
-        HCLManager.shared.searchNearMe(specialities: ["1SP.2900"])
+    private func startQuickDentistSearch() {
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.7500"))
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {

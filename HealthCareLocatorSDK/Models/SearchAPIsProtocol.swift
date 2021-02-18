@@ -11,6 +11,9 @@ protocol SearchAPIsProtocol {
     
     init(manager: HCLServiceManager)
     
+    func fetchLabelBy(code: String,
+                      completionHandler: @escaping ((Code?, Error?) -> Void))
+    
     func fetchCodesByLabel(info: GeneralQueryInput,
                            criteria: String!,
                            codeTypes: [String],

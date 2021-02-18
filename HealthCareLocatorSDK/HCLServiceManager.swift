@@ -45,6 +45,26 @@ class HCLServiceManager: NSObject {
 }
 
 extension HCLServiceManager {
+    
+    func fetchLabelBy(code: String, completionHandler: @escaping ((Code?, Error?) -> Void)) {
+        if let apollo = self.apollo {
+            let query = LabelsByCodeQuery(criteria: code, codeTypes: kSupportedCodeTypes)
+            apollo.fetch(query: query) { result in
+                switch result {
+                case .success(let response):
+                    if let result = response.data?.labelsByCode?.codes?.first {
+                        completionHandler(Code(id: result?.id, longLbl: result?.longLbl), nil)
+                    }
+                    break
+                case .failure(let error):
+                    completionHandler(nil, error)
+                }
+            }
+        } else {
+            completionHandler(nil, HCLError.initializeConfigureValidateFailed)
+        }
+    }
+    
     func fetchActivityWith(id: String!,
                            locale: String?,
                            userId: String?,
