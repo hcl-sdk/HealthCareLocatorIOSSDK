@@ -24,92 +24,41 @@ class SearchResultViewModel: ViewLoading {
     
     // MARK: Searching
     func performSearch(config: HCLSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        let info = GeneralQueryInput(first: 50,
-                                     offset: 0,
-                                     locale: config.lang.apiCode,
-                                     criteria: search.codes != nil ? nil : search.criteria)
-        let userId = config.userId
         switch search.mode {
         case .nearMeSearch,
              .quickNearMeSearch:
-            performNearMeSearchWith(info: info,
-                                    userId: userId,
-                                    completionHandler: completionHandler)
+            perform(action: SearchAction(isNearMeSearch: true, address: nil, coordinate: nil))
         case .addressSearch(let address):
-            performAddressSearchWith(address: address,
-                                     info: info,
-                                     userId: userId,
-                                     completionHandler: completionHandler)
+            CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
+                guard let strongSelf = self else {return}
+                strongSelf.perform(action: SearchAction(isNearMeSearch: false, address: address, coordinate: placeMarks?.first?.location?.coordinate))
+            }
         default:
-            fetchActivitiesWith(info: info,
-                                specialties: search.codes?.map {$0.id},
-                                location: nil,
-                                county: "",
-                                criteria: info.criteria,
-                                userId: userId,
-                                completionHandler: completionHandler)
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil))
         }
     }
     
     func performSearchWith(config: HCLSDKConfigure,
-                           coordinate: CLLocationCoordinate2D,
+                           coordinate: CLLocationCoordinate2D?,
                            completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
                                      locale: config.lang.apiCode,
                                      criteria: search.codes != nil ? nil : search.criteria)
+        // Optional geopoint
+        var geopoint: GeopointQuery?
+        if let unwrapCoordinate = coordinate {
+            geopoint = GeopointQuery(lat: unwrapCoordinate.latitude,
+                                     lon: unwrapCoordinate.longitude)
+        }
+        
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},
-                            location: GeopointQuery(lat: coordinate.latitude,
-                                                    lon: coordinate.longitude),
+                            location: geopoint,
                             county: "",
                             criteria: info.criteria,
                             userId: config.userId,
                             completionHandler: completionHandler)
-    }
-    
-    
-    private func performNearMeSearchWith(info: GeneralQueryInput,
-                                         userId: String?,
-                                         completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        LocationManager.shared.requestLocation {[weak self] (locations, error) in
-            guard let strongSelf = self else {return}
-            if let lastLocation = locations?.last {
-                strongSelf.fetchActivitiesWith(info: info,
-                                               specialties: strongSelf.search.codes?.map {$0.id},
-                                               location: GeopointQuery(lat: lastLocation.coordinate.latitude,
-                                                                       lon: lastLocation.coordinate.longitude),
-                                               county: "",
-                                               criteria: info.criteria,
-                                               userId: userId,
-                                               completionHandler: completionHandler)
-            } else {
-                // TODO: Handle error
-            }
-        }
-    }
-    
-    private func performAddressSearchWith(address: String,
-                                          info: GeneralQueryInput,
-                                          userId: String?,
-                                          completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
-        CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
-            guard let strongSelf = self else {return}
-            if let location = placeMarks?.first?.location {
-                strongSelf.fetchActivitiesWith(info: info,
-                                               specialties: strongSelf.search.codes?.map {$0.id},
-                                               location: GeopointQuery(lat: location.coordinate.latitude,
-                                                                       lon: location.coordinate.longitude),
-                                               county: "",
-                                               criteria: info.criteria,
-                                               userId: userId,
-                                               completionHandler: completionHandler)
-            } else {
-                print(error)
-                // Can not detect location
-                completionHandler([], nil)
-            }
-        }
     }
     
     private func fetchActivitiesWith(info: GeneralQueryInput,
@@ -216,11 +165,13 @@ class SearchResultViewModel: ViewLoading {
     }
     
     func layoutWith(view: SearchResultViewController, searchData: SearchData) {
+        view.addressLabel.text = " "// use space char to keep the line height
         view.criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria ?? " "
         switch searchData.mode {
         case .baseSearch:
-            view.topInputWrapper.isHidden = false
-            view.topLabelsWrapper.isHidden = true
+            view.addressLabel.text = kNoAddressTitle
+            view.topInputWrapper.isHidden = true
+            view.topLabelsWrapper.isHidden = false
             view.mode = .list
         case .quickNearMeSearch:
             view.addressLabel.text = kNearMeTitle
@@ -252,6 +203,7 @@ extension SearchResultViewModel {
     
     struct SearchAction {
         let isNearMeSearch: Bool
+        let address: String?
         let coordinate: CLLocationCoordinate2D?
     }
     
@@ -273,11 +225,12 @@ extension SearchResultViewModel {
         }
     }
     
-    private func searchWith(config: HCLSDKConfigure, coordinate: CLLocationCoordinate2D) -> Single<[ActivityResult]> {
+    private func searchWith(config: HCLSDKConfigure, coordinate: CLLocationCoordinate2D?) -> Single<[ActivityResult]> {
         return Single.create {[weak self] single in
             if let strongSelf = self {
-                strongSelf.performSearchWith(config: config, coordinate: coordinate,
-                                                         completionHandler: { (result, error) in
+                strongSelf.performSearchWith(config: config,
+                                             coordinate: coordinate,
+                                             completionHandler: { (result, error) in
                                                             single(.success(result ?? []))
                                                          })
             } else {
@@ -291,10 +244,18 @@ extension SearchResultViewModel {
         searchActions.onNext(action)
     }
     
-    func newSearchWith(config: HCLSDKConfigure, location: CLLocationCoordinate2D) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
-        return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: location.latitude,
-                                                                      longitude: location.longitude)),
-                          searchWith(config: config, coordinate: location)).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+    func newSearchWith(config: HCLSDKConfigure, address: String?, location: CLLocationCoordinate2D?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+        if let unwrapLocation = location {
+            if let unwrapAddress = address {
+                return searchWith(config: config, coordinate: nil).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
+            } else {
+                return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: unwrapLocation.latitude,
+                                                                              longitude: unwrapLocation.longitude)),
+                                  searchWith(config: config, coordinate: unwrapLocation)).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+            }
+        } else {
+            return searchWith(config: config, coordinate: nil).map {(title: address ?? kNoAddressTitle, result: $0, zoomTo: nil)}
+        }
     }
     
     func newNearMeSearchWith(config: HCLSDKConfigure) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
@@ -317,7 +278,8 @@ extension SearchResultViewModel {
                     return strongSelf.newNearMeSearchWith(config: HCLManager.shared).asObservable()
                 } else {
                     return strongSelf.newSearchWith(config: HCLManager.shared,
-                                                    location: action.coordinate!).asObservable()
+                                                    address: action.address,
+                                                    location: action.coordinate).asObservable()
                 }
             } else {
                 return Observable.create { (observer) -> Disposable in

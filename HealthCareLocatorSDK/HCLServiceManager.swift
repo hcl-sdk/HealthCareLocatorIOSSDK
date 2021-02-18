@@ -103,7 +103,7 @@ extension HCLServiceManager {
                                           criteria: criteria,
                                           codeTypes: codeTypes,
                                           locale: info.locale)
-            apollo.fetch(query: query) { result in
+            apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheCompletely) { result in
                 switch result {
                 case .success(let response):
                     if let json = response.data?.codesByLabel?.jsonObject,

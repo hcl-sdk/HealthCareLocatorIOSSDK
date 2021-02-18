@@ -62,3 +62,4 @@
 "hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
 "hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
 "hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_anywhere" = "N'importe où";

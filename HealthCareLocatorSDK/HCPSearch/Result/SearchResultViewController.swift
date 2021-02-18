@@ -288,12 +288,14 @@ extension SearchResultViewController: SearchResultMapViewControllerDelegate {
     func startNewSearchWith(location: CLLocationCoordinate2D, from view: SearchResultMapViewController) {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: false,
+                                                                                  address: nil,
                                                                                   coordinate: location))
     }
     
     func startNewNearMeSearchFrom(view: SearchResultMapViewController) {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: true,
+                                                                                  address: nil,
                                                                                   coordinate: nil))
     }
 }

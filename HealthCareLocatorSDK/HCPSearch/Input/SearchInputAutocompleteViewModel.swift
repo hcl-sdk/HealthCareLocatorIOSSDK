@@ -126,4 +126,8 @@ extension SearchInputAutocompleteViewModel {
     func set(isNearMeSearch: Bool) {
         self.isNearMeSearch = isNearMeSearch
     }
+    
+    func isSelectedCode() -> Bool {
+        return selectedCode != nil
+    }
 }

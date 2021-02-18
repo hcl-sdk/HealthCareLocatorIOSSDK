@@ -230,20 +230,25 @@ extension SearchInputViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
-        if let text = textField.text,
-           let textRange = Range(range, in: text) {
-            let searchText = text.replacingCharacters(in: textRange, with: string)
-            if textField == locationSearchTextField {
-                searchInputAutocompleteModelView.set(address: searchText)
-                searchCompleter.queryFragment = searchText
-            } else {
-                searchInputAutocompleteModelView.set(criteria: searchText)
-                searchInput = searchText
+        // NOTE: wont allow to edit the selected code after select, the user MUST clear the code instead
+        if textField == categorySearchTextField && searchInputAutocompleteModelView.isSelectedCode() {
+            return false
+        } else {
+            textField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
+            if let text = textField.text,
+               let textRange = Range(range, in: text) {
+                let searchText = text.replacingCharacters(in: textRange, with: string)
+                if textField == locationSearchTextField {
+                    searchInputAutocompleteModelView.set(address: searchText)
+                    searchCompleter.queryFragment = searchText
+                } else {
+                    searchInputAutocompleteModelView.set(criteria: searchText)
+                    searchInput = searchText
+                }
             }
+            
+            return true
         }
-        
-        return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {

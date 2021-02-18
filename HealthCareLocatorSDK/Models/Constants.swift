@@ -20,4 +20,8 @@ var kNearMeTitle: String {
     return "hcl_near_me".localized
 }
 
+var kNoAddressTitle: String {
+    return "hcl_anywhere".localized
+}
+
 let kLocalizedTableName = "HealthCareLocatorSDK"
