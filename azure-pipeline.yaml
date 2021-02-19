@@ -83,4 +83,4 @@ steps:
 
   - task: CmdLine@2
     inputs:
-      script: pod repo push https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb.git HealthCareLocatorSDK.podspec
+      script: pod --allow-warnings repo push https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb.git HealthCareLocatorSDK.podspec
