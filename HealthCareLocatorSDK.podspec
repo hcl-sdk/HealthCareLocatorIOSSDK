@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
 
   # spec.source       = { :path => "." }
   # spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib', :tag => '1.0.2' }
-  spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib'}
+  spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib', :branch => 'develop'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
