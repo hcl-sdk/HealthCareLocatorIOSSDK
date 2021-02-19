@@ -166,8 +166,6 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
                 delegate?.didSelect(search: searches[indexPath.row - 1])
             case .lasHCPConsolted(_, let activities):
                 delegate?.didSelect(activity: activities[indexPath.row - 1].activity)
-            default:
-                break
             }
         }
     }

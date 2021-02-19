@@ -141,7 +141,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                 strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
                 strongSelf.animateContentDisplaying()
             } else {
-                print(error)
+                // TODO: Handle error
             }
         }
     }
@@ -158,7 +158,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        let items = [activity?.shareMessageWith(appName: HCLManager.shared.appName, and: HCLManager.shared.appDownloadLink)] as [Any]
+        let items = [activity?.shareMessageWith(appName: HCLManager.shared.appName, and: HCLManager.shared.appDownloadLink) ?? ""] as [Any]
         let sharePanel = UIActivityViewController(activityItems: items, applicationActivities: nil)
         sharePanel.modalPresentationStyle = .overFullScreen
         present(sharePanel, animated: true, completion: nil)

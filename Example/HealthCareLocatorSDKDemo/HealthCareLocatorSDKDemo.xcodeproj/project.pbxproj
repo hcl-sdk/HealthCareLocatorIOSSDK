@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E60696C477506A3DAC2F222 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3D33EF899D7351C1F10ED1 /* Pods_HealthCareLocatorSDKDemo.framework */; };
 		5805F980255A5CB400D93CD0 /* burger-menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 5805F97F255A5CB400D93CD0 /* burger-menu.json */; };
 		5817E9F225711AD4001F33B6 /* DefaultThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */; };
 		582BBDFF257FA786009BC23E /* UIFont+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582BBDFE257FA786009BC23E /* UIFont+Additional.swift */; };
@@ -97,15 +98,14 @@
 		58F32B5425CA631F006C6F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364922555081E00C62479 /* Main.storyboard */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
-		99B63C8C6A40F85120549528 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B08551F95C44B350E1D93ED6 /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */; };
-		FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */; };
+		ACB6555E60F1E204F09763ED /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D112836053049D056422B6 /* Pods_HCLDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
-		3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCLDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D112836053049D056422B6 /* Pods_HCLDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCLDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		379895C675149420670F8499 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		399AF90EAE812EE0283D7585 /* Pods-HCLDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.release.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4287A2833E626BEFB3521664 /* Pods-HCLDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.debug.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5805F97F255A5CB400D93CD0 /* burger-menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "burger-menu.json"; sourceTree = "<group>"; };
 		5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemesViewController.swift; sourceTree = "<group>"; };
 		582BBDFE257FA786009BC23E /* UIFont+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Additional.swift"; sourceTree = "<group>"; };
@@ -155,9 +155,8 @@
 		58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "HCLDemo-Info.plist"; path = "/Users/truongle/Documents/Projects/Work/IQVIA/Ekino/HealthCareLocatorSDK-iOS/Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"; sourceTree = "<absolute>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.debug.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCLDemo.release.xcconfig"; path = "Target Support Files/Pods-HCLDemo/Pods-HCLDemo.release.xcconfig"; sourceTree = "<group>"; };
-		C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3D33EF899D7351C1F10ED1 /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C555181742A5C299EEE880D2 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B63C8C6A40F85120549528 /* (null) in Frameworks */,
-				FC2E9728B963DC2A75437155 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
+				3E60696C477506A3DAC2F222 /* Pods_HealthCareLocatorSDKDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B08551F95C44B350E1D93ED6 /* Pods_HCLDemo.framework in Frameworks */,
+				ACB6555E60F1E204F09763ED /* Pods_HCLDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +197,8 @@
 				58A3648B2555081E00C62479 /* HealthCareLocatorSDKDemo */,
 				58A3648A2555081E00C62479 /* Products */,
 				5C25B71665839002B4EE617B /* Pods */,
-				CD1EDD80DF00816D23242E5E /* Frameworks */,
 				58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */,
+				80ED0276CD39CF3A032F8949 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,19 +303,19 @@
 		5C25B71665839002B4EE617B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */,
-				04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */,
-				720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */,
-				85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */,
+				4287A2833E626BEFB3521664 /* Pods-HCLDemo.debug.xcconfig */,
+				399AF90EAE812EE0283D7585 /* Pods-HCLDemo.release.xcconfig */,
+				379895C675149420670F8499 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */,
+				C555181742A5C299EEE880D2 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		CD1EDD80DF00816D23242E5E /* Frameworks */ = {
+		80ED0276CD39CF3A032F8949 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41DE046170FBFD7AD27C403F /* Pods_HCLDemo.framework */,
-				C5390FFDB54C8623C0CE8044 /* Pods_HealthCareLocatorSDKDemo.framework */,
+				15D112836053049D056422B6 /* Pods_HCLDemo.framework */,
+				AA3D33EF899D7351C1F10ED1 /* Pods_HealthCareLocatorSDKDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,11 +327,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58A364B32555082000C62479 /* Build configuration list for PBXNativeTarget "HealthCareLocatorSDKDemo" */;
 			buildPhases = (
-				7512E3F813FA033A63A1F4C1 /* [CP] Check Pods Manifest.lock */,
+				D33F1F9D497B992A393EEB6C /* [CP] Check Pods Manifest.lock */,
 				58A364852555081E00C62479 /* Sources */,
 				58A364862555081E00C62479 /* Frameworks */,
 				58A364872555081E00C62479 /* Resources */,
-				7DF1236FDE1C52B7B80AF54F /* [CP] Embed Pods Frameworks */,
+				1BE013EBEBD120D46708DCBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,11 +346,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58F32B5625CA631F006C6F8A /* Build configuration list for PBXNativeTarget "HCLDemo" */;
 			buildPhases = (
-				58F32B2325CA631F006C6F8A /* [CP] Check Pods Manifest.lock */,
+				60EF48CD8B89838498E677BD /* [CP] Check Pods Manifest.lock */,
 				58F32B2425CA631F006C6F8A /* Sources */,
 				58F32B4B25CA631F006C6F8A /* Frameworks */,
 				58F32B4D25CA631F006C6F8A /* Resources */,
-				58F32B5525CA631F006C6F8A /* [CP] Embed Pods Frameworks */,
+				E9D200E7F4F5C6641E59DC90 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,7 +426,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		58F32B2325CA631F006C6F8A /* [CP] Check Pods Manifest.lock */ = {
+		1BE013EBEBD120D46708DCBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60EF48CD8B89838498E677BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -450,24 +465,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		58F32B5525CA631F006C6F8A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7512E3F813FA033A63A1F4C1 /* [CP] Check Pods Manifest.lock */ = {
+		D33F1F9D497B992A393EEB6C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -489,21 +487,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7DF1236FDE1C52B7B80AF54F /* [CP] Embed Pods Frameworks */ = {
+		E9D200E7F4F5C6641E59DC90 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HCLDemo/Pods-HCLDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -741,7 +739,7 @@
 		};
 		58A364B42555082000C62479 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D0746F8E5FEA579C7F76D47 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */;
+			baseConfigurationReference = 379895C675149420670F8499 /* Pods-HealthCareLocatorSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -762,7 +760,7 @@
 		};
 		58A364B52555082000C62479 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04639DF8C2531957FA8A0434 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */;
+			baseConfigurationReference = C555181742A5C299EEE880D2 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -783,7 +781,7 @@
 		};
 		58F32B5725CA631F006C6F8A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 720BF56EFD45B064E1AAB7D5 /* Pods-HCLDemo.debug.xcconfig */;
+			baseConfigurationReference = 4287A2833E626BEFB3521664 /* Pods-HCLDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -805,7 +803,7 @@
 		};
 		58F32B5825CA631F006C6F8A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85D9F1CDD4DFC5DB59F70F68 /* Pods-HCLDemo.release.xcconfig */;
+			baseConfigurationReference = 399AF90EAE812EE0283D7585 /* Pods-HCLDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

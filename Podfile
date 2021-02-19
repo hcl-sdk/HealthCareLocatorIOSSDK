@@ -1,18 +1,26 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'HealthCareLocatorSDK' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for HealthCareLocatorSDK
-  pod 'Apollo'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'RxSwiftExt'
-
+  pod 'Apollo', '~> 0.36.0'
+  pod 'RxSwift', '~> 5.1.1'
+  pod 'RxCocoa', '~> 5.1.1'
+  pod 'RxSwiftExt', '~> 5.2.0'
+  
   target 'HealthCareLocatorSDKTests' do
     # Pods for testing
   end
   
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+    end
+  end
 end

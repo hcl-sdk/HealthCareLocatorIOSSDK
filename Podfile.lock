@@ -18,10 +18,10 @@ PODS:
     - RxSwiftExt/Core
 
 DEPENDENCIES:
-  - Apollo
-  - RxCocoa
-  - RxSwift
-  - RxSwiftExt
+  - Apollo (~> 0.36.0)
+  - RxCocoa (~> 5.1.1)
+  - RxSwift (~> 5.1.1)
+  - RxSwiftExt (~> 5.2.0)
 
 SPEC REPOS:
   trunk:
@@ -38,6 +38,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
 
-PODFILE CHECKSUM: 6d69cf4f0fc5c3f9b204e784da86b8ed8ec790c7
+PODFILE CHECKSUM: 36b74c052abad40d48ab22af156a484facb5f0cd
 
 COCOAPODS: 1.10.1

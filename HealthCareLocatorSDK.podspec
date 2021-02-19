@@ -118,7 +118,8 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  spec.frameworks = "CoreLocation", "MapKit"
+  spec.frameworks = "CoreLocation"
+  spec.frameworks = "MapKit"
 
   # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
@@ -133,10 +134,11 @@ Pod::Spec.new do |spec|
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  spec.dependency "Apollo"
-  spec.dependency "RxSwift"
-  spec.dependency "RxCocoa"
-  spec.dependency "RxSwiftExt"
+  
+  spec.dependency "Apollo", '=0.36.0'
+  spec.dependency "RxSwift", '=5.1.1'
+  spec.dependency "RxCocoa", '=5.1.1'
+  spec.dependency "RxSwiftExt", '=5.2.0'
 
   spec.swift_version = "5.0" 
 

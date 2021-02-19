@@ -39,7 +39,7 @@ class IndividualAutoCompleteTableViewCell: UITableViewCell {
         let attibuteText = NSMutableAttributedString(string: individual.composedName)
         if let highlightText = highlight {
             let range = NSString(string: attibuteText.mutableString.lowercased).range(of: highlightText.lowercased())
-            attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor, range: range)
+            attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor as Any, range: range)
         }
         individualNameLabel.attributedText = attibuteText
         

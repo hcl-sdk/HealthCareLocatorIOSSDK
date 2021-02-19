@@ -20,7 +20,7 @@ class CodeAutoCompleteTableViewCell: UITableViewCell {
         let attibuteText = NSMutableAttributedString(string: longLabel)
         if let highlightText = highlight {
             let range = NSString(string: attibuteText.mutableString.lowercased).range(of: highlightText.lowercased())
-            attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor, range: range)
+            attibuteText.addAttribute(NSAttributedString.Key.foregroundColor, value: theme.primaryColor as Any, range: range)
         }
         codeLabel.attributedText = attibuteText
     }

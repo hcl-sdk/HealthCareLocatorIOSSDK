@@ -1,7 +1,7 @@
 PODS:
-  - Apollo (0.39.0):
-    - Apollo/Core (= 0.39.0)
-  - Apollo/Core (0.39.0)
+  - Apollo (0.36.0):
+    - Apollo/Core (= 0.36.0)
+  - Apollo/Core (0.36.0)
   - AppCenter (4.1.0):
     - AppCenter/Analytics (= 4.1.0)
     - AppCenter/Crashes (= 4.1.0)
@@ -12,10 +12,10 @@ PODS:
     - AppCenter/Core
   - FlexColorPicker (1.4.2)
   - HealthCareLocatorSDK (0.0.1):
-    - Apollo
-    - RxCocoa
-    - RxSwift
-    - RxSwiftExt
+    - Apollo (= 0.36.0)
+    - RxCocoa (= 5.1.1)
+    - RxSwift (= 5.1.1)
+    - RxSwiftExt (= 5.2.0)
   - IQKeyboardManagerSwift (6.5.6)
   - lottie-ios (3.1.9)
   - RxCocoa (5.1.1):
@@ -59,10 +59,10 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Apollo: f6c6410ebee82dd5846be87b81cedc8bc7754a82
+  Apollo: a8dbf1a55e8860bfbe3e4274919721d102c85413
   AppCenter: 8832b158d17e54845c3b88a91076218f0b07174d
   FlexColorPicker: d7ed5cfd8ceb936f2930e4e30629f9448967a5f8
-  HealthCareLocatorSDK: 1fc49cc2807bc87cfc7c12d5ea8670615deb94d5
+  HealthCareLocatorSDK: 50b816b1740013e7ddd1d42482ef79e72392ef96
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601

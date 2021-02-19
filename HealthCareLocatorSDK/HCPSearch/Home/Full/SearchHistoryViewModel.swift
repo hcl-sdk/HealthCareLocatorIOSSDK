@@ -12,21 +12,21 @@ import RxSwift
 enum HistorySection: Equatable {
     static func == (lhs: HistorySection, rhs: HistorySection) -> Bool {
         switch lhs {
-        case .nearMe(let lhsTitle, let lhsActivities):
+        case .nearMe:
             switch rhs {
             case .lastSearchs, .lasHCPConsolted:
                 return false
             case .nearMe:
                 return true
             }
-        case .lastSearchs(let title, let searches):
+        case .lastSearchs:
             switch rhs {
             case .nearMe, .lasHCPConsolted:
                 return false
             case .lastSearchs:
                 return true
             }
-        case .lasHCPConsolted(let title, let activities):
+        case .lasHCPConsolted:
             switch rhs {
             case .nearMe, .lastSearchs:
                 return false
