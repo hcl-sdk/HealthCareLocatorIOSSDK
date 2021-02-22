@@ -73,11 +73,3 @@ steps:
       pathtoPublish: "$(build.artifactStagingDirectory)"
       artifactName: "drop"
       publishLocation: "Container"
-
-  - task: CmdLine@2
-    inputs:
-      script: pod repo add onekey-sdk-ios-lib https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb
-
-  - task: CmdLine@2
-    inputs:
-      script: pod --allow-warnings repo push https://$(gitUSer):$(gitPassword)@github.com/iqvia-web/iqviaweb.git HealthCareLocatorSDK.podspec
