@@ -114,7 +114,10 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
         lastCenter = location
         mapView.defaultZoomTo(location: location, distance: distance)
-        reLaunchWrapper.isHidden = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            guard let strongSelf = self else {return}
+            strongSelf.reLaunchWrapper.isHidden = true
+        }
     }
     
     // MARK: - Navigation
