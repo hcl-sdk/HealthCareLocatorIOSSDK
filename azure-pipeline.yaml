@@ -1,9 +1,6 @@
-# Xcode
-# Build, test, and archive an Xcode workspace on macOS.
-# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
-#trigger:
-#- test
+
+trigger:
+- release
 
 pool:
   vmImage: "macos-latest"
@@ -67,15 +64,3 @@ steps:
       pathtoPublish: "$(build.artifactStagingDirectory)"
       artifactName: "drop"
       publishLocation: "Container"
-
-  - task: AppStoreRelease@1
-    inputs:
-      serviceEndpoint: "IQVIA Apple Dev Account"
-      appIdentifier: "com.iqvia.onekey.hclapp"
-      ipaPath: "$(build.artifactstagingdirectory)/**/*.ipa"
-      appType: "iOS"
-      releaseTrack: "TestFlight"
-      shouldSkipSubmission: true
-      appSpecificId: "1550833826"
-      teamId: "357923"
-      teamName: "IQVIA Inc."
