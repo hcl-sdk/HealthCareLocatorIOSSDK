@@ -73,12 +73,9 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // TODO: Remove mock location before release
-        // We should use locations.last instead
-        let mockLocation = CLLocation(latitude: 43.76438020602678, longitude: -79.31803766618543)
-        currentLocation = mockLocation// locations.last
+        currentLocation = locations.last
         if let handler = requestLocationHandler {
-            handler([mockLocation], nil)
+            handler(locations, nil)
         }
     }
     
