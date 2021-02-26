@@ -247,7 +247,7 @@ extension SearchResultViewModel {
     func newSearchWith(config: HCLSDKConfigure, address: String?, location: CLLocationCoordinate2D?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
         if let unwrapLocation = location {
             if let unwrapAddress = address {
-                return searchWith(config: config, coordinate: nil).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
+                return searchWith(config: config, coordinate: unwrapLocation).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
             } else {
                 return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: unwrapLocation.latitude,
                                                                               longitude: unwrapLocation.longitude)),
