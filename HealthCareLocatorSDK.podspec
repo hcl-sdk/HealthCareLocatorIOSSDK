@@ -78,7 +78,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.source       = { :path => "." }
-  spec.source  = { :git => 'https://github.com/hclsdk/HealthCareLocatorIOSSDK.git', :branch => 'master'}
+  spec.source  = { :git => 'https://github.com/hclsdk/HealthCareLocatorIOSSDK.git', :branch => 'release/1.0.0'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
