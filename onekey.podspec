@@ -53,9 +53,7 @@ Pod::Spec.new do |spec|
     #  profile URL.
     #
   
-    spec.author             = { "Le Ngo Quang Truong" => "quang-truong.le-ngo@ekino.com" }
-    # Or just: spec.author    = "Le Ngo Quang Truong"
-    # spec.authors            = { "Le Ngo Quang Truong" => "quang-truong.le-ngo@ekino.com" }
+    spec.author             = { "IQVIA" => "contact.onekey@iqvia.com" }
     # spec.social_media_url   = "https://twitter.com/Le Ngo Quang Truong"
   
     # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
