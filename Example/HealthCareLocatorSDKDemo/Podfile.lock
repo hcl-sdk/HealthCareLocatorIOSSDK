@@ -11,7 +11,7 @@ PODS:
   - AppCenter/Crashes (4.1.0):
     - AppCenter/Core
   - FlexColorPicker (1.4.2)
-  - HealthCareLocatorSDK (0.0.1):
+  - HealthCareLocatorSDK (1.0.0):
     - Apollo (= 0.36.0)
     - RxCocoa (= 5.1.1)
     - RxSwift (= 5.1.1)
@@ -62,7 +62,7 @@ SPEC CHECKSUMS:
   Apollo: a8dbf1a55e8860bfbe3e4274919721d102c85413
   AppCenter: 8832b158d17e54845c3b88a91076218f0b07174d
   FlexColorPicker: d7ed5cfd8ceb936f2930e4e30629f9448967a5f8
-  HealthCareLocatorSDK: 50b816b1740013e7ddd1d42482ef79e72392ef96
+  HealthCareLocatorSDK: 0c19faa403bd9946f0523f3df8ceecf01f663e24
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
