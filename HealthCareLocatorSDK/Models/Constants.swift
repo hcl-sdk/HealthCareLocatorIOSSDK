@@ -16,6 +16,11 @@ let kServerURL = "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query
 let kDefaultZoomLevel: CLLocationDistance = 2000
 
 //
+let kDefaultSearchNearMeDistance: Double = 2000 // 2000 meters
+let kDefaultSearchAddressDistance: Double = 5000 // 2000 meters
+
+
+//
 var kNearMeTitle: String {
     return "hcl_near_me".localized
 }

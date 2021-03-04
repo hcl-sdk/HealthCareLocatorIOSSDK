@@ -71,7 +71,9 @@ class SearchHistoryViewModel: ViewLoading {
             }
             if let coordinate = coordinate {
                 let manager = HCLServiceManager.shared
-                let location = GeopointQuery(lat: coordinate.latitude, lon: coordinate.longitude)
+                let location = GeopointQuery(lat: coordinate.latitude,
+                                             lon: coordinate.longitude,
+                                             distanceMeter: kDefaultSearchNearMeDistance)
                 let query = GeneralQueryInput(first: 50,
                                               offset: 0,
                                               locale: config.lang.apiCode,
