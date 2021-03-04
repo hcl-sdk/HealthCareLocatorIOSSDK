@@ -10,6 +10,11 @@ import Foundation
 struct LastSearch: Codable {
     let timeInterval: Double!
     let search: SearchDataCore
+    
+    func clone() -> LastSearch {
+        return LastSearch(timeInterval: Date().timeIntervalSince1970,
+                          search: search)
+    }
 }
 
 extension LastSearch: Equatable {

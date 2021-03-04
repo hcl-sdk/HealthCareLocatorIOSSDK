@@ -39,22 +39,15 @@ class SearchResultViewModel: ViewLoading {
     }
     
     func performSearchWith(config: HCLSDKConfigure,
-                           coordinate: CLLocationCoordinate2D?,
+                           coordinate: GeopointQuery?,
                            completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
                                      locale: config.lang.apiCode,
                                      criteria: search.codes != nil ? nil : search.criteria)
-        // Optional geopoint
-        var geopoint: GeopointQuery?
-        if let unwrapCoordinate = coordinate {
-            geopoint = GeopointQuery(lat: unwrapCoordinate.latitude,
-                                     lon: unwrapCoordinate.longitude)
-        }
-        
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},
-                            location: geopoint,
+                            location: coordinate,
                             county: "",
                             criteria: info.criteria,
                             userId: config.userId,
@@ -225,7 +218,7 @@ extension SearchResultViewModel {
         }
     }
     
-    private func searchWith(config: HCLSDKConfigure, coordinate: CLLocationCoordinate2D?) -> Single<[ActivityResult]> {
+    private func searchWith(config: HCLSDKConfigure, coordinate: GeopointQuery?) -> Single<[ActivityResult]> {
         return Single.create {[weak self] single in
             if let strongSelf = self {
                 strongSelf.performSearchWith(config: config,
@@ -251,7 +244,9 @@ extension SearchResultViewModel {
             } else {
                 return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: unwrapLocation.latitude,
                                                                               longitude: unwrapLocation.longitude)),
-                                  searchWith(config: config, coordinate: unwrapLocation)).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+                                  searchWith(config: config, coordinate: GeopointQuery(lat: unwrapLocation.latitude,
+                                                                                       lon: unwrapLocation.longitude,
+                                                                                       distanceMeter: kDefaultSearchAddressDistance))).map {(title: $0.0, result: $0.1, zoomTo: nil)}
             }
         } else {
             return searchWith(config: config, coordinate: nil).map {(title: address ?? kNoAddressTitle, result: $0, zoomTo: nil)}
@@ -261,7 +256,9 @@ extension SearchResultViewModel {
     func newNearMeSearchWith(config: HCLSDKConfigure) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
         return requestCurrentLocation().flatMap {[weak self] (location) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
             if let strongSelf = self, let unwrap = location {
-                return strongSelf.searchWith(config: config, coordinate: unwrap.coordinate).map {(title: kNearMeTitle, $0, zoomTo: unwrap.coordinate)}
+                return strongSelf.searchWith(config: config, coordinate: GeopointQuery(lat: unwrap.coordinate.latitude,
+                                                                                       lon: unwrap.coordinate.longitude,
+                                                                                       distanceMeter: kDefaultSearchNearMeDistance)).map {(title: kNearMeTitle, $0, zoomTo: unwrap.coordinate)}
             } else {
                 return Single.create { single in
                     single(.success((title: nil, result: [], zoomTo: nil)))

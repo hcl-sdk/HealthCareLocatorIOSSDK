@@ -10,6 +10,11 @@ import Foundation
 struct LastHCPConsulted: Codable {
     let timeInterval: Double!
     let activity: Activity!
+    
+    func clone() -> LastHCPConsulted {
+        return LastHCPConsulted(timeInterval: Date().timeIntervalSince1970,
+                                activity: activity)
+    }
 }
 
 extension LastHCPConsulted: Equatable {
