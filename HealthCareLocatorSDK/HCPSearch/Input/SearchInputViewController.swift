@@ -175,7 +175,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
         } else {
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,
-                                    mode: .baseSearch)
+                                    mode: .baseSearch(country: HCLManager.shared.searchConfigure?.country))
         }
         
         // Save last search

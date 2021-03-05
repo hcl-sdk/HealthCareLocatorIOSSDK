@@ -26,7 +26,7 @@ struct SearchDataCore: Codable, Equatable {
 
 struct SearchData {
     enum Mode {
-        case baseSearch
+        case baseSearch(country: String?)
         case addressSearch(address: String)
         case nearMeSearch
         case quickNearMeSearch

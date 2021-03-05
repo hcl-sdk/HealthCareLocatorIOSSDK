@@ -24,15 +24,18 @@ public struct HCLSearchConfigure {
     
     let entry: SearchEntry!
     let speciality: String?
+    let country: String?
     
     /**
      - Params:
         - entry: The first UI will be displyed for the user
         - speciality: The code of specialities will be use to perform the quick search action
+        - country: 
      */
-    public init(entry: SearchEntry? = nil, speciality: String? = nil) {
+    public init(entry: SearchEntry? = nil, speciality: String? = nil, country: String? = nil) {
         self.entry = entry ?? .home
         self.speciality = speciality
+        self.country = country
     }
 }
 
