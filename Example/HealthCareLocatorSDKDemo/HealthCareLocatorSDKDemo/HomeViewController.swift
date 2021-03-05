@@ -85,7 +85,7 @@ extension HomeViewController: MenuTableViewControllerDelegate {
             case kMenuHomeTitle:
                 homeNavigationController.popToRootViewController(animated: true)
             case kMenuNewSearchTitle:
-                handleStartNewSearch(config: HCLSearchConfigure())
+                handleStartNewSearch(config: HCLSearchConfigure(country: AppSettings.countries))
             case kMenuFindDentistNearMeTitle:
                 startQuickDentistSearch()
             case kMenuFindCardiologistNearMeTitle:
@@ -120,11 +120,11 @@ extension HomeViewController: MenuTableViewControllerDelegate {
     }
     
     private func startQuickCardilogySearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.0800"))
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.0800", country: AppSettings.countries))
     }
     
     private func startQuickDentistSearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.7500"))
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.7500", country: AppSettings.countries))
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {

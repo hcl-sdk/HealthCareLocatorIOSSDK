@@ -17,8 +17,8 @@ let kDefaultZoomLevel: CLLocationDistance = 2000
 
 //
 let kDefaultSearchNearMeDistance: Double = 2000 // 2000 meters
-let kDefaultSearchAddressDistance: Double = 5000 // 2000 meters
-
+let kDefaultSearchAddressDistance: Double = 5000 // 5000 meters
+let kDefaultSearchCityDistance: Double = 10000 // 10000 meters
 
 //
 var kNearMeTitle: String {

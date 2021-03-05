@@ -27,14 +27,57 @@ class SearchResultViewModel: ViewLoading {
         switch search.mode {
         case .nearMeSearch,
              .quickNearMeSearch:
-            perform(action: SearchAction(isNearMeSearch: true, address: nil, coordinate: nil))
+            perform(action: SearchAction(isNearMeSearch: true,
+                                         address: nil,
+                                         coordinate: nil,
+                                         distance: kDefaultSearchNearMeDistance,
+                                         country: nil))
         case .addressSearch(let address):
             CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
-                guard let strongSelf = self else {return}
-                strongSelf.perform(action: SearchAction(isNearMeSearch: false, address: address, coordinate: placeMarks?.first?.location?.coordinate))
+                guard let strongSelf = self, let place = placeMarks?.first else {return}
+                if let region = place.region as? CLCircularRegion {
+                    strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                            address: address,
+                                                            coordinate: place.location?.coordinate,
+                                                            distance: region.radius,
+                                                            country: nil))
+                } else {
+                    let street = place.thoroughfare
+                    let city = place.locality
+                    
+                    if street != nil {
+                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                address: address,
+                                                                coordinate: place.location?.coordinate,
+                                                                distance: kDefaultSearchAddressDistance,
+                                                                country: nil))
+                    } else if city != nil {
+                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                address: address,
+                                                                coordinate: place.location?.coordinate,
+                                                                distance: kDefaultSearchCityDistance,
+                                                                country: nil))
+                    } else {
+                        if let countryCode = place.isoCountryCode {
+                            strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                    address: address,
+                                                                    coordinate: place.location?.coordinate,
+                                                                    distance: nil,
+                                                                    country: countryCode))
+                        } else {
+                            strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                    address: address,
+                                                                    coordinate: place.location?.coordinate,
+                                                                    distance: nil,
+                                                                    country: nil))
+                        }
+                    }
+                }
             }
+        case .baseSearch(let country):
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: country))
         default:
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: nil))
         }
     }
     
@@ -198,6 +241,8 @@ extension SearchResultViewModel {
         let isNearMeSearch: Bool
         let address: String?
         let coordinate: CLLocationCoordinate2D?
+        let distance: Double?
+        let country: String?
     }
     
     private func reverseGeocodeLocation(location: CLLocation) -> Single<String?> {
@@ -237,16 +282,22 @@ extension SearchResultViewModel {
         searchActions.onNext(action)
     }
     
-    func newSearchWith(config: HCLSDKConfigure, address: String?, location: CLLocationCoordinate2D?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+    func newSearchWith(config: HCLSDKConfigure,
+                       address: String?,
+                       location: CLLocationCoordinate2D?,
+                       distance: Double?,
+                       country: String?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
         if let unwrapLocation = location {
             if let unwrapAddress = address {
-                return searchWith(config: config, coordinate: unwrapLocation).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
+                return searchWith(config: config, coordinate: GeopointQuery(lat: unwrapLocation.latitude,
+                                                                            lon: unwrapLocation.longitude,
+                                                                            distanceMeter: distance)).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
             } else {
                 return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: unwrapLocation.latitude,
                                                                               longitude: unwrapLocation.longitude)),
                                   searchWith(config: config, coordinate: GeopointQuery(lat: unwrapLocation.latitude,
                                                                                        lon: unwrapLocation.longitude,
-                                                                                       distanceMeter: kDefaultSearchAddressDistance))).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+                                                                                       distanceMeter: distance))).map {(title: $0.0, result: $0.1, zoomTo: nil)}
             }
         } else {
             return searchWith(config: config, coordinate: nil).map {(title: address ?? kNoAddressTitle, result: $0, zoomTo: nil)}
@@ -276,7 +327,9 @@ extension SearchResultViewModel {
                 } else {
                     return strongSelf.newSearchWith(config: HCLManager.shared,
                                                     address: action.address,
-                                                    location: action.coordinate).asObservable()
+                                                    location: action.coordinate,
+                                                    distance: action.distance,
+                                                    country: action.country).asObservable()
                 }
             } else {
                 return Observable.create { (observer) -> Disposable in

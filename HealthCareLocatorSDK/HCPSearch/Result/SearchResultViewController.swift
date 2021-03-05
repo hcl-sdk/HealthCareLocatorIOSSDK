@@ -289,13 +289,17 @@ extension SearchResultViewController: SearchResultMapViewControllerDelegate {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: false,
                                                                                   address: nil,
-                                                                                  coordinate: location))
+                                                                                  coordinate: location,
+                                                                                  distance: kDefaultSearchAddressDistance,
+                                                                                  country: nil))
     }
     
     func startNewNearMeSearchFrom(view: SearchResultMapViewController) {
         searchResultViewModel?.showLoadingOn(view: bodyWrapper)
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: true,
                                                                                   address: nil,
-                                                                                  coordinate: nil))
+                                                                                  coordinate: nil,
+                                                                                  distance: kDefaultSearchNearMeDistance,
+                                                                                  country: nil))
     }
 }
