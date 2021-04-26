@@ -254,6 +254,8 @@ extension SearchInputViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
             searchInputAutocompleteModelView.set(criteria: nil)
+        } else {
+            searchInputAutocompleteModelView.clearLocationField()
         }
         
         return true
