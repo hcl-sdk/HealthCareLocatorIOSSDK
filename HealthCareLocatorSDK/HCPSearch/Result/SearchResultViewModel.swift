@@ -12,7 +12,7 @@ import RxSwift
 
 class SearchResultViewModel: ViewLoading {
     lazy var indicator = UIActivityIndicatorView(style: .gray)
-    
+    private let geocoder = CLGeocoder()
     private var webServices: SearchAPIsProtocol!
     private var search: SearchData!
     private let searchActions = PublishSubject<SearchResultViewModel.SearchAction>()
@@ -23,6 +23,10 @@ class SearchResultViewModel: ViewLoading {
     }
     
     // MARK: Searching
+    // MARK: To get the coordinate, Apple MapKit allows us get the data from CLGeocoder with available address.
+    // MARK: Because MKLocalsearchcompletion is returning the title only. That means there is no a placeID coordinate info...
+    /// https://developer.apple.com/documentation/mapkit/mklocalsearchcompletion/
+    /// https://developer.apple.com/documentation/corelocation/clgeocoder/
     func performSearch(config: HCLSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         switch search.mode {
         case .nearMeSearch,
@@ -33,7 +37,7 @@ class SearchResultViewModel: ViewLoading {
                                          distance: kDefaultSearchNearMeDistance,
                                          country: nil))
         case .addressSearch(let address):
-            CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
+            geocoder.geocodeAddressString(address) {[weak self] (placeMarks, error) in
                 guard let strongSelf = self, let place = placeMarks?.first else {return}
                 if let region = place.region as? CLCircularRegion {
                     strongSelf.perform(action: SearchAction(isNearMeSearch: false,
@@ -174,7 +178,7 @@ class SearchResultViewModel: ViewLoading {
         view.secondSeparatorView.backgroundColor = theme.greyLighterColor
         view.topInputTextField.textColor = theme.darkColor
         view.topInputTextField.attributedPlaceholder = NSAttributedString(string: "hcl_find_healthcare_professional".localized,
-                                                                     attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: theme.greyLightColor ?? .lightGray])
         layout(view: view, theme: theme, mode: .list)
     }
     
@@ -182,19 +186,19 @@ class SearchResultViewModel: ViewLoading {
         switch mode {
         case .list:
             view.selectedListViewBackgroundView.backgroundColor = theme.primaryColor
-            view.listLabel.textColor = UIColor.white
-            view.listIcon.tintColor = UIColor.white
+            view.listLabel.textColor = .white
+            view.listIcon.tintColor = .white
             
-            view.selectedMapViewBackgroundView.backgroundColor = UIColor.clear
+            view.selectedMapViewBackgroundView.backgroundColor = .clear
             view.mapLabel.textColor = theme.darkColor
             view.mapIcon.tintColor = theme.darkColor
             
         case .map:
             view.selectedMapViewBackgroundView.backgroundColor = theme.primaryColor
-            view.mapLabel.textColor = UIColor.white
-            view.mapIcon.tintColor = UIColor.white
+            view.mapLabel.textColor = .white
+            view.mapIcon.tintColor = .white
             
-            view.selectedListViewBackgroundView.backgroundColor = UIColor.clear
+            view.selectedListViewBackgroundView.backgroundColor = .clear
             view.listLabel.textColor = theme.darkColor
             view.listIcon.tintColor = theme.darkColor
         }
@@ -305,7 +309,8 @@ extension SearchResultViewModel {
     }
     
     func newNearMeSearchWith(config: HCLSDKConfigure) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
-        return requestCurrentLocation().flatMap {[weak self] (location) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+        return requestCurrentLocation().flatMap {[weak self] (location)
+            -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
             if let strongSelf = self, let unwrap = location {
                 return strongSelf.searchWith(config: config, coordinate: GeopointQuery(lat: unwrap.coordinate.latitude,
                                                                                        lon: unwrap.coordinate.longitude,
@@ -320,7 +325,8 @@ extension SearchResultViewModel {
     }
     
     func resultByActionsObservable() -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
-        return searchActions.throttle(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance).flatMapLatest {[weak self] (action) -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+        return searchActions.throttle(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance).flatMapLatest {[weak self] (action) ->
+            Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
             if let strongSelf = self {
                 if action.isNearMeSearch {
                     return strongSelf.newNearMeSearchWith(config: HCLManager.shared).asObservable()
@@ -337,7 +343,6 @@ extension SearchResultViewModel {
                     return Disposables.create {}
                 }
             }
-            
         }
     }
 }
