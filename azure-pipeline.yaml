@@ -1,0 +1,66 @@
+
+trigger:
+- release
+
+pool:
+  vmImage: "macos-latest"
+
+variables:
+  p12Password: $(p12Secret)
+
+steps:
+  - checkout: self
+    path: s/onekey-sdk-ios-lib
+
+  - task: ios-bundle-version@1
+    inputs:
+      sourcePath: "Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"
+      versionCodeOption: "buildid"
+      versionCode: "$(Build.BuildId)"
+      versionCodeOffset: "0"
+      printFile: true
+
+  - task: InstallAppleCertificate@2
+    inputs:
+      certSecureFile: "IQVIA-2022.p12"
+      certPwd: "$(p12Password)"
+      keychain: "temp"
+      deleteCert: true
+
+  - task: InstallAppleProvisioningProfile@1
+    inputs:
+      provisioningProfileLocation: "secureFiles"
+      provProfileSecureFile: "hclapp.mobileprovision"
+      removeProfile: true
+
+  - task: CocoaPods@0
+    inputs:
+      forceRepoUpdate: false
+      projectDirectory: Example/HealthCareLocatorSDKDemo
+
+  - task: Xcode@5
+    inputs:
+      actions: "archive"
+      scheme: "HCLDemo"
+      sdk: "iphoneos"
+      configuration: "Release"
+      xcWorkspacePath: "Example/HealthCareLocatorSDKDemo/HealthCareLocatorSDKDemo.xcworkspace"
+      xcodeVersion: "default"
+      signingOption: "manual"
+      useXcpretty: false
+      signingIdentity: "$(APPLE_CERTIFICATE_SIGNING_IDENTITY)"
+      provisioningProfileUuid: "$(APPLE_PROV_PROFILE_UUID)"
+      packageApp: true
+
+  - task: CopyFiles@2
+    inputs:
+      contents: "**/*.ipa"
+      targetFolder: "$(build.artifactStagingDirectory)"
+      overWrite: true
+      flattenFolders: true
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: "$(build.artifactStagingDirectory)"
+      artifactName: "drop"
+      publishLocation: "Container"

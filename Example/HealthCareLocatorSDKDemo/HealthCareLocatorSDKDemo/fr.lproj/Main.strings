@@ -1,0 +1,111 @@
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "08d-EA-Al1"; */
+"08d-EA-Al1.normalTitle" = "Apply";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "0ag-J9-4mg"; */
+"0ag-J9-4mg.text" = "Settings";
+
+/* Class = "UILabel"; text = "Font Size:"; ObjectID = "3H3-hM-MAA"; */
+"3H3-hM-MAA.text" = "Font Size:";
+
+/* Class = "UIButton"; normalTitle = "Apply"; ObjectID = "55u-Lg-ZxV"; */
+"55u-Lg-ZxV.normalTitle" = "Apply";
+
+/* Class = "UIViewController"; title = "Custom Font"; ObjectID = "63e-K6-IsG"; */
+"63e-K6-IsG.title" = "Custom Font";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "BTI-Of-sVj"; */
+"BTI-Of-sVj.text" = "_title";
+
+/* Class = "UIViewController"; title = "OneKey Demo Home"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "OneKey Demo Home";
+
+/* Class = "UILabel"; text = "Hex code #:"; ObjectID = "CuK-pR-jse"; */
+"CuK-pR-jse.text" = "Hex code #:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "EVl-dJ-mZj"; */
+"EVl-dJ-mZj.text" = "Label";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "Ng9-Me-pHg"; */
+"Ng9-Me-pHg.text" = "_title";
+
+/* Class = "UINavigationItem"; title = "Menu"; ObjectID = "PEH-JA-vgu"; */
+"PEH-JA-vgu.title" = "Menu";
+
+/* Class = "UILabel"; text = "G:"; ObjectID = "QgW-W2-uWT"; */
+"QgW-W2-uWT.text" = "G:";
+
+/* Class = "UILabel"; text = "14.0"; ObjectID = "Qtm-KW-dbk"; */
+"Qtm-KW-dbk.text" = "14.0";
+
+/* Class = "UIViewController"; title = "Default Themes"; ObjectID = "UKG-Q4-af8"; */
+"UKG-Q4-af8.title" = "Default Themes";
+
+/* Class = "UIViewController"; title = "Custom Theme"; ObjectID = "WfK-gP-8dc"; */
+"WfK-gP-8dc.title" = "Custom Theme";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "XRd-ZP-eUz"; */
+"XRd-ZP-eUz.text" = "_title";
+
+/* Class = "UILabel"; text = "R:"; ObjectID = "Zma-Q3-ATa"; */
+"Zma-Q3-ATa.text" = "R:";
+
+/* Class = "UILabel"; text = "_value"; ObjectID = "aBV-2z-Wu6"; */
+"aBV-2z-Wu6.text" = "_value";
+
+/* Class = "UIButton"; normalTitle = "-"; ObjectID = "bJg-Zy-YWN"; */
+"bJg-Zy-YWN.normalTitle" = "-";
+
+/* Class = "UILabel"; text = "Search"; ObjectID = "ceq-zg-81K"; */
+"ceq-zg-81K.text" = "Search";
+
+/* Class = "UILabel"; text = "Sample App"; ObjectID = "dXK-am-lkD"; */
+"dXK-am-lkD.text" = "Sample App";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "eW8-Am-obn"; */
+"eW8-Am-obn.text" = "_title";
+
+/* Class = "UITextField"; placeholder = "_place holder"; ObjectID = "eet-NT-6lG"; */
+"eet-NT-6lG.placeholder" = "_place holder";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "gec-uG-QhL"; */
+"gec-uG-QhL.text" = "_title";
+
+/* Class = "UILabel"; text = "Themes"; ObjectID = "iw8-4E-g0q"; */
+"iw8-4E-g0q.text" = "Themes";
+
+/* Class = "UIViewController"; title = "Color"; ObjectID = "jEe-dt-1r5"; */
+"jEe-dt-1r5.title" = "Color";
+
+/* Class = "UILabel"; text = "Font Style"; ObjectID = "lgc-El-dpt"; */
+"lgc-El-dpt.text" = "Font Style";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "pMF-ez-ea7"; */
+"pMF-ez-ea7.normalTitle" = "+";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "qL3-k5-btF"; */
+"qL3-k5-btF.title" = "Settings";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "qYe-IZ-F0h"; */
+"qYe-IZ-F0h.text" = "_title";
+
+/* Class = "UILabel"; text = "Pick your color"; ObjectID = "sO6-NF-HXo"; */
+"sO6-NF-HXo.text" = "Pick your color";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "uWZ-2c-deN"; */
+"uWZ-2c-deN.text" = "Label";
+
+/* Class = "UILabel"; text = "Font Family"; ObjectID = "ua7-rz-Yds"; */
+"ua7-rz-Yds.text" = "Font Family";
+
+/* Class = "UIViewController"; title = "Search"; ObjectID = "uui-m9-SkO"; */
+"uui-m9-SkO.title" = "Search";
+
+/* Class = "UILabel"; text = "_title"; ObjectID = "vHp-zg-OOa"; */
+"vHp-zg-OOa.text" = "_title";
+
+/* Class = "UILabel"; text = "B:"; ObjectID = "w6U-Jb-WTI"; */
+"w6U-Jb-WTI.text" = "B:";
+
+/* Class = "UILabel"; text = "Custom Theme"; ObjectID = "zMR-yp-uVM"; */
+"zMR-yp-uVM.text" = "Custom Theme";

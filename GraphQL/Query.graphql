@@ -1,0 +1,243 @@
+query CodesByLabel(
+  $first: Int = 5
+  $offset: Int = 0
+  $userId: String
+  $criteria: String!
+  $codeTypes: [String!]!
+  $locale: String
+) {
+  codesByLabel(
+    first: $first
+    offset: $offset
+    userId: $userId
+    criteria: $criteria
+    codeTypes: $codeTypes
+    locale: $locale
+  ) {
+    codes {
+      id
+      longLbl
+    }
+  }
+}
+
+query LabelsByCode($criteria: String!, $codeTypes: [String!]!) {
+  labelsByCode(criteria: $criteria, codeTypes: $codeTypes) {
+    codes {
+      id
+      longLbl
+    }
+  }
+}
+
+query IndividualsByName(
+  $first: Int = 5
+  $offset: Int = 0
+  $userId: String
+  $criteria: String!
+  $locale: String
+) {
+  individualsByName(
+    first: $first
+    offset: $offset
+    userId: $userId
+    criteria: $criteria
+    locale: $locale
+  ) {
+    individuals {
+      id
+      firstName
+      lastName
+      middleName
+      mailingName
+      professionalType {
+        code
+        label
+      }
+      specialties {
+        code
+        label
+      }
+      mainActivity {
+        id
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query Activities(
+  $first: Int = 10
+  $offset: Int = 0
+  $userId: String
+  $locale: String
+  $professionalType: String
+  $specialties: [String!]
+  $county: String
+  $criteria: String
+  $location: GeopointQuery
+) {
+  activities(
+    first: $first
+    offset: $offset
+    userId: $userId
+    locale: $locale
+    professionalType: $professionalType
+    specialties: $specialties
+    county: $county
+    criteria: $criteria
+    location: $location
+  ) {
+    distance
+    relevance
+    activity {
+      id
+      individual {
+        id
+        firstName
+        lastName
+        middleName
+        mailingName
+        professionalType {
+          code
+          label
+        }
+        specialties {
+          code
+          label
+        }
+      }
+      workplace {
+        address {
+          longLabel
+          buildingLabel
+          county {
+            code
+            label
+          }
+          city {
+            code
+            label
+          }
+          country
+          location {
+            lat
+            lon
+          }
+        }
+      }
+    }
+  }
+}
+
+query ActivityByID($userId: String, $id: ID!, $locale: String) {
+  activityByID(userId: $userId, id: $id, locale: $locale) {
+    id
+    phone
+    fax
+    webAddress
+    individual {
+      id
+      title {
+        code
+        label
+      }
+      firstName
+      lastName
+      middleName
+      mailingName
+      professionalType {
+        code
+        label
+      }
+      specialties {
+        code
+        label
+      }
+      mainActivity {
+        id
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
+      }
+      otherActivities {
+        id
+        workplace {
+          address {
+            longLabel
+            buildingLabel
+            county {
+              code
+              label
+            }
+            city {
+              code
+              label
+            }
+            country
+            location {
+              lat
+              lon
+            }
+          }
+        }
+      }
+    }
+    workplace {
+      name
+      officialName
+      address {
+        longLabel
+        buildingLabel
+        county {
+          code
+          label
+        }
+        city {
+          code
+          label
+        }
+        country
+        postalCode
+        location {
+          lat
+          lon
+        }
+      }
+    }
+  }
+}

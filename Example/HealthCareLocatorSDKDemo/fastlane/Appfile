@@ -1,0 +1,10 @@
+apple_id("quang-truong.le-ngo@ekino.com") # Your Apple email address
+
+for_lane :dev_deploy do
+    app_identifier("Ekino-Vietnam.Spacetime") # The bundle identifier of your app
+    itc_team_id("119532379") # App Store Connect Team ID
+    team_id("6W4VACB9M8") # Developer Portal Team ID
+end
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

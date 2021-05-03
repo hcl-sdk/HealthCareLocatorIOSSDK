@@ -1,0 +1,1186 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */; };
+		58091C692588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */; };
+		58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */; };
+		58091C822588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58091C802588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib */; };
+		5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */; };
+		5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */; };
+		582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582854FE2589E9020090FA68 /* SearchResultViewModel.swift */; };
+		58351B1825CCF5C3007DE500 /* HCLLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58351B1725CCF5C3007DE500 /* HCLLanguage.swift */; };
+		5836DD4B25934874002F776D /* String+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5836DD4A25934874002F776D /* String+Additional.swift */; };
+		583C1B6025AC3D9700CDB4F7 /* HCLIconsConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */; };
+		584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584393FC255906F8009D2306 /* CoreLocation.framework */; };
+		584394272559282E009D2306 /* SearchInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584394262559282E009D2306 /* SearchInputViewController.swift */; };
+		5843942B25592AC2009D2306 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843942A25592AC2009D2306 /* SearchResultViewController.swift */; };
+		5843946325594FC6009D2306 /* SearchResultMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843946225594FC6009D2306 /* SearchResultMapViewController.swift */; };
+		584394672559501C009D2306 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584394662559501C009D2306 /* MapKit.framework */; };
+		5843948A25595591009D2306 /* SearchHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5843948925595591009D2306 /* SearchHomeViewController.swift */; };
+		5848D6BA256E10C700217EFC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6B9256E10C700217EFC /* Constants.swift */; };
+		5848D6C4256E144E00217EFC /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6C3256E144E00217EFC /* SearchData.swift */; };
+		5848D6DA256E1BE900217EFC /* SearchResultSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */; };
+		585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585116AC256E42BC00E5C7D3 /* SortableResultList.swift */; };
+		5859C14A25B56B3D009B946A /* NoSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */; };
+		5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */; };
+		5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659269258B0D8C00A9A950 /* FullCardViewModel.swift */; };
+		58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58659280258B23F500A9A950 /* Optional+Additional.swift */; };
+		5872D740259098C3004E9892 /* Date+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872D73F259098C3004E9892 /* Date+Additional.swift */; };
+		5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5875442C25885E5A0000C126 /* SearchAutoComplete.swift */; };
+		587544312588790B0000C126 /* Mock-Codes.json in Resources */ = {isa = PBXBuildFile; fileRef = 587544302588790B0000C126 /* Mock-Codes.json */; };
+		58754435258879390000C126 /* Mock-Individuals.json in Resources */ = {isa = PBXBuildFile; fileRef = 58754434258879390000C126 /* Mock-Individuals.json */; };
+		58754439258879860000C126 /* Codes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58754438258879860000C126 /* Codes.swift */; };
+		5876089B256E666800F44787 /* HCLSearchConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5876089A256E666800F44787 /* HCLSearchConfigure.swift */; };
+		587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */; };
+		587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */; };
+		587D2307256515680009EA01 /* HCLServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D2306256515680009EA01 /* HCLServiceManager.swift */; };
+		587D234C256528480009EA01 /* Query.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 587D234B256528480009EA01 /* Query.graphql */; };
+		587D237B25652F7F0009EA01 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D237A25652F7F0009EA01 /* API.swift */; };
+		587D23A9256538CB0009EA01 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D23A8256538CB0009EA01 /* APIModels.swift */; };
+		587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */; };
+		587F182A259D7D3400BC3B2B /* HCLHCPSearchWebServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587F1829259D7D3400BC3B2B /* HCLHCPSearchWebServicesTests.swift */; };
+		58850548259C85CB00B38CF3 /* HCLManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850547259C85CB00B38CF3 /* HCLManagerTests.swift */; };
+		5885054C259C862200B38CF3 /* HCLServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5885054B259C862200B38CF3 /* HCLServiceManagerTests.swift */; };
+		58850550259C864900B38CF3 /* HCLHCPSearchNavigationViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5885054F259C864900B38CF3 /* HCLHCPSearchNavigationViewControllerTest.swift */; };
+		58850554259C866800B38CF3 /* HCLSearchConfigureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850553259C866800B38CF3 /* HCLSearchConfigureTests.swift */; };
+		58850558259C868100B38CF3 /* HCLThemeConfigureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58850557259C868100B38CF3 /* HCLThemeConfigureTests.swift */; };
+		588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */; };
+		5891621F25875F41006C1E6C /* Mock-Activities.json in Resources */ = {isa = PBXBuildFile; fileRef = 5891621E25875F41006C1E6C /* Mock-Activities.json */; };
+		5891626925878831006C1E6C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891626825878831006C1E6C /* Activity.swift */; };
+		5891627F2587941D006C1E6C /* Individual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5891627E2587941D006C1E6C /* Individual.swift */; };
+		589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553852595E7EB00DDE2FF /* ViewControllers.swift */; };
+		5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */; };
+		589553AE2595F6C900DDE2FF /* HomeFullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */; };
+		589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */; };
+		589553D92595FF9600DDE2FF /* SearchInputDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */; };
+		58A3645E2554F64700C62479 /* HealthCareLocatorSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58A364542554F64700C62479 /* HealthCareLocatorSDK.framework */; };
+		58A364652554F64700C62479 /* HealthCareLocatorSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 58A364572554F64700C62479 /* HealthCareLocatorSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58A364722554F66900C62479 /* HCLManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364702554F66800C62479 /* HCLManagerProtocol.swift */; };
+		58A364732554F66900C62479 /* HCLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364712554F66900C62479 /* HCLManager.swift */; };
+		58A3647B2554F69C00C62479 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 58A364782554F69C00C62479 /* LICENSE */; };
+		58A3647C2554F69C00C62479 /* HealthCareLocatorSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 58A364792554F69C00C62479 /* HealthCareLocatorSDK.podspec */; };
+		58A3647D2554F69C00C62479 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58A3647A2554F69C00C62479 /* README.md */; };
+		58A364D42555435700C62479 /* HCLHCPSearchNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A364D32555435700C62479 /* HCLHCPSearchNavigationViewController.swift */; };
+		58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364D82555437B00C62479 /* HCPSearch.storyboard */; };
+		58A8BD1B256F6E8C00DAEBF3 /* HCPFullCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */; };
+		58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B30B21258A24E90036442F /* Mock-Activity-Detail.json */; };
+		58B502BD25BE806400A327BB /* SearchResultClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */; };
+		58B6A761255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A760255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift */; };
+		58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */; };
+		58B6A76F255AA2CB00C1F6AF /* HCLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A76E255AA2CB00C1F6AF /* HCLError.swift */; };
+		58B6A773255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B6A772255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift */; };
+		58B96226255D5C14000B126D /* icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58B96225255D5C14000B126D /* icons.xcassets */; };
+		58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */; };
+		58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */; };
+		58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */; };
+		58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */; };
+		58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */; };
+		58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */; };
+		58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */; };
+		58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEB925751EAD003C5383 /* ActivityList.swift */; };
+		58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */; };
+		58C2997F256FBAE500236D91 /* ActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2997E256FBAE500236D91 /* ActivityHandler.swift */; };
+		58C29983256FBD1E00236D91 /* ActivityListHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C29982256FBD1E00236D91 /* ActivityListHandler.swift */; };
+		58C34B152570B7F800007DA2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C34B142570B7F800007DA2 /* Helpers.swift */; };
+		58CDED6D259AEFA700EC7746 /* LastHCPConsulted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */; };
+		58CDEDF6259B2CCB00EC7746 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */; };
+		58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */; };
+		58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */; };
+		58CF58632576001F001ACD6C /* LastSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF58622576001F001ACD6C /* LastSearch.swift */; };
+		58CF586725760340001ACD6C /* AppConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586625760340001ACD6C /* AppConfigure.swift */; };
+		58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */; };
+		58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */; };
+		58CF588325766017001ACD6C /* IndexAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CF588225766017001ACD6C /* IndexAble.swift */; };
+		58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D0E38C2591BC8200491C92 /* ViewLoading.swift */; };
+		58D46590258C8E9B0084FA7A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D4658F258C8E9B0084FA7A /* LocationManager.swift */; };
+		58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D622570F442008D2EE8 /* PickerListViewController.swift */; };
+		58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */; };
+		58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */; };
+		58DB2CAF25933C790022E6E0 /* HealthCareLocatorSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58DB2CB125933C790022E6E0 /* HealthCareLocatorSDK.strings */; };
+		58E1D8EE256BB46E004AB056 /* SearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */; };
+		58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */; };
+		58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E73AA82562925100740548 /* SearchResultTableViewCell.swift */; };
+		58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E73AA92562925100740548 /* SearchResultTableViewCell.xib */; };
+		58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E7797C255BDCF80051F1FA /* BaseButton.swift */; };
+		58E77982255BE4740051F1FA /* ViewDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E77981255BE4740051F1FA /* ViewDesign.swift */; };
+		58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */; };
+		58F104CC2563AF6300AFD4B3 /* SegmentControlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */; };
+		58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */; };
+		58F5EE16255BACEC0029B0B4 /* SearchTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */; };
+		58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE1A255BADE70029B0B4 /* BaseView.swift */; };
+		58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */; };
+		58F5EE33255BC9F50029B0B4 /* HCLThemeConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE32255BC9F50029B0B4 /* HCLThemeConfigure.swift */; };
+		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
+		58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50DD2593041500402723 /* HCPMapViewController.swift */; };
+		58FD50F22593208C00402723 /* HCPMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50F12593208C00402723 /* HCPMapViewModel.swift */; };
+		D3022DCEE8ECDF7A37CCB059 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82C17D944B14BB40C85DC8 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework */; };
+		DBFA334AA9E240C3FD79857E /* Pods_HealthCareLocatorSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BCB5C83AA217ADE886E316 /* Pods_HealthCareLocatorSDK.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58A3645F2554F64700C62479 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58A3644B2554F64700C62479 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58A364532554F64700C62479;
+			remoteInfo = OneKeySDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D82C17D944B14BB40C85DC8 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E75E6A4587FA79EBC845DBD /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5739AF75291F5C1C20287B79 /* Pods-HealthCareLocatorSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK/Pods-HealthCareLocatorSDK.release.xcconfig"; sourceTree = "<group>"; };
+		58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodeAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
+		58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		58091C802588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndividualAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
+		5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputValidator.swift; sourceTree = "<group>"; };
+		5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additional.swift"; sourceTree = "<group>"; };
+		582854FE2589E9020090FA68 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		58351B1725CCF5C3007DE500 /* HCLLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLLanguage.swift; sourceTree = "<group>"; };
+		5836DD4A25934874002F776D /* String+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additional.swift"; sourceTree = "<group>"; };
+		583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLIconsConfigure.swift; sourceTree = "<group>"; };
+		584393FC255906F8009D2306 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		584394262559282E009D2306 /* SearchInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewController.swift; sourceTree = "<group>"; };
+		5843942A25592AC2009D2306 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		5843946225594FC6009D2306 /* SearchResultMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultMapViewController.swift; sourceTree = "<group>"; };
+		584394662559501C009D2306 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5843948925595591009D2306 /* SearchHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewController.swift; sourceTree = "<group>"; };
+		5848D6B9256E10C700217EFC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5848D6C3256E144E00217EFC /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultSortViewController.swift; sourceTree = "<group>"; };
+		585116AC256E42BC00E5C7D3 /* SortableResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableResultList.swift; sourceTree = "<group>"; };
+		5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSearchResultViewController.swift; sourceTree = "<group>"; };
+		5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputAutocompleteViewModel.swift; sourceTree = "<group>"; };
+		58659269258B0D8C00A9A950 /* FullCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCardViewModel.swift; sourceTree = "<group>"; };
+		58659280258B23F500A9A950 /* Optional+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Additional.swift"; sourceTree = "<group>"; };
+		5872D73F259098C3004E9892 /* Date+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additional.swift"; sourceTree = "<group>"; };
+		5875442C25885E5A0000C126 /* SearchAutoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoComplete.swift; sourceTree = "<group>"; };
+		587544302588790B0000C126 /* Mock-Codes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Codes.json"; sourceTree = "<group>"; };
+		58754434258879390000C126 /* Mock-Individuals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Individuals.json"; sourceTree = "<group>"; };
+		58754438258879860000C126 /* Codes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codes.swift; sourceTree = "<group>"; };
+		5876089A256E666800F44787 /* HCLSearchConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLSearchConfigure.swift; sourceTree = "<group>"; };
+		587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewController.swift; sourceTree = "<group>"; };
+		587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		587D2306256515680009EA01 /* HCLServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLServiceManager.swift; sourceTree = "<group>"; };
+		587D234B256528480009EA01 /* Query.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; name = Query.graphql; path = GraphQL/Query.graphql; sourceTree = "<group>"; };
+		587D237A25652F7F0009EA01 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		587D23A8256538CB0009EA01 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
+		587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAnnotationView.swift; sourceTree = "<group>"; };
+		587F1829259D7D3400BC3B2B /* HCLHCPSearchWebServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLHCPSearchWebServicesTests.swift; sourceTree = "<group>"; };
+		58850547259C85CB00B38CF3 /* HCLManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLManagerTests.swift; sourceTree = "<group>"; };
+		5885054B259C862200B38CF3 /* HCLServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLServiceManagerTests.swift; sourceTree = "<group>"; };
+		5885054F259C864900B38CF3 /* HCLHCPSearchNavigationViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLHCPSearchNavigationViewControllerTest.swift; sourceTree = "<group>"; };
+		58850553259C866800B38CF3 /* HCLSearchConfigureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLSearchConfigureTests.swift; sourceTree = "<group>"; };
+		58850557259C868100B38CF3 /* HCLThemeConfigureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLThemeConfigureTests.swift; sourceTree = "<group>"; };
+		588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeFullViewController.swift; sourceTree = "<group>"; };
+		5891621E25875F41006C1E6C /* Mock-Activities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activities.json"; sourceTree = "<group>"; };
+		5891626825878831006C1E6C /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		5891627E2587941D006C1E6C /* Individual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Individual.swift; sourceTree = "<group>"; };
+		589553852595E7EB00DDE2FF /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
+		589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeViewModel.swift; sourceTree = "<group>"; };
+		589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFullViewModel.swift; sourceTree = "<group>"; };
+		589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputViewModel.swift; sourceTree = "<group>"; };
+		589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInputDataSource.swift; sourceTree = "<group>"; };
+		58A364542554F64700C62479 /* HealthCareLocatorSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HealthCareLocatorSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A364572554F64700C62479 /* HealthCareLocatorSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthCareLocatorSDK.h; sourceTree = "<group>"; };
+		58A364582554F64700C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58A3645D2554F64700C62479 /* HealthCareLocatorSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthCareLocatorSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58A364642554F64700C62479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58A364702554F66800C62479 /* HCLManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCLManagerProtocol.swift; sourceTree = "<group>"; };
+		58A364712554F66900C62479 /* HCLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCLManager.swift; sourceTree = "<group>"; };
+		58A364782554F69C00C62479 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		58A364792554F69C00C62479 /* HealthCareLocatorSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HealthCareLocatorSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		58A3647A2554F69C00C62479 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		58A364D32555435700C62479 /* HCLHCPSearchNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLHCPSearchNavigationViewController.swift; sourceTree = "<group>"; };
+		58A364D82555437B00C62479 /* HCPSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HCPSearch.storyboard; sourceTree = "<group>"; };
+		58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPFullCardViewController.swift; sourceTree = "<group>"; };
+		58B30B21258A24E90036442F /* Mock-Activity-Detail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Mock-Activity-Detail.json"; sourceTree = "<group>"; };
+		58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultClusterAnnotationView.swift; sourceTree = "<group>"; };
+		58B6A760255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLHCPSearchWebServices.swift; sourceTree = "<group>"; };
+		58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIsProtocol.swift; sourceTree = "<group>"; };
+		58B6A76E255AA2CB00C1F6AF /* HCLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLError.swift; sourceTree = "<group>"; };
+		58B6A772255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHCLHCPSearchWebServices.swift; sourceTree = "<group>"; };
+		58B96225255D5C14000B126D /* icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = icons.xcassets; sourceTree = "<group>"; };
+		58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewModel.swift; sourceTree = "<group>"; };
+		58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryDataSource.swift; sourceTree = "<group>"; };
+		58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewMoreTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderViewMoreTableViewCell.xib; sourceTree = "<group>"; };
+		58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMapTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityMapTableViewCell.xib; sourceTree = "<group>"; };
+		58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorderTableViewCell.swift; sourceTree = "<group>"; };
+		58BAEEB925751EAD003C5383 /* ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityList.swift; sourceTree = "<group>"; };
+		58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Additional.swift"; sourceTree = "<group>"; };
+		58BCB5C83AA217ADE886E316 /* Pods_HealthCareLocatorSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58C2997E256FBAE500236D91 /* ActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHandler.swift; sourceTree = "<group>"; };
+		58C29982256FBD1E00236D91 /* ActivityListHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListHandler.swift; sourceTree = "<group>"; };
+		58C34B142570B7F800007DA2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastHCPConsulted.swift; sourceTree = "<group>"; };
+		58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPConsultedHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCPConsultedHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF58622576001F001ACD6C /* LastSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSearch.swift; sourceTree = "<group>"; };
+		58CF586625760340001ACD6C /* AppConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigure.swift; sourceTree = "<group>"; };
+		58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		58CF588225766017001ACD6C /* IndexAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexAble.swift; sourceTree = "<group>"; };
+		58D0E38C2591BC8200491C92 /* ViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLoading.swift; sourceTree = "<group>"; };
+		58D4658F258C8E9B0084FA7A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		58D88D622570F442008D2EE8 /* PickerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerListViewController.swift; sourceTree = "<group>"; };
+		58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPickerTableViewCell.swift; sourceTree = "<group>"; };
+		58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextPickerTableViewCell.xib; sourceTree = "<group>"; };
+		58DB2CB025933C790022E6E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HealthCareLocatorSDK.strings; sourceTree = "<group>"; };
+		58DB2CB425933C7C0022E6E0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/HealthCareLocatorSDK.strings; sourceTree = "<group>"; };
+		58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultListViewController.swift; sourceTree = "<group>"; };
+		58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPCardTableViewCell.swift; sourceTree = "<group>"; };
+		58E73AA82562925100740548 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		58E73AA92562925100740548 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		58E7797C255BDCF80051F1FA /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		58E77981255BE4740051F1FA /* ViewDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDesign.swift; sourceTree = "<group>"; };
+		58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralQueryInput.swift; sourceTree = "<group>"; };
+		58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlModel.swift; sourceTree = "<group>"; };
+		58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeView.swift; sourceTree = "<group>"; };
+		58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTypeView.xib; sourceTree = "<group>"; };
+		58F5EE1A255BADE70029B0B4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Additional.swift"; sourceTree = "<group>"; };
+		58F5EE32255BC9F50029B0B4 /* HCLThemeConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLThemeConfigure.swift; sourceTree = "<group>"; };
+		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
+		58FD50DD2593041500402723 /* HCPMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewController.swift; sourceTree = "<group>"; };
+		58FD50F12593208C00402723 /* HCPMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewModel.swift; sourceTree = "<group>"; };
+		A4DBBCF586F618C715E7D254 /* Pods-HealthCareLocatorSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK/Pods-HealthCareLocatorSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		E4AFE15C9E3A912F5353EC36 /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58A364512554F64700C62479 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584394672559501C009D2306 /* MapKit.framework in Frameworks */,
+				584393FD255906F8009D2306 /* CoreLocation.framework in Frameworks */,
+				DBFA334AA9E240C3FD79857E /* Pods_HealthCareLocatorSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58A3645A2554F64700C62479 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A3645E2554F64700C62479 /* HealthCareLocatorSDK.framework in Frameworks */,
+				D3022DCEE8ECDF7A37CCB059 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		584B7D49259ADBCA004AAE62 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5843948925595591009D2306 /* SearchHomeViewController.swift */,
+				58F5EE11255BACD50029B0B4 /* SearchTypeView.swift */,
+				58F5EE15255BACEC0029B0B4 /* SearchTypeView.xib */,
+				589553992595F16A00DDE2FF /* SearchHomeViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5875443C2588798A0000C126 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				5891627E2587941D006C1E6C /* Individual.swift */,
+				58754438258879860000C126 /* Codes.swift */,
+				5891626825878831006C1E6C /* Activity.swift */,
+				58F0296225887CC0000CCF94 /* GeneralQueryInput.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		587D21432564C4030009EA01 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				58CDED40259AEB1500EC7746 /* Details */,
+				58CDED3F259AEAF500EC7746 /* Map */,
+				58CDED3E259AEAF000EC7746 /* List */,
+				5843942A25592AC2009D2306 /* SearchResultViewController.swift */,
+				5848D6D9256E1BE900217EFC /* SearchResultSortViewController.swift */,
+				582854FE2589E9020090FA68 /* SearchResultViewModel.swift */,
+				5859C14925B56B3D009B946A /* NoSearchResultViewController.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		587D23AC256538D30009EA01 /* GraphQLAPI */ = {
+			isa = PBXGroup;
+			children = (
+				587D237A25652F7F0009EA01 /* API.swift */,
+				587D23A8256538CB0009EA01 /* APIModels.swift */,
+			);
+			path = GraphQLAPI;
+			sourceTree = "<group>";
+		};
+		589553C12595F93200DDE2FF /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				588A99F22574E41E002BCC74 /* SearchHomeFullViewController.swift */,
+				58BAEE452574F10A003C5383 /* SearchHistoryViewModel.swift */,
+				58BAEE4B2574F2FC003C5383 /* SearchHistoryDataSource.swift */,
+				589553AD2595F6C900DDE2FF /* HomeFullViewModel.swift */,
+			);
+			path = Full;
+			sourceTree = "<group>";
+		};
+		58A3644A2554F64700C62479 = {
+			isa = PBXGroup;
+			children = (
+				587D234B256528480009EA01 /* Query.graphql */,
+				58A364782554F69C00C62479 /* LICENSE */,
+				58A364792554F69C00C62479 /* HealthCareLocatorSDK.podspec */,
+				58A3647A2554F69C00C62479 /* README.md */,
+				58A364562554F64700C62479 /* HealthCareLocatorSDK */,
+				58A364612554F64700C62479 /* HealthCareLocatorSDKTests */,
+				58A364552554F64700C62479 /* Products */,
+				A0B0A026CE3C0EB6B2894D5B /* Pods */,
+				5D80C181017AAB065EBFBB78 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		58A364552554F64700C62479 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58A364542554F64700C62479 /* HealthCareLocatorSDK.framework */,
+				58A3645D2554F64700C62479 /* HealthCareLocatorSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58A364562554F64700C62479 /* HealthCareLocatorSDK */ = {
+			isa = PBXGroup;
+			children = (
+				587D23AC256538D30009EA01 /* GraphQLAPI */,
+				58E73AA72562923400740548 /* Cells */,
+				58B96224255D5C02000B126D /* Resources */,
+				58F5EE19255BADC40029B0B4 /* Commons */,
+				58B6A75B255AA12000C1F6AF /* Mock */,
+				58B6A752255A9D2100C1F6AF /* Models */,
+				58A364D72555436000C62479 /* HCPSearch */,
+				58A364712554F66900C62479 /* HCLManager.swift */,
+				58A364702554F66800C62479 /* HCLManagerProtocol.swift */,
+				58A364572554F64700C62479 /* HealthCareLocatorSDK.h */,
+				58A364582554F64700C62479 /* Info.plist */,
+				587D2306256515680009EA01 /* HCLServiceManager.swift */,
+			);
+			path = HealthCareLocatorSDK;
+			sourceTree = "<group>";
+		};
+		58A364612554F64700C62479 /* HealthCareLocatorSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				58A364642554F64700C62479 /* Info.plist */,
+				58CDEDF5259B2CCB00EC7746 /* StringExtensionTests.swift */,
+				58850547259C85CB00B38CF3 /* HCLManagerTests.swift */,
+				5885054B259C862200B38CF3 /* HCLServiceManagerTests.swift */,
+				5885054F259C864900B38CF3 /* HCLHCPSearchNavigationViewControllerTest.swift */,
+				58850553259C866800B38CF3 /* HCLSearchConfigureTests.swift */,
+				58850557259C868100B38CF3 /* HCLThemeConfigureTests.swift */,
+				587F1829259D7D3400BC3B2B /* HCLHCPSearchWebServicesTests.swift */,
+			);
+			path = HealthCareLocatorSDKTests;
+			sourceTree = "<group>";
+		};
+		58A364D72555436000C62479 /* HCPSearch */ = {
+			isa = PBXGroup;
+			children = (
+				587D21432564C4030009EA01 /* Result */,
+				58A8A587256286FC00A11F88 /* Input */,
+				58F5EE10255BAC5E0029B0B4 /* Home */,
+				58A364D32555435700C62479 /* HCLHCPSearchNavigationViewController.swift */,
+				58A364D82555437B00C62479 /* HCPSearch.storyboard */,
+			);
+			path = HCPSearch;
+			sourceTree = "<group>";
+		};
+		58A8A587256286FC00A11F88 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				584394262559282E009D2306 /* SearchInputViewController.swift */,
+				5820A4EF256CBCC200AE84E2 /* SearchInputValidator.swift */,
+				5861A0932588C4F10025A383 /* SearchInputAutocompleteViewModel.swift */,
+				589553C22595FA9400DDE2FF /* SearchInputViewModel.swift */,
+				589553D82595FF9600DDE2FF /* SearchInputDataSource.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		58B6A752255A9D2100C1F6AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5875443C2588798A0000C126 /* APIs */,
+				58B6A760255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift */,
+				58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */,
+				58B6A76E255AA2CB00C1F6AF /* HCLError.swift */,
+				58F5EE32255BC9F50029B0B4 /* HCLThemeConfigure.swift */,
+				58F104CB2563AF6300AFD4B3 /* SegmentControlModel.swift */,
+				5848D6B9256E10C700217EFC /* Constants.swift */,
+				5848D6C3256E144E00217EFC /* SearchData.swift */,
+				5876089A256E666800F44787 /* HCLSearchConfigure.swift */,
+				58CF58622576001F001ACD6C /* LastSearch.swift */,
+				5875442C25885E5A0000C126 /* SearchAutoComplete.swift */,
+				58D4658F258C8E9B0084FA7A /* LocationManager.swift */,
+				58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */,
+				583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */,
+				58351B1725CCF5C3007DE500 /* HCLLanguage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58B6A75B255AA12000C1F6AF /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				58B30B21258A24E90036442F /* Mock-Activity-Detail.json */,
+				58754434258879390000C126 /* Mock-Individuals.json */,
+				587544302588790B0000C126 /* Mock-Codes.json */,
+				5891621E25875F41006C1E6C /* Mock-Activities.json */,
+				58B6A772255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		58B96224255D5C02000B126D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58DB2C9E25933B0B0022E6E0 /* Strings */,
+				58B96225255D5C14000B126D /* icons.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		58CDED3E259AEAF000EC7746 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				587D21462564C4400009EA01 /* HCPCardCollectionViewController.swift */,
+				58E1D8ED256BB46E004AB056 /* SearchResultListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		58CDED3F259AEAF500EC7746 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				5843946225594FC6009D2306 /* SearchResultMapViewController.swift */,
+				587D9041255ABFD9009EC0DE /* SearchResultAnnotationView.swift */,
+				58B502BC25BE806400A327BB /* SearchResultClusterAnnotationView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		58CDED40259AEB1500EC7746 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				58659269258B0D8C00A9A950 /* FullCardViewModel.swift */,
+				58A8BD1A256F6E8C00DAEBF3 /* HCPFullCardViewController.swift */,
+				58FD50DD2593041500402723 /* HCPMapViewController.swift */,
+				58FD50F12593208C00402723 /* HCPMapViewModel.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		58DB2C9E25933B0B0022E6E0 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				58DB2CB125933C790022E6E0 /* HealthCareLocatorSDK.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		58E73AA72562923400740548 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				58E73AA82562925100740548 /* SearchResultTableViewCell.swift */,
+				58E73AA92562925100740548 /* SearchResultTableViewCell.xib */,
+				587D21982564CE760009EA01 /* HCPCardCollectionViewCell.swift */,
+				58E1D8F1256BB4D2004AB056 /* HCPCardTableViewCell.swift */,
+				58D88D6A2570F5E5008D2EE8 /* TextPickerTableViewCell.swift */,
+				58D88D6B2570F5E5008D2EE8 /* TextPickerTableViewCell.xib */,
+				58BAEE6125750A9B003C5383 /* HeaderViewMoreTableViewCell.swift */,
+				58BAEE6225750A9B003C5383 /* HeaderViewMoreTableViewCell.xib */,
+				58BAEE9D25751772003C5383 /* ActivityMapTableViewCell.swift */,
+				58BAEE9E25751772003C5383 /* ActivityMapTableViewCell.xib */,
+				58BAEEA3257517B0003C5383 /* CustomBorderTableViewCell.swift */,
+				58CF58302575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift */,
+				58CF58312575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib */,
+				58CF586A25760458001ACD6C /* SearchHistoryTableViewCell.swift */,
+				58CF586B25760458001ACD6C /* SearchHistoryTableViewCell.xib */,
+				58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */,
+				58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */,
+				58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */,
+				58091C802588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		58E77980255BE43A0051F1FA /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				58E77981255BE4740051F1FA /* ViewDesign.swift */,
+				585116AC256E42BC00E5C7D3 /* SortableResultList.swift */,
+				58C2997E256FBAE500236D91 /* ActivityHandler.swift */,
+				58C29982256FBD1E00236D91 /* ActivityListHandler.swift */,
+				58CF588225766017001ACD6C /* IndexAble.swift */,
+				58D0E38C2591BC8200491C92 /* ViewLoading.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		58F5EE10255BAC5E0029B0B4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				584B7D49259ADBCA004AAE62 /* Base */,
+				589553C12595F93200DDE2FF /* Full */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		58F5EE19255BADC40029B0B4 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				58E77980255BE43A0051F1FA /* Adapters */,
+				58F5EE21255BC5540029B0B4 /* Extensions */,
+				58F5EE20255BC54E0029B0B4 /* Views */,
+				58C34B142570B7F800007DA2 /* Helpers.swift */,
+				58BAEEB925751EAD003C5383 /* ActivityList.swift */,
+				58CF586625760340001ACD6C /* AppConfigure.swift */,
+				589553852595E7EB00DDE2FF /* ViewControllers.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		58F5EE20255BC54E0029B0B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58F5EE1A255BADE70029B0B4 /* BaseView.swift */,
+				58E7797C255BDCF80051F1FA /* BaseButton.swift */,
+				58D88D622570F442008D2EE8 /* PickerListViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58F5EE21255BC5540029B0B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				58F5EE22255BC56C0029B0B4 /* Bundle+Additional.swift */,
+				58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */,
+				5820A4F5256CBF5000AE84E2 /* UIView+Additional.swift */,
+				58BAEEBD25752147003C5383 /* MKMapView+Additional.swift */,
+				58659280258B23F500A9A950 /* Optional+Additional.swift */,
+				5872D73F259098C3004E9892 /* Date+Additional.swift */,
+				5836DD4A25934874002F776D /* String+Additional.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5D80C181017AAB065EBFBB78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				584394662559501C009D2306 /* MapKit.framework */,
+				584393FC255906F8009D2306 /* CoreLocation.framework */,
+				58BCB5C83AA217ADE886E316 /* Pods_HealthCareLocatorSDK.framework */,
+				1D82C17D944B14BB40C85DC8 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0B0A026CE3C0EB6B2894D5B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4DBBCF586F618C715E7D254 /* Pods-HealthCareLocatorSDK.debug.xcconfig */,
+				5739AF75291F5C1C20287B79 /* Pods-HealthCareLocatorSDK.release.xcconfig */,
+				2E75E6A4587FA79EBC845DBD /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig */,
+				E4AFE15C9E3A912F5353EC36 /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		58A3644F2554F64700C62479 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A364652554F64700C62479 /* HealthCareLocatorSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		58A364532554F64700C62479 /* HealthCareLocatorSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58A364682554F64700C62479 /* Build configuration list for PBXNativeTarget "HealthCareLocatorSDK" */;
+			buildPhases = (
+				FE971FC3609834500C00C7EE /* [CP] Check Pods Manifest.lock */,
+				58A3644F2554F64700C62479 /* Headers */,
+				58A364502554F64700C62479 /* Sources */,
+				58A364512554F64700C62479 /* Frameworks */,
+				58A364522554F64700C62479 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HealthCareLocatorSDK;
+			productName = OneKeySDK;
+			productReference = 58A364542554F64700C62479 /* HealthCareLocatorSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		58A3645C2554F64700C62479 /* HealthCareLocatorSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58A3646B2554F64700C62479 /* Build configuration list for PBXNativeTarget "HealthCareLocatorSDKTests" */;
+			buildPhases = (
+				13C92E8E577B17FEEF21EEFE /* [CP] Check Pods Manifest.lock */,
+				58A364592554F64700C62479 /* Sources */,
+				58A3645A2554F64700C62479 /* Frameworks */,
+				58A3645B2554F64700C62479 /* Resources */,
+				C95A57504173D763E42937B7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58A364602554F64700C62479 /* PBXTargetDependency */,
+			);
+			name = HealthCareLocatorSDKTests;
+			productName = OneKeySDKTests;
+			productReference = 58A3645D2554F64700C62479 /* HealthCareLocatorSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58A3644B2554F64700C62479 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					58A364532554F64700C62479 = {
+						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
+					};
+					58A3645C2554F64700C62479 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 58A3644E2554F64700C62479 /* Build configuration list for PBXProject "HealthCareLocatorSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				Base,
+			);
+			mainGroup = 58A3644A2554F64700C62479;
+			productRefGroup = 58A364552554F64700C62479 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58A364532554F64700C62479 /* HealthCareLocatorSDK */,
+				58A3645C2554F64700C62479 /* HealthCareLocatorSDKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58A364522554F64700C62479 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58091C692588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib in Resources */,
+				58CF58332575E819001ACD6C /* HCPConsultedHistoryTableViewCell.xib in Resources */,
+				58091C822588D82600EBF393 /* IndividualAutoCompleteTableViewCell.xib in Resources */,
+				58DB2CAF25933C790022E6E0 /* HealthCareLocatorSDK.strings in Resources */,
+				58F5EE16255BACEC0029B0B4 /* SearchTypeView.xib in Resources */,
+				58BAEEA025751772003C5383 /* ActivityMapTableViewCell.xib in Resources */,
+				58CF586D25760458001ACD6C /* SearchHistoryTableViewCell.xib in Resources */,
+				58A364D92555437B00C62479 /* HCPSearch.storyboard in Resources */,
+				58D88D6D2570F5E5008D2EE8 /* TextPickerTableViewCell.xib in Resources */,
+				58B96226255D5C14000B126D /* icons.xcassets in Resources */,
+				58A3647D2554F69C00C62479 /* README.md in Resources */,
+				5891621F25875F41006C1E6C /* Mock-Activities.json in Resources */,
+				587D234C256528480009EA01 /* Query.graphql in Resources */,
+				58BAEE6425750A9B003C5383 /* HeaderViewMoreTableViewCell.xib in Resources */,
+				587544312588790B0000C126 /* Mock-Codes.json in Resources */,
+				58B30B22258A24E90036442F /* Mock-Activity-Detail.json in Resources */,
+				58A3647C2554F69C00C62479 /* HealthCareLocatorSDK.podspec in Resources */,
+				58E73AAB2562925100740548 /* SearchResultTableViewCell.xib in Resources */,
+				58754435258879390000C126 /* Mock-Individuals.json in Resources */,
+				58A3647B2554F69C00C62479 /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58A3645B2554F64700C62479 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13C92E8E577B17FEEF21EEFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C95A57504173D763E42937B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE971FC3609834500C00C7EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthCareLocatorSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58A364502554F64700C62479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58A364722554F66900C62479 /* HCLManagerProtocol.swift in Sources */,
+				5836DD4B25934874002F776D /* String+Additional.swift in Sources */,
+				58FD50F22593208C00402723 /* HCPMapViewModel.swift in Sources */,
+				58F0296325887CC0000CCF94 /* GeneralQueryInput.swift in Sources */,
+				58BAEE6325750A9B003C5383 /* HeaderViewMoreTableViewCell.swift in Sources */,
+				582854FF2589E9020090FA68 /* SearchResultViewModel.swift in Sources */,
+				584394272559282E009D2306 /* SearchInputViewController.swift in Sources */,
+				58D88D632570F442008D2EE8 /* PickerListViewController.swift in Sources */,
+				58E7797D255BDCF80051F1FA /* BaseButton.swift in Sources */,
+				589553D92595FF9600DDE2FF /* SearchInputDataSource.swift in Sources */,
+				58F5EE12255BACD50029B0B4 /* SearchTypeView.swift in Sources */,
+				58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */,
+				5876089B256E666800F44787 /* HCLSearchConfigure.swift in Sources */,
+				587D2307256515680009EA01 /* HCLServiceManager.swift in Sources */,
+				58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */,
+				588A99F32574E41E002BCC74 /* SearchHomeFullViewController.swift in Sources */,
+				58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */,
+				58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */,
+				5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */,
+				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
+				58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */,
+				589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */,
+				58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */,
+				58C34B152570B7F800007DA2 /* Helpers.swift in Sources */,
+				58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */,
+				58CF58632576001F001ACD6C /* LastSearch.swift in Sources */,
+				58A8BD1B256F6E8C00DAEBF3 /* HCPFullCardViewController.swift in Sources */,
+				58754439258879860000C126 /* Codes.swift in Sources */,
+				58B6A761255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift in Sources */,
+				5843946325594FC6009D2306 /* SearchResultMapViewController.swift in Sources */,
+				587D21472564C4400009EA01 /* HCPCardCollectionViewController.swift in Sources */,
+				58F104CC2563AF6300AFD4B3 /* SegmentControlModel.swift in Sources */,
+				5820A4F6256CBF5000AE84E2 /* UIView+Additional.swift in Sources */,
+				5848D6DA256E1BE900217EFC /* SearchResultSortViewController.swift in Sources */,
+				58F5EE33255BC9F50029B0B4 /* HCLThemeConfigure.swift in Sources */,
+				587D9042255ABFD9009EC0DE /* SearchResultAnnotationView.swift in Sources */,
+				58CDED6D259AEFA700EC7746 /* LastHCPConsulted.swift in Sources */,
+				5891627F2587941D006C1E6C /* Individual.swift in Sources */,
+				58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */,
+				58351B1825CCF5C3007DE500 /* HCLLanguage.swift in Sources */,
+				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
+				58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */,
+				58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */,
+				5848D6C4256E144E00217EFC /* SearchData.swift in Sources */,
+				58659281258B23F500A9A950 /* Optional+Additional.swift in Sources */,
+				58E77982255BE4740051F1FA /* ViewDesign.swift in Sources */,
+				5843942B25592AC2009D2306 /* SearchResultViewController.swift in Sources */,
+				589553AE2595F6C900DDE2FF /* HomeFullViewModel.swift in Sources */,
+				58BAEEBE25752147003C5383 /* MKMapView+Additional.swift in Sources */,
+				58BAEEBA25751EAD003C5383 /* ActivityList.swift in Sources */,
+				587D21992564CE760009EA01 /* HCPCardCollectionViewCell.swift in Sources */,
+				58E1D8EE256BB46E004AB056 /* SearchResultListViewController.swift in Sources */,
+				587D237B25652F7F0009EA01 /* API.swift in Sources */,
+				5843948A25595591009D2306 /* SearchHomeViewController.swift in Sources */,
+				585116AD256E42BC00E5C7D3 /* SortableResultList.swift in Sources */,
+				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
+				5872D740259098C3004E9892 /* Date+Additional.swift in Sources */,
+				58B6A773255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift in Sources */,
+				58B6A76F255AA2CB00C1F6AF /* HCLError.swift in Sources */,
+				58A364732554F66900C62479 /* HCLManager.swift in Sources */,
+				5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */,
+				5865926A258B0D8C00A9A950 /* FullCardViewModel.swift in Sources */,
+				5875442D25885E5A0000C126 /* SearchAutoComplete.swift in Sources */,
+				58BAEEA4257517B0003C5383 /* CustomBorderTableViewCell.swift in Sources */,
+				58B502BD25BE806400A327BB /* SearchResultClusterAnnotationView.swift in Sources */,
+				58CF586725760340001ACD6C /* AppConfigure.swift in Sources */,
+				583C1B6025AC3D9700CDB4F7 /* HCLIconsConfigure.swift in Sources */,
+				589553862595E7EB00DDE2FF /* ViewControllers.swift in Sources */,
+				58A364D42555435700C62479 /* HCLHCPSearchNavigationViewController.swift in Sources */,
+				5820A4F0256CBCC200AE84E2 /* SearchInputValidator.swift in Sources */,
+				58CF58322575E819001ACD6C /* HCPConsultedHistoryTableViewCell.swift in Sources */,
+				58BAEE9F25751772003C5383 /* ActivityMapTableViewCell.swift in Sources */,
+				58CF588325766017001ACD6C /* IndexAble.swift in Sources */,
+				5848D6BA256E10C700217EFC /* Constants.swift in Sources */,
+				58F5EE23255BC56C0029B0B4 /* Bundle+Additional.swift in Sources */,
+				5859C14A25B56B3D009B946A /* NoSearchResultViewController.swift in Sources */,
+				58C29983256FBD1E00236D91 /* ActivityListHandler.swift in Sources */,
+				58C2997F256FBAE500236D91 /* ActivityHandler.swift in Sources */,
+				58D46590258C8E9B0084FA7A /* LocationManager.swift in Sources */,
+				5891626925878831006C1E6C /* Activity.swift in Sources */,
+				58CF586C25760458001ACD6C /* SearchHistoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58A364592554F64700C62479 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58850554259C866800B38CF3 /* HCLSearchConfigureTests.swift in Sources */,
+				58CDEDF6259B2CCB00EC7746 /* StringExtensionTests.swift in Sources */,
+				58850548259C85CB00B38CF3 /* HCLManagerTests.swift in Sources */,
+				58850550259C864900B38CF3 /* HCLHCPSearchNavigationViewControllerTest.swift in Sources */,
+				587F182A259D7D3400BC3B2B /* HCLHCPSearchWebServicesTests.swift in Sources */,
+				5885054C259C862200B38CF3 /* HCLServiceManagerTests.swift in Sources */,
+				58850558259C868100B38CF3 /* HCLThemeConfigureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58A364602554F64700C62479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58A364532554F64700C62479 /* HealthCareLocatorSDK */;
+			targetProxy = 58A3645F2554F64700C62479 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		58DB2CB125933C790022E6E0 /* HealthCareLocatorSDK.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58DB2CB025933C790022E6E0 /* en */,
+				58DB2CB425933C7C0022E6E0 /* fr */,
+			);
+			name = HealthCareLocatorSDK.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58A364662554F64700C62479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		58A364672554F64700C62479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58A364692554F64700C62479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4DBBCF586F618C715E7D254 /* Pods-HealthCareLocatorSDK.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HealthCareLocatorSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = iqvia.HealthCareLocatorSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58A3646A2554F64700C62479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5739AF75291F5C1C20287B79 /* Pods-HealthCareLocatorSDK.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = HealthCareLocatorSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = iqvia.HealthCareLocatorSDK;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		58A3646C2554F64700C62479 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E75E6A4587FA79EBC845DBD /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6W4VACB9M8;
+				INFOPLIST_FILE = HealthCareLocatorSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = iqvia.HealthCareLocatorSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58A3646D2554F64700C62479 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4AFE15C9E3A912F5353EC36 /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6W4VACB9M8;
+				INFOPLIST_FILE = HealthCareLocatorSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = iqvia.HealthCareLocatorSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58A3644E2554F64700C62479 /* Build configuration list for PBXProject "HealthCareLocatorSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58A364662554F64700C62479 /* Debug */,
+				58A364672554F64700C62479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58A364682554F64700C62479 /* Build configuration list for PBXNativeTarget "HealthCareLocatorSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58A364692554F64700C62479 /* Debug */,
+				58A3646A2554F64700C62479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58A3646B2554F64700C62479 /* Build configuration list for PBXNativeTarget "HealthCareLocatorSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58A3646C2554F64700C62479 /* Debug */,
+				58A3646D2554F64700C62479 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58A3644B2554F64700C62479 /* Project object */;
+}

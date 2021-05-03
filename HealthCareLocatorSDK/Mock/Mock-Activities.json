@@ -1,0 +1,594 @@
+{
+    "activities": [
+        {
+            "distance": 307.05,
+            "activity": {
+                "id": "WCAM0009378902",
+                "individual": {
+                    "id": "WCAM00093789",
+                    "title": "TIT.WCA.03",
+                    "firstName": "Mostafa",
+                    "lastName": "Hayat-Gheybi",
+                    "middleName": "",
+                    "mailingName": "Dr Mostafa Hayat-Gheybi",
+                    "professionalType": {
+                        "code": "TYP.M",
+                        "label": "Physician"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.3C",
+                            "label": "Family Medicine"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "6-2231 Victoria Park Ave",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7618,
+                            "lon": -79.3166
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 307.05,
+            "activity": {
+                "id": "WCAP0003111403",
+                "individual": {
+                    "id": "WCAP00031114",
+                    "title": "TIT.WCA.20",
+                    "firstName": "Soheila",
+                    "lastName": "Rezaei",
+                    "middleName": "",
+                    "mailingName": "Ms Soheila Rezaei",
+                    "professionalType": {
+                        "code": "TYP.P",
+                        "label": "Pharmacist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.88",
+                            "label": "Pharmacy"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "6-2231 Victoria Park Ave",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7618,
+                            "lon": -79.3166
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 307.05,
+            "activity": {
+                "id": "WCAP0004192701",
+                "individual": {
+                    "id": "WCAP00041927",
+                    "title": "TIT.WCA.20",
+                    "firstName": "Bita",
+                    "lastName": "Maddah",
+                    "middleName": "",
+                    "mailingName": "Ms Bita Maddah",
+                    "professionalType": {
+                        "code": "TYP.P",
+                        "label": "Pharmacist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.88",
+                            "label": "Pharmacy"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "6-2231 Victoria Park Ave",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7618,
+                            "lon": -79.3166
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 457.97,
+            "activity": {
+                "id": "WCAD0002169501",
+                "individual": {
+                    "id": "WCAD00021695",
+                    "title": "TIT.WCA.03",
+                    "firstName": "Mila",
+                    "lastName": "Sweeney",
+                    "middleName": "",
+                    "mailingName": "Dr Mila Sweeney",
+                    "professionalType": {
+                        "code": "TYP.D",
+                        "label": "Dentist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.75",
+                            "label": "General Dentistry"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "602-111 Combermere Dr",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009375",
+                            "label": "North York"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7603,
+                            "lon": -79.317
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 603.86,
+            "activity": {
+                "id": "WCAD0002327202",
+                "individual": {
+                    "id": "WCAD00023272",
+                    "title": "TIT.WCA.03",
+                    "firstName": "Neri",
+                    "lastName": "Moss",
+                    "middleName": "S",
+                    "mailingName": "Dr Neri S Moss",
+                    "professionalType": {
+                        "code": "TYP.D",
+                        "label": "Dentist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.75",
+                            "label": "General Dentistry"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "12-2555 Victoria Park Ave",
+                        "buildingLabel": "",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7696,
+                            "lon": -79.3203
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 670.5,
+            "activity": {
+                "id": "WCAP0001468801",
+                "individual": {
+                    "id": "WCAP00014688",
+                    "title": "TIT.WCA.20",
+                    "firstName": "Esther",
+                    "lastName": "Fishman",
+                    "middleName": "Fay",
+                    "mailingName": "Mrs Esther Fishman",
+                    "professionalType": {
+                        "code": "TYP.P",
+                        "label": "Pharmacist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.88",
+                            "label": "Pharmacy"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "1277 York Mills Rd",
+                        "buildingLabel": "Parkwoods Shopping Centre",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009375",
+                            "label": "North York"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7612,
+                            "lon": -79.3252
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 670.5,
+            "activity": {
+                "id": "WCAP0002728201",
+                "individual": {
+                    "id": "WCAP00027282",
+                    "title": "TIT.WCA.20",
+                    "firstName": "Peter",
+                    "lastName": "Yoo",
+                    "middleName": "",
+                    "mailingName": "Mr Peter Yoo",
+                    "professionalType": {
+                        "code": "TYP.P",
+                        "label": "Pharmacist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.88",
+                            "label": "Pharmacy"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "1277 York Mills Rd",
+                        "buildingLabel": "Parkwoods Shopping Centre",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009375",
+                            "label": "North York"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7612,
+                            "lon": -79.3252
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 670.5,
+            "activity": {
+                "id": "WCAP0001719201",
+                "individual": {
+                    "id": "WCAP00017192",
+                    "title": "TIT.WCA.20",
+                    "firstName": "Biljana",
+                    "lastName": "Simic",
+                    "middleName": "",
+                    "mailingName": "Ms Biljana Simic",
+                    "professionalType": {
+                        "code": "TYP.P",
+                        "label": "Pharmacist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.88",
+                            "label": "Pharmacy"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "1277 York Mills Rd",
+                        "buildingLabel": "Parkwoods Shopping Centre",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009375",
+                            "label": "North York"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7612,
+                            "lon": -79.3252
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 747.8,
+            "activity": {
+                "id": "WCAD0000951401",
+                "individual": {
+                    "id": "WCAD00009514",
+                    "title": "TIT.WCA.03",
+                    "firstName": "Rajendram",
+                    "lastName": "Sivendra",
+                    "middleName": "",
+                    "mailingName": "Dr Rajendram Sivendra",
+                    "professionalType": {
+                        "code": "TYP.D",
+                        "label": "Dentist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.75",
+                            "label": "General Dentistry"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "26-85 Ellesmere Rd",
+                        "buildingLabel": "Parkway Mall",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7582,
+                            "lon": -79.3142
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "distance": 747.8,
+            "activity": {
+                "id": "WCAD0002263101",
+                "individual": {
+                    "id": "WCAD00022631",
+                    "title": "TIT.WCA.03",
+                    "firstName": "Perry",
+                    "lastName": "Argiropoulos",
+                    "middleName": "",
+                    "mailingName": "Dr Perry Argiropoulos",
+                    "professionalType": {
+                        "code": "TYP.D",
+                        "label": "Dentist"
+                    },
+                    "specialties": [
+                        {
+                            "code": "SP.WCA.75",
+                            "label": "General Dentistry"
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        },
+                        {
+                            "code": "",
+                            "label": ""
+                        }
+                    ]
+                },
+                "workplace": {
+                    "address": {
+                        "longLabel": "26-85 Ellesmere Rd",
+                        "buildingLabel": "Parkway Mall",
+                        "county": {
+                            "code": "ON",
+                            "label": "Ontario"
+                        },
+                        "city": {
+                            "code": "CA009277",
+                            "label": "Scarborough"
+                        },
+                        "country": "CA",
+                        "location": {
+                            "lat": 43.7582,
+                            "lon": -79.3142
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

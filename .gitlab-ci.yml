@@ -1,0 +1,140 @@
+stages:
+  - test
+  - prepare-demo
+  - build-demo
+  - deploy-demo
+
+prepare:install-pods:
+  interruptible: true
+  stage: prepare-demo
+  tags:
+    - ios
+  except:
+    - tags
+  before_script:
+    - cd ./Example/HealthCareLocatorSDKDemo/
+  script:
+    - bundle install
+    - bundle exec pod install
+  cache:
+    key:
+      files:
+        - Gemfile.lock
+        - Podfile.lock
+    paths:
+      - Pods/
+  artifacts:
+    name: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_SLUG}_dependencies"
+    expire_in: 1 hour
+    paths:
+      - ./Example/HealthCareLocatorSDKDemo/Pods/
+      # - Pods/
+
+prepare:clean:
+  interruptible: true
+  stage: prepare-demo
+  tags:
+    - ios
+  except:
+    - tags
+  before_script:
+    - cd ./Example/HealthCareLocatorSDKDemo/
+  script:
+    - rm -rf reports build ~/Library/Developer/Xcode/DerivedData/Spacetime*
+    - xcodebuild clean -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo | xcpretty
+
+test:
+  interruptible: true
+  stage: test
+  tags:
+    - ios
+  except:
+    - tags
+  script:
+    - pod install
+    - xcodebuild test -workspace HealthCareLocatorSDK.xcworkspace -scheme HealthCareLocatorSDK -configuration Debug -derivedDataPath build -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.2.2" -enableCodeCoverage YES | xcpretty -s
+  allow_failure: true
+  artifacts:
+    name: "HealthCareLocatorSDK_tests"
+    expire_in: 1 hour
+    paths:
+      - build/Logs/Test/*
+
+build:mr:
+  extends: .build
+  interruptible: true
+  tags:
+    - ios
+  only:
+    - branches
+  except:
+    - develop
+    - master
+    - release
+    - hotfixes
+    - tags
+  script:
+    - xcodebuild build -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo -configuration Release -derivedDataPath build -allowProvisioningUpdates | xcpretty -s
+  needs:
+    - job: prepare:install-pods
+      artifacts: true
+
+## Dev app: Build and deploy
+build:dev:
+  extends: .build
+  only:
+    - develop
+  script:
+    - ls
+    - xcodebuild archive -workspace HealthCareLocatorSDKDemo.xcworkspace -scheme HealthCareLocatorSDKDemo -configuration Release -archivePath build/HealthCareLocatorSDKDemo.xcarchive -derivedDataPath build -allowProvisioningUpdates | xcpretty -s;
+    - xcodebuild -exportArchive -archivePath "build/HealthCareLocatorSDKDemo.xcarchive" -exportOptionsPlist exportInHouseOptions.plist -exportPath build -allowProvisioningUpdates | xcpretty -s;
+    - ditto -c -k -rsrc build/HealthCareLocatorSDKDemo.xcarchive/dSYMs build/HealthCareLocatorSDKDemo-dSYM.zip
+  artifacts:
+    name: "${CI_PROJECT_NAME}_${CI_COMMIT_REF_SLUG}_release-dev"
+    expire_in: 30 days
+    paths:
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo.ipa
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo-dSYM.zip
+      - ./Example/HealthCareLocatorSDKDemo/build/HealthCareLocatorSDKDemo.xcarchive
+
+deploy:dev:
+  extends: .deploy
+  only:
+    - develop
+  script:
+    - ls
+    - ls ./build
+    - VERSION=$(/usr/libexec/PlistBuddy -c "Print :ApplicationProperties:CFBundleShortVersionString" "${PWD}/build/HealthCareLocatorSDKDemo.xcarchive/Info.plist") bundle exec fastlane dev_deploy
+  needs:
+    - job: build:dev
+      artifacts: true
+
+## Templates
+.build:
+  interruptible: true
+  stage: build-demo
+  tags:
+    - ios
+  before_script:
+    - cd ./Example/HealthCareLocatorSDKDemo/
+    - rm -rf container/*
+    - /usr/bin/agvtool new-version -all $CI_PIPELINE_IID
+  allow_failure: false
+  needs:
+    - job: prepare:install-pods
+      artifacts: true
+
+.deploy:
+  stage: deploy-demo
+  tags:
+    - ios
+  variables:
+    BUILD_NUMBER: "${CI_PIPELINE_IID}"
+  before_script:
+    # Force to use SSH (for tags pushing)
+    - git remote set-url origin git@gitlab.ekino.com:iqvia/OneKeySDK-iOS.git
+    - git fetch --all --tags
+    - cd ./Example/HealthCareLocatorSDKDemo/
+    - bundle install
+    - bundle update fastlane
+  allow_failure: false
