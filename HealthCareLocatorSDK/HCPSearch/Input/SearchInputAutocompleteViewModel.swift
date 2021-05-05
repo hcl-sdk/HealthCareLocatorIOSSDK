@@ -127,6 +127,11 @@ extension SearchInputAutocompleteViewModel {
         self.isNearMeSearch = isNearMeSearch
     }
     
+    func clearLocationField() {
+        isNearMeSearch = false
+        address = ""
+    }
+    
     func isSelectedCode() -> Bool {
         return selectedCode != nil
     }
