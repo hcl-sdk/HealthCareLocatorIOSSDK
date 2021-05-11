@@ -5,7 +5,7 @@ trigger:
    - release/*
   tags: 
    include:
-   - *
+   - '*'
 
 pool:
   vmImage: "macos-latest"
