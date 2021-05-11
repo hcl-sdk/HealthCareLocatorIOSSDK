@@ -6,7 +6,7 @@ target 'OneKeySDKDemo' do
   use_frameworks!
 
   # Pods for OneKeySDKDemo
-  pod 'OneKeySDK', :path => '../../'
+  pod 'HealthCareLocatorSDK', :path => '../../'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'lottie-ios'
