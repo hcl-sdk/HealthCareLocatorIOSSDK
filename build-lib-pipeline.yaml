@@ -59,9 +59,6 @@ stages:
           xcodeVersion: "default"
           signingOption: "manual"
           useXcpretty: false
-          signingIdentity: "$(APPLE_CERTIFICATE_SIGNING_IDENTITY)"
-          provisioningProfileUuid: "$(APPLE_PROV_PROFILE_UUID)"
-          packageApp: false
 
       - task: PublishBuildArtifacts@1
         inputs:
