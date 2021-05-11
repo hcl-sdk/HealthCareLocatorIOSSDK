@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
     #
   
     spec.name         = "HealthCareLocatorSDK"
-    spec.version      = "0.0.1"
+    spec.version      = "1.0.0"
     spec.summary      = "HealthCareLocatorSDK from IQVIA"
   
     # This description is used to generate tags and improve search results.
@@ -25,10 +25,10 @@ Pod::Spec.new do |spec|
     #   * Write the description between the DESC delimiters below.
     #   * Finally, don't worry about the indent, CocoaPods strips it!
     spec.description  = <<-DESC
-    Use the SDK to connect with the database
+    this SDK helps you to integrate HealthcareLocator Services into your application. Healtcare locator services allow you to access millions of healthcare professionnal data. 
                        DESC
   
-    spec.homepage     = "http://EXAMPLE/HealthCareLocatorSDK"
+    spec.homepage     = "https://www.healthcarelocator.com"
     # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
   
   
@@ -54,7 +54,6 @@ Pod::Spec.new do |spec|
     #
   
     spec.author             = { "IQVIA" => "contact.onekey@iqvia.com" }
-    # spec.social_media_url   = "https://twitter.com/Le Ngo Quang Truong"
   
     # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
     #
@@ -78,7 +77,7 @@ Pod::Spec.new do |spec|
     #  Supports git, hg, bzr, svn and HTTP.
     #
   
-    spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib', :tag => '1.0.2' }
+    spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :tag => '1.0.0' }
 
   
   
