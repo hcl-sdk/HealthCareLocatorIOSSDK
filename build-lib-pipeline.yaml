@@ -55,11 +55,10 @@ stages:
       - task: CocoaPods@0
         inputs:
           forceRepoUpdate: false
-          projectDirectory: .
 
       - task: Xcode@5
         inputs:
-          actions: "archive"
+          actions: "build"
           scheme: "HealthCareLocatorSDK"
           sdk: "iphoneos"
           configuration: "Release"
