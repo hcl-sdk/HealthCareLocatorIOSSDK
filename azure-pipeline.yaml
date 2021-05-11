@@ -1,6 +1,11 @@
 
 trigger:
-- release
+  branches:
+   include:
+   - release/*
+  tags: 
+   include:
+   - *
 
 pool:
   vmImage: "macos-latest"
@@ -8,59 +13,81 @@ pool:
 variables:
   p12Password: $(p12Secret)
 
-steps:
-  - checkout: self
-    path: s/onekey-sdk-ios-lib
+stages:
+  - stage: BuildNumberGenerator  
+    displayName: Build Version Tag
+    jobs:
+    - job: GenerateReleaseVersionTag
+      condition: startsWith(variables['build.sourceBranch'], 'refs/heads/release/')
+      variables: 
+        revision: $[counter(variables['build.sourcebranchname'], 0)]
+      steps:
+      - bash: echo '##vso[build.updatebuildnumber]r$(build.sourcebranchname)-$(revision)'
 
-  - task: ios-bundle-version@1
-    inputs:
-      sourcePath: "Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"
-      versionCodeOption: "buildid"
-      versionCode: "$(Build.BuildId)"
-      versionCodeOffset: "0"
-      printFile: true
+    - job: GenerateMasterVersionTag
+      condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
+      variables: 
+        revision: $[counter(variables['build.sourceBranch'], 0)]
+      steps:
+      - bash: echo '##vso[build.updatebuildnumber]$(build.sourcebranchname)'
 
-  - task: InstallAppleCertificate@2
-    inputs:
-      certSecureFile: "IQVIA-2022.p12"
-      certPwd: "$(p12Password)"
-      keychain: "temp"
-      deleteCert: true
+  - stage: BuildSteps
+    jobs:
+    - job: Build 
+      condition: or(startsWith(variables['build.sourceBranch'], 'refs/heads/release/'), startsWith(variables['build.sourceBranch'], 'refs/tags/')) 
+      steps:
+      - checkout: self
+        path: s/onekey-sdk-ios-lib
 
-  - task: InstallAppleProvisioningProfile@1
-    inputs:
-      provisioningProfileLocation: "secureFiles"
-      provProfileSecureFile: "hclapp.mobileprovision"
-      removeProfile: true
+      - task: ios-bundle-version@1
+        inputs:
+          sourcePath: "Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"
+          versionCodeOption: "buildid"
+          versionCode: "$(Build.BuildId)"
+          versionCodeOffset: "0"
+          printFile: true
 
-  - task: CocoaPods@0
-    inputs:
-      forceRepoUpdate: false
-      projectDirectory: Example/HealthCareLocatorSDKDemo
+      - task: InstallAppleCertificate@2
+        inputs:
+          certSecureFile: "IQVIA-2022.p12"
+          certPwd: "$(p12Password)"
+          keychain: "temp"
+          deleteCert: true
 
-  - task: Xcode@5
-    inputs:
-      actions: "archive"
-      scheme: "HCLDemo"
-      sdk: "iphoneos"
-      configuration: "Release"
-      xcWorkspacePath: "Example/HealthCareLocatorSDKDemo/HealthCareLocatorSDKDemo.xcworkspace"
-      xcodeVersion: "default"
-      signingOption: "manual"
-      useXcpretty: false
-      signingIdentity: "$(APPLE_CERTIFICATE_SIGNING_IDENTITY)"
-      provisioningProfileUuid: "$(APPLE_PROV_PROFILE_UUID)"
-      packageApp: true
+      - task: InstallAppleProvisioningProfile@1
+        inputs:
+          provisioningProfileLocation: "secureFiles"
+          provProfileSecureFile: "hclapp.mobileprovision"
+          removeProfile: true
 
-  - task: CopyFiles@2
-    inputs:
-      contents: "**/*.ipa"
-      targetFolder: "$(build.artifactStagingDirectory)"
-      overWrite: true
-      flattenFolders: true
+      - task: CocoaPods@0
+        inputs:
+          forceRepoUpdate: false
+          projectDirectory: Example/HealthCareLocatorSDKDemo
 
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: "$(build.artifactStagingDirectory)"
-      artifactName: "drop"
-      publishLocation: "Container"
+      - task: Xcode@5
+        inputs:
+          actions: "archive"
+          scheme: "HCLDemo"
+          sdk: "iphoneos"
+          configuration: "Release"
+          xcWorkspacePath: "Example/HealthCareLocatorSDKDemo/HealthCareLocatorSDKDemo.xcworkspace"
+          xcodeVersion: "default"
+          signingOption: "manual"
+          useXcpretty: false
+          signingIdentity: "$(APPLE_CERTIFICATE_SIGNING_IDENTITY)"
+          provisioningProfileUuid: "$(APPLE_PROV_PROFILE_UUID)"
+          packageApp: true
+
+      - task: CopyFiles@2
+        inputs:
+          contents: "**/*.ipa"
+          targetFolder: "$(build.artifactStagingDirectory)"
+          overWrite: true
+          flattenFolders: true
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: "$(build.artifactStagingDirectory)"
+          artifactName: "drop"
+          publishLocation: "Container"
