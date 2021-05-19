@@ -14,7 +14,7 @@ target 'HealthCareLocatorSDK' do
   target 'HealthCareLocatorSDKTests' do
     # Pods for testing
   end
-  
+
 end
 
 post_install do |installer|

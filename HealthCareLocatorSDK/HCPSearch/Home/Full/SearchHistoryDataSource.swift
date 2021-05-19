@@ -163,9 +163,11 @@ class SearchHistoryDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
             case .nearMe:
                 delegate?.didSelectNearMeSearch()
             case .lastSearchs(_, let searches):
-                delegate?.didSelect(search: searches[indexPath.row - 1])
+                let search = searches[indexPath.row - 1]
+                handleSelect(search: search)
             case .lasHCPConsolted(_, let activities):
-                delegate?.didSelect(activity: activities[indexPath.row - 1].activity)
+                let hcp = activities[indexPath.row - 1]
+               handleSelect(hcp: hcp)
             }
         }
     }
@@ -192,6 +194,26 @@ extension SearchHistoryDataSource: HeaderViewMoreTableViewCellDelegate {
 }
 
 extension SearchHistoryDataSource: SearchHistoryCellDelegate {
+    func handleSelect(search: LastSearch) {
+        var histories = AppConfigure.getLastSearchesHistory()
+        if let index = histories.firstIndex(of: search) {
+            histories.remove(at: index)
+            histories.insert(search.clone(), at: 0)
+            AppConfigure.setLastSearchesHistory(searches: histories)
+        }
+        delegate?.didSelect(search: search)
+    }
+    
+    func handleSelect(hcp: LastHCPConsulted) {
+        var HCPs = AppConfigure.getLastHCPsConsulted()
+        if let index = HCPs.firstIndex(of: hcp) {
+            HCPs.remove(at: index)
+            HCPs.insert(hcp.clone(), at: 0)
+            AppConfigure.setLastHCPsConsulted(HCPs: HCPs)
+        }
+        delegate?.didSelect(activity: hcp.activity)
+    }
+    
     func shouldRemoveActivityAt(indexPath: IndexPath) {
         switch data[indexPath.section] {
         case .lasHCPConsolted(let title, let activities):

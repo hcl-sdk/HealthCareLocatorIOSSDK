@@ -1,0 +1,60 @@
+{
+    "data": [
+        {
+            "category": "General practitioner",
+            "doctor": "Dr Axelle Azot",
+            "address": "99 Rue de Charonne, 75011 Paris",
+            "lat": 10.760933,
+            "long": 106.6551282
+        },
+        {
+            "category": "Nurse practitioner",
+            "doctor": "Dr Arnaud Schulligen",
+            "address": "120 Rue de Turenne, 75003 Paris",
+            "lat": 10.763422,
+            "long": 106.653084
+        },
+        {
+            "category": "Cancerologist",
+            "doctor": "Dr Pondaven Hélène",
+            "address": "45 Rue de Fleurus, 75006 Paris",
+            "lat": 10.761114,
+            "long": 106.659682
+        },
+        {
+            "category": "Physiotherapist",
+            "doctor": "Dr Eric Jeanson",
+            "address": "1 Rue Saint-Antoine, 75004 Paris",
+            "lat": 10.764907,
+            "long": 106.662533
+        },
+        {
+            "category": "General practitioner",
+            "doctor": "Dr Frédéric Amarger",
+            "address": "33 Rue Réaumur, 75003 Paris",
+            "lat": 10.769618,
+            "long": 106.661299
+        },
+        {
+            "category": "General practitioner",
+            "doctor": "Dr Elie Attias",
+            "address": "49 Avenue Montaigne, 75008 Paris",
+            "lat": 10.775851,
+            "long": 106.650705
+        },
+        {
+            "category": "General practitioner",
+            "doctor": "Dr Lemiere Pascal",
+            "address": "117 Avenue du Général Michel Bizot, 75012",
+            "lat": 10.778728,
+            "long": 106.645019
+        },
+        {
+            "category": "General practitioner",
+            "doctor": "Dr Mouran Evelyne",
+            "address": "14 Place Gabriel Péri, 75008 Paris",
+            "lat": 10.782649,
+            "long": 106.639064
+        }
+    ]
+}

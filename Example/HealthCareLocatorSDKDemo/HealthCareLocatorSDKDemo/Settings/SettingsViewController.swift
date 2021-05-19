@@ -84,7 +84,6 @@ class SettingsViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     @IBAction func unwindToSettingsViewController(_ unwindSegue: UIStoryboardSegue) {
-        let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
     }
     

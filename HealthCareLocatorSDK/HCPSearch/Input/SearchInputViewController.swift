@@ -175,7 +175,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
         } else {
             searchData = SearchData(criteria: criteria,
                                     codes: code != nil ? [code!] : nil,
-                                    mode: .baseSearch)
+                                    mode: .baseSearch(country: HCLManager.shared.searchConfigure?.country))
         }
         
         // Save last search
@@ -254,6 +254,8 @@ extension SearchInputViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
             searchInputAutocompleteModelView.set(criteria: nil)
+        } else {
+            searchInputAutocompleteModelView.clearLocationField()
         }
         
         return true

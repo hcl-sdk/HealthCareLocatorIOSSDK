@@ -12,7 +12,7 @@ import RxSwift
 
 class SearchResultViewModel: ViewLoading {
     lazy var indicator = UIActivityIndicatorView(style: .gray)
-    
+    private let geocoder = CLGeocoder()
     private var webServices: SearchAPIsProtocol!
     private var search: SearchData!
     private let searchActions = PublishSubject<SearchResultViewModel.SearchAction>()
@@ -23,38 +23,78 @@ class SearchResultViewModel: ViewLoading {
     }
     
     // MARK: Searching
+    // MARK: To get the coordinate, Apple MapKit allows us get the data from CLGeocoder with available address.
+    // MARK: Because MKLocalsearchcompletion is returning the title only. That means there is no a placeID coordinate info...
+    /// https://developer.apple.com/documentation/mapkit/mklocalsearchcompletion/
+    /// https://developer.apple.com/documentation/corelocation/clgeocoder/
     func performSearch(config: HCLSDKConfigure, completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         switch search.mode {
         case .nearMeSearch,
              .quickNearMeSearch:
-            perform(action: SearchAction(isNearMeSearch: true, address: nil, coordinate: nil))
+            perform(action: SearchAction(isNearMeSearch: true,
+                                         address: nil,
+                                         coordinate: nil,
+                                         distance: kDefaultSearchNearMeDistance,
+                                         country: nil))
         case .addressSearch(let address):
-            CLGeocoder().geocodeAddressString(address) {[weak self]  (placeMarks, error) in
-                guard let strongSelf = self else {return}
-                strongSelf.perform(action: SearchAction(isNearMeSearch: false, address: address, coordinate: placeMarks?.first?.location?.coordinate))
+            geocoder.geocodeAddressString(address) {[weak self] (placeMarks, error) in
+                guard let strongSelf = self, let place = placeMarks?.first else {return}
+                if let region = place.region as? CLCircularRegion {
+                    strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                            address: address,
+                                                            coordinate: place.location?.coordinate,
+                                                            distance: region.radius,
+                                                            country: nil))
+                } else {
+                    let street = place.thoroughfare
+                    let city = place.locality
+                    
+                    if street != nil {
+                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                address: address,
+                                                                coordinate: place.location?.coordinate,
+                                                                distance: kDefaultSearchAddressDistance,
+                                                                country: nil))
+                    } else if city != nil {
+                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                address: address,
+                                                                coordinate: place.location?.coordinate,
+                                                                distance: kDefaultSearchCityDistance,
+                                                                country: nil))
+                    } else {
+                        if let countryCode = place.isoCountryCode {
+                            strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                    address: address,
+                                                                    coordinate: place.location?.coordinate,
+                                                                    distance: nil,
+                                                                    country: countryCode))
+                        } else {
+                            strongSelf.perform(action: SearchAction(isNearMeSearch: false,
+                                                                    address: address,
+                                                                    coordinate: place.location?.coordinate,
+                                                                    distance: nil,
+                                                                    country: nil))
+                        }
+                    }
+                }
             }
+        case .baseSearch(let country):
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: country))
         default:
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: nil))
         }
     }
     
     func performSearchWith(config: HCLSDKConfigure,
-                           coordinate: CLLocationCoordinate2D?,
+                           coordinate: GeopointQuery?,
                            completionHandler: @escaping (([ActivityResult]?, Error?) -> Void)) {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
                                      locale: config.lang.apiCode,
                                      criteria: search.codes != nil ? nil : search.criteria)
-        // Optional geopoint
-        var geopoint: GeopointQuery?
-        if let unwrapCoordinate = coordinate {
-            geopoint = GeopointQuery(lat: unwrapCoordinate.latitude,
-                                     lon: unwrapCoordinate.longitude)
-        }
-        
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},
-                            location: geopoint,
+                            location: coordinate,
                             county: "",
                             criteria: info.criteria,
                             userId: config.userId,
@@ -138,7 +178,7 @@ class SearchResultViewModel: ViewLoading {
         view.secondSeparatorView.backgroundColor = theme.greyLighterColor
         view.topInputTextField.textColor = theme.darkColor
         view.topInputTextField.attributedPlaceholder = NSAttributedString(string: "hcl_find_healthcare_professional".localized,
-                                                                     attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: theme.greyLightColor ?? .lightGray])
         layout(view: view, theme: theme, mode: .list)
     }
     
@@ -146,19 +186,19 @@ class SearchResultViewModel: ViewLoading {
         switch mode {
         case .list:
             view.selectedListViewBackgroundView.backgroundColor = theme.primaryColor
-            view.listLabel.textColor = UIColor.white
-            view.listIcon.tintColor = UIColor.white
+            view.listLabel.textColor = .white
+            view.listIcon.tintColor = .white
             
-            view.selectedMapViewBackgroundView.backgroundColor = UIColor.clear
+            view.selectedMapViewBackgroundView.backgroundColor = .clear
             view.mapLabel.textColor = theme.darkColor
             view.mapIcon.tintColor = theme.darkColor
             
         case .map:
             view.selectedMapViewBackgroundView.backgroundColor = theme.primaryColor
-            view.mapLabel.textColor = UIColor.white
-            view.mapIcon.tintColor = UIColor.white
+            view.mapLabel.textColor = .white
+            view.mapIcon.tintColor = .white
             
-            view.selectedListViewBackgroundView.backgroundColor = UIColor.clear
+            view.selectedListViewBackgroundView.backgroundColor = .clear
             view.listLabel.textColor = theme.darkColor
             view.listIcon.tintColor = theme.darkColor
         }
@@ -205,6 +245,8 @@ extension SearchResultViewModel {
         let isNearMeSearch: Bool
         let address: String?
         let coordinate: CLLocationCoordinate2D?
+        let distance: Double?
+        let country: String?
     }
     
     private func reverseGeocodeLocation(location: CLLocation) -> Single<String?> {
@@ -225,7 +267,7 @@ extension SearchResultViewModel {
         }
     }
     
-    private func searchWith(config: HCLSDKConfigure, coordinate: CLLocationCoordinate2D?) -> Single<[ActivityResult]> {
+    private func searchWith(config: HCLSDKConfigure, coordinate: GeopointQuery?) -> Single<[ActivityResult]> {
         return Single.create {[weak self] single in
             if let strongSelf = self {
                 strongSelf.performSearchWith(config: config,
@@ -244,14 +286,22 @@ extension SearchResultViewModel {
         searchActions.onNext(action)
     }
     
-    func newSearchWith(config: HCLSDKConfigure, address: String?, location: CLLocationCoordinate2D?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
+    func newSearchWith(config: HCLSDKConfigure,
+                       address: String?,
+                       location: CLLocationCoordinate2D?,
+                       distance: Double?,
+                       country: String?) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
         if let unwrapLocation = location {
             if let unwrapAddress = address {
-                return searchWith(config: config, coordinate: unwrapLocation).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
+                return searchWith(config: config, coordinate: GeopointQuery(lat: unwrapLocation.latitude,
+                                                                            lon: unwrapLocation.longitude,
+                                                                            distanceMeter: distance)).map {(title: unwrapAddress, result: $0, zoomTo: nil)}
             } else {
                 return Single.zip(reverseGeocodeLocation(location: CLLocation(latitude: unwrapLocation.latitude,
                                                                               longitude: unwrapLocation.longitude)),
-                                  searchWith(config: config, coordinate: unwrapLocation)).map {(title: $0.0, result: $0.1, zoomTo: nil)}
+                                  searchWith(config: config, coordinate: GeopointQuery(lat: unwrapLocation.latitude,
+                                                                                       lon: unwrapLocation.longitude,
+                                                                                       distanceMeter: distance))).map {(title: $0.0, result: $0.1, zoomTo: nil)}
             }
         } else {
             return searchWith(config: config, coordinate: nil).map {(title: address ?? kNoAddressTitle, result: $0, zoomTo: nil)}
@@ -259,9 +309,12 @@ extension SearchResultViewModel {
     }
     
     func newNearMeSearchWith(config: HCLSDKConfigure) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
-        return requestCurrentLocation().flatMap {[weak self] (location) -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+        return requestCurrentLocation().flatMap {[weak self] (location)
+            -> Single<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
             if let strongSelf = self, let unwrap = location {
-                return strongSelf.searchWith(config: config, coordinate: unwrap.coordinate).map {(title: kNearMeTitle, $0, zoomTo: unwrap.coordinate)}
+                return strongSelf.searchWith(config: config, coordinate: GeopointQuery(lat: unwrap.coordinate.latitude,
+                                                                                       lon: unwrap.coordinate.longitude,
+                                                                                       distanceMeter: kDefaultSearchNearMeDistance)).map {(title: kNearMeTitle, $0, zoomTo: unwrap.coordinate)}
             } else {
                 return Single.create { single in
                     single(.success((title: nil, result: [], zoomTo: nil)))
@@ -272,14 +325,17 @@ extension SearchResultViewModel {
     }
     
     func resultByActionsObservable() -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> {
-        return searchActions.throttle(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance).flatMapLatest {[weak self] (action) -> Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
+        return searchActions.throttle(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance).flatMapLatest {[weak self] (action) ->
+            Observable<(title: String?, result: [ActivityResult], zoomTo: CLLocationCoordinate2D?)> in
             if let strongSelf = self {
                 if action.isNearMeSearch {
                     return strongSelf.newNearMeSearchWith(config: HCLManager.shared).asObservable()
                 } else {
                     return strongSelf.newSearchWith(config: HCLManager.shared,
                                                     address: action.address,
-                                                    location: action.coordinate).asObservable()
+                                                    location: action.coordinate,
+                                                    distance: action.distance,
+                                                    country: action.country).asObservable()
                 }
             } else {
                 return Observable.create { (observer) -> Disposable in
@@ -287,7 +343,6 @@ extension SearchResultViewModel {
                     return Disposables.create {}
                 }
             }
-            
         }
     }
 }

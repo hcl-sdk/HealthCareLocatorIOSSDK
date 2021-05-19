@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "HealthCareLocatorSDK"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "HealthCareLocatorSDK from IQVIA"
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
   Use the SDK to connect with the database
                      DESC
 
-  spec.homepage     = "http://EXAMPLE/HealthCareLocatorSDK"
+  spec.homepage     = "https://www.healthcarelocator.com"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -53,10 +53,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "Le Ngo Quang Truong" => "quang-truong.le-ngo@ekino.com" }
-  # Or just: spec.author    = "Le Ngo Quang Truong"
-  # spec.authors            = { "Le Ngo Quang Truong" => "quang-truong.le-ngo@ekino.com" }
-  # spec.social_media_url   = "https://twitter.com/Le Ngo Quang Truong"
+  spec.author             = { "IQVIA" => "contact.onekey@iqvia.com " }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -81,8 +78,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.source       = { :path => "." }
-  # spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib', :tag => '1.0.2' }
-  spec.source  = { :git => 'https://NNigam:aq6meect5xqmowz437exx64fizosvdoebpizqhfui3stj3obb2uq@dev.azure.com/onekeysdk/onekey-sdk-ios-lib/_git/onekey-sdk-ios-lib', :branch => 'develop'}
+  spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => 'release/1.0.0'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
