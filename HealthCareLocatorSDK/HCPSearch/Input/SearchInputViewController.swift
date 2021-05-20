@@ -152,14 +152,15 @@ class SearchInputViewController: UIViewController, ViewDesign {
                     }
                 }
             } else {
-                if isSelectedAddress {
+                if !isSelectedAddress,
+                   let location = locationSearchTextField.text, !location.isEmpty {
+                    locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
+                } else {
                     locationSearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
                     performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
                                          code: searchInputAutocompleteModelView.selectedCode,
                                          address: selectedAddress,
                                          isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
-                } else {
-                    locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
                 }
             }
         }
