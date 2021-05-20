@@ -53,7 +53,7 @@ enum HistorySection: Equatable {
 }
 
 class SearchHistoryViewModel: ViewLoading {
-    lazy var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
+    lazy var indicator = UIActivityIndicatorView(style: .gray)
     
     var webService: SearchAPIsProtocol!
     
