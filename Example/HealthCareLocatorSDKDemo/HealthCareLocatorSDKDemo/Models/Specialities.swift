@@ -13,7 +13,7 @@ enum Specialities: CaseIterable {
    
    var code: String {
        switch self {
-       case .Cardiology: return "1SP.0800"
+       case .Cardiology: return "SP.WCA.08"
        case .InternalMedicine: return "1SP.2900"
        }
    }
