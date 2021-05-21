@@ -120,15 +120,15 @@ extension HomeViewController: MenuTableViewControllerDelegate {
     }
     
     private func startQuickCardilogySearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.0800", country: AppSettings.countries))
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "SP.WCA.08", country: AppSettings.countries))
     }
     
     private func startQuickDentistSearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "1SP.7500", country: AppSettings.countries))
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "SP.WCA.75", country: AppSettings.countries))
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {
-        let sourceViewController = unwindSegue.source
+        _ = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
     }
 }

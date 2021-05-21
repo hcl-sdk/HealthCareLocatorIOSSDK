@@ -18,6 +18,8 @@ class SearchInputViewController: UIViewController, ViewDesign {
     private let viewModel = SearchInputViewModel()
     private var resultDataSource: SearchInputDataSource!
     private var searchInput: String = ""
+    private var isSelectedAddress = false
+    private var selectedAddress = ""
     
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -76,7 +78,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
     func initializeWith(data: SearchData) {
         switch data.mode {
         case .addressSearch(let address):
-            locationSearchTextField.text = address
+            if !selectedAddress.isEmpty {
+                locationSearchTextField.text = selectedAddress
+            } else {
+                locationSearchTextField.text = address
+            }
         default:
             locationSearchTextField.text = kNearMeTitle
         }
@@ -125,9 +131,9 @@ class SearchInputViewController: UIViewController, ViewDesign {
         let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text) || searchInputAutocompleteModelView.isNearMeSearch
         
         if !isCriteriaValid {
-            categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: UIColor.red)
+            categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
         } else {
-            categorySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: UIColor.clear)
+            categorySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
         }
         
         if isCriteriaValid {
@@ -146,10 +152,16 @@ class SearchInputViewController: UIViewController, ViewDesign {
                     }
                 }
             } else {
-                performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
-                                     code: searchInputAutocompleteModelView.selectedCode,
-                                     address: searchInputAutocompleteModelView.address,
-                                     isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+                if !isSelectedAddress,
+                   let location = locationSearchTextField.text, !location.isEmpty {
+                    locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
+                } else {
+                    locationSearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
+                    performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
+                                         code: searchInputAutocompleteModelView.selectedCode,
+                                         address: selectedAddress,
+                                         isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+                }
             }
         }
     }
@@ -254,6 +266,10 @@ extension SearchInputViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
             searchInputAutocompleteModelView.set(criteria: nil)
+        } else {
+            selectedAddress = ""
+            isSelectedAddress = false
+            searchInputAutocompleteModelView.clearLocationField()
         }
         
         return true
@@ -274,6 +290,7 @@ extension SearchInputViewController: MKLocalSearchCompleterDelegate {
 }
 
 extension SearchInputViewController: SearchInputDataSourceDelegate {
+    
     func didSelect(result: SearchAutoComplete) {
         switch result {
         case .NearMe:
@@ -281,6 +298,9 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
             searchInputAutocompleteModelView.set(isNearMeSearch: true)
             searchResult = []
         case .Address(let address):
+            selectedAddress = "\(address.title), \(address.subtitle)"
+            isSelectedAddress = true
+            locationSearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
             let composedAdd = "\(address.title), \(address.subtitle)"
             locationSearchTextField.text = composedAdd
             searchInputAutocompleteModelView.set(address: composedAdd)
