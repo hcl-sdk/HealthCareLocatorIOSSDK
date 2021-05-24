@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 
 enum SearchAutoComplete {
+    case none
     case NearMe
     case Code(code: Code)
     case Individual(individual: IndividualWorkPlaceDetails)
