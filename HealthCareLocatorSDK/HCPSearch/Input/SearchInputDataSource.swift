@@ -18,6 +18,7 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     private var theme: HCLThemeConfigure!
     private var icons: HCLIconsConfigure!
     private var tableView: UITableView!
+    private var isNoneCell = false
     
     weak var delegate: SearchInputDataSourceDelegate?
     
@@ -60,13 +61,18 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch searchResult[indexPath.row] {
+        case .none:
+            isNoneCell = true
+            return .init()
         case .Code(let code):
+            isNoneCell = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "CodeAutoCompleteTableViewCell") as! CodeAutoCompleteTableViewCell
             cell.configWith(theme: theme,
                             code: code,
                             highlight: input)
             return cell
         case .Individual(let individual):
+            isNoneCell = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "IndividualAutoCompleteTableViewCell") as! IndividualAutoCompleteTableViewCell
             cell.configWith(theme: theme,
                             icons: icons,
@@ -74,12 +80,14 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
                             highlight: input)
             return cell
         case .NearMe:
+            isNoneCell = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
             cell.configWith(theme: theme,
                             iconImage: icons.geolocIcon,
                             title: kNearMeTitle)
             return cell
         case .Address(let address):
+            isNoneCell = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
             cell.configWith(theme: theme,
                             iconImage: icons.markerMinIcon,
@@ -90,5 +98,13 @@ class SearchInputDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(result: searchResult[indexPath.row] )
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isNoneCell {
+            return 0
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }

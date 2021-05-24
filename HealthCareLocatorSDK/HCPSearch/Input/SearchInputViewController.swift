@@ -10,16 +10,18 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 import MapKit
+import Contacts
 
 class SearchInputViewController: UIViewController, ViewDesign {
-    private let disposeBag = DisposeBag()
     
-    private var webService: SearchAPIsProtocol = HCLHCPSearchWebServices(manager: HCLServiceManager.shared)
+    private let disposeBag = DisposeBag()
+    private var webService = HCLHCPSearchWebServices(manager: HCLServiceManager.shared)
     private let viewModel = SearchInputViewModel()
     private var resultDataSource: SearchInputDataSource!
-    private var searchInput: String = ""
+    private var searchInput = ""
     private var isSelectedAddress = false
     private var selectedAddress = ""
+    private var currentCountry = ""
     
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -57,6 +59,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
         searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService as! HCLHCPSearchWebServices)
         
         layoutWith(theme: theme, icons: icons)
+        getCountryByLocation()
         
         if let data = data {
             initializeWith(data: data)
@@ -123,6 +126,18 @@ class SearchInputViewController: UIViewController, ViewDesign {
     
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         viewModel.layout(view: self, with: theme, icons: icons)
+    }
+    
+    private func getCountryByLocation() {
+        if let currentLocation = LocationManager.shared.currentLocation {
+            currentLocation.placemark { placemark, error in
+                guard let placemark = placemark else {
+                    print("Error:", error ?? "nil")
+                    return
+                }
+                self.currentCountry = placemark.postalAddressFormatted?.lowercased() ?? ""
+            }
+        }
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
@@ -258,7 +273,6 @@ extension SearchInputViewController: UITextFieldDelegate {
                     searchInput = searchText
                 }
             }
-            
             return true
         }
     }
@@ -271,7 +285,6 @@ extension SearchInputViewController: UITextFieldDelegate {
             isSelectedAddress = false
             searchInputAutocompleteModelView.clearLocationField()
         }
-        
         return true
     }
 }
@@ -280,12 +293,35 @@ extension SearchInputViewController: UITextFieldDelegate {
 extension SearchInputViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         var newList: [SearchAutoComplete] = [.NearMe]
-        newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
+        if !currentCountry.isEmpty {
+            newList.append(contentsOf: completer.results.map {
+                if $0.subtitle.lowercased().contains(currentCountry) {
+                    return SearchAutoComplete.Address(address: $0)
+                } else {
+                    return .none
+                }
+            })
+        } else if let country = HCLManager.shared.searchConfigure?.country {
+            newList.append(contentsOf: completer.results.map {
+                if $0.subtitle.lowercased().contains(getCountryName(countryCode: country).lowercased()) {
+                    return SearchAutoComplete.Address(address: $0)
+                } else {
+                    return .none
+                }
+            })
+        } else {
+            newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
+        }
         searchResult = newList
     }
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         print(error.localizedDescription)
+    }
+    
+    func getCountryName(countryCode: String) -> String {
+        let current = Locale(identifier: "en_US")
+        return current.localizedString(forRegionCode: countryCode) ?? countryCode
     }
 }
 
@@ -293,6 +329,8 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
     
     func didSelect(result: SearchAutoComplete) {
         switch result {
+        case .none:
+            break
         case .NearMe:
             locationSearchTextField.text = kNearMeTitle
             searchInputAutocompleteModelView.set(isNearMeSearch: true)
@@ -312,5 +350,41 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
         case .Individual(let individual):
             performSegue(withIdentifier: "showFullCardVC", sender: individual)
         }
+    }
+}
+
+extension CLPlacemark {
+    /// street name, eg. Infinite Loop
+    var streetName: String? { thoroughfare }
+    
+    /// // eg. 1
+    var streetNumber: String? { subThoroughfare }
+    
+    /// city, eg. Cupertino
+    var city: String? { locality }
+    
+    /// neighborhood, common name, eg. Mission District
+    var neighborhood: String? { subLocality }
+    
+    /// state, eg. CA
+    var state: String? { administrativeArea }
+    
+    /// county, eg. Santa Clara
+    var county: String? { subAdministrativeArea }
+    
+    /// zip code, eg. 95014
+    var zipCode: String? { postalCode }
+    
+    /// postal address formatted
+    @available(iOS 11.0, *)
+    var postalAddressFormatted: String? {
+        guard let postalAddress = postalAddress else { return nil }
+        return postalAddress.country
+    }
+}
+
+extension CLLocation {
+    func placemark(completion: @escaping (_ placemark: CLPlacemark?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first, $1) }
     }
 }
