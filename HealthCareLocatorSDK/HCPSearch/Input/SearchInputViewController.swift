@@ -10,14 +10,18 @@ import RxSwift
 import RxCocoa
 import RxSwiftExt
 import MapKit
+import Contacts
 
 class SearchInputViewController: UIViewController, ViewDesign {
-    private let disposeBag = DisposeBag()
     
-    private var webService: SearchAPIsProtocol = HCLHCPSearchWebServices(manager: HCLServiceManager.shared)
+    private let disposeBag = DisposeBag()
+    private var webService = HCLHCPSearchWebServices(manager: HCLServiceManager.shared)
     private let viewModel = SearchInputViewModel()
     private var resultDataSource: SearchInputDataSource!
-    private var searchInput: String = ""
+    private var searchInput = ""
+    private var isSelectedAddress = false
+    private var selectedAddress = ""
+    private var currentCountry = ""
     
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -55,6 +59,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
         searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService as! HCLHCPSearchWebServices)
         
         layoutWith(theme: theme, icons: icons)
+        getCountryByLocation()
         
         if let data = data {
             initializeWith(data: data)
@@ -76,7 +81,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
     func initializeWith(data: SearchData) {
         switch data.mode {
         case .addressSearch(let address):
-            locationSearchTextField.text = address
+            if !selectedAddress.isEmpty {
+                locationSearchTextField.text = selectedAddress
+            } else {
+                locationSearchTextField.text = address
+            }
         default:
             locationSearchTextField.text = kNearMeTitle
         }
@@ -119,6 +128,18 @@ class SearchInputViewController: UIViewController, ViewDesign {
         viewModel.layout(view: self, with: theme, icons: icons)
     }
     
+    private func getCountryByLocation() {
+        if let currentLocation = LocationManager.shared.currentLocation {
+            currentLocation.placemark { placemark, error in
+                guard let placemark = placemark else {
+                    print("Error:", error ?? "nil")
+                    return
+                }
+                self.currentCountry = placemark.postalAddressFormatted?.lowercased() ?? ""
+            }
+        }
+    }
+    
     @IBAction func onSearchAction(_ sender: Any) {
         let validator = SearchInputValidator()
         // Search near me criteria is not mandatory
@@ -146,10 +167,16 @@ class SearchInputViewController: UIViewController, ViewDesign {
                     }
                 }
             } else {
-                performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
-                                     code: searchInputAutocompleteModelView.selectedCode,
-                                     address: searchInputAutocompleteModelView.address,
-                                     isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+                if !isSelectedAddress,
+                   let location = locationSearchTextField.text, !location.isEmpty {
+                    locationSearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
+                } else {
+                    locationSearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
+                    performSearchingWith(criteria: searchInputAutocompleteModelView.creteria,
+                                         code: searchInputAutocompleteModelView.selectedCode,
+                                         address: selectedAddress,
+                                         isNearMeSearch: searchInputAutocompleteModelView.isNearMeSearch)
+                }
             }
         }
     }
@@ -246,7 +273,6 @@ extension SearchInputViewController: UITextFieldDelegate {
                     searchInput = searchText
                 }
             }
-            
             return true
         }
     }
@@ -255,9 +281,10 @@ extension SearchInputViewController: UITextFieldDelegate {
         if textField == categorySearchTextField {
             searchInputAutocompleteModelView.set(criteria: nil)
         } else {
+            selectedAddress = ""
+            isSelectedAddress = false
             searchInputAutocompleteModelView.clearLocationField()
         }
-        
         return true
     }
 }
@@ -266,23 +293,51 @@ extension SearchInputViewController: UITextFieldDelegate {
 extension SearchInputViewController: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         var newList: [SearchAutoComplete] = [.NearMe]
-        newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
+        if !currentCountry.isEmpty {
+            newList.append(contentsOf: completer.results.map {
+                if $0.subtitle.lowercased().contains(currentCountry) {
+                    return SearchAutoComplete.Address(address: $0)
+                } else {
+                    return .none
+                }
+            })
+        } else if let country = HCLManager.shared.searchConfigure?.country {
+            newList.append(contentsOf: completer.results.map {
+                if $0.subtitle.lowercased().contains(getCountryName(countryCode: country).lowercased()) {
+                    return SearchAutoComplete.Address(address: $0)
+                } else {
+                    return .none
+                }
+            })
+        } else {
+            newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
+        }
         searchResult = newList
     }
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
+    
+    func getCountryName(countryCode: String) -> String {
+        let current = Locale(identifier: "en_US")
+        return current.localizedString(forRegionCode: countryCode) ?? countryCode
+    }
 }
 
 extension SearchInputViewController: SearchInputDataSourceDelegate {
     func didSelect(result: SearchAutoComplete) {
         switch result {
+        case .none:
+            break
         case .NearMe:
             locationSearchTextField.text = kNearMeTitle
             searchInputAutocompleteModelView.set(isNearMeSearch: true)
             searchResult = []
         case .Address(let address):
+            selectedAddress = "\(address.title), \(address.subtitle)"
+            isSelectedAddress = true
+            locationSearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
             let composedAdd = "\(address.title), \(address.subtitle)"
             locationSearchTextField.text = composedAdd
             searchInputAutocompleteModelView.set(address: composedAdd)
@@ -294,5 +349,41 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
         case .Individual(let individual):
             performSegue(withIdentifier: "showFullCardVC", sender: individual)
         }
+    }
+}
+
+extension CLPlacemark {
+    /// street name, eg. Infinite Loop
+    var streetName: String? { thoroughfare }
+    
+    /// // eg. 1
+    var streetNumber: String? { subThoroughfare }
+    
+    /// city, eg. Cupertino
+    var city: String? { locality }
+    
+    /// neighborhood, common name, eg. Mission District
+    var neighborhood: String? { subLocality }
+    
+    /// state, eg. CA
+    var state: String? { administrativeArea }
+    
+    /// county, eg. Santa Clara
+    var county: String? { subAdministrativeArea }
+    
+    /// zip code, eg. 95014
+    var zipCode: String? { postalCode }
+    
+    /// postal address formatted
+    @available(iOS 11.0, *)
+    var postalAddressFormatted: String? {
+        guard let postalAddress = postalAddress else { return nil }
+        return postalAddress.country
+    }
+}
+
+extension CLLocation {
+    func placemark(completion: @escaping (_ placemark: CLPlacemark?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first, $1) }
     }
 }
