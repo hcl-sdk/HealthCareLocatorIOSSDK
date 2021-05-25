@@ -91,11 +91,19 @@ class SearchInputAutocompleteViewModel {
 
 extension SearchInputAutocompleteViewModel {
     func codesObservable(config: HCLSDKConfigure) -> Observable<[Code]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in codesByLabelObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)}
+        return autocompleteCreteriaSubject.filter {
+            $0.count != 1 && $0.count != 2
+        }.flatMapLatest { [unowned self] in
+            codesByLabelObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)
+        }
     }
     
     func individualsObservable(config: HCLSDKConfigure) -> Observable<[IndividualWorkPlaceDetails]> {
-        return autocompleteCreteriaSubject.filter {$0.count != 1 && $0.count != 2}.flatMapLatest { [unowned self] in individualsByNameObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)}
+        return autocompleteCreteriaSubject.filter {
+            $0.count != 1 && $0.count != 2
+        }.flatMapLatest { [unowned self] in
+            individualsByNameObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)
+        }
     }
     
     func isFirstFieldLoading() -> Observable<Bool> {
