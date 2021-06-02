@@ -15,8 +15,6 @@ protocol SearchResultMapViewControllerDelegate {
 }
 
 class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListHandler {
-    private var sameAddressCounting = [String : Int]()
-    
     //
     weak var delegate: ActivityHandler? {
         didSet {
@@ -78,19 +76,13 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
-        sameAddressCounting = [String : Int]()
         var annotations: [MKAnnotation] = []
         for activity in result {
             let lat = activity.activity.workplace.address.location?.lat ?? 0
             let long = activity.activity.workplace.address.location?.lon ?? 0
-            if let val = sameAddressCounting["\(lat)_\(long)"] {
-                sameAddressCounting["\(lat)_\(long)"] = val + 1
-            } else {
-                sameAddressCounting["\(lat)_\(long)"] = 1
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 annotations.append(annotation)
-            }
         }
         mapView.reload(annotations: annotations)
     }
@@ -158,8 +150,6 @@ extension SearchResultMapViewController: MKMapViewDelegate {
                 annotationView = SearchResultAnnotationView(annotation: annotation,
                                                             reuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
             }
-            let key = "\(annotation.coordinate.latitude)_\(annotation.coordinate.longitude)"
-            annotationView.set(counting: sameAddressCounting[key] ?? 0)
             return annotationView
         }
     }
