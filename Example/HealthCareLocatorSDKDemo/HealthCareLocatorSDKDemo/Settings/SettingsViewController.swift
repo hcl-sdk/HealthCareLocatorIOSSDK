@@ -50,6 +50,8 @@ class SettingsViewController: UIViewController {
         let editHCPSection = MenuSection(title: kMenuSuggestEditHCPEnabledTitle,
                                          menus: [Menu.toggleMenu(title: kMenuEnableEditHCPTitle, isOn: AppSettings.isSuggestEditHCPEnabled)],
                                          colapsedLimit: nil)
+        let countriesHCPSection = MenuSection(title: kConfigCountries,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigCountries, value: AppSettings.countries)])
         
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
         
@@ -76,6 +78,7 @@ class SettingsViewController: UIViewController {
         menus = [apiSection,
                  languageSection,
                  editHCPSection,
+                 countriesHCPSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
     }
@@ -147,6 +150,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
             switch title {
             case kMenuEnableEditHCPTitle:
                 AppSettings.isSuggestEditHCPEnabled = (newValue as? Bool) == true
+            case kConfigCountries:
+                AppSettings.countries = (newValue as? String) ?? ""
             default:
                 break
             }
@@ -154,6 +159,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
             switch title {
             case kMenuAPIKeyTitle:
                 AppSettings.APIKey = (newValue as? String) ?? ""
+            case kConfigCountries:
+                AppSettings.countries = (newValue as? String) ?? ""
             default:
                 break
             }

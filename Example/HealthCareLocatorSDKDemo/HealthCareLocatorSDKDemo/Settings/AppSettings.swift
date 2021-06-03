@@ -120,7 +120,11 @@ class AppSettings {
     
     static var countries: String {
         get {
-            return (AppSettings.getValueFor(key: Key.countries.rawValue) as? String) ?? "us"
+            guard let countries = (AppSettings.getValueFor(key: Key.countries.rawValue) as? String)
+            else {
+                return ""
+            }
+            return countries
         }
         
         set {
