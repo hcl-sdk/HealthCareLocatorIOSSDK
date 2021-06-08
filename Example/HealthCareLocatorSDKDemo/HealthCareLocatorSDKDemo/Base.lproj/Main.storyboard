@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wDL-GE-aZy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wDL-GE-aZy">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,7 +12,7 @@
         <!--OneKey Demo Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="OneKey Demo Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="OneKey Demo Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,14 +129,14 @@
         <!--Menu-->
         <scene sceneID="lHo-5u-aCB">
             <objects>
-                <tableViewController storyboardIdentifier="MenuTableViewController" clearsSelectionOnViewWillAppear="NO" id="lOa-Lh-JgS" customClass="MenuTableViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuTableViewController" clearsSelectionOnViewWillAppear="NO" id="lOa-Lh-JgS" customClass="MenuTableViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="iAR-6B-tU0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellText" rowHeight="80" id="G75-WQ-Gw3" customClass="TextMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellText" rowHeight="80" id="G75-WQ-Gw3" customClass="TextMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G75-WQ-Gw3" id="QIR-Na-54c">
@@ -176,7 +175,7 @@
                                     <outlet property="menuValueLabel" destination="aBV-2z-Wu6" id="xs0-N5-fhY"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellColor" rowHeight="80" id="Bbu-wO-enR" customClass="ColorMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellColor" rowHeight="80" id="Bbu-wO-enR" customClass="ColorMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="135.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bbu-wO-enR" id="kho-fT-zM3">
@@ -225,7 +224,7 @@
                                     <outlet property="menuTitleLabel" destination="eW8-Am-obn" id="0zX-2b-9tu"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellInput" rowHeight="80" id="Edq-1e-kSE" customClass="InputMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellInput" rowHeight="80" id="Edq-1e-kSE" customClass="InputMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="215.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Edq-1e-kSE" id="dXI-8n-57M">
@@ -252,7 +251,7 @@
                                     <outlet property="inputTextField" destination="eet-NT-6lG" id="A0O-TI-som"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellSelect" rowHeight="80" id="r0Q-gB-Ug8" customClass="SelectMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellSelect" rowHeight="80" id="r0Q-gB-Ug8" customClass="SelectMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="295.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r0Q-gB-Ug8" id="EXH-kB-jrS">
@@ -291,7 +290,7 @@
                                     <outlet property="selectedIcon" destination="Zcw-vA-Drf" id="3pb-7n-lz7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellDetail" rowHeight="80" id="o1Y-QQ-uwc" customClass="DetailTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCellDetail" rowHeight="80" id="o1Y-QQ-uwc" customClass="DetailTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="375.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o1Y-QQ-uwc" id="qXw-cE-b62">
@@ -332,7 +331,7 @@
                                     <outlet property="menuTitleLabel" destination="XRd-ZP-eUz" id="CY5-lJ-gfv"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FontMenuTableViewCell" rowHeight="80" id="awD-eO-CBz" customClass="FontMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FontMenuTableViewCell" rowHeight="80" id="awD-eO-CBz" customClass="FontMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="455.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awD-eO-CBz" id="swx-9e-3eo">
@@ -380,7 +379,7 @@
                                     <outlet property="showcaseLabel" destination="uWZ-2c-deN" id="OcB-sT-fwR"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ToogleMenuTableViewCell" rowHeight="80" id="xRi-A3-2I4" customClass="ToogleMenuTableViewCell" customModule="OneKeySDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ToogleMenuTableViewCell" rowHeight="80" id="xRi-A3-2I4" customClass="ToogleMenuTableViewCell" customModule="HCLDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="535.5" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xRi-A3-2I4" id="HgG-O9-lBM">
@@ -454,7 +453,7 @@
             <objects>
                 <viewController id="SAs-th-Nsr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yyq-7c-5lg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_healthcare_locator.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kS5-Nv-z1x">
@@ -479,7 +478,7 @@
         <!--Search-->
         <scene sceneID="V4I-UH-jas">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" title="Search" id="uui-m9-SkO" customClass="SearchViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" title="Search" id="uui-m9-SkO" customClass="SearchViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NUa-ja-Ktg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,7 +558,7 @@
         <!--Settings-->
         <scene sceneID="MZG-YX-4To">
             <objects>
-                <viewController title="Settings" id="qL3-k5-btF" customClass="SettingsViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="qL3-k5-btF" customClass="SettingsViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pah-vP-Ld1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -631,7 +630,7 @@
         <!--Color-->
         <scene sceneID="T8D-G8-zTf">
             <objects>
-                <viewController title="Color" id="jEe-dt-1r5" customClass="ColorPickerWrapperViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Color" id="jEe-dt-1r5" customClass="ColorPickerWrapperViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eCS-5r-zTW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -860,7 +859,7 @@
         <!--Custom Theme-->
         <scene sceneID="58a-7W-fP9">
             <objects>
-                <viewController title="Custom Theme" id="WfK-gP-8dc" customClass="CustomThemeViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Custom Theme" id="WfK-gP-8dc" customClass="CustomThemeViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sfn-0J-RHa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -963,7 +962,7 @@
         <!--Custom Font-->
         <scene sceneID="tsc-bF-B6V">
             <objects>
-                <viewController title="Custom Font" id="63e-K6-IsG" customClass="CustomFontViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Custom Font" id="63e-K6-IsG" customClass="CustomFontViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kAx-TJ-qHb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1056,7 +1055,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-z5-fJL">
                                                                                 <rect key="frame" x="171" y="0.0" width="172" height="40"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJg-Zy-YWN" customClass="BaseButton" customModule="OneKeySDKDemo" customModuleProvider="target">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJg-Zy-YWN" customClass="BaseButton" customModule="HCLDemo" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
@@ -1084,7 +1083,7 @@
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-ez-ea7" customClass="BaseButton" customModule="OneKeySDKDemo" customModuleProvider="target">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMF-ez-ea7" customClass="BaseButton" customModule="HCLDemo" customModuleProvider="target">
                                                                                         <rect key="frame" x="132" y="0.0" width="40" height="40"/>
                                                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
@@ -1119,7 +1118,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBY-WK-Y57" customClass="BaseView" customModule="OneKeySDKDemo" customModuleProvider="target">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBY-WK-Y57" customClass="BaseView" customModule="HCLDemo" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="28.5" width="343" height="40"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWB-Xb-xh7">
@@ -1175,7 +1174,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-N7-zeQ" customClass="BaseView" customModule="OneKeySDKDemo" customModuleProvider="target">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-N7-zeQ" customClass="BaseView" customModule="HCLDemo" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="20.5" width="343" height="40"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8a-L2-xCn">
@@ -1271,7 +1270,7 @@
         <!--Default Themes-->
         <scene sceneID="4d9-Td-jH5">
             <objects>
-                <viewController title="Default Themes" id="UKG-Q4-af8" customClass="DefaultThemesViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Default Themes" id="UKG-Q4-af8" customClass="DefaultThemesViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Cj-9O-2Sk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1366,7 +1365,7 @@
         <!--Default Themes-->
         <scene sceneID="KiK-w9-SXo">
             <objects>
-                <viewController title="Default Themes" id="Leq-uH-Jlr" customClass="LanguagesViewController" customModule="OneKeySDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Default Themes" id="Leq-uH-Jlr" customClass="LanguagesViewController" customModule="HCLDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1rj-eu-QaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1460,6 +1459,7 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="U8V-XF-qGn"/>
         <designable name="bJg-Zy-YWN">
             <size key="intrinsicContentSize" width="30" height="41"/>
         </designable>
@@ -1468,7 +1468,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="rxv-XI-hrn"/>
+        <segue reference="Lwl-ak-3aM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow-down" width="14.5" height="8.5"/>

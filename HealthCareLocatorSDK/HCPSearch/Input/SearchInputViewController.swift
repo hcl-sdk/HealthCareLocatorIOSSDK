@@ -302,13 +302,27 @@ extension SearchInputViewController: MKLocalSearchCompleterDelegate {
                 }
             })
         } else if let country = HCLManager.shared.searchConfigure?.country {
-            newList.append(contentsOf: completer.results.map {
-                if $0.subtitle.lowercased().contains(getCountryName(countryCode: country).lowercased()) {
-                    return SearchAutoComplete.Address(address: $0)
-                } else {
-                    return .none
+            // handle countries in a string
+            var countriesString = country.replacingOccurrences(of: " ", with: "")
+            countriesString = countriesString.replacingOccurrences(of: ",", with: "")
+
+            var countries = [String]()
+            while !countriesString.isEmpty {
+                let trimString = String(countriesString.prefix(2))
+                countries.append(trimString)
+                if let range = countriesString.range(of: trimString) {
+                    countriesString.removeSubrange(range)
                 }
-            })
+            }
+            for item in countries {
+                newList.append(contentsOf: completer.results.map {
+                    if $0.subtitle.lowercased().contains(getCountryName(countryCode: item).lowercased()) {
+                        return SearchAutoComplete.Address(address: $0)
+                    } else {
+                        return .none
+                    }
+                })
+            }
         } else {
             newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
         }
