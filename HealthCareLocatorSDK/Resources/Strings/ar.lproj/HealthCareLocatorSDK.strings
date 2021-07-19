@@ -1,0 +1,68 @@
+/* 
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "البحث عن وتحديد أماكنn\المُتخَصصين في الرِّعاية الصِّحيَّة";
+"hcl_home_feat_find_hcp_title" = "البحث عن المُتخَصصين في الرِّعاية الصِّحيَّة";
+"hcl_home_feat_find_hcp_text" = "البحث عن مُقدمي خدمات الرِّعاية الصِّحيَّة عن طريق تحديد الموقع والاسم والتَّخصص أو البحث في الأماكن القريبة";
+"hcl_home_feat_consult_profile_title" = "الوُصول للملفات الشَّخصية الخاصة بالمُتخَصصين في الرِّعاية الصِّحيَّة";
+"hcl_home_feat_consult_profile_text" = "مراجعة الملفات الشَّخصية المُفصلة لمُقدمي خدمات الرِّعاية الصِّحيَّة، بما في ذلك التخصصات والمواقع وبيانات الاتصال";
+"hcl_home_feat_request_info_update_title" = "مُشاركة المعلومات المتعلقة بالمُتخَصصين في الرِّعاية الصِّحيَّة";
+"hcl_home_feat_request_info_update_text" = "استخدام الرسائل النصية القصيرة أو البريد الإلكتروني لمشاركة الملفَّات الشَّخصية مع الأصدقاء وأفراد الأسرة ";
+"hcl_start_new_search" = "بدء بحث جديد";
+"hcl_hcps_near_me" = "المُتخَصصين في الرِّعاية الصِّحيَّة القريبين مني";
+"hcl_last_searches" = "أحدث عمليَّات البحث";
+"hcl_view_more" = "عرض المزيد";
+"hcl_view_less" = "عرض أقل";
+"hcl_last_hcps_consulted" = "آخر مُتخصص في الرِّعاية الصِّحيَّة تمت استشارته";
+"hcl_find_healthcare_professional" = "البحث عن مُتخصص في الرِّعاية الصِّحيَّة";
+"hcl_search" = "البحث";
+"hcl_since_format" = "منذ. %@";
+
+// Search
+"hcl_search_first_field_label" = "الاسم، التَّخصص";
+"hcl_search_second_field_label" = "الموقع؟ (العنوان، المدينة....)";
+"hcl_search_reset" = "إعادة ضبط البحث";
+"hcl_near_me" = "بالقُرب مني";
+"hcl_anywhere" = "في أيّ مكان";
+
+// Results List View
+"hcl_results_label" = "النَّتائج";
+"hcl_list_label" = "القائمة";
+"hcl_map_label" = "الخريطة";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "العودة لنتائج البحث";
+"hcl_no_result_found" = "لا توجد نتائج";
+"hcl_no_result_message" = "عفوًا، يبدو أنه لا توجد نتائج مطابقة لبحثك.";
+"hcl_relaunch" = "إعادة الإطلاق";
+
+// Sort
+"hcl_sort_label" = "الفرز";
+"hcl_relevance_item" = "المُلاءمة";
+"hcl_distance_item" = "المسافة";
+"hcl_name_item" = "الاسم";
+"hcl_apply_button" = "التَّطبيق";
+"hcl_reset_button" = "إعادة الضبط";
+
+// HCP profile
+"hcl_main_information_label" = "المعلومات الرئيسة";
+"hcl_rate_refunds_label" = "السّعر واسترداد المدفوعات";
+"hcl_specialities_label" = "التَّخصصات";
+"hcl_information_label" = "المَعلومات";
+"hcl_information_description" = "هل المَعلومات التي تمَّ تقديمها لك حول المُتخَصصين في الرِّعاية الصِّحيَّة صحيحة؟";
+"hcl_information_yes_label" = "نعم";
+"hcl_information_no_label" = "لا";
+"hcl_improve_quality_label" = "تحسين جودة البيانات";
+"hcl_improve_quality_text" = "شارك معنا المزيد من المعلومات عن هذا المُتخصص في الرِّعاية الصِّحيَّة.";
+"hcl_suggess_modification_button" = "اقتراح تعديل";
+"hcl_back_to_home" = "العودة للصَّفحة الرئيسة";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";
