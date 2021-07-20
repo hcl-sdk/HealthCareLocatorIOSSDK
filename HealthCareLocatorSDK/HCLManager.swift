@@ -41,7 +41,7 @@ public class HCLManager: NSObject, HCLSDKConfigure {
     private(set) var isSuggestEditHCPEnable: Bool! = true
 
     private override init() {
-        self.lang = .english
+        self.lang = .us
     }
 }
 
