@@ -11,7 +11,7 @@ import MapKit
 let kSupportedCodeTypes = ["SP"]
 // TODO, use environment variables instead of hardcoded values.
 let kModifyActivityURLFormat = "https://www.healthcarelocator.com/%@/suggest-modification?apiKey=%@&id=%@"
-let kServerURL = "https://apim-dev-eastus-onekey.azure-api.net/api/graphql/query"
+let kServerURL = "https://api.healthcarelocator.com/api/graphql/query"
 
 //
 let kDefaultZoomLevel: CLLocationDistance = 2000
