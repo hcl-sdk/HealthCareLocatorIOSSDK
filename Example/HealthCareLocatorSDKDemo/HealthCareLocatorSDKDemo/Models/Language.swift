@@ -9,19 +9,19 @@ import Foundation
 
 enum Language: String, CaseIterable {
     case us = "en"
-    case uk = "en_GB"
-    case french = "fr_FR"
-    case canada = "fr_CA"
-    case arabic = "ar_SA"
-    case dutch = "nl_NL"
-    case russian = "ru_RU"
-    case turkish = "tr_TR"
-    case polish = "pl_PL"
-    case portuguese = "pt_PT"
-    case german = "de_DE"
-    case italian = "it_IT"
-    case spanish = "es_ES"
-    case spanish_co = "es_CO"
+    case uk = "en-GB"
+    case french = "fr"
+    case canada = "en-FR"
+    case arabic = "ar"
+    case dutch = "nl"
+    case russian = "ru"
+    case turkish = "tr"
+    case polish = "pl"
+    case portuguese = "pt"
+    case german = "de"
+    case italian = "it"
+    case spanish = "es-ES"
+    case spanish_co = "es-CO"
 
     var title: String {
         switch self {
