@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController {
         let apiSection = MenuSection(title: kMenuAPIKeyTitle,
                                      menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
         
-        let language = Language(rawValue: AppSettings.language) ?? .english
+        let language = Language(rawValue: AppSettings.language) ?? .us
         let languageSection = MenuSection(title: kMenuLanguageTitle,
                                           menus: [Menu.detailMenu(title: language.title)], colapsedLimit: nil)
         
@@ -126,8 +126,20 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                  kMenuPurpleThemeTitle,
                  kMenuCustomThemeTitle:
                 performSegue(withIdentifier: "showDefaultThemeList", sender: nil)
-            case Language.english.title,
-                 Language.french.title:
+            case Language.us.title,
+                 Language.french.title,
+                 Language.canada.title,
+                 Language.spanish.title,
+                 Language.spanish_co.title,
+                 Language.italian.title,
+                 Language.german.title,
+                 Language.portuguese.title,
+                 Language.polish.title,
+                 Language.turkish.title,
+                 Language.russian.title,
+                 Language.arabic.title,
+                 Language.dutch.title,
+                 Language.uk.title:
                 performSegue(withIdentifier: "showLanguageList", sender: nil)
             default:
                 break
