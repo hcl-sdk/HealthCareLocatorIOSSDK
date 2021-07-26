@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -2350,6 +2350,7 @@
                         <outlet property="avatar" destination="Yfj-cR-jaB" id="8SM-h0-PA4"/>
                         <outlet property="backButton" destination="JEZ-vh-vKN" id="otx-Ma-qyp"/>
                         <outlet property="categoryTitle" destination="Qyg-bS-GE8" id="0RK-7o-3EU"/>
+                        <outlet property="contactWrapper" destination="Phn-9T-gNP" id="yMa-o7-bhN"/>
                         <outlet property="contentWrapper" destination="1mp-xN-yKS" id="2hO-wg-BI4"/>
                         <outlet property="directionButton" destination="4KS-2t-2U0" id="ELZ-cr-k9A"/>
                         <outlet property="drTitle" destination="ksB-wk-Sfc" id="KTR-4d-6eA"/>
@@ -2370,6 +2371,7 @@
                         <outlet property="phoneButton" destination="RJG-tW-4rT" id="qmI-uk-8Nk"/>
                         <outlet property="phoneIcon" destination="mBk-kq-zEg" id="EgD-qi-SEW"/>
                         <outlet property="phoneLabel" destination="wDN-Iw-y4A" id="zbx-WO-rr7"/>
+                        <outlet property="phoneViewWrapper" destination="E9o-ME-gbl" id="6xe-7A-Cxu"/>
                         <outlet property="phoneWrapper" destination="saG-xS-qpp" id="Hkr-yd-u7M"/>
                         <outlet property="placeMapView" destination="Ebb-yB-gXl" id="m1U-qm-zwi"/>
                         <outlet property="qualityDescriptionLabel" destination="uUf-uD-XyA" id="PKd-3v-09m"/>
@@ -2387,6 +2389,7 @@
                         <outlet property="specialitiesTitleLabel" destination="yd0-07-6iH" id="mTH-8O-eEo"/>
                         <outlet property="suggestEditWrapper" destination="9CF-OO-tA9" id="2q5-QE-61F"/>
                         <outlet property="webUrlView" destination="TEG-NM-mZU" id="5x4-hh-fJd"/>
+                        <outlet property="web_contactWrapper" destination="ljt-Hz-cKd" id="7Mv-j8-mO5"/>
                         <outlet property="websiteIcon" destination="bVe-tk-pSC" id="ttC-YB-u6F"/>
                         <outlet property="websiteWrapper" destination="9hk-o8-Hnq" id="Ugp-bX-vc0"/>
                         <outlet property="wrapperView" destination="USv-CR-9Zo" id="DeV-GJ-irc"/>
@@ -2991,7 +2994,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HCPCardTableViewCell" id="8gM-4T-YJW" customClass="HCPCardTableViewCell" customModule="HealthCareLocatorSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8gM-4T-YJW" id="ct7-ET-m9z">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>

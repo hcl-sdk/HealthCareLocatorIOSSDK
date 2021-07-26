@@ -154,6 +154,8 @@ class FullCardViewModel {
                     view.phoneLabel.text = activity.phone
                 } else {
                     view.phoneWrapper.isHidden = true
+                    view.phoneViewWrapper.isHidden = true
+                    view.phoneButton.isHidden = true
                 }
                 
                 // Toggle fax component
@@ -161,6 +163,16 @@ class FullCardViewModel {
                     view.faxLabel.text = activity.fax
                 } else {
                     view.faxWrapper.isHidden = true
+                }
+                
+                // Show / Hide contact wrapper
+                
+                if view.faxWrapper.isHidden && view.phoneViewWrapper.isHidden {
+                    view.contactWrapper.isHidden = true
+                }
+                
+                if view.contactWrapper.isHidden && view.websiteWrapper.isHidden {
+                    view.web_contactWrapper.isHidden = true
                 }
                 
                 // Map
