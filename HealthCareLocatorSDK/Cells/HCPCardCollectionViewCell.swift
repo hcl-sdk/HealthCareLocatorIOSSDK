@@ -20,7 +20,7 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
     func configWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure, item: ActivityResult, selected: Bool) {
         wrapper.setBorderWith(width: selected ? 2 : 1,
                               cornerRadius: 8,
-                              borderColor: selected ? (theme.markerSelectedColor ?? UIColor.red) : (theme.cardBorderColor ?? UIColor.darkGray))
+                              borderColor: selected ? (theme.markerSelectedColor ?? .red) : (theme.cardBorderColor ?? .darkGray))
         // Icons
         moreDetailIcon.image = icons.arrowRightIcon
         

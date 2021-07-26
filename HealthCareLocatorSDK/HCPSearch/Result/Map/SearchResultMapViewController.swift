@@ -72,7 +72,8 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
-        mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(SearchResultAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
@@ -89,8 +90,10 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     private func reloadHorizontalListWith(selectedIndexs: [Int]) {
         cardCollectionViewController.selectedIndexs = selectedIndexs
+        SearchResultListViewController.shared.selectedIndexs = selectedIndexs
         if let first = selectedIndexs.first {
-            cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: first, section: 0), at: .centeredHorizontally, animated: true)
+            cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: first, section: 0),
+                                                                     at: .centeredHorizontally, animated: true)
         }
     }
     
@@ -134,7 +137,8 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
 extension SearchResultMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let lastCenter = lastCenter,
-           lastCenter.latitude != mapView.centerCoordinate.latitude && lastCenter.longitude != mapView.centerCoordinate.longitude {
+           lastCenter.latitude != mapView.centerCoordinate.latitude
+            && lastCenter.longitude != mapView.centerCoordinate.longitude {
             reLaunchWrapper.isHidden = false
         }
     }
@@ -144,7 +148,8 @@ extension SearchResultMapViewController: MKMapViewDelegate {
           return nil
         } else {
             var annotationView: SearchResultAnnotationView!
-            if let view = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? SearchResultAnnotationView {
+            if let view = mapView.dequeueReusableAnnotationView(
+                withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? SearchResultAnnotationView {
                 annotationView = view
             } else {
                 annotationView = SearchResultAnnotationView(annotation: annotation,
@@ -177,8 +182,9 @@ extension SearchResultMapViewController: MKMapViewDelegate {
 }
 
 extension SearchResultMapViewController: SortableResultList {
+    
     func reloadWith(data: [ActivityResult]) {
-        self.result = data
+        result = data
         if isViewLoaded {
             addMapPinFor(result: data)
             cardCollectionViewController.reloadWith(data: data)

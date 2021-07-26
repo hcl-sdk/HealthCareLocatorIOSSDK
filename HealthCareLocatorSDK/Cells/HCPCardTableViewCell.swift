@@ -16,7 +16,10 @@ class HCPCardTableViewCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var moreDetailIcon: UIImageView!
     
-    func configWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure, item: ActivityResult) {
+    func configWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure, item: ActivityResult, selected: Bool) {
+        wrapperView.setBorderWith(width: selected ? 2 : 1,
+                              cornerRadius: 8,
+                              borderColor: selected ? (theme.markerSelectedColor ?? .red) : (theme.cardBorderColor ?? .lightGray))
         // Icons
         moreDetailIcon.image = icons.arrowRightIcon
         
@@ -27,7 +30,6 @@ class HCPCardTableViewCell: UITableViewCell {
         distanceLabel.font = theme.resultSubTitleFont
         
         // Colors
-        wrapperView.borderColor = theme.cardBorderColor ?? .lightGray
         drLabel.textColor = theme.secondaryColor
         categoryLabel.textColor = theme.darkColor
         addressLabel.textColor = theme.greyDarkColor
