@@ -1,0 +1,68 @@
+/* 
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "Trova e localizza\noperatori sanitari";
+"hcl_home_feat_find_hcp_title" = "Trova operatori sanitari";
+"hcl_home_feat_find_hcp_text" = "Trova fornitori di assistenza sanitaria per località, nome, specializzazione o cercando nelle vicinanze";
+"hcl_home_feat_consult_profile_title" = "Accedi ai profili degli operatori sanitari";
+"hcl_home_feat_consult_profile_text" = "Esamina i profili dettagliati dei fornitori, inclusi specializzazioni, località e recapiti";
+"hcl_home_feat_request_info_update_title" = "Condividi operatori sanitari";
+"hcl_home_feat_request_info_update_text" = "Condividi i profili con amici e familiari tramite SMS o e-mail ";
+"hcl_start_new_search" = "Inizia una nuova ricerca";
+"hcl_hcps_near_me" = "Operatori sanitari nelle vicinanze";
+"hcl_last_searches" = "Ultime ricerche";
+"hcl_view_more" = "Visualizza altro";
+"hcl_view_less" = "Visualizza meno";
+"hcl_last_hcps_consulted" = "Ultimi operatori sanitari consultati";
+"hcl_find_healthcare_professional" = "Trova operatore sanitario";
+"hcl_search" = "Cerca";
+"hcl_since_format" = "%@ fa";
+
+// Search
+"hcl_search_first_field_label" = "Nome, Specializzazione";
+"hcl_search_second_field_label" = "Dove? (indirizzo, città...)";
+"hcl_search_reset" = "Reimposta ricerca";
+"hcl_near_me" = "Nelle vicinanze";
+"hcl_anywhere" = "Ovunque";
+
+// Results List View
+"hcl_results_label" = "Risultati";
+"hcl_list_label" = "Elenco";
+"hcl_map_label" = "Mappa";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "Torna ai risultati della ricerca";
+"hcl_no_result_found" = "Nessun risultato trovato";
+"hcl_no_result_message" = "Sembra che non ci siano corrispondenze per la ricerca.";
+"hcl_relaunch" = "Riavvia";
+
+// Sort
+"hcl_sort_label" = "Ordina";
+"hcl_relevance_item" = "Rilevanza";
+"hcl_distance_item" = "Distanza";
+"hcl_name_item" = "Nome";
+"hcl_apply_button" = "Applica";
+"hcl_reset_button" = "Reimposta";
+
+// HCP profile
+"hcl_main_information_label" = "Informazioni principali";
+"hcl_rate_refunds_label" = "Tariffa e rimborsi";
+"hcl_specialities_label" = "Specializzazioni";
+"hcl_information_label" = "Informazioni";
+"hcl_information_description" = "Le informazioni ricevute su questo operatore sanitario erano corrette?";
+"hcl_information_yes_label" = "Sì";
+"hcl_information_no_label" = "No";
+"hcl_improve_quality_label" = "Migliora la qualità dei dati";
+"hcl_improve_quality_text" = "Condividi con noi più informazioni su questo operatore sanitario.";
+"hcl_suggess_modification_button" = "Suggerisci una modifica";
+"hcl_back_to_home" = "Torna alla pagina principale";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";
