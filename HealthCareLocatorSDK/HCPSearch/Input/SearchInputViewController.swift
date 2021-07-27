@@ -22,6 +22,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
     private var isSelectedAddress = false
     private var selectedAddress = ""
     private var currentCountry = ""
+    private var matchedCode: Code?
     
     // Individual
     private var searchInputAutocompleteModelView: SearchInputAutocompleteViewModel!
@@ -164,6 +165,10 @@ class SearchInputViewController: UIViewController, ViewDesign {
             categorySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
         }
         
+        if let selectedCode = matchedCode {
+            searchInputAutocompleteModelView.set(code: selectedCode)
+        }
+        
         if isCriteriaValid {
             if searchInputAutocompleteModelView.isNearMeSearch {
                 LocationManager.shared.requestAuthorization {[weak self] (status) in
@@ -227,8 +232,8 @@ class SearchInputViewController: UIViewController, ViewDesign {
     // MARK: - Navigation
 
     @IBAction func unwindToSearchInputViewController(_ unwindSegue: UIStoryboardSegue) {
-//        let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
+        // let sourceViewController = unwindSegue.source
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -254,6 +259,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
 
 // MARK: Textfield delegate
 extension SearchInputViewController: UITextFieldDelegate {
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let searchText = textField.text.orEmpty
         if textField == categorySearchTextField {
@@ -327,6 +333,11 @@ extension SearchInputViewController: UITextFieldDelegate {
                 }
                 if textField == categorySearchTextField {
                     searchInputAutocompleteModelView.set(criteria: text)
+                    for item in searchResult where item.type == "code" && item.value == text {
+                        if let code = item.getCodeType() {
+                            matchedCode = code
+                        }
+                    }
                 } else {
                     isSelectedAddress = true
                     selectedAddress = text
@@ -335,6 +346,8 @@ extension SearchInputViewController: UITextFieldDelegate {
             } else {
                 if textField == locationSearchTextField {
                     isSelectedAddress = false
+                } else {
+                    matchedCode = nil
                 }
             }
         }
@@ -420,6 +433,7 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
             searchInputAutocompleteModelView.set(address: composedAdd)
             searchResult = []
         case .Code(let code):
+            matchedCode = nil
             categorySearchTextField.text = code.longLbl
             searchInputAutocompleteModelView.set(code: code)
             locationSearchTextField.becomeFirstResponder()
