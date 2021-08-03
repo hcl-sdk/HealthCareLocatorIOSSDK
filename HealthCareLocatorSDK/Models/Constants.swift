@@ -12,6 +12,7 @@ let kSupportedCodeTypes = ["SP"]
 // TODO, use environment variables instead of hardcoded values.
 let kModifyActivityURLFormat = "https://www.healthcarelocator.com/%@/suggest-modification?apiKey=%@&id=%@"
 let kServerURL = "https://api.healthcarelocator.com/api/graphql/query"
+let kOSMBaseURL = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=%@&lon=%@"
 
 //
 let kDefaultZoomLevel: CLLocationDistance = 2000
@@ -20,6 +21,7 @@ let kDefaultZoomLevel: CLLocationDistance = 2000
 let kDefaultSearchNearMeDistance: Double = 2000 // 2000 meters
 let kDefaultSearchAddressDistance: Double = 5000 // 5000 meters
 let kDefaultSearchCityDistance: Double = 10000 // 10000 meters
+let EARTH_RADIUS_IN_METERS = 6371007.177356707
 
 //
 var kNearMeTitle: String {

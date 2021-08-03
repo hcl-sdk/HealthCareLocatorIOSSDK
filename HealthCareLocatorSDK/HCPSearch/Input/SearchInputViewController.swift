@@ -148,7 +148,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
                     print("Error:", error ?? "nil")
                     return
                 }
-                self.currentCountry = placemark.postalAddressFormatted?.lowercased() ?? ""
+                self.currentCountry = placemark.postalCountryFormatted?.lowercased() ?? ""
             }
         }
     }
@@ -467,7 +467,7 @@ extension CLPlacemark {
     
     /// postal address formatted
     @available(iOS 11.0, *)
-    var postalAddressFormatted: String? {
+    var postalCountryFormatted: String? {
         guard let postalAddress = postalAddress else { return nil }
         return postalAddress.country
     }

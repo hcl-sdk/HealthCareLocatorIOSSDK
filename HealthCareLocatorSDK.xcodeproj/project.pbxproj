@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14F30F8E26B83B3600CE97BC /* OSMWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F30F8D26B83B3600CE97BC /* OSMWebService.swift */; };
+		14F30F9126B93FD700CE97BC /* OSMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F30F9026B93FD700CE97BC /* OSMModel.swift */; };
 		58091C682588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C662588D30E00EBF393 /* CodeAutoCompleteTableViewCell.swift */; };
 		58091C692588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58091C672588D30E00EBF393 /* CodeAutoCompleteTableViewCell.xib */; };
 		58091C812588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58091C7F2588D82600EBF393 /* IndividualAutoCompleteTableViewCell.swift */; };
@@ -148,6 +150,8 @@
 		142876EC26A1AC1000BF1535 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/HealthCareLocatorSDK.strings; sourceTree = "<group>"; };
 		14D5CEDC26A5226000A3A5E6 /* en-FR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-FR"; path = "en-FR.lproj/HealthCareLocatorSDK.strings"; sourceTree = "<group>"; };
 		14D5CEDD26A522D200A3A5E6 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/HealthCareLocatorSDK.strings"; sourceTree = "<group>"; };
+		14F30F8D26B83B3600CE97BC /* OSMWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMWebService.swift; sourceTree = "<group>"; };
+		14F30F9026B93FD700CE97BC /* OSMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSMModel.swift; sourceTree = "<group>"; };
 		1D82C17D944B14BB40C85DC8 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E75E6A4587FA79EBC845DBD /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5739AF75291F5C1C20287B79 /* Pods-HealthCareLocatorSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK/Pods-HealthCareLocatorSDK.release.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +299,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14F30F8C26B83B0600CE97BC /* OSMServices */ = {
+			isa = PBXGroup;
+			children = (
+				14F30F8D26B83B3600CE97BC /* OSMWebService.swift */,
+			);
+			path = OSMServices;
+			sourceTree = "<group>";
+		};
+		14F30F8F26B93FC600CE97BC /* OSMModel */ = {
+			isa = PBXGroup;
+			children = (
+				14F30F9026B93FD700CE97BC /* OSMModel.swift */,
+			);
+			path = OSMModel;
+			sourceTree = "<group>";
+		};
 		584B7D49259ADBCA004AAE62 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +398,7 @@
 		58A364562554F64700C62479 /* HealthCareLocatorSDK */ = {
 			isa = PBXGroup;
 			children = (
+				14F30F8C26B83B0600CE97BC /* OSMServices */,
 				587D23AC256538D30009EA01 /* GraphQLAPI */,
 				58E73AA72562923400740548 /* Cells */,
 				58B96224255D5C02000B126D /* Resources */,
@@ -436,6 +457,7 @@
 		58B6A752255A9D2100C1F6AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				14F30F8F26B93FC600CE97BC /* OSMModel */,
 				5875443C2588798A0000C126 /* APIs */,
 				58B6A760255AA17F00C1F6AF /* HCLHCPSearchWebServices.swift */,
 				58B6A764255AA1A600C1F6AF /* SearchAPIsProtocol.swift */,
@@ -853,6 +875,7 @@
 				58D88D6C2570F5E5008D2EE8 /* TextPickerTableViewCell.swift in Sources */,
 				5895539A2595F16A00DDE2FF /* SearchHomeViewModel.swift in Sources */,
 				587D23A9256538CB0009EA01 /* APIModels.swift in Sources */,
+				14F30F9126B93FD700CE97BC /* OSMModel.swift in Sources */,
 				58B6A765255AA1A700C1F6AF /* SearchAPIsProtocol.swift in Sources */,
 				589553C32595FA9400DDE2FF /* SearchInputViewModel.swift in Sources */,
 				58D0E38D2591BC8200491C92 /* ViewLoading.swift in Sources */,
@@ -891,6 +914,7 @@
 				58E1D8F2256BB4D2004AB056 /* HCPCardTableViewCell.swift in Sources */,
 				5872D740259098C3004E9892 /* Date+Additional.swift in Sources */,
 				58B6A773255AA38400C1F6AF /* MockHCLHCPSearchWebServices.swift in Sources */,
+				14F30F8E26B83B3600CE97BC /* OSMWebService.swift in Sources */,
 				58B6A76F255AA2CB00C1F6AF /* HCLError.swift in Sources */,
 				58A364732554F66900C62479 /* HCLManager.swift in Sources */,
 				5861A0942588C4F10025A383 /* SearchInputAutocompleteViewModel.swift in Sources */,

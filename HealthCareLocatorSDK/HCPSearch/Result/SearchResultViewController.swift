@@ -290,7 +290,7 @@ extension SearchResultViewController: SearchResultMapViewControllerDelegate {
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: false,
                                                                                   address: nil,
                                                                                   coordinate: location,
-                                                                                  distance: kDefaultSearchAddressDistance,
+                                                                                  distance: view.distanceFromBBox,
                                                                                   country: nil))
     }
     

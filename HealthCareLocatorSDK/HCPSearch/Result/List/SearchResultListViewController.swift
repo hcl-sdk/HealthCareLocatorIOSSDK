@@ -27,7 +27,7 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let first = SearchResultListViewController.shared.selectedIndexs.first {
+        if let first = SearchResultListViewController.shared.selectedIndexs.first, result.count > 0 {
             tableView.scrollToRow(at: IndexPath(row: first, section: 0),
                                   at: .top, animated: true)
         }

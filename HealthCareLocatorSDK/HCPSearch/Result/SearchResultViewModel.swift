@@ -273,8 +273,8 @@ extension SearchResultViewModel {
                 strongSelf.performSearchWith(config: config,
                                              coordinate: coordinate,
                                              completionHandler: { (result, error) in
-                                                            single(.success(result ?? []))
-                                                         })
+                                                single(.success(result ?? []))
+                                             })
             } else {
                 single(.success([]))
             }
