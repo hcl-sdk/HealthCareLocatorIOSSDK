@@ -44,4 +44,13 @@ enum SearchAutoComplete {
             return code.longLbl ?? ""
         }
     }
+    
+    func getCodeType() -> Code? {
+        switch self {
+        case .Code(code: let code):
+            return code
+        default:
+            return nil
+        }
+    }
 }

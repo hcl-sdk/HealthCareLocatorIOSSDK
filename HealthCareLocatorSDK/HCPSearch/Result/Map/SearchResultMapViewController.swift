@@ -24,6 +24,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         }
     }
     var result: [ActivityResult] = []
+    var distanceFromBBox: Double = 0.0
 
     @IBOutlet weak var currentLocationBtn: BaseButton!
     @IBOutlet weak var currentLocationWrapper: BaseView!
@@ -103,7 +104,34 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     @IBAction func relaunchAction(_ sender: Any) {
         reLaunchWrapper.isHidden = true
-        mapDelegate?.startNewSearchWith(location: mapView.centerCoordinate, from: self)
+        OSMWebService.getBoundingbox(from: mapView.centerCoordinate, completion: { [weak self] result, error in
+            guard let strongSelf = self,
+                  let result = result else { return }
+            if let boundingbox = result.boundingbox, boundingbox.count == 4 {
+                strongSelf.distanceFromBBox = strongSelf.getDistanceFromBoundingBox(lat1: Double(boundingbox[0]) ?? 0,
+                                                                                    lon1: Double(boundingbox[1]) ?? 0,
+                                                                                    lat2: Double(boundingbox[2]) ?? 0,
+                                                                                    lon2: Double(boundingbox[3]) ?? 0)
+                strongSelf.mapDelegate?.startNewSearchWith(location: strongSelf.mapView.centerCoordinate, from: strongSelf)
+            }
+        })
+    }
+    
+    
+    private func getDistanceFromBoundingBox(lat1: Double, lon1: Double, lat2: Double, lon2: Double) -> Double {
+        let absoluteLatDiff = abs(lat2 - lat1)
+        let latDiff = degreesToRadian(number: absoluteLatDiff)
+        let absoluteLonDiff = abs(lon2 - lon1)
+        let lngDiff = degreesToRadian(number: absoluteLonDiff)
+        let a = sin(latDiff / 2) * sin(latDiff / 2) +
+            cos(degreesToRadian(number: lat1)) * cos(degreesToRadian(number: lat2)) *
+            sin(lngDiff / 2) * sin(lngDiff / 2)
+        let c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        return EARTH_RADIUS_IN_METERS * c
+    }
+    
+    private func degreesToRadian(number: Double) -> Double {
+        return number * .pi / 180
     }
     
     func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
