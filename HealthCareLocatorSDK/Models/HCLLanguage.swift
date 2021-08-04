@@ -9,20 +9,20 @@ import Foundation
 
 public enum HCLLanguage: String, CaseIterable {
     
-    case us = "en"
-    case uk = "en-GB"
-    case french = "fr"
-    case canada = "en-FR"
-    case arabic = "ar"
-    case dutch = "nl"
-    case russian = "ru"
-    case turkish = "tr"
-    case polish = "pl"
-    case portuguese = "pt"
     case german = "de"
-    case italian = "it"
+    case us = "en"
     case spanish = "es-ES"
     case spanish_co = "es-CO"
+    case french = "fr"
+    case canada = "en-FR"
+    case italian = "it"
+    case dutch = "nl"
+    case polish = "pl"
+    case portuguese = "pt"
+    case turkish = "tr"
+    case russian = "ru"
+    case arabic = "ar"
+    case uk = "en-GB"
 
     var code: String {
         switch self {
