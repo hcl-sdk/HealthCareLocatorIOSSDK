@@ -8,49 +8,50 @@
 import Foundation
 
 enum Language: String, CaseIterable {
-    case us = "en"
-    case uk = "en-GB"
-    case french = "fr"
-    case canada = "en-FR"
-    case arabic = "ar"
-    case dutch = "nl"
-    case russian = "ru"
-    case turkish = "tr"
-    case polish = "pl"
-    case portuguese = "pt"
+    
     case german = "de"
-    case italian = "it"
+    case us = "en"
     case spanish = "es-ES"
     case spanish_co = "es-CO"
+    case french = "fr"
+    case canada = "en-FR"
+    case italian = "it"
+    case dutch = "nl"
+    case polish = "pl"
+    case portuguese = "pt"
+    case turkish = "tr"
+    case russian = "ru"
+    case arabic = "ar"
+    case uk = "en-GB"
 
     var title: String {
         switch self {
         case .us:
-            return "US"
+            return "English"
         case .french:
-            return "French"
+            return "Français"
         case .canada:
-            return "Canada"
+            return "Français (CA)"
         case .spanish:
-            return "Spanish"
+            return "Español"
         case .spanish_co:
-            return "Spanish(CO)"
+            return "Español (CO)"
         case .italian:
-            return "Italian"
+            return "Italiano"
         case .german:
-            return "German"
+            return "Deutsch"
         case .portuguese:
-            return "Portuguese"
+            return "Português (PT)"
         case .polish:
-            return "Polish"
+            return "Polski"
         case .turkish:
-            return "Turkish"
+            return "Türkçe"
         case .russian:
-            return "Russian"
+            return "Pусский"
         case .arabic:
-            return "Arabic"
+            return "العربیة"
         case .dutch:
-            return "Dutch"
+            return "Nederlands"
         case .uk:
             return "UK"
         }
