@@ -103,6 +103,11 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     @IBAction func relaunchAction(_ sender: Any) {
+        // Reset selectedIndexs
+        cardCollectionViewController.selectedIndexs = []
+        SearchResultListViewController.shared.selectedIndexs = []
+        
+        //
         reLaunchWrapper.isHidden = true
         OSMWebService.getBoundingbox(from: mapView.centerCoordinate, completion: { [weak self] result, error in
             guard let strongSelf = self,
@@ -116,7 +121,6 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
             }
         })
     }
-    
     
     private func getDistanceFromBoundingBox(lat1: Double, lon1: Double, lat2: Double, lon2: Double) -> Double {
         let absoluteLatDiff = abs(lat2 - lat1)
