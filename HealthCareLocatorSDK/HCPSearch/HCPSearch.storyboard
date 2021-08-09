@@ -967,7 +967,7 @@
                                                 <rect key="frame" x="13" y="9.5" width="368" height="725.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-jN-MTP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="368" height="135"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="368" height="90"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqi-Km-3ZD">
                                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="45"/>
@@ -1028,7 +1028,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14Q-Ln-2Lv">
-                                                                <rect key="frame" x="0.0" y="45" width="368" height="45"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="368" height="45"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOn-WI-W4f">
                                                                         <rect key="frame" x="0.0" y="0.0" width="308" height="45"/>
@@ -1081,9 +1081,12 @@
                                                                         </connections>
                                                                     </view>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="45" id="s08-v4-EiR"/>
+                                                                </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oh6-c8-Wed">
-                                                                <rect key="frame" x="0.0" y="90" width="368" height="45"/>
+                                                                <rect key="frame" x="0.0" y="45" width="368" height="45"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBU-1m-x4y">
                                                                         <rect key="frame" x="0.0" y="0.0" width="308" height="45"/>
@@ -1138,19 +1141,24 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
+                                                        <variation key="default">
+                                                            <mask key="subviews">
+                                                                <exclude reference="Hqi-Km-3ZD"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMB-xy-1hH">
-                                                        <rect key="frame" x="0.0" y="155" width="368" height="1"/>
+                                                        <rect key="frame" x="0.0" y="110" width="368" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="pXJ-Pt-eEY"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-Ag-nBM">
-                                                        <rect key="frame" x="0.0" y="176" width="368" height="549.5"/>
+                                                        <rect key="frame" x="0.0" y="131" width="368" height="594.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9xD-kW-MZk">
-                                                                <rect key="frame" x="0.0" y="513.5" width="368" height="36"/>
+                                                                <rect key="frame" x="0.0" y="558.5" width="368" height="36"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8k-iD-tDj" customClass="BaseButton" customModule="HealthCareLocatorSDK" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="176.5" height="36"/>

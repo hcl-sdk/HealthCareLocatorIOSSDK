@@ -10,12 +10,11 @@ import UIKit
 class SearchResultSortViewController: UIViewController {
     //
     enum SortBy: Int {
-        case relevance
         case distance
-        case name
+        case lastName
     }
     
-    var sort = SortBy.name {
+    var sort = SortBy.lastName {
         didSet {
             if isViewLoaded {
                 layoutWith(sort: sort)
@@ -32,7 +31,6 @@ class SearchResultSortViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var resetButton: BaseButton!
     @IBOutlet weak var applyButton: BaseButton!
-    
     @IBOutlet weak var relevenceBackground: BaseView!
     @IBOutlet weak var distanceBackground: BaseView!
     @IBOutlet weak var nameBackground: BaseView!
@@ -49,19 +47,15 @@ class SearchResultSortViewController: UIViewController {
             relevenceBackground.backgroundColor = .white
             distanceBackground.backgroundColor = theme.primaryColor
             nameBackground.backgroundColor = .white
-        case .name:
+        case .lastName:
             relevenceBackground.backgroundColor = .white
             distanceBackground.backgroundColor = .white
             nameBackground.backgroundColor = theme.primaryColor
-        case .relevance:
-            relevenceBackground.backgroundColor = theme.primaryColor
-            distanceBackground.backgroundColor = .white
-            nameBackground.backgroundColor = .white
         }
     }
     
     @IBAction func didSelectRelevaneSort(_ sender: Any) {
-        sort = .relevance
+        
     }
     
     @IBAction func didSelectDistanceSort(_ sender: Any) {
@@ -69,11 +63,11 @@ class SearchResultSortViewController: UIViewController {
     }
     
     @IBAction func didSelectNameSort(_ sender: Any) {
-        sort = .name
+        sort = .lastName
     }
     
     @IBAction func resetAction(_ sender: Any) {
-        sort = .relevance
+        sort = .lastName
     }
     
     @IBAction func applyAction(_ sender: Any) {
@@ -95,23 +89,20 @@ class SearchResultSortViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension SearchResultSortViewController: ViewDesign {
 
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         topLabel.text = "hcl_sort_label".localized
-        relevanceLabel.text = "hcl_relevance_item".localized
         distanceLabel.text = "hcl_distance_item".localized
-        nameLabel.text = "hcl_name_item".localized
+        nameLabel.text = "Last name".localized
         resetButton.setTitle("hcl_reset_button".localized, for: .normal)
         applyButton.setTitle("hcl_apply_button".localized, for: .normal)
         
         resetButton.titleLabel?.font = theme.buttonFont
         applyButton.titleLabel?.font = theme.buttonFont
         topLabel.font = theme.modalTitleFont
-        relevanceLabel.font = theme.sortCriteriaFont
         distanceLabel.font = theme.sortCriteriaFont
         nameLabel.font = theme.sortCriteriaFont
         
@@ -135,5 +126,4 @@ extension SearchResultSortViewController: ViewDesign {
 
         layoutWith(sort: sort)
     }
-    
 }
