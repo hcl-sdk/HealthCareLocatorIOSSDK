@@ -134,17 +134,13 @@ class SearchResultViewModel: ViewLoading {
     func sortResultBy(sort: SearchResultSortViewController.SortBy, result: [ActivityResult], _ completionHandler: (([ActivityResult]) -> Void)) {
         var mutableResult = result
         switch sort {
-        case .name:
+        case .lastName:
             mutableResult.sort { (lhs, rhs) -> Bool in
                 return lhs.activity.individual.lastName < rhs.activity.individual.lastName
             }
         case .distance:
             mutableResult.sort { (lhs, rhs) -> Bool in
                 return lhs.distance ?? 0 < rhs.distance ?? 0
-            }
-        case .relevance:
-            mutableResult.sort { (lhs, rhs) -> Bool in
-                return lhs.relevance ?? 0 < rhs.relevance ?? 0
             }
         }
         completionHandler(mutableResult)
