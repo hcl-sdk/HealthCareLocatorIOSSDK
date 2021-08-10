@@ -129,8 +129,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
                 for item in strongSelf.searchResult where item.type == "code" {
                     strongSelf.searchCodeResult.append(item.value)
                 }
-                if let string = strongSelf.categorySearchTextField.text,
-                   strongSelf.categorySearchTextField.isEditing {
+                if let string = strongSelf.categorySearchTextField.text, strongSelf.categorySearchTextField.isEditing {
                     strongSelf.autoCompleteText(in: strongSelf.categorySearchTextField,
                                                 searchResult: strongSelf.searchCodeResult, using: string.capitalized)
                 }
@@ -154,8 +153,16 @@ class SearchInputViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
-        let validator = SearchInputValidator()
+        // Auto complete
+        if let text = categorySearchTextField.text, !text.isEmpty, categorySearchTextField.isEditing, matchedCode != nil {
+            categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+        }
+        if let text = locationSearchTextField.text, !text.isEmpty, locationSearchTextField.isEditing {
+            locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+        }
+        
         // Search near me criteria is not mandatory
+        let validator = SearchInputValidator()
         let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
             || searchInputAutocompleteModelView.isNearMeSearch
         
@@ -275,6 +282,18 @@ extension SearchInputViewController: UITextFieldDelegate {
         }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == categorySearchTextField {
+            if let text = categorySearchTextField.text, !text.isEmpty, matchedCode != nil {
+                categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+            }
+        } else {
+            if let text = locationSearchTextField.text, !text.isEmpty {
+                locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+            }
+        }
+    }
+    
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -300,6 +319,7 @@ extension SearchInputViewController: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
+            matchedCode = nil
             searchInputAutocompleteModelView.set(criteria: nil)
         } else {
             selectedAddress = ""
@@ -312,25 +332,23 @@ extension SearchInputViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
             locationSearchTextField.becomeFirstResponder()
+            if let text = categorySearchTextField.text, !text.isEmpty, matchedCode != nil {
+                categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+            }
         } else {
+            if let text = locationSearchTextField.text, !text.isEmpty {
+                locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+            }
             onSearchAction(textField)
         }
         return true
     }
     
-    func autoCompleteText(in textField: UITextField, searchResult arrayString: [String], using string: String) {
-        if !string.isEmpty,
-           let selectedTextRange = textField.selectedTextRange, selectedTextRange.end == textField.endOfDocument,
-           let prefixRange = textField.textRange(from: textField.beginningOfDocument, to: selectedTextRange.start),
-           let text = textField.text(in: prefixRange) {
-            let prefix = text.capitalized
-            let matches = Array(arrayString.filter({$0.hasPrefix(prefix)}))
+    private func autoCompleteText(in textField: UITextField, searchResult arrayString: [String], using string: String) {
+        if !string.isEmpty {
+            let matches = Array(arrayString.filter({$0.contains(string)}))
             if matches.count > 0 {
                 guard let text = matches.first else { return }
-                textField.text = text
-                if let start = textField.position(from: textField.beginningOfDocument, offset: prefix.count) {
-                    textField.selectedTextRange = textField.textRange(from: start, to: textField.endOfDocument)
-                }
                 if textField == categorySearchTextField {
                     searchInputAutocompleteModelView.set(criteria: text)
                     for item in searchResult where item.type == "code" && item.value == text {
@@ -398,8 +416,7 @@ extension SearchInputViewController: MKLocalSearchCompleterDelegate {
         for item in searchResult where item.type == "address" {
             searchAddressResult.append(item.value)
         }
-        if let string = locationSearchTextField.text,
-            locationSearchTextField.isEditing {
+        if let string = locationSearchTextField.text, locationSearchTextField.isEditing {
             autoCompleteText(in: locationSearchTextField, searchResult: searchAddressResult, using: string.capitalized)
         }
     }
