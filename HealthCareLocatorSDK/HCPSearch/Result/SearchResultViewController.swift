@@ -166,6 +166,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     @IBAction func listViewAction(_ sender: Any) {
         mode = .list
         if let resultListVC = resultNavigationVC.viewControllers.first as? SearchResultListViewController {
+            sort = .lastName
             resultListVC.result = result
             resultNavigationVC.popToViewController(resultListVC, animated: true)
         }
@@ -174,6 +175,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     @IBAction func mapViewAction(_ sender: Any) {
         mode = .map
         if let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as? SearchResultMapViewController {
+            sort = .distance
             configResultMap(viewMapVC: viewMapVC)
             resultNavigationVC.pushViewController(viewMapVC, animated: true)
         }
