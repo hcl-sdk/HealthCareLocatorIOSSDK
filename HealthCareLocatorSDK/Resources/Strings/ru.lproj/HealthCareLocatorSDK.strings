@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ назад";
 
 // Search
-"hcl_search_first_field_label" = "Ф. И. О., специализация";
+"hcl_search_name_field_label" = "Ф. И. О";
+"hcl_search_specialty_field_label" = "Cпециализация";
 "hcl_search_second_field_label" = "Местоположение (адрес, город...)";
 "hcl_search_reset" = "Сбросить параметры поиска";
 "hcl_near_me" = "Рядом со мной";

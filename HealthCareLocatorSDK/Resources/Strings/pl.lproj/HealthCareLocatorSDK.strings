@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ temu";
 
 // Search
-"hcl_search_first_field_label" = "Imię i nazwisko, specjalizacja";
+"hcl_search_name_field_label" = "Imię i nazwisko";
+"hcl_search_specialty_field_label" = "Specjalizacja";
 "hcl_search_second_field_label" = "Gdzie? (adres, miejscowość...)";
 "hcl_search_reset" = "Resetuj wyszukiwanie";
 "hcl_near_me" = "W mojej okolicy";

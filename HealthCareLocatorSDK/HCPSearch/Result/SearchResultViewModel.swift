@@ -91,7 +91,7 @@ class SearchResultViewModel: ViewLoading {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
                                      locale: config.lang.apiCode,
-                                     criteria: search.codes != nil ? nil : search.criteria)
+                                     criteria: search.criteria)
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},
                             location: coordinate,
@@ -202,7 +202,12 @@ class SearchResultViewModel: ViewLoading {
     
     func layoutWith(view: SearchResultViewController, searchData: SearchData) {
         view.addressLabel.text = " "// use space char to keep the line height
-        view.criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria ?? " "
+        var searchInput = ""
+        searchInput += searchData.criteria ?? ""
+        if let codes = searchData.codes, let code = codes.first {
+            searchInput += ((searchInput.isEmpty ? "" : ", ") + (code.longLbl ?? ""))
+        }
+        view.criteriaLabel.text = searchInput
         switch searchData.mode {
         case .baseSearch:
             view.addressLabel.text = kNoAddressTitle
@@ -224,12 +229,6 @@ class SearchResultViewModel: ViewLoading {
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .map
-        }
-        // Try to fetch label for code
-        if let code = searchData.codes?.first {
-            fetchLabelFor(code: code.id) {[weak view] (codeObj, error) in
-                view?.criteriaLabel.text = codeObj?.longLbl ?? code.id
-            }
         }
     }
 }

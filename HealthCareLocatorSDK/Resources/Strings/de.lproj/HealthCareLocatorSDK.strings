@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ zuvor";
 
 // Search
-"hcl_search_first_field_label" = "Name, Fachgebiet";
+"hcl_search_name_field_label" = "Name";
+"hcl_search_specialty_field_label" = "Fachgebiet";
 "hcl_search_second_field_label" = "Wo? (Adresse, Ort, …)";
 "hcl_search_reset" = "Suche zurücksetzen";
 "hcl_near_me" = "In meiner Nähe";

@@ -37,7 +37,7 @@ enum SearchAutoComplete {
         case .NearMe:
             return ""
         case .Individual(individual: let individual):
-            return individual.title?.label ?? ""
+            return individual.composedName
         case .Address(address: let address):
             return "\(address.title), \(address.subtitle)"
         case .Code(code: let code):

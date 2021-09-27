@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ önce";
 
 // Search
-"hcl_search_first_field_label" = "Adı, Uzmanlığı";
+"hcl_search_name_field_label" = "Adı";
+"hcl_search_specialty_field_label" = "Uzmanlığı";
 "hcl_search_second_field_label" = "Nerede? (adresi, şehri...)";
 "hcl_search_reset" = "Aramayı sıfırla";
 "hcl_near_me" = "Yakınımda";

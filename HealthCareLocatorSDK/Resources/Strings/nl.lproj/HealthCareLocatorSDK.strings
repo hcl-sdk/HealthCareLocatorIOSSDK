@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ geleden";
 
 // Search
-"hcl_search_first_field_label" = "Naam, specialisatie";
+"hcl_search_name_field_label" = "Naam";
+"hcl_search_specialty_field_label" = "Specialisatie";
 "hcl_search_second_field_label" = "Waar? (adres, plaats...)";
 "hcl_search_reset" = "Zoekopdracht resetten";
 "hcl_near_me" = "Bij mij in de buurt";

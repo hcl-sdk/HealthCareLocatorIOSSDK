@@ -13,9 +13,10 @@ class SearchInputAutocompleteViewModel {
     let disposeBag = DisposeBag()
     let webServices: HCLHCPSearchWebServices!
     
-    let autocompleteCreteriaSubject = PublishSubject<String>()
-    private let isLoadingCodes = PublishSubject<Bool>()
-    private let isLoadingIndividuals = PublishSubject<Bool>()
+    let codesCreteriaSubject = PublishSubject<String>()
+    let individualsCreteriaSubject = PublishSubject<String>()
+    let isLoadingCodes = PublishSubject<Bool>()
+    let isLoadingIndividuals = PublishSubject<Bool>()
 
     private(set) var creteria: String?
     private(set) var selectedCode: Code?
@@ -34,7 +35,7 @@ class SearchInputAutocompleteViewModel {
             } else {
                 if let webservice = self?.webServices {
                     self?.isLoadingCodes.onNext(true)
-                    webservice.fetchCodesByLabel(info: GeneralQueryInput(first: 5,
+                    webservice.fetchCodesByLabel(info: GeneralQueryInput(first: 30,
                                                                          offset: 0,
                                                                          locale: language),
                                                  criteria: creteria,
@@ -65,7 +66,7 @@ class SearchInputAutocompleteViewModel {
             } else {
                 if let webservice = self?.webServices {
                     self?.isLoadingIndividuals.onNext(true)
-                    webservice.fetchIndividualsByNameWith(info: GeneralQueryInput(first: 5,
+                    webservice.fetchIndividualsByNameWith(info: GeneralQueryInput(first: 30,
                                                                                   offset: 0,
                                                                                   locale: language),
                                                           county: "",
@@ -91,16 +92,16 @@ class SearchInputAutocompleteViewModel {
 
 extension SearchInputAutocompleteViewModel {
     func codesObservable(config: HCLSDKConfigure) -> Observable<[Code]> {
-        return autocompleteCreteriaSubject.filter {
-            $0.count != 1 && $0.count != 2
+        return codesCreteriaSubject.filter {
+            $0.count >= 3
         }.flatMapLatest { [unowned self] in
             codesByLabelObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)
         }
     }
     
     func individualsObservable(config: HCLSDKConfigure) -> Observable<[IndividualWorkPlaceDetails]> {
-        return autocompleteCreteriaSubject.filter {
-            $0.count != 1 && $0.count != 2
+        return individualsCreteriaSubject.filter {
+            $0.count >= 1
         }.flatMapLatest { [unowned self] in
             individualsByNameObservableWith(creteria: $0, userId: config.userId, language: config.lang.apiCode)
         }
@@ -118,11 +119,11 @@ extension SearchInputAutocompleteViewModel {
     
     func set(criteria: String?) {
         self.creteria = criteria
-        self.selectedCode = nil
+//        self.selectedCode = nil
     }
     
-    func set(code: Code) {
-        self.creteria = nil
+    func set(code: Code?) {
+//        self.creteria = nil
         self.selectedCode = code
     }
     
