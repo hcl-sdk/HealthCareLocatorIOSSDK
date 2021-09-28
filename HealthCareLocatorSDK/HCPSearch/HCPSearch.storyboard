@@ -366,10 +366,10 @@
                                 <rect key="frame" x="0.0" y="10" width="414" height="800"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aSV-6j-rgZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyZ-0w-AYm">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="84"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="130"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-lU-pdQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="38"/>
@@ -390,9 +390,9 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GRW-Oe-Mso">
-                                                <rect key="frame" x="48" y="0.0" width="303" height="84"/>
+                                                <rect key="frame" x="48" y="0.0" width="303" height="130"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name, specialty..." textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-87-cQa">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O0N-87-cQa">
                                                         <rect key="frame" x="0.0" y="0.0" width="303" height="38"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="38" id="YPH-CA-Dp8"/>
@@ -400,18 +400,23 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? (address, city...)" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kXx-YR-z5h">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Specialty" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xxS-Jr-Shk">
                                                         <rect key="frame" x="0.0" y="46" width="303" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where? (address, city...)" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kXx-YR-z5h">
+                                                        <rect key="frame" x="0.0" y="92" width="303" height="38"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQi-TC-1zO">
-                                                <rect key="frame" x="359" y="0.0" width="55" height="84"/>
+                                                <rect key="frame" x="359" y="0.0" width="55" height="130"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-uX-xmG" customClass="BaseButton" customModule="HealthCareLocatorSDK" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="22" width="40" height="40"/>
+                                                        <rect key="frame" x="0.0" y="45" width="40" height="40"/>
                                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="rgK-uX-xmG" secondAttribute="height" id="BzE-UC-QeO"/>
@@ -443,7 +448,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KUV-Oa-nga">
-                                        <rect key="frame" x="0.0" y="94" width="414" height="706"/>
+                                        <rect key="frame" x="0.0" y="140" width="414" height="660"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBY-Gu-pRt">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -453,7 +458,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hvV-5P-RUx">
-                                                <rect key="frame" x="0.0" y="1" width="414" height="705"/>
+                                                <rect key="frame" x="0.0" y="1" width="414" height="659"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <inset key="separatorInset" minX="58" minY="0.0" maxX="15" maxY="0.0"/>
                                             </tableView>
@@ -478,6 +483,7 @@
                         <outlet property="searchBtn" destination="rgK-uX-xmG" id="Jh0-A8-HOI"/>
                         <outlet property="searchResultTableView" destination="hvV-5P-RUx" id="TKT-jB-jxM"/>
                         <outlet property="separatorView" destination="jBY-Gu-pRt" id="jx8-kB-kBK"/>
+                        <outlet property="specialtySearchTextField" destination="xxS-Jr-Shk" id="soU-oq-NQ1"/>
                         <segue destination="QWh-lL-KfX" kind="show" identifier="showResultVC" id="s83-iU-uQ7"/>
                         <segue destination="c9L-RN-q29" kind="show" identifier="showFullCardVC" id="pkh-qW-l5N"/>
                     </connections>

@@ -25,7 +25,8 @@
 "hcl_since_format" = "%@ fa";
 
 // Search
-"hcl_search_first_field_label" = "Nome, Specializzazione";
+"hcl_search_name_field_label" = "Nome";
+"hcl_search_specialty_field_label" = "Specializzazione";
 "hcl_search_second_field_label" = "Dove? (indirizzo, città...)";
 "hcl_search_reset" = "Reimposta ricerca";
 "hcl_near_me" = "Nelle vicinanze";

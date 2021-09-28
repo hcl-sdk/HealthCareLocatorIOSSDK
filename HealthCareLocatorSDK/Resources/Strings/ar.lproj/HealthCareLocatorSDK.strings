@@ -25,7 +25,8 @@
 "hcl_since_format" = "منذ. %@";
 
 // Search
-"hcl_search_first_field_label" = "الاسم، التَّخصص";
+"hcl_search_name_field_label" = "الاسم";
+"hcl_search_specialty_field_label" = "التَّخصص";
 "hcl_search_second_field_label" = "الموقع؟ (العنوان، المدينة....)";
 "hcl_search_reset" = "إعادة ضبط البحث";
 "hcl_near_me" = "بالقُرب مني";
