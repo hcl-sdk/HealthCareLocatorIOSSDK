@@ -138,8 +138,7 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                  Language.turkish.title,
                  Language.russian.title,
                  Language.arabic.title,
-                 Language.dutch.title,
-                 Language.uk.title:
+                 Language.dutch.title:
                 performSegue(withIdentifier: "showLanguageList", sender: nil)
             default:
                 break

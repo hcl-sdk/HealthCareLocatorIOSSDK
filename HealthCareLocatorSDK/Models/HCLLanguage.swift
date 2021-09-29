@@ -22,13 +22,10 @@ public enum HCLLanguage: String, CaseIterable {
     case turkish = "tr"
     case russian = "ru"
     case arabic = "ar"
-    case uk = "en-GB"
 
     var code: String {
         switch self {
         case .us:
-            return "en"
-        case .uk:
             return "en"
         case .french:
             return "fr"
@@ -61,8 +58,6 @@ public enum HCLLanguage: String, CaseIterable {
         switch self {
         case .us:
             return "en"
-        case .uk:
-            return "en_GB"
         case .french:
             return "fr_FR"
         case .canada:
