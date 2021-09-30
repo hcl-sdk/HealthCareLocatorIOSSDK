@@ -22,7 +22,6 @@ enum Language: String, CaseIterable {
     case turkish = "tr"
     case russian = "ru"
     case arabic = "ar"
-    case uk = "en-GB"
 
     var title: String {
         switch self {
@@ -52,8 +51,6 @@ enum Language: String, CaseIterable {
             return "العربیة"
         case .dutch:
             return "Nederlands"
-        case .uk:
-            return "UK"
         }
     }
 }
