@@ -91,7 +91,12 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     private func reloadHorizontalListWith(selectedIndexs: [Int]) {
         cardCollectionViewController.selectedIndexs = selectedIndexs
-        SearchResultListViewController.shared.selectedIndexs = selectedIndexs
+        SearchResultListViewController.shared.selectedLocations.removeAll()
+        selectedIndexs.forEach { index in
+            if let location = result[index].activity.workplace.address.location {
+                SearchResultListViewController.shared.selectedLocations.append(location)
+            }
+        }
         if let first = selectedIndexs.first {
             cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: first, section: 0),
                                                                      at: .centeredHorizontally, animated: true)
@@ -105,7 +110,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     @IBAction func relaunchAction(_ sender: Any) {
         // Reset selectedIndexs
         cardCollectionViewController.selectedIndexs = []
-        SearchResultListViewController.shared.selectedIndexs = []
+        SearchResultListViewController.shared.selectedLocations = []
         
         //
         reLaunchWrapper.isHidden = true

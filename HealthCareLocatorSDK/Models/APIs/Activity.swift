@@ -123,7 +123,7 @@ extension Address {
     }
 }
 
-public struct Geopoint: Codable {
+public struct Geopoint: Codable, Equatable {
     public let lat: Double!
     public let lon: Double!
 }
