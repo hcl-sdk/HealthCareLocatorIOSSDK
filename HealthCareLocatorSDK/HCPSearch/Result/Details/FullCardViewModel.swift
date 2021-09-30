@@ -133,9 +133,7 @@ class FullCardViewModel {
                     addressComponent.append(buildingLabel)
                 }
                 
-                if let address = activity.workplace.address.longLabel, !address.isEmpty {
-                    addressComponent.append(address)
-                }
+                addressComponent.append(activity.workplace.address.composedAddress)
                 
                 view.addressLabel.text = addressComponent.joined(separator: "\n")
                 
