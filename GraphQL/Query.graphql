@@ -73,6 +73,7 @@ query IndividualsByName(
               label
             }
             country
+            postalCode
             location {
               lat
               lon
@@ -138,6 +139,7 @@ query Activities(
             label
           }
           country
+          postalCode
           location {
             lat
             lon
@@ -187,6 +189,7 @@ query ActivityByID($userId: String, $id: ID!, $locale: String) {
               label
             }
             country
+            postalCode
             location {
               lat
               lon
@@ -209,6 +212,7 @@ query ActivityByID($userId: String, $id: ID!, $locale: String) {
               label
             }
             country
+            postalCode
             location {
               lat
               lon

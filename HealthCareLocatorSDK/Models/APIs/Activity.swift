@@ -113,8 +113,11 @@ extension Address {
             addComponents.append(longLabel)
         }
         
-        if let city = city {
-            addComponents.append(city.label)
+        var temp = ""
+        temp += postalCode ?? ""
+        temp += ((temp.isEmpty ? "" : " ") + (city.label ?? ""))
+        if !temp.isEmpty {
+            addComponents.append(temp)
         }
         return addComponents.joined(separator: ", ")
     }
