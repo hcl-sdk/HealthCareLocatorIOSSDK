@@ -10,7 +10,7 @@ import MapKit
 
 let kSupportedCodeTypes = ["SP"]
 // TODO, use environment variables instead of hardcoded values.
-let kModifyActivityURLFormat = "https://www.healthcarelocator.com/%@/suggest-modification?apiKey=%@&id=%@"
+let kModifyActivityURLFormat = "https://www-dev.healthcarelocator.com/%@/suggest-modification?apiKey=%@&id=%@"
 let kServerURL = "https://api.healthcarelocator.com/api/graphql/query"
 let kOSMBaseURL = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=%@&lon=%@"
 
