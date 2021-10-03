@@ -52,6 +52,10 @@ class SettingsViewController: UIViewController {
                                          colapsedLimit: nil)
         let countriesHCPSection = MenuSection(title: kConfigCountries,
                                          menus: [Menu.inputMenu(placeHolder: kConfigCountries, value: AppSettings.countries)])
+        let specialtyLabelHCPSection = MenuSection(title: kConfigSpecialtyLabel,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyLabel, value: AppSettings.specialtyLabel)])
+        let specialtyCodeHCPSection = MenuSection(title: kConfigSpecialtyCode,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyCode, value: AppSettings.specialtyCode)])
         
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
         
@@ -79,6 +83,8 @@ class SettingsViewController: UIViewController {
                  languageSection,
                  editHCPSection,
                  countriesHCPSection,
+                 specialtyLabelHCPSection,
+                 specialtyCodeHCPSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
     }
@@ -172,6 +178,10 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 AppSettings.APIKey = (newValue as? String) ?? ""
             case kConfigCountries:
                 AppSettings.countries = (newValue as? String) ?? ""
+            case kConfigSpecialtyLabel:
+                AppSettings.specialtyLabel = (newValue as? String) ?? ""
+            case kConfigSpecialtyCode:
+                AppSettings.specialtyCode = (newValue as? String) ?? ""
             default:
                 break
             }

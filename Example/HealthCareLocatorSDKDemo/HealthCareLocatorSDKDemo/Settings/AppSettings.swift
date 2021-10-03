@@ -18,6 +18,8 @@ class AppSettings {
         case language
         case isSuggestEditHCPEnabled
         case countries
+        case specialtyLabel
+        case specialtyCode
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -129,6 +131,34 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue, for: Key.countries.rawValue)
+        }
+    }
+    
+    static var specialtyLabel: String {
+        get {
+            guard let specialtyLabel = (AppSettings.getValueFor(key: Key.specialtyLabel.rawValue) as? String)
+            else {
+                return ""
+            }
+            return specialtyLabel
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.specialtyLabel.rawValue)
+        }
+    }
+    
+    static var specialtyCode: String {
+        get {
+            guard let specialtyCode = (AppSettings.getValueFor(key: Key.specialtyCode.rawValue) as? String)
+            else {
+                return ""
+            }
+            return specialtyCode
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.specialtyCode.rawValue)
         }
     }
 }
