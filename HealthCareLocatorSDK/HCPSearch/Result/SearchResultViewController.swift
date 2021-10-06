@@ -219,6 +219,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
                 if let desVC = segue.destination as? HCPFullCardViewController,
                    let activity = sender as? ActivityResult {
                     desVC.activityID = activity.activity.id
+                    desVC.searchCodes = data?.codes
                 }
             case "showSearchInputVC":
                 if let desVC = segue.destination as? SearchInputViewController,

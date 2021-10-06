@@ -30,6 +30,7 @@ class FullCardViewModel {
             
             view.mainInformationTitleLabel.text = "hcl_main_information_label".localized
             view.specialitiesTitleLabel.text = "hcl_specialities_label".localized
+            view.specialitiesViewMoreLabel.text = "hcl_view_more".localized
             view.rateAndFundTitleLabel.text = "hcl_rate_refunds_label".localized
             view.informationTitleLabel.text = "hcl_information_label".localized
             view.questionLabel.text = "hcl_information_description".localized
@@ -138,7 +139,7 @@ class FullCardViewModel {
                 view.addressLabel.text = addressComponent.joined(separator: "\n")
                 
                 // Fill specialities label
-                view.specialitiesDescriptionLabel.text = activity.individual.specialties.compactMap {$0.label.isEmpty ? nil : $0.label  }.joined(separator: ", ")
+                self.initSpecialtyDescription(view, specialties: activity.individual.specialties, showLess: true)
                 
                 // Toggle web component
                 if !activity.webAddress.orEmpty.isEmpty {
@@ -197,5 +198,86 @@ class FullCardViewModel {
         let urlString = String(format: kModifyActivityURLFormat, language, apiKey, individualID)
         guard let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) else {return}
         UIApplication.shared.open(url)
+    }
+    
+    func initSpecialtyDescription(_ view: HCPFullCardViewController, specialties: [KeyedString], showLess: Bool) {
+        // init Value
+        var specialties = specialties
+        var listTag: [UIView] = []
+        let maxWidth = UIScreen.main.bounds.size.width - 20 * 2
+        var currentWidth: CGFloat = 0.0
+        // init State
+        view.specialitiesTitleLabel.text = "hcl_specialities_label".localized + (specialties.isEmpty ? "" : " (\(specialties.count))")
+        view.specialitiesViewMoreView.isHidden = true
+        view.specialitiesDescriptionStackView.arrangedSubviews.forEach { subview in
+            view.specialitiesDescriptionStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
+        }
+        self.preconfigStackViewHeight(view, setDefault: specialties.isEmpty)
+        // prepare data before create view
+        if let searchCodes = view.searchCodes {
+            specialties.sort { a, b in
+                return searchCodes.contains(where: { $0.id == a.code })
+            }
+        }
+        // add arrangedSubviews
+        for item in specialties {
+            let tag = self.createTagView(text: item.label, specialty: view.searchCodes?.contains(where: { $0.id == item.code }) ?? false)
+            if currentWidth + (tag.size.width + 10) <= maxWidth {
+                currentWidth += (tag.size.width + 10)
+                listTag.append(tag.view)
+            } else {
+                view.specialitiesDescriptionStackView.addArrangedSubview(self.createStackView(listTag))
+                if showLess && view.specialitiesDescriptionStackView.arrangedSubviews.count == 2 { // showLess: true - max 2 row, false - show all (next step)
+                    view.specialitiesViewMoreView.isHidden = false
+                    view.specialitiesDescriptionStackView.addArrangedSubview(view.specialitiesViewMoreView)
+                    break
+                } else { // reset list, width with current tag
+                    listTag = [tag.view]
+                    currentWidth = tag.size.width + 10
+                }
+            }
+        }
+        if !listTag.isEmpty {
+            view.specialitiesDescriptionStackView.addArrangedSubview(self.createStackView(listTag))
+        }
+    }
+    
+    private func preconfigStackViewHeight(_ view: HCPFullCardViewController, setDefault: Bool) {
+        if let _ = view.specialitiesDescriptionStackView_Height {
+            view.specialitiesDescriptionStackView_Height.isActive = setDefault
+        } else {
+            guard setDefault else { return }
+            view.specialitiesDescriptionStackView_Height = view.specialitiesDescriptionStackView.heightAnchor.constraint(equalToConstant: 0.0)
+        }
+    }
+    
+    private func createStackView(_ arrangedSubviews: [UIView]) -> UIStackView {
+        let tempStack = UIStackView(arrangedSubviews: arrangedSubviews)
+        tempStack.axis = .horizontal
+        tempStack.spacing = 10.0
+        return tempStack
+    }
+    
+    private func createTagView(text: String, specialty: Bool) -> (view: UIView, size: CGSize) {
+        let value: CGFloat = 10.0
+        let label = UILabel()
+        label.text = text
+        label.textColor = specialty ? .white : .black
+        label.font = .systemFont(ofSize: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let view = UIView()
+        view.backgroundColor = specialty ? UIColor(red: 1.00, green: 0.55, blue: 0.16, alpha: 1.00) : .white
+        view.layer.cornerRadius = 4.0
+        if !specialty {
+            view.layer.borderWidth = 1.0
+            view.layer.borderColor = UIColor(red: 0.00, green: 0.64, blue: 0.87, alpha: 1.00).cgColor
+        }
+        view.addSubview(label)
+        NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: value / 2).isActive = true
+        NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: value).isActive = true
+        return (view, CGSize(width: label.intrinsicContentSize.width + value * 2, height: label.intrinsicContentSize.height + value))
     }
 }
