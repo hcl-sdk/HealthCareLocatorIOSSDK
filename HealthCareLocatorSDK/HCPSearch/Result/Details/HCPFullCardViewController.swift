@@ -14,6 +14,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     private let locationManager = CLLocationManager()
     let fullCardViewModel: FullCardViewModel! = FullCardViewModel(webServices: HCLHCPSearchWebServices(manager: HCLServiceManager.shared))
     var activityID: String?
+    var searchCodes: [Code]?
     private var activity: Activity?
     
     // Wrapper
@@ -57,7 +58,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     // Specialities
     @IBOutlet weak var specialitiesTitleLabel: UILabel!
-    @IBOutlet weak var specialitiesDescriptionLabel: UILabel!
+    @IBOutlet weak var specialitiesDescriptionStackView: UIStackView!
+    @IBOutlet weak var specialitiesDescriptionStackView_Height: NSLayoutConstraint!
+    @IBOutlet weak var specialitiesViewMoreView: UIView!
+    @IBOutlet weak var specialitiesViewMoreLabel: UILabel!
     
     // Rate and refunds
     @IBOutlet weak var rateAndRefundWrapper: UIStackView!
@@ -186,6 +190,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     @IBAction func changeAddressAction(_ sender: Any) {
         performSegue(withIdentifier: "showAddressPicker", sender: activity)
+    }
+    
+    @IBAction func viewMore(_ sender: Any) {
+        fullCardViewModel.initSpecialtyDescription(self, specialties: activity?.individual.specialties ?? [], showLess: false)
     }
     
     @IBAction func modifyAction(_ sender: Any) {
