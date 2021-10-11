@@ -116,8 +116,6 @@ class SearchInputViewController: UIViewController, ViewDesign {
                 var result = [SearchAutoComplete]()
                 result.append(contentsOf: individuals.map {SearchAutoComplete.Individual(individual: $0)})
                 strongSelf.searchResult = result.count > 0 ? result : [.NearMe]
-                // Auto complete for categorySearchTextField when data was updated
-                strongSelf.handleDataForAutoComplete(strongSelf.categorySearchTextField, searchResult: strongSelf.searchResult)
             }).disposed(by: disposeBag)
         
         // specialtySearchTextField
