@@ -56,7 +56,7 @@ public class HCLHCPSearchNavigationViewController: UINavigationController {
             let compactHomeVC = ViewControllers.viewControllerWith(identity: .home) as! SearchHomeViewController
             let resultVC = ViewControllers.viewControllerWith(identity: .searchResult) as! SearchResultViewController
             resultVC.data = SearchData(criteria: nil,
-                                       codes: search.speciality?.components(separatedBy: ", ").map {Code(id: $0, longLbl: nil)},
+                                       codes: search.speciality?.components(separatedBy: ", ").map {Code(id: $0, longLbl: search.specialtyLabel)},
                                        mode: .nearMeSearch)
             setViewControllers([compactHomeVC, resultVC], animated: false)
         }
