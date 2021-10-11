@@ -82,7 +82,15 @@ public struct Individual: Codable {
 
 extension Individual {
     var composedName: String {
-        return [firstName, middleName, lastName].compactMap {$0}.joined(separator: " ")
+        var temp: [String] = []
+        if let firstName = firstName, !firstName.isEmpty {
+            temp.append(firstName)
+        }
+        if let middleName = middleName, !middleName.isEmpty {
+            temp.append(middleName)
+        }
+        temp.append(lastName)
+        return temp.joined(separator: " ")
     }
 }
 
