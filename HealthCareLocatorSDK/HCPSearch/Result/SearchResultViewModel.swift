@@ -208,21 +208,25 @@ class SearchResultViewModel: ViewLoading {
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .list
+            view.sort = .lastName
         case .quickNearMeSearch:
             view.addressLabel.text = kNearMeTitle
             view.topInputWrapper.isHidden = false
             view.topLabelsWrapper.isHidden = true
             view.mode = .map
+            view.sort = .distance
         case .addressSearch(let address):
             view.addressLabel.text = address
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .list
+            view.sort = .lastName
         default:
             view.addressLabel.text = kNearMeTitle
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .map
+            view.sort = .distance
         }
     }
 }

@@ -75,7 +75,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
             layoutWith(searchData: search)
             setupSearchActionsBindding()
         }
-        sort = .lastName
         
         // Initialize search
         performSearch()
