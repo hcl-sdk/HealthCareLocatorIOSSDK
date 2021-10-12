@@ -224,6 +224,8 @@ query ActivityByID($userId: String, $id: ID!, $locale: String) {
     workplace {
       name
       officialName
+      localPhone
+      intlPhone
       address {
         longLabel
         buildingLabel
