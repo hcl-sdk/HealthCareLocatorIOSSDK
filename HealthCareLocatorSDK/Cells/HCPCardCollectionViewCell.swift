@@ -42,9 +42,12 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         drLabel.text = item.activity.individual.composedName
         categoryLabel.text = item.activity.individual.specialties.first?.label
         addressLabel.text = item.activity.workplace.address.composedAddress
-        guard let dis = item.distance, dis > 0 else { return }
+        guard let dis = item.distance, dis > 0 else {
+            distanceLabel.text = ""
+            return
+        }
         let disUnit = dis / kDefaultDistanceUnit.toMeter
         let disUnitText = disUnit >= 1 ? (kDefaultDistanceUnit == .km ? "km" : "mi") : (kDefaultDistanceUnit == .km ? "m" : "ft")
-        distanceLabel.text = "\(String(format: "%.1f", disUnit)) \(disUnitText)"
+        distanceLabel.text = "\(String(format: "%.1f", disUnit >= 1 ? disUnit : dis)) \(disUnitText)"
     }
 }
