@@ -1872,6 +1872,8 @@ public final class ActivityByIdQuery: GraphQLQuery {
           __typename
           name
           officialName
+          localPhone
+          intlPhone
           address {
             __typename
             longLabel
@@ -2979,6 +2981,8 @@ public final class ActivityByIdQuery: GraphQLQuery {
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("name", type: .nonNull(.scalar(String.self))),
             GraphQLField("officialName", type: .scalar(String.self)),
+            GraphQLField("localPhone", type: .scalar(String.self)),
+            GraphQLField("intlPhone", type: .scalar(String.self)),
             GraphQLField("address", type: .nonNull(.object(Address.selections))),
           ]
         }

@@ -96,6 +96,8 @@ extension Individual {
 
 public struct Workplace: Codable {
     public let name: String?
+    public let localPhone: String?
+    public let intlPhone: String?
     public let address: Address!
 }
 

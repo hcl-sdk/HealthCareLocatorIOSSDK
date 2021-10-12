@@ -149,8 +149,9 @@ class FullCardViewModel {
                 }
                 
                 // Toggle phone component
-                if !activity.phone.orEmpty.isEmpty {
-                    view.phoneLabel.text = activity.phone
+                // phone (Of Activity) > localPhone (Of Workplace) > intlPhone (Of Workplace)
+                if let phone = [activity.phone, activity.workplace.localPhone, activity.workplace.intlPhone].filter({!$0.orEmpty.isEmpty}).first {
+                    view.phoneLabel.text = phone
                 } else {
                     view.phoneWrapper.isHidden = true
                     view.phoneViewWrapper.isHidden = true
@@ -202,7 +203,7 @@ class FullCardViewModel {
     
     func initSpecialtyDescription(_ view: HCPFullCardViewController, specialties: [KeyedString], showLess: Bool) {
         // init Value
-        var specialties = specialties
+        var specialties = specialties.filter({!$0.code.orEmpty.isEmpty && !$0.label.orEmpty.isEmpty})
         var listTag: [UIView] = []
         let maxWidth = UIScreen.main.bounds.size.width - 20 * 2
         var currentWidth: CGFloat = 0.0
