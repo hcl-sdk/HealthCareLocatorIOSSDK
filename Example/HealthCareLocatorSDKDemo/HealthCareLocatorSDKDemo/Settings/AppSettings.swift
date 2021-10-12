@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import HealthCareLocatorSDK
 
 class AppSettings {
     private enum Key: String {
@@ -20,6 +21,8 @@ class AppSettings {
         case countries
         case specialtyLabel
         case specialtyCode
+        case distanceDefault
+        case distanceUnit
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -159,6 +162,32 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue, for: Key.specialtyCode.rawValue)
+        }
+    }
+    
+    static var distanceDefault: Double? {
+        get {
+            return (AppSettings.getValueFor(key: Key.distanceDefault.rawValue) as? Double)
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.distanceDefault.rawValue)
+        }
+    }
+    
+    static var distanceDefaultText: String? {
+        guard let distanceDefault = self.distanceDefault else { return nil }
+        return String(format: "%.0f", distanceDefault)
+    }
+    
+    static var distanceUnit: HCLDistanceUnit {
+        get {
+            guard let distanceUnit = (AppSettings.getValueFor(key: Key.distanceUnit.rawValue) as? String) else { return .km }
+            return HCLDistanceUnit(rawValue: distanceUnit) ?? .km
+        }
+        
+        set {
+            AppSettings.set(value: newValue.rawValue, for: Key.distanceUnit.rawValue)
         }
     }
 }

@@ -18,9 +18,8 @@ let kOSMBaseURL = "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat
 let kDefaultZoomLevel: CLLocationDistance = 2000
 
 //
-let kDefaultSearchNearMeDistance: Double = 2000 // 2000 meters
-let kDefaultSearchAddressDistance: Double = 5000 // 5000 meters
-let kDefaultSearchCityDistance: Double = 10000 // 10000 meters
+var kDefaultDistanceUnit: HCLDistanceUnit = .km
+var kDefaultSearchNearMeDistance: Double? = nil
 let EARTH_RADIUS_IN_METERS = 6371007.177356707
 
 //
