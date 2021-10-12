@@ -98,6 +98,7 @@
 		58F32B5425CA631F006C6F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A364922555081E00C62479 /* Main.storyboard */; };
 		58F5EDFF255BA33E0029B0B4 /* logo_iqvia.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */; };
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
+		96EE192527144D320097FCFE /* DistanceUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE192427144D320097FCFE /* DistanceUnitViewController.swift */; };
 		ACB6555E60F1E204F09763ED /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D112836053049D056422B6 /* Pods_HCLDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		58F32B5A25CA631F006C6F8A /* HCLDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "HCLDemo-Info.plist"; path = "/Users/truongle/Documents/Projects/Work/IQVIA/Ekino/HealthCareLocatorSDK-iOS/Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"; sourceTree = "<absolute>"; };
 		58F5EDFE255BA33E0029B0B4 /* logo_iqvia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_iqvia.png; sourceTree = "<group>"; };
 		58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		96EE192427144D320097FCFE /* DistanceUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceUnitViewController.swift; sourceTree = "<group>"; };
 		AA3D33EF899D7351C1F10ED1 /* Pods_HealthCareLocatorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCareLocatorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C555181742A5C299EEE880D2 /* Pods-HealthCareLocatorSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDKDemo/Pods-HealthCareLocatorSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +298,7 @@
 				58A8A5822562750600A11F88 /* ConfigFont.swift */,
 				5817E9F125711AD4001F33B6 /* DefaultThemesViewController.swift */,
 				5836DD6325935B4D002F776D /* LanguagesViewController.swift */,
+				96EE192427144D320097FCFE /* DistanceUnitViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				58A364912555081E00C62479 /* HomeViewController.swift in Sources */,
 				58A3648D2555081E00C62479 /* AppDelegate.swift in Sources */,
 				58A3648F2555081E00C62479 /* SceneDelegate.swift in Sources */,
+				96EE192527144D320097FCFE /* DistanceUnitViewController.swift in Sources */,
 				58B96209255D46C3000B126D /* ColorMenuTableViewCell.swift in Sources */,
 				58BA6113255E459900696AA1 /* MenuSection.swift in Sources */,
 				5888D27A2581DA9900FA5539 /* Sequence+Additional.swift in Sources */,

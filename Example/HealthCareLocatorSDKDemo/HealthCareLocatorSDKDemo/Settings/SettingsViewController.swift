@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthCareLocatorSDK
 
 class SettingsViewController: UIViewController {
     
@@ -56,6 +57,10 @@ class SettingsViewController: UIViewController {
                                          menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyLabel, value: AppSettings.specialtyLabel)])
         let specialtyCodeHCPSection = MenuSection(title: kConfigSpecialtyCode,
                                          menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyCode, value: AppSettings.specialtyCode)])
+        let distanceDefaultHCPSection = MenuSection(title: kConfigDistanceDefault,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigDistanceDefault, value: AppSettings.distanceDefaultText)])
+        let distanceUnitHCPSection = MenuSection(title: kConfigDistanceUnit,
+                                         menus: [Menu.detailMenu(title: AppSettings.distanceUnit.rawValue)])
         
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
         
@@ -85,6 +90,8 @@ class SettingsViewController: UIViewController {
                  countriesHCPSection,
                  specialtyLabelHCPSection,
                  specialtyCodeHCPSection,
+                 distanceDefaultHCPSection,
+                 distanceUnitHCPSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
     }
@@ -109,6 +116,10 @@ class SettingsViewController: UIViewController {
                 if let defaultThemesVC = segue.destination as? DefaultThemesViewController {
                     defaultThemesVC.delegate = self
                 }
+            case "showDistanceUnitList":
+                if let distanceUnitVC = segue.destination as? DistanceUnitViewController {
+                    distanceUnitVC.delegate = self
+                }
             default:
                 return
             }
@@ -123,6 +134,10 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
         case .selectMenu(_, _, let data):
             if let theme = data as? Theme {
                 applySelected(theme: theme)
+            }
+            if let unit = data as? HCLDistanceUnit {
+                AppSettings.distanceUnit = unit
+                reloadSettings()
             }
         case .detailMenu(let title):
             switch title {
@@ -146,6 +161,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                  Language.arabic.title,
                  Language.dutch.title:
                 performSegue(withIdentifier: "showLanguageList", sender: nil)
+            case AppSettings.distanceUnit.rawValue:
+                performSegue(withIdentifier: "showDistanceUnitList", sender: nil)
             default:
                 break
             }
@@ -182,6 +199,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 AppSettings.specialtyLabel = (newValue as? String) ?? ""
             case kConfigSpecialtyCode:
                 AppSettings.specialtyCode = (newValue as? String) ?? ""
+            case kConfigDistanceDefault:
+                AppSettings.distanceDefault = Double(newValue as? String ?? "")
             default:
                 break
             }

@@ -49,17 +49,11 @@ class SearchResultViewModel: ViewLoading {
                     let street = place.thoroughfare
                     let city = place.locality
                     
-                    if street != nil {
+                    if street != nil || city != nil {
                         strongSelf.perform(action: SearchAction(isNearMeSearch: false,
                                                                 address: address,
                                                                 coordinate: place.location?.coordinate,
-                                                                distance: kDefaultSearchAddressDistance,
-                                                                country: nil))
-                    } else if city != nil {
-                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
-                                                                address: address,
-                                                                coordinate: place.location?.coordinate,
-                                                                distance: kDefaultSearchCityDistance,
+                                                                distance: kDefaultSearchNearMeDistance,
                                                                 country: nil))
                     } else {
                         if let countryCode = place.isoCountryCode {

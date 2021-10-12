@@ -121,6 +121,7 @@
 		58F64FDF2563C2F80041CAD3 /* UIImage+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */; };
 		58FD50DE2593041500402723 /* HCPMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50DD2593041500402723 /* HCPMapViewController.swift */; };
 		58FD50F22593208C00402723 /* HCPMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD50F12593208C00402723 /* HCPMapViewModel.swift */; };
+		96EE19232714349D0097FCFE /* HCLDistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE19222714349D0097FCFE /* HCLDistanceUnit.swift */; };
 		D3022DCEE8ECDF7A37CCB059 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D82C17D944B14BB40C85DC8 /* Pods_HealthCareLocatorSDK_HealthCareLocatorSDKTests.framework */; };
 		DBFA334AA9E240C3FD79857E /* Pods_HealthCareLocatorSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BCB5C83AA217ADE886E316 /* Pods_HealthCareLocatorSDK.framework */; };
 /* End PBXBuildFile section */
@@ -272,6 +273,7 @@
 		58F64FDE2563C2F80041CAD3 /* UIImage+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additional.swift"; sourceTree = "<group>"; };
 		58FD50DD2593041500402723 /* HCPMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewController.swift; sourceTree = "<group>"; };
 		58FD50F12593208C00402723 /* HCPMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCPMapViewModel.swift; sourceTree = "<group>"; };
+		96EE19222714349D0097FCFE /* HCLDistanceUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCLDistanceUnit.swift; sourceTree = "<group>"; };
 		A4DBBCF586F618C715E7D254 /* Pods-HealthCareLocatorSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK.debug.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK/Pods-HealthCareLocatorSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		E4AFE15C9E3A912F5353EC36 /* Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig"; path = "Target Support Files/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests/Pods-HealthCareLocatorSDK-HealthCareLocatorSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -473,6 +475,7 @@
 				58CDED6C259AEFA700EC7746 /* LastHCPConsulted.swift */,
 				583C1B5F25AC3D9700CDB4F7 /* HCLIconsConfigure.swift */,
 				58351B1725CCF5C3007DE500 /* HCLLanguage.swift */,
+				96EE19222714349D0097FCFE /* HCLDistanceUnit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				58F5EE1B255BADE70029B0B4 /* BaseView.swift in Sources */,
 				58351B1825CCF5C3007DE500 /* HCLLanguage.swift in Sources */,
 				58E73AAA2562925100740548 /* SearchResultTableViewCell.swift in Sources */,
+				96EE19232714349D0097FCFE /* HCLDistanceUnit.swift in Sources */,
 				58BAEE462574F10A003C5383 /* SearchHistoryViewModel.swift in Sources */,
 				58BAEE4C2574F2FC003C5383 /* SearchHistoryDataSource.swift in Sources */,
 				5848D6C4256E144E00217EFC /* SearchData.swift in Sources */,

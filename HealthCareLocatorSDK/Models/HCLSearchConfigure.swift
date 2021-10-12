@@ -34,11 +34,13 @@ public struct HCLSearchConfigure {
         - country:
         - specialtyLabel:
      */
-    public init(entry: SearchEntry? = nil, speciality: String? = nil, country: String? = nil, specialtyLabel: String? = nil) {
+    public init(entry: SearchEntry? = nil, speciality: String? = nil, country: String? = nil, specialtyLabel: String? = nil, distanceDefault: Double? = nil, distanceUnit: HCLDistanceUnit? = nil) {
         self.entry = entry ?? .home
         self.speciality = speciality
         self.country = country
         self.specialtyLabel = specialtyLabel
+        kDefaultSearchNearMeDistance = distanceDefault == nil ? nil : distanceDefault! * (distanceUnit ?? .km).toMeter
+        kDefaultDistanceUnit = distanceUnit ?? .km
     }
 }
 
