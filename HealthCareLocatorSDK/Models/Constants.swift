@@ -32,3 +32,7 @@ var kNoAddressTitle: String {
 }
 
 let kLocalizedTableName = "HealthCareLocatorSDK"
+
+//
+var kDarkColor = UIColor(red: 35/255, green: 35/255, blue: 35/255, alpha: 1.0)
+var kDarkLightColor = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1.0)
