@@ -32,9 +32,9 @@ class HCPCardTableViewCell: UITableViewCell {
         // Colors
         wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         drLabel.textColor = theme.secondaryColor
-        categoryLabel.textColor = theme.darkColor
+        categoryLabel.textColor = theme.darkmode ? .white : theme.darkColor
         addressLabel.textColor = theme.greyDarkColor
-        distanceLabel.textColor = theme.darkColor
+        distanceLabel.textColor = theme.darkmode ? .white : theme.darkColor
         moreDetailIcon.tintColor = theme.secondaryColor
         
         //

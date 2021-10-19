@@ -20,6 +20,7 @@ class SearchResultTableViewCell: UITableViewCell {
         separatorView.backgroundColor = theme.greyLighterColor
         iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.1)
         icon.tintColor = theme.primaryColor
+        resultTitleLabel.textColor = theme.darkmode ? .white : theme.darkColor
         resultTitleLabel.font = theme.defaultFont
         icon.image = iconImage
         resultTitleLabel.text = title

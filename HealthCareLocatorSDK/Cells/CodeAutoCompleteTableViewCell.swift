@@ -16,7 +16,7 @@ class CodeAutoCompleteTableViewCell: UITableViewCell {
         contentView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         separatorView.backgroundColor = theme.greyLighterColor
         codeLabel.font = theme.defaultFont
-        codeLabel.textColor = theme.darkColor
+        codeLabel.textColor = theme.darkmode ? .white : theme.darkColor
         guard let longLabel = code.longLbl else {return}
         let attibuteText = NSMutableAttributedString(string: longLabel)
         if let highlightText = highlight {

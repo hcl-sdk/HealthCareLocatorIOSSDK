@@ -160,15 +160,15 @@ class SearchResultViewModel: ViewLoading {
         view.view.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         view.topInputView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         view.searchButton.backgroundColor = theme.primaryColor
-        view.resultsLabel.textColor = theme.darkColor
+        view.resultsLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.sortButtonBackground.backgroundColor = theme.secondaryColor
         view.activityCountLabel.textColor = theme.primaryColor
-        view.criteriaLabel.textColor = theme.darkColor
+        view.criteriaLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.addressLabel.textColor = theme.greyColor
-        view.backButton.tintColor = theme.darkColor
+        view.backButton.tintColor = theme.darkmode ? .white : theme.darkColor
         view.firstSeparatorView.backgroundColor = theme.greyLighterColor
         view.secondSeparatorView.backgroundColor = theme.greyLighterColor
-        view.topInputTextField.textColor = theme.darkColor
+        view.topInputTextField.textColor = theme.darkmode ? .white : theme.darkColor
         view.topInputTextField.attributedPlaceholder = NSAttributedString(string: "hcl_find_healthcare_professional".localized,
                                                                      attributes: [NSAttributedString.Key.foregroundColor: theme.greyLightColor ?? .lightGray])
         layout(view: view, theme: theme, mode: .list)
@@ -182,8 +182,8 @@ class SearchResultViewModel: ViewLoading {
             view.listIcon.tintColor = .white
             
             view.selectedMapViewBackgroundView.backgroundColor = .clear
-            view.mapLabel.textColor = theme.darkColor
-            view.mapIcon.tintColor = theme.darkColor
+            view.mapLabel.textColor = theme.greyColor
+            view.mapIcon.tintColor = theme.greyColor
             
         case .map:
             view.selectedMapViewBackgroundView.backgroundColor = theme.primaryColor
@@ -191,8 +191,8 @@ class SearchResultViewModel: ViewLoading {
             view.mapIcon.tintColor = .white
             
             view.selectedListViewBackgroundView.backgroundColor = .clear
-            view.listLabel.textColor = theme.darkColor
-            view.listIcon.tintColor = theme.darkColor
+            view.listLabel.textColor = theme.greyColor
+            view.listIcon.tintColor = theme.greyColor
         }
     }
     

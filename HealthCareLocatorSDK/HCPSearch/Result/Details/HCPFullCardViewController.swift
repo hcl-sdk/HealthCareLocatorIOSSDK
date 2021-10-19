@@ -140,7 +140,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                 // Save last HCPs consulted
                 AppConfigure.save(activity: unwrapActivity)
                 strongSelf.activity = unwrapActivity
-                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
+                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: strongSelf.theme, with: unwrapActivity)
                 strongSelf.animateContentDisplaying()
             } else {
                 // TODO: Handle error
@@ -194,7 +194,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func viewMore(_ sender: Any) {
-        fullCardViewModel.initSpecialtyDescription(self, specialties: activity?.individual.specialties ?? [], showLess: false)
+        fullCardViewModel.initSpecialtyDescription(self, with: theme, specialties: activity?.individual.specialties ?? [], showLess: false)
     }
     
     @IBAction func modifyAction(_ sender: Any) {

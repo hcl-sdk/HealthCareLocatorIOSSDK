@@ -22,7 +22,7 @@ class HCPMapViewModel {
         view.mapWrapper.borderColor = theme.cardBorderColor
         view.markerIcon.tintColor = theme.markerColor
         view.workplaceLabel.textColor = theme.secondaryColor
-        view.addressLabel.textColor = theme.darkColor
+        view.addressLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.closeButton.tintColor = theme.greyDarkColor
     }
     

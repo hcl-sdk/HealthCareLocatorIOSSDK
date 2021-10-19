@@ -23,7 +23,7 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
         self.indexPath = indexPath
         wrapperView.borderColor = theme?.cardBorderColor ?? .lightGray
         wrapperView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
-        headerTitleLabel.textColor = theme?.darkColor
+        headerTitleLabel.textColor = theme?.darkmode ?? false ? .white : theme?.darkColor
         headerTitleLabel.font = theme?.cardTitleFont
         headerTitleLabel.text = title
         if let action = actionTitle {

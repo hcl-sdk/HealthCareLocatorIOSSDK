@@ -47,7 +47,7 @@ class FullCardViewModel {
             
             for contentLabel in view.contentLabels {
                 contentLabel.font = theme.defaultFont
-                contentLabel.textColor = theme.darkColor
+                contentLabel.textColor = theme.darkmode ? .white : theme.darkColor
             }
             
             for line in view.lines {
@@ -75,10 +75,10 @@ class FullCardViewModel {
             view.wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
             view.shareIcon.tintColor = theme.greyColor
             view.wrapperView.borderColor = theme.cardBorderColor
-            view.webUrlView.textColor = theme.darkColor
-            view.webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: theme.darkColor!, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+            view.webUrlView.textColor = theme.darkmode ? .white : theme.darkColor
+            view.webUrlView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: (theme.darkmode ? .white : theme.darkColor) as Any, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
             view.drTitle.textColor = theme.secondaryColor
-            view.categoryTitle.textColor = theme.darkColor
+            view.categoryTitle.textColor = theme.darkmode ? .white : theme.darkColor
             view.phoneButton.tintColor = theme.secondaryColor
             view.phoneButton.borderColor = theme.buttonBorderColor
             view.directionButton.tintColor = theme.secondaryColor
@@ -87,6 +87,7 @@ class FullCardViewModel {
             view.selectedAddressWrapper.borderColor = theme.buttonBorderColor
             view.editButtonView.backgroundColor = theme.darkmode ? kDarkLightColor : theme.viewBkgColor
             view.editIcon.tintColor = theme.secondaryColor
+            view.editButtonTitleLabel.textColor = theme.darkmode ? .white : theme.darkColor
             view.markerIcon.tintColor = theme.markerColor
             view.phoneIcon.tintColor = theme.greyColor
             view.faxIcon.tintColor = theme.greyColor
@@ -96,8 +97,8 @@ class FullCardViewModel {
     
     func layoutViewRating(view: HCPFullCardViewController, with theme: HCLThemeConfigure, value: Bool?) {
         DispatchQueue.main.async {
-            view.yesLabel.textColor = theme.darkColor
-            view.noLabel.textColor = theme.darkColor
+            view.yesLabel.textColor = theme.darkmode ? .white : theme.darkColor
+            view.noLabel.textColor = theme.darkmode ? .white : theme.darkColor
             view.yesBackground.borderColor = theme.greyLightColor
             view.noBackground.borderColor = theme.greyLightColor
             if let rating = value {
@@ -119,7 +120,7 @@ class FullCardViewModel {
         }
     }
     
-    func fullFill(view: HCPFullCardViewController, with activity: Activity) {
+    func fullFill(view: HCPFullCardViewController, with theme: HCLThemeConfigure, with activity: Activity) {
         if view.isViewLoaded {
             DispatchQueue.main.async {
                 view.drTitle.text = activity.individual.composedName
@@ -144,7 +145,7 @@ class FullCardViewModel {
                 view.addressLabel.text = addressComponent.joined(separator: "\n")
                 
                 // Fill specialities label
-                self.initSpecialtyDescription(view, specialties: activity.individual.specialties, showLess: true)
+                self.initSpecialtyDescription(view, with: theme, specialties: activity.individual.specialties, showLess: true)
                 
                 // Toggle web component
                 if !activity.webAddress.orEmpty.isEmpty {
@@ -206,7 +207,7 @@ class FullCardViewModel {
         UIApplication.shared.open(url)
     }
     
-    func initSpecialtyDescription(_ view: HCPFullCardViewController, specialties: [KeyedString], showLess: Bool) {
+    func initSpecialtyDescription(_ view: HCPFullCardViewController, with theme: HCLThemeConfigure, specialties: [KeyedString], showLess: Bool) {
         // init Value
         var specialties = specialties.filter({!$0.code.orEmpty.isEmpty && !$0.label.orEmpty.isEmpty})
         var listTag: [UIView] = []
@@ -228,7 +229,7 @@ class FullCardViewModel {
         }
         // add arrangedSubviews
         for item in specialties {
-            let tag = self.createTagView(text: item.label, specialty: view.searchCodes?.contains(where: { $0.id == item.code }) ?? false)
+            let tag = self.createTagView(text: item.label, specialty: view.searchCodes?.contains(where: { $0.id == item.code }) ?? false, with: theme)
             if currentWidth + (tag.size.width + 10) <= maxWidth {
                 currentWidth += (tag.size.width + 10)
                 listTag.append(tag.view)
@@ -265,11 +266,11 @@ class FullCardViewModel {
         return tempStack
     }
     
-    private func createTagView(text: String, specialty: Bool) -> (view: UIView, size: CGSize) {
+    private func createTagView(text: String, specialty: Bool, with theme: HCLThemeConfigure) -> (view: UIView, size: CGSize) {
         let value: CGFloat = 10.0
         let label = UILabel()
         label.text = text
-        label.textColor = specialty ? .white : .black
+        label.textColor = theme.darkmode ? .white : (specialty ? .white : .black)
         label.font = .systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         let view = UIView()
@@ -277,7 +278,7 @@ class FullCardViewModel {
         view.layer.cornerRadius = 4.0
         if !specialty {
             view.layer.borderWidth = 1.0
-            view.layer.borderColor = UIColor(red: 0.00, green: 0.64, blue: 0.87, alpha: 1.00).cgColor
+            view.layer.borderColor = theme.darkmode ? theme.greyColor.cgColor : UIColor(red: 0.00, green: 0.64, blue: 0.87, alpha: 1.00).cgColor
         }
         view.addSubview(label)
         NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true

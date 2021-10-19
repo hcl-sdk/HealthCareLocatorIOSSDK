@@ -374,7 +374,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="130"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLa-lU-pdQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="29.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="38"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="20" minY="8" maxX="8" maxY="8"/>
                                                         <state key="normal" image="back"/>
@@ -515,6 +515,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="rgK-uX-xmG" firstAttribute="centerY" secondItem="GRW-Oe-Mso" secondAttribute="centerY" id="mWI-3B-9y2"/>
+                                            <constraint firstItem="gLa-lU-pdQ" firstAttribute="height" secondItem="O0N-87-cQa" secondAttribute="height" id="u3G-Ui-sW6"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KUV-Oa-nga">
@@ -2031,7 +2032,7 @@
                                                                                         <color key="textColor" red="0.070588235289999995" green="0.64005583519999998" blue="0.88080948589999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-7t-T3v">
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eUP-7t-T3v">
                                                                                         <rect key="frame" x="0.0" y="34.5" width="374" height="0.0"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" id="0X2-J3-hBg"/>
@@ -3388,8 +3389,8 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="R9D-DK-flI"/>
-        <segue reference="q3c-S0-aZe"/>
+        <segue reference="pkh-qW-l5N"/>
+        <segue reference="s83-iU-uQ7"/>
         <segue reference="sgf-Eb-lPJ"/>
     </inferredMetricsTieBreakers>
     <resources>

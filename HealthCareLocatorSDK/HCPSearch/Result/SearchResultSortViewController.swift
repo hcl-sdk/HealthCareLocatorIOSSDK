@@ -112,7 +112,9 @@ extension SearchResultSortViewController: ViewDesign {
         // Colors
         view.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
         wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
-        topLabel.textColor = theme.secondaryColor
+        topLabel.textColor = theme.primaryColor
+        distanceLabel.textColor = theme.darkmode ? .white : .black
+        nameLabel.textColor = theme.darkmode ? .white : .black
         closeButton.tintColor = theme.greyDarkColor
         relevenceBackground.borderColor = theme.greyLighterColor
         distanceBackground.borderColor = theme.greyLighterColor
