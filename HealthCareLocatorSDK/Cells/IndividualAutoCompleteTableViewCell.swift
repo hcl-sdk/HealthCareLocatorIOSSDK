@@ -21,6 +21,7 @@ class IndividualAutoCompleteTableViewCell: UITableViewCell {
         // Themes layout
         arrowIcon.image = icons.arrowRightIcon
         // Colors
+        contentView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         separatorView.backgroundColor = theme.greyLighterColor
         individualNameLabel.textColor = theme.secondaryColor
         specialtiesLabel.textColor = theme.darkColor

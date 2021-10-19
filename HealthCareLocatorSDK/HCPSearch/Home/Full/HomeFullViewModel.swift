@@ -13,7 +13,9 @@ class HomeFullViewModel {
         view.searchBtn.setImage(icons.searchIcon, for: .normal)
         
         // Colors
-        view.view.backgroundColor = theme.viewBkgColor
+        view.searchWrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.searchView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.bodyWrapperView.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
         view.separatorView.backgroundColor = theme.cardBorderColor
         view.searchBtn.backgroundColor = theme.primaryColor
         view.searchTextField.textColor = theme.darkColor

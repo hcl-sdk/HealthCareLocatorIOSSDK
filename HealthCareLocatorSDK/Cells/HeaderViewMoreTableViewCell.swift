@@ -22,6 +22,7 @@ class HeaderViewMoreTableViewCell: UITableViewCell {
     func configWith(theme: HCLThemeConfigure?, indexPath: IndexPath, title: String?, actionTitle: String?) {
         self.indexPath = indexPath
         wrapperView.borderColor = theme?.cardBorderColor ?? .lightGray
+        wrapperView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
         headerTitleLabel.textColor = theme?.darkColor
         headerTitleLabel.font = theme?.cardTitleFont
         headerTitleLabel.text = title

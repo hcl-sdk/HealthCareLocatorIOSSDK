@@ -23,6 +23,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     func configWith(theme: HCLThemeConfigure?, activities: [ActivityResult], center: CLLocationCoordinate2D?, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
+        contentView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
         let activityList = ActivityList(activities: activities)
         mapView.reload(annotations: activityList.getAnotations())
         if let location = center {

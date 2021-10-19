@@ -70,6 +70,9 @@ class FullCardViewModel {
             view.webUrlView.font = theme.defaultFont
             
             // Colors
+            view.view.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
+            view.wrapperView.layer.masksToBounds = true
+            view.wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
             view.shareIcon.tintColor = theme.greyColor
             view.wrapperView.borderColor = theme.cardBorderColor
             view.webUrlView.textColor = theme.darkColor
@@ -80,7 +83,9 @@ class FullCardViewModel {
             view.phoneButton.borderColor = theme.buttonBorderColor
             view.directionButton.tintColor = theme.secondaryColor
             view.directionButton.borderColor = theme.buttonBorderColor
+            view.selectedAddressWrapper.backgroundColor = theme.darkmode ? kDarkLightColor : .white
             view.selectedAddressWrapper.borderColor = theme.buttonBorderColor
+            view.editButtonView.backgroundColor = theme.darkmode ? kDarkLightColor : theme.viewBkgColor
             view.editIcon.tintColor = theme.secondaryColor
             view.markerIcon.tintColor = theme.markerColor
             view.phoneIcon.tintColor = theme.greyColor
@@ -268,7 +273,7 @@ class FullCardViewModel {
         label.font = .systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         let view = UIView()
-        view.backgroundColor = specialty ? UIColor(red: 1.00, green: 0.55, blue: 0.16, alpha: 1.00) : .white
+        view.backgroundColor = specialty ? UIColor(red: 1.00, green: 0.55, blue: 0.16, alpha: 1.00) : .clear
         view.layer.cornerRadius = 4.0
         if !specialty {
             view.layer.borderWidth = 1.0

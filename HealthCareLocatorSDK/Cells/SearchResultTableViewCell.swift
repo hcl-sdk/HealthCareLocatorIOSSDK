@@ -16,6 +16,7 @@ class SearchResultTableViewCell: UITableViewCell {
     
     
     func configWith(theme: HCLThemeConfigure, iconImage: UIImage, title: String) {
+        contentView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         separatorView.backgroundColor = theme.greyLighterColor
         iconBgView.backgroundColor = theme.primaryColor.withAlphaComponent(0.1)
         icon.tintColor = theme.primaryColor

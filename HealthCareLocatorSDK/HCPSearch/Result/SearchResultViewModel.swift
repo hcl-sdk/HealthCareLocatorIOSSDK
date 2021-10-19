@@ -157,6 +157,8 @@ class SearchResultViewModel: ViewLoading {
         view.topInputTextField.font = theme.searchInputFont
         
         // Colors
+        view.view.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.topInputView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         view.searchButton.backgroundColor = theme.primaryColor
         view.resultsLabel.textColor = theme.darkColor
         view.sortButtonBackground.backgroundColor = theme.secondaryColor

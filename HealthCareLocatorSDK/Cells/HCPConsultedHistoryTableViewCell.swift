@@ -28,6 +28,7 @@ class HCPConsultedHistoryTableViewCell: CustomBorderTableViewCell {
         distanceLabel.font = theme?.smallFont
         
         // Colors
+        contentView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
         closeButton.tintColor = theme?.greyDarkColor
         drLabel.textColor = theme?.secondaryColor
         categoryLabel.textColor = theme?.darkColor

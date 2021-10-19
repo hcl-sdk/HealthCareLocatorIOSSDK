@@ -32,6 +32,7 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         distanceLabel.font = theme.defaultFont
         
         // Colors
+        wrapper.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         drLabel.textColor = theme.secondaryColor
         moreDetailIcon.tintColor = theme.secondaryColor
         parentWorkplaceLabel.textColor = theme.darkColor

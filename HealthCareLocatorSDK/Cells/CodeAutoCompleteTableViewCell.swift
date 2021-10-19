@@ -13,6 +13,7 @@ class CodeAutoCompleteTableViewCell: UITableViewCell {
     @IBOutlet weak var separatorView: UIView!
     
     func configWith(theme: HCLThemeConfigure, code: Code, highlight: String?) {
+        contentView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         separatorView.backgroundColor = theme.greyLighterColor
         codeLabel.font = theme.defaultFont
         codeLabel.textColor = theme.darkColor

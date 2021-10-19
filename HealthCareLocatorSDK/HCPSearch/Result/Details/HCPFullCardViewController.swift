@@ -87,6 +87,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var qualityDescriptionLabel: UILabel!
     
     @IBOutlet weak var webUrlView: UITextView!
+    @IBOutlet weak var editButtonView: BaseView!
     @IBOutlet weak var editIcon: UIImageView!
     @IBOutlet weak var editButtonTitleLabel: UILabel!
     

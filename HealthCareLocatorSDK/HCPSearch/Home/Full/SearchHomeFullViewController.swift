@@ -13,6 +13,8 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
     private let historyViewModel = SearchHistoryViewModel(webService: HCLHCPSearchWebServices(manager: HCLServiceManager.shared))
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBtn: BaseButton!
+    @IBOutlet weak var searchWrapperView: UIView!
+    @IBOutlet weak var searchView: BaseView!
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var bodyWrapperView: UIView!
     @IBOutlet weak var historyTableView: UITableView!

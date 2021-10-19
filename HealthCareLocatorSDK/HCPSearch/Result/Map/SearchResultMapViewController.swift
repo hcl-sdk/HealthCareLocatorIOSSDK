@@ -60,6 +60,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         geolocIcon.image = icons.geolocIcon
+        currentLocationWrapper.backgroundColor = theme.darkmode ? kDarkColor : .white
         currentLocationWrapper.borderWidth = 1
         currentLocationWrapper.borderColor = theme.cardBorderColor
         reLaunchWrapper.backgroundColor = theme.secondaryColor

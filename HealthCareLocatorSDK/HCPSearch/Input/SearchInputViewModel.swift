@@ -13,6 +13,11 @@ class SearchInputViewModel {
         view.searchBtn.setImage(icons.searchIcon, for: .normal)
         
         // Colors
+        view.view.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.categoryView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.specialtyView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.locationView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.searchResultTableView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         view.backButton.tintColor = theme.darkColor
         view.separatorView.backgroundColor = theme.greyLighterColor
         view.searchResultTableView.separatorColor = theme.greyLighterColor

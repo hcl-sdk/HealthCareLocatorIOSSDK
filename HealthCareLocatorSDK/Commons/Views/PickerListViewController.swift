@@ -20,6 +20,7 @@ class PickerListViewController: UIViewController, ViewDesign {
     
     weak var delegate: PickerListViewControllerDelegate?
     
+    @IBOutlet weak var wrapperView: BaseView!
     @IBOutlet var tableView: UITableView!
     
     var items: [String] = [] {
@@ -32,6 +33,8 @@ class PickerListViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        tableView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         tableView.register(UINib(nibName: "TextPickerTableViewCell",
                                  bundle: Bundle.internalBundle()),
                            forCellReuseIdentifier: cellIdentifier)
