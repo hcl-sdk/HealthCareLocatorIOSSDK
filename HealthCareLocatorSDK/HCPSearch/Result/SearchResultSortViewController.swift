@@ -110,8 +110,11 @@ extension SearchResultSortViewController: ViewDesign {
         closeButton.setImage(icons.crossIcon, for: .normal)
         
         // Colors
-        view.backgroundColor = theme.viewBkgColor
-        topLabel.textColor = theme.secondaryColor
+        view.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
+        wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        topLabel.textColor = theme.primaryColor
+        distanceLabel.textColor = theme.darkmode ? .white : .black
+        nameLabel.textColor = theme.darkmode ? .white : .black
         closeButton.tintColor = theme.greyDarkColor
         relevenceBackground.borderColor = theme.greyLighterColor
         distanceBackground.borderColor = theme.greyLighterColor

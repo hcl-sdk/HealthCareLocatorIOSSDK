@@ -10,9 +10,11 @@ import MapKit
 
 class HCPMapViewModel {
     func layout(view: HCPMapViewController, with theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
+        view.view.backgroundColor = theme.darkmode ? kDarkColor : .white
         view.closeButton.setImage(icons.crossIcon, for: .normal)
         view.geolocImageView.image = icons.geolocIcon
         view.markerIcon.image = icons.markerMinIcon
+        view.currentLocationWrapper.backgroundColor = theme.darkmode ? kDarkColor : .white
         view.currentLocationWrapper.borderColor = theme.cardBorderColor
         view.workplaceLabel.font = theme.defaultFont
         view.addressLabel.font = theme.defaultFont
@@ -20,7 +22,7 @@ class HCPMapViewModel {
         view.mapWrapper.borderColor = theme.cardBorderColor
         view.markerIcon.tintColor = theme.markerColor
         view.workplaceLabel.textColor = theme.secondaryColor
-        view.addressLabel.textColor = theme.darkColor
+        view.addressLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.closeButton.tintColor = theme.greyDarkColor
     }
     

@@ -38,6 +38,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var topLabelsWrapper: UIStackView!
     @IBOutlet weak var topInputWrapper: UIStackView!
+    @IBOutlet weak var topInputView: BaseView!
     @IBOutlet weak var topInputTextField: UITextField!
     @IBOutlet weak var searchButton: BaseButton!
     @IBOutlet weak var bodyWrapper: UIView!

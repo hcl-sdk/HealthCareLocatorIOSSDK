@@ -30,6 +30,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     // General
     @IBOutlet weak var wrapperView: BaseView!
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareIcon: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -87,6 +88,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var qualityDescriptionLabel: UILabel!
     
     @IBOutlet weak var webUrlView: UITextView!
+    @IBOutlet weak var editButtonView: BaseView!
     @IBOutlet weak var editIcon: UIImageView!
     @IBOutlet weak var editButtonTitleLabel: UILabel!
     
@@ -104,6 +106,9 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         contentWrapper.isHidden = true
         loadingView.isHidden = false
         loadingIndicator.startAnimating()
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            placeMapView.overrideUserInterfaceStyle = .dark
+        }
         placeMapView.delegate = self
         placeMapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         if let id = activityID {
@@ -139,7 +144,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                 // Save last HCPs consulted
                 AppConfigure.save(activity: unwrapActivity)
                 strongSelf.activity = unwrapActivity
-                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
+                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: strongSelf.theme, with: unwrapActivity)
                 strongSelf.animateContentDisplaying()
             } else {
                 // TODO: Handle error
@@ -193,7 +198,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     }
     
     @IBAction func viewMore(_ sender: Any) {
-        fullCardViewModel.initSpecialtyDescription(self, specialties: activity?.individual.specialties ?? [], showLess: false)
+        fullCardViewModel.initSpecialtyDescription(self, with: theme, specialties: activity?.individual.specialties ?? [], showLess: false)
     }
     
     @IBAction func modifyAction(_ sender: Any) {

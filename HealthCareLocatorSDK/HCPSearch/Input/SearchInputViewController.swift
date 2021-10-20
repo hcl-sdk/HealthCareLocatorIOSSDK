@@ -40,8 +40,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var categoryView: BaseView!
     @IBOutlet weak var categorySearchTextField: UITextField!
+    @IBOutlet weak var specialtyView: BaseView!
     @IBOutlet weak var specialtySearchTextField: UITextField!
+    @IBOutlet weak var locationView: BaseView!
     @IBOutlet weak var locationSearchTextField: UITextField!
     @IBOutlet weak var searchBtn: BaseButton!
     @IBOutlet weak var separatorView: UIView!

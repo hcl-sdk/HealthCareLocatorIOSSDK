@@ -38,7 +38,7 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     }
     
     func layoutWith(theme: HCLThemeConfigure) {
-        tableView.backgroundColor = theme.listBkgColor
+        tableView.backgroundColor = theme.darkmode ? kDarkColor : theme.listBkgColor
     }
     
     // MARK: - Table view data source
