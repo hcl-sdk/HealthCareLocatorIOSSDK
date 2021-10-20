@@ -2473,6 +2473,7 @@
                         <outlet property="addressLabel" destination="x34-W8-24x" id="SX2-p2-CTV"/>
                         <outlet property="avatar" destination="Yfj-cR-jaB" id="8SM-h0-PA4"/>
                         <outlet property="backButton" destination="JEZ-vh-vKN" id="otx-Ma-qyp"/>
+                        <outlet property="backImage" destination="HiP-Xv-I94" id="vqg-wA-Md0"/>
                         <outlet property="categoryTitle" destination="Qyg-bS-GE8" id="0RK-7o-3EU"/>
                         <outlet property="contactWrapper" destination="Phn-9T-gNP" id="yMa-o7-bhN"/>
                         <outlet property="contentWrapper" destination="1mp-xN-yKS" id="2hO-wg-BI4"/>

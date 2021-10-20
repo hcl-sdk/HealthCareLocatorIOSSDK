@@ -75,6 +75,7 @@ public struct HCLThemeConfigure {
     
     // MARK: DarkMode
     public let darkmode: Bool!
+    public let darkmodeForMap: Bool!
 
     public init(defaultFont: UIFont? = UIFont(name: "HelveticaNeue", size: 14.0),
                 titleMainFont: UIFont? = UIFont(name: "HelveticaNeue", size: 20.0),
@@ -113,7 +114,8 @@ public struct HCLThemeConfigure {
                 greyDarkerColor: UIColor? = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1),
                 greyLightColor: UIColor? = UIColor(red: 184/255, green: 184/255, blue: 184/255, alpha: 1),
                 greyLighterColor: UIColor? = UIColor(red: 235/255, green: 235/255, blue: 235/255, alpha: 1),
-                darkmode: Bool = false) {
+                darkmode: Bool = false,
+                darkmodeForMap: Bool = false) {
         // Fonts
         self.defaultFont = defaultFont
         self.titleMainFont = titleMainFont
@@ -157,6 +159,7 @@ public struct HCLThemeConfigure {
         
         // DarkMode
         self.darkmode = darkmode
+        self.darkmodeForMap = darkmodeForMap
     }
 }
 
@@ -198,6 +201,7 @@ extension HCLThemeConfigure: Equatable {
             lhs.greyDarkerColor == rhs.greyDarkerColor &&
             lhs.greyLightColor == rhs.greyLightColor &&
             lhs.greyLighterColor == rhs.greyLighterColor &&
-            lhs.darkmode == rhs.darkmode
+            lhs.darkmode == rhs.darkmode &&
+            lhs.darkmodeForMap == rhs.darkmodeForMap
     }
 }

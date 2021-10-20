@@ -16,6 +16,9 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.isRotateEnabled = false
         mapView.delegate = self

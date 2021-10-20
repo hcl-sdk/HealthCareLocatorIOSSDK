@@ -73,9 +73,9 @@ class SearchResultViewModel: ViewLoading {
                 }
             }
         case .baseSearch(let country):
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: country))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: kDefaultSearchNearMeDistance, country: country))
         default:
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: nil))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: kDefaultSearchNearMeDistance, country: nil))
         }
     }
     

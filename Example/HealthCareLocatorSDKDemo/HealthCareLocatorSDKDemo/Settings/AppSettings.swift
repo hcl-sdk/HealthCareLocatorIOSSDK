@@ -24,6 +24,7 @@ class AppSettings {
         case distanceDefault
         case distanceUnit
         case darkMode
+        case darkModeForMap
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -200,6 +201,17 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue, for: Key.darkMode.rawValue)
+        }
+    }
+    
+    static var darkModeForMap: Bool {
+        get {
+            guard let darkModeForMap = (AppSettings.getValueFor(key: Key.darkModeForMap.rawValue) as? Bool) else { return false }
+            return darkModeForMap
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.darkModeForMap.rawValue)
         }
     }
 }

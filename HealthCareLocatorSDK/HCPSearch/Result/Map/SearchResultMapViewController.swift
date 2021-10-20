@@ -71,6 +71,9 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     private func configure(mapView: MKMapView) {
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true

@@ -71,6 +71,7 @@ class FullCardViewModel {
             
             // Colors
             view.view.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
+            view.backImage.tintColor = theme.darkmode ? .white : theme.darkColor
             view.wrapperView.layer.masksToBounds = true
             view.wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
             view.shareIcon.tintColor = theme.greyColor

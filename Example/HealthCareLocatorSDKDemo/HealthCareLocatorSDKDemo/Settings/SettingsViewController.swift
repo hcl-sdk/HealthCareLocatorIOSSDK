@@ -63,7 +63,8 @@ class SettingsViewController: UIViewController {
                                          menus: [Menu.detailMenu(title: AppSettings.distanceUnit.rawValue)])
         
         var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil),
-                          Menu.toggleMenu(title: kMenuDarkmode, isOn: AppSettings.darkMode)]
+                          Menu.toggleMenu(title: kMenuDarkmode, isOn: AppSettings.darkMode),
+                          Menu.toggleMenu(title: kMenuDarkmodeForMap, isOn: AppSettings.darkModeForMap)]
         
         if isCustomThemeSelected {
             themeMenus.insert(Menu.detailMenu(title: kMenuCustomThemeTitle), at: 0)
@@ -189,6 +190,8 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 AppSettings.countries = (newValue as? String) ?? ""
             case kMenuDarkmode:
                 AppSettings.darkMode = (newValue as? Bool) ?? false
+            case kMenuDarkmodeForMap:
+                AppSettings.darkModeForMap = (newValue as? Bool) ?? false
             default:
                 break
             }

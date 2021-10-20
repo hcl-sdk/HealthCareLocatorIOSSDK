@@ -30,6 +30,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     // General
     @IBOutlet weak var wrapperView: BaseView!
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareIcon: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
@@ -105,6 +106,9 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         contentWrapper.isHidden = true
         loadingView.isHidden = false
         loadingIndicator.startAnimating()
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            placeMapView.overrideUserInterfaceStyle = .dark
+        }
         placeMapView.delegate = self
         placeMapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         if let id = activityID {
