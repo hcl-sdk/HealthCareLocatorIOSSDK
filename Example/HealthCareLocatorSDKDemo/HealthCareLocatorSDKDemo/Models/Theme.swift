@@ -228,6 +228,8 @@ extension Theme {
                                 greyDarkColor: UIColor.init(hexString: greyDarkColor),
                                 greyDarkerColor: UIColor.init(hexString: greyDarkerColor),
                                 greyLightColor: UIColor.init(hexString: greyLightColor),
-                                greyLighterColor: UIColor.init(hexString: greyLighterColor))
+                                greyLighterColor: UIColor.init(hexString: greyLighterColor),
+                                darkmode: AppSettings.darkMode,
+                                darkmodeForMap: AppSettings.darkModeForMap)
     }
 }

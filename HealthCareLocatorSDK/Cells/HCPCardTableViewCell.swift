@@ -30,10 +30,11 @@ class HCPCardTableViewCell: UITableViewCell {
         distanceLabel.font = theme.resultSubTitleFont
         
         // Colors
+        wrapperView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         drLabel.textColor = theme.secondaryColor
-        categoryLabel.textColor = theme.darkColor
+        categoryLabel.textColor = theme.darkmode ? .white : theme.darkColor
         addressLabel.textColor = theme.greyDarkColor
-        distanceLabel.textColor = theme.darkColor
+        distanceLabel.textColor = theme.darkmode ? .white : theme.darkColor
         moreDetailIcon.tintColor = theme.secondaryColor
         
         //

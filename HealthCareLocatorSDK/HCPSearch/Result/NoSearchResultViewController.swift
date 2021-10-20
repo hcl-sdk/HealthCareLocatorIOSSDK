@@ -40,11 +40,13 @@ class NoSearchResultViewController: UIViewController, ViewDesign {
         startNewSearchButton.titleLabel?.font = theme.defaultFont
         
         // Colors
-        view.backgroundColor = theme.viewBkgColor
+        view.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
+        wrapper.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         wrapper.borderColor = theme.cardBorderColor
+        imageViewWrapper.backgroundColor = theme.darkmode ? kDarkColor : theme.viewBkgColor
         imageViewWrapper.borderColor = theme.greyLightColor
         topTitleLabel.textColor = theme.secondaryColor
-        descLabel.textColor = theme.darkColor
+        descLabel.textColor = theme.darkmode ? .white : theme.darkColor
         searchImageView.tintColor = theme.greyLightColor
         startNewSearchButton.setTitleColor(.white, for: .normal)
         startNewSearchButton.backgroundColor = theme.primaryColor

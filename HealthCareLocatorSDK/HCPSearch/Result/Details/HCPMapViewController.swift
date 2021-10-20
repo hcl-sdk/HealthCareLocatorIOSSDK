@@ -25,6 +25,9 @@ class HCPMapViewController: UIViewController, ViewDesign {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.delegate = self
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 

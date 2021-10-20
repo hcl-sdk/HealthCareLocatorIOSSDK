@@ -60,6 +60,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         geolocIcon.image = icons.geolocIcon
+        currentLocationWrapper.backgroundColor = theme.darkmode ? kDarkColor : .white
         currentLocationWrapper.borderWidth = 1
         currentLocationWrapper.borderColor = theme.cardBorderColor
         reLaunchWrapper.backgroundColor = theme.secondaryColor
@@ -70,6 +71,9 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     private func configure(mapView: MKMapView) {
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
