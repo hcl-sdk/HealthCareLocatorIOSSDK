@@ -1,0 +1,69 @@
+/* 
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "\nSağlık Çalışanlarını Bulun ve Konumunu Belirleyin";
+"hcl_home_feat_find_hcp_title" = "HCP'leri bulun";
+"hcl_home_feat_find_hcp_text" = "Konuma, ada, uzmanlığa göre ya da yakınınızda arama yapacak Sağlık Çalışanlarını bulun";
+"hcl_home_feat_consult_profile_title" = "HCP profillerine erişin";
+"hcl_home_feat_consult_profile_text" = "Uzmanlık, konum ve iletişim bilgilerini içeren ayrıntılı sağlık çalışanı profillerini inceleyin";
+"hcl_home_feat_request_info_update_title" = "HCP'leri paylaşın";
+"hcl_home_feat_request_info_update_text" = "Arkadaşlarınızla veya ailenizle profilleri paylaşmak için SMS veya e-posta kullanın ";
+"hcl_start_new_search" = "Yeni Bir Arama Başlat";
+"hcl_hcps_near_me" = "Yakınımdaki HCP'ler";
+"hcl_last_searches" = "Son aramalar";
+"hcl_view_more" = "Daha fazla görüntüle";
+"hcl_view_less" = "Daha az görüntüle";
+"hcl_last_hcps_consulted" = "Danışılan son HCP'ler";
+"hcl_find_healthcare_professional" = "Sağlık Çalışanı bul";
+"hcl_search" = "Ara";
+"hcl_since_format" = "%@ önce";
+
+// Search
+"hcl_search_name_field_label" = "Adı";
+"hcl_search_specialty_field_label" = "Uzmanlığı";
+"hcl_search_second_field_label" = "Nerede? (adresi, şehri...)";
+"hcl_search_reset" = "Aramayı sıfırla";
+"hcl_near_me" = "Yakınımda";
+"hcl_anywhere" = "Herhangi bir yerde";
+
+// Results List View
+"hcl_results_label" = "Sonuçlar";
+"hcl_list_label" = "Liste";
+"hcl_map_label" = "Harita";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "Arama sonuçlarına geri dön";
+"hcl_no_result_found" = "Sonuç bulunamadı";
+"hcl_no_result_message" = "Üzgünüm, aramanıza uygun bir sonuç yok.";
+"hcl_relaunch" = "Yeniden başlat";
+
+// Sort
+"hcl_sort_label" = "Sırala";
+"hcl_relevance_item" = "İlgi";
+"hcl_distance_item" = "Mesafe";
+"hcl_name_item" = "Ad";
+"hcl_apply_button" = "Uygula";
+"hcl_reset_button" = "Sıfırla";
+
+// HCP profile
+"hcl_main_information_label" = "Temel Bilgiler";
+"hcl_rate_refunds_label" = "Fiyatlandırma ve ücret iadeleri";
+"hcl_specialities_label" = "Uzmanlık";
+"hcl_information_label" = "Bilgi";
+"hcl_information_description" = "Bu HCP hakkında size verilen bilgi doğru mu?";
+"hcl_information_yes_label" = "Evet";
+"hcl_information_no_label" = "Hayır";
+"hcl_improve_quality_label" = "Veri kalitesini iyileştirin";
+"hcl_improve_quality_text" = "Bu HCP hakkında bizimle daha fazla bilgi paylaşın.";
+"hcl_suggess_modification_button" = "Bir değişiklik önerin";
+"hcl_back_to_home" = "Ana sayfaya geri dön";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";

@@ -10,26 +10,24 @@ import CoreLocation
 import RxSwift
 
 class SearchResultViewController: UIViewController, ViewDesign {
+    
     enum ViewMode {
         case list
         case map
     }
     
     private let disposeBag = DisposeBag()
-       
+    private var searchResultViewModel: SearchResultViewModel?
+    private var noResultVC: NoSearchResultViewController!
+    
     var resultNavigationVC: UINavigationController!
     var data: SearchData?
-    
     var result: [ActivityResult] = []
-    
-    var sort = SearchResultSortViewController.SortBy.relevance {
+    var sort = SearchResultSortViewController.SortBy.lastName {
         didSet {
             sortResultBy(sort: sort)
         }
     }
-    
-    private var searchResultViewModel: SearchResultViewModel?
-    
     var mode = ViewMode.list {
         didSet {
             if let viewModel = searchResultViewModel {
@@ -40,10 +38,9 @@ class SearchResultViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var topLabelsWrapper: UIStackView!
     @IBOutlet weak var topInputWrapper: UIStackView!
-    
+    @IBOutlet weak var topInputView: BaseView!
     @IBOutlet weak var topInputTextField: UITextField!
     @IBOutlet weak var searchButton: BaseButton!
-    
     @IBOutlet weak var bodyWrapper: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var firstSeparatorView: UIView!
@@ -65,10 +62,9 @@ class SearchResultViewController: UIViewController, ViewDesign {
     @IBOutlet weak var selectedMapViewBackgroundView: BaseView!
     @IBOutlet weak var mapIcon: UIImageView!
     @IBOutlet weak var mapLabel: UILabel!
-    
     @IBOutlet weak var noResultWrapper: UIView!
-    private var noResultVC: NoSearchResultViewController!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topInputTextField.delegate = self
@@ -80,13 +76,10 @@ class SearchResultViewController: UIViewController, ViewDesign {
             layoutWith(searchData: search)
             setupSearchActionsBindding()
         }
-
-        sort = .relevance
         
         // Initialize search
         performSearch()
     }
-    
     
     private func setupSearchActionsBindding() {
         if let viewModel = searchResultViewModel {
@@ -117,7 +110,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
         if let result = result, result.count > 0 {
             noResultWrapper.isHidden = true
             self.result = result
-            reloadWith(result: result)
+            sortResultBy(sort: sort)
             searchResultViewModel?.hideLoading()
             
             // Map zoom
@@ -130,7 +123,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
                     }
                 }
             }
-            
         } else {
             noResultWrapper.isHidden = false
         }
@@ -162,20 +154,19 @@ class SearchResultViewController: UIViewController, ViewDesign {
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         searchResultViewModel?.layout(view: self, theme: theme, icons: icons)
     }
-
+    
     @IBAction func onBackAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
-        performSegue(withIdentifier: "showSearchInputVC", sender: SearchData(criteria: nil,
-                                                                             codes: nil,
-                                                                             mode: .nearMeSearch))
+        performSegue(withIdentifier: "showSearchInputVC", sender: SearchData(criteria: nil, codes: nil, mode: .nearMeSearch))
     }
     
     @IBAction func listViewAction(_ sender: Any) {
         mode = .list
         if let resultListVC = resultNavigationVC.viewControllers.first as? SearchResultListViewController {
+            sort = .lastName
             resultListVC.result = result
             resultNavigationVC.popToViewController(resultListVC, animated: true)
         }
@@ -184,6 +175,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
     @IBAction func mapViewAction(_ sender: Any) {
         mode = .map
         if let viewMapVC = ViewControllers.viewControllerWith(identity: .searchResultMap) as? SearchResultMapViewController {
+            sort = .distance
             configResultMap(viewMapVC: viewMapVC)
             resultNavigationVC.pushViewController(viewMapVC, animated: true)
         }
@@ -204,9 +196,9 @@ class SearchResultViewController: UIViewController, ViewDesign {
     }
     
     // MARK: - Navigation
-
+    
     @IBAction func unwindToSearchResultViewController(_ unwindSegue: UIStoryboardSegue) {
-//        let sourceViewController = unwindSegue.source
+        // let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
     }
     
@@ -227,6 +219,7 @@ class SearchResultViewController: UIViewController, ViewDesign {
                 if let desVC = segue.destination as? HCPFullCardViewController,
                    let activity = sender as? ActivityResult {
                     desVC.activityID = activity.activity.id
+                    desVC.searchCodes = data?.codes
                 }
             case "showSearchInputVC":
                 if let desVC = segue.destination as? SearchInputViewController,
@@ -243,7 +236,6 @@ class SearchResultViewController: UIViewController, ViewDesign {
             }
         }
     }
-
 }
 
 extension SearchResultViewController: UINavigationControllerDelegate {
@@ -264,9 +256,7 @@ extension SearchResultViewController: ActivityHandler {
 extension SearchResultViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == topInputTextField {
-            performSegue(withIdentifier: "showSearchInputVC", sender: SearchData(criteria: nil,
-                                                                                      codes: nil,
-                                                                                      mode: .nearMeSearch))
+            performSegue(withIdentifier: "showSearchInputVC", sender: SearchData(criteria: nil, codes: nil, mode: .nearMeSearch))
         }
     }
 }
@@ -290,7 +280,7 @@ extension SearchResultViewController: SearchResultMapViewControllerDelegate {
         searchResultViewModel?.perform(action: SearchResultViewModel.SearchAction(isNearMeSearch: false,
                                                                                   address: nil,
                                                                                   coordinate: location,
-                                                                                  distance: kDefaultSearchAddressDistance,
+                                                                                  distance: view.distanceFromBBox,
                                                                                   country: nil))
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthCareLocatorSDK
 
 class SettingsViewController: UIViewController {
     
@@ -43,7 +44,7 @@ class SettingsViewController: UIViewController {
         let apiSection = MenuSection(title: kMenuAPIKeyTitle,
                                      menus: [Menu.inputMenu(placeHolder: kMenuAPIKeyTitle, value: AppSettings.APIKey)])
         
-        let language = Language(rawValue: AppSettings.language) ?? .english
+        let language = Language(rawValue: AppSettings.language) ?? .us
         let languageSection = MenuSection(title: kMenuLanguageTitle,
                                           menus: [Menu.detailMenu(title: language.title)], colapsedLimit: nil)
         
@@ -52,8 +53,18 @@ class SettingsViewController: UIViewController {
                                          colapsedLimit: nil)
         let countriesHCPSection = MenuSection(title: kConfigCountries,
                                          menus: [Menu.inputMenu(placeHolder: kConfigCountries, value: AppSettings.countries)])
+        let specialtyLabelHCPSection = MenuSection(title: kConfigSpecialtyLabel,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyLabel, value: AppSettings.specialtyLabel)])
+        let specialtyCodeHCPSection = MenuSection(title: kConfigSpecialtyCode,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigSpecialtyCode, value: AppSettings.specialtyCode)])
+        let distanceDefaultHCPSection = MenuSection(title: kConfigDistanceDefault,
+                                         menus: [Menu.inputMenu(placeHolder: kConfigDistanceDefault, value: AppSettings.distanceDefaultText)])
+        let distanceUnitHCPSection = MenuSection(title: kConfigDistanceUnit,
+                                         menus: [Menu.detailMenu(title: AppSettings.distanceUnit.rawValue)])
         
-        var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil)]
+        var themeMenus = [Menu.textMenu(title: kMenuEditThemeTitle, value: nil),
+                          Menu.toggleMenu(title: kMenuDarkmode, isOn: AppSettings.darkMode),
+                          Menu.toggleMenu(title: kMenuDarkmodeForMap, isOn: AppSettings.darkModeForMap)]
         
         if isCustomThemeSelected {
             themeMenus.insert(Menu.detailMenu(title: kMenuCustomThemeTitle), at: 0)
@@ -79,6 +90,10 @@ class SettingsViewController: UIViewController {
                  languageSection,
                  editHCPSection,
                  countriesHCPSection,
+                 specialtyLabelHCPSection,
+                 specialtyCodeHCPSection,
+                 distanceDefaultHCPSection,
+                 distanceUnitHCPSection,
                  themeSection]
         menuVC.reloadData(menus: menus)
     }
@@ -103,6 +118,10 @@ class SettingsViewController: UIViewController {
                 if let defaultThemesVC = segue.destination as? DefaultThemesViewController {
                     defaultThemesVC.delegate = self
                 }
+            case "showDistanceUnitList":
+                if let distanceUnitVC = segue.destination as? DistanceUnitViewController {
+                    distanceUnitVC.delegate = self
+                }
             default:
                 return
             }
@@ -118,6 +137,10 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
             if let theme = data as? Theme {
                 applySelected(theme: theme)
             }
+            if let unit = data as? HCLDistanceUnit {
+                AppSettings.distanceUnit = unit
+                reloadSettings()
+            }
         case .detailMenu(let title):
             switch title {
             case kMenuGreenThemeTitle,
@@ -126,9 +149,22 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                  kMenuPurpleThemeTitle,
                  kMenuCustomThemeTitle:
                 performSegue(withIdentifier: "showDefaultThemeList", sender: nil)
-            case Language.english.title,
-                 Language.french.title:
+            case Language.us.title,
+                 Language.french.title,
+                 Language.canada.title,
+                 Language.spanish.title,
+                 Language.spanish_co.title,
+                 Language.italian.title,
+                 Language.german.title,
+                 Language.portuguese.title,
+                 Language.polish.title,
+                 Language.turkish.title,
+                 Language.russian.title,
+                 Language.arabic.title,
+                 Language.dutch.title:
                 performSegue(withIdentifier: "showLanguageList", sender: nil)
+            case AppSettings.distanceUnit.rawValue:
+                performSegue(withIdentifier: "showDistanceUnitList", sender: nil)
             default:
                 break
             }
@@ -152,6 +188,10 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 AppSettings.isSuggestEditHCPEnabled = (newValue as? Bool) == true
             case kConfigCountries:
                 AppSettings.countries = (newValue as? String) ?? ""
+            case kMenuDarkmode:
+                AppSettings.darkMode = (newValue as? Bool) ?? false
+            case kMenuDarkmodeForMap:
+                AppSettings.darkModeForMap = (newValue as? Bool) ?? false
             default:
                 break
             }
@@ -161,6 +201,12 @@ extension SettingsViewController: MenuTableViewControllerDelegate {
                 AppSettings.APIKey = (newValue as? String) ?? ""
             case kConfigCountries:
                 AppSettings.countries = (newValue as? String) ?? ""
+            case kConfigSpecialtyLabel:
+                AppSettings.specialtyLabel = (newValue as? String) ?? ""
+            case kConfigSpecialtyCode:
+                AppSettings.specialtyCode = (newValue as? String) ?? ""
+            case kConfigDistanceDefault:
+                AppSettings.distanceDefault = Double(newValue as? String ?? "")
             default:
                 break
             }

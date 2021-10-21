@@ -1,0 +1,69 @@
+/* 
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "Ärzte\nsuchen";
+"hcl_home_feat_find_hcp_title" = "Ärzte suchen";
+"hcl_home_feat_find_hcp_text" = "Ärzte nach Ort, Name, Fachgebiet oder in der Nähe suchen";
+"hcl_home_feat_consult_profile_title" = "Zugang zu Arztprofilen";
+"hcl_home_feat_consult_profile_text" = "Ausführliche Arztprofile lesen, u. a. Fachgebiete, Ort und Kontaktangaben";
+"hcl_home_feat_request_info_update_title" = "Arzt-Infos teilen";
+"hcl_home_feat_request_info_update_text" = "Profile per SMS oder E-Mail mit Freunden und Familie teilen ";
+"hcl_start_new_search" = "Neue Suche starten";
+"hcl_hcps_near_me" = "Ärzte in meiner Nähe";
+"hcl_last_searches" = "Letzte Suchen";
+"hcl_view_more" = "Mehr anzeigen";
+"hcl_view_less" = "Weniger anzeigen";
+"hcl_last_hcps_consulted" = "Zuletzt besuchte Ärzte";
+"hcl_find_healthcare_professional" = "Arzt suchen";
+"hcl_search" = "Suchen";
+"hcl_since_format" = "%@ zuvor";
+
+// Search
+"hcl_search_name_field_label" = "Name";
+"hcl_search_specialty_field_label" = "Fachgebiet";
+"hcl_search_second_field_label" = "Wo? (Adresse, Ort, …)";
+"hcl_search_reset" = "Suche zurücksetzen";
+"hcl_near_me" = "In meiner Nähe";
+"hcl_anywhere" = "Beliebiger Ort";
+
+// Results List View
+"hcl_results_label" = "Ergebnisse";
+"hcl_list_label" = "Liste";
+"hcl_map_label" = "Karte";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "Zurück zu den Suchergebnissen";
+"hcl_no_result_found" = "Keine Ergebnisse gefunden";
+"hcl_no_result_message" = "Leider wurden für Ihre Suche keine passenden Treffer gefunden.";
+"hcl_relaunch" = "Neu starten";
+
+// Sort
+"hcl_sort_label" = "Sortieren";
+"hcl_relevance_item" = "Relevanz";
+"hcl_distance_item" = "Entfernung";
+"hcl_name_item" = "Name";
+"hcl_apply_button" = "Anwenden";
+"hcl_reset_button" = "Zurücksetzen";
+
+// HCP profile
+"hcl_main_information_label" = "Wichtigste Informationen";
+"hcl_rate_refunds_label" = "Preis und Rückerstattungen";
+"hcl_specialities_label" = "Fachgebiete";
+"hcl_information_label" = "Informationen";
+"hcl_information_description" = "Sind die Informationen, die Sie zu diesem Arzt erhalten haben, korrekt?";
+"hcl_information_yes_label" = "Ja";
+"hcl_information_no_label" = "Nein";
+"hcl_improve_quality_label" = "Datenqualität verbessern";
+"hcl_improve_quality_text" = "Geben Sie uns nähere Informationen zu diesem Arzt.";
+"hcl_suggess_modification_button" = "Änderung vorschlagen";
+"hcl_back_to_home" = "Zurück zur Startseite";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";

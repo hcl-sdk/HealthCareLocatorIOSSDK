@@ -30,9 +30,14 @@ public struct IndividualWorkPlaceDetails: Codable {
 
 extension IndividualWorkPlaceDetails {
     var composedName: String {
-        guard let mailingName = mailingName, !mailingName.isEmpty else {
-            return String(format: "%@ %@ %@", firstName ?? "", middleName ?? "", lastName)
+        var temp: [String] = []
+        if let firstName = firstName, !firstName.isEmpty {
+            temp.append(firstName)
         }
-        return mailingName
+        if let middleName = middleName, !middleName.isEmpty {
+            temp.append(middleName)
+        }
+        temp.append(lastName)
+        return temp.joined(separator: " ")
     }
 }

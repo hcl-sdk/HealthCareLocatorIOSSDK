@@ -25,17 +25,22 @@ public struct HCLSearchConfigure {
     let entry: SearchEntry!
     let speciality: String?
     let country: String?
+    let specialtyLabel: String?
     
     /**
      - Params:
         - entry: The first UI will be displyed for the user
         - speciality: The code of specialities will be use to perform the quick search action
-        - country: 
+        - country:
+        - specialtyLabel:
      */
-    public init(entry: SearchEntry? = nil, speciality: String? = nil, country: String? = nil) {
+    public init(entry: SearchEntry? = nil, speciality: String? = nil, country: String? = nil, specialtyLabel: String? = nil, distanceDefault: Double? = nil, distanceUnit: HCLDistanceUnit? = nil) {
         self.entry = entry ?? .home
         self.speciality = speciality
         self.country = country
+        self.specialtyLabel = specialtyLabel
+        kDefaultSearchNearMeDistance = distanceDefault == nil ? nil : distanceDefault! * (distanceUnit ?? .km).toMeter
+        kDefaultDistanceUnit = distanceUnit ?? .km
     }
 }
 

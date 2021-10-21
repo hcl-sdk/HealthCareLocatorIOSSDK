@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import HealthCareLocatorSDK
 
 class AppSettings {
     private enum Key: String {
@@ -18,6 +19,12 @@ class AppSettings {
         case language
         case isSuggestEditHCPEnabled
         case countries
+        case specialtyLabel
+        case specialtyCode
+        case distanceDefault
+        case distanceUnit
+        case darkMode
+        case darkModeForMap
     }
     
     static private func getValueFor(key: String) -> Any? {
@@ -129,6 +136,82 @@ class AppSettings {
         
         set {
             AppSettings.set(value: newValue, for: Key.countries.rawValue)
+        }
+    }
+    
+    static var specialtyLabel: String {
+        get {
+            guard let specialtyLabel = (AppSettings.getValueFor(key: Key.specialtyLabel.rawValue) as? String)
+            else {
+                return ""
+            }
+            return specialtyLabel
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.specialtyLabel.rawValue)
+        }
+    }
+    
+    static var specialtyCode: String {
+        get {
+            guard let specialtyCode = (AppSettings.getValueFor(key: Key.specialtyCode.rawValue) as? String)
+            else {
+                return ""
+            }
+            return specialtyCode
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.specialtyCode.rawValue)
+        }
+    }
+    
+    static var distanceDefault: Double? {
+        get {
+            return (AppSettings.getValueFor(key: Key.distanceDefault.rawValue) as? Double)
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.distanceDefault.rawValue)
+        }
+    }
+    
+    static var distanceDefaultText: String? {
+        guard let distanceDefault = self.distanceDefault else { return nil }
+        return String(format: "%.0f", distanceDefault)
+    }
+    
+    static var distanceUnit: HCLDistanceUnit {
+        get {
+            guard let distanceUnit = (AppSettings.getValueFor(key: Key.distanceUnit.rawValue) as? String) else { return .km }
+            return HCLDistanceUnit(rawValue: distanceUnit) ?? .km
+        }
+        
+        set {
+            AppSettings.set(value: newValue.rawValue, for: Key.distanceUnit.rawValue)
+        }
+    }
+    
+    static var darkMode: Bool {
+        get {
+            guard let darkMode = (AppSettings.getValueFor(key: Key.darkMode.rawValue) as? Bool) else { return false }
+            return darkMode
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.darkMode.rawValue)
+        }
+    }
+    
+    static var darkModeForMap: Bool {
+        get {
+            guard let darkModeForMap = (AppSettings.getValueFor(key: Key.darkModeForMap.rawValue) as? Bool) else { return false }
+            return darkModeForMap
+        }
+        
+        set {
+            AppSettings.set(value: newValue, for: Key.darkModeForMap.rawValue)
         }
     }
 }

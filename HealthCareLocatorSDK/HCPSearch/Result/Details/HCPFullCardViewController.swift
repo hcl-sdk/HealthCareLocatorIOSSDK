@@ -14,6 +14,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     private let locationManager = CLLocationManager()
     let fullCardViewModel: FullCardViewModel! = FullCardViewModel(webServices: HCLHCPSearchWebServices(manager: HCLServiceManager.shared))
     var activityID: String?
+    var searchCodes: [Code]?
     private var activity: Activity?
     
     // Wrapper
@@ -21,24 +22,25 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var phoneWrapper: UIStackView!
+    @IBOutlet weak var phoneViewWrapper: UIView!
     @IBOutlet weak var faxWrapper: UIStackView!
     @IBOutlet weak var websiteWrapper: UIStackView!
+    @IBOutlet weak var contactWrapper: UIStackView!
+    @IBOutlet weak var web_contactWrapper: UIStackView!
     
     // General
     @IBOutlet weak var wrapperView: BaseView!
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareIcon: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
-    
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var drTitle: UILabel!
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var placeMapView: MKMapView!
-    
     @IBOutlet var titleLabels: [UILabel]!
     @IBOutlet var contentLabels: [UILabel]!
     @IBOutlet var lines: [UIView]!
-    
     @IBOutlet weak var directionButton: BaseButton!
     @IBOutlet weak var phoneButton: BaseButton!
     @IBOutlet weak var selectedAddressWrapper: BaseView!
@@ -57,7 +59,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     // Specialities
     @IBOutlet weak var specialitiesTitleLabel: UILabel!
-    @IBOutlet weak var specialitiesDescriptionLabel: UILabel!
+    @IBOutlet weak var specialitiesDescriptionStackView: UIStackView!
+    @IBOutlet weak var specialitiesDescriptionStackView_Height: NSLayoutConstraint!
+    @IBOutlet weak var specialitiesViewMoreView: UIView!
+    @IBOutlet weak var specialitiesViewMoreLabel: UILabel!
     
     // Rate and refunds
     @IBOutlet weak var rateAndRefundWrapper: UIStackView!
@@ -83,6 +88,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     @IBOutlet weak var qualityDescriptionLabel: UILabel!
     
     @IBOutlet weak var webUrlView: UITextView!
+    @IBOutlet weak var editButtonView: BaseView!
     @IBOutlet weak var editIcon: UIImageView!
     @IBOutlet weak var editButtonTitleLabel: UILabel!
     
@@ -96,23 +102,22 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         super.viewDidLoad()
         // NOTE: Temporary disable rateAndRefund block as the service is not provided yet
         rateAndRefundWrapper.isHidden = true
-        suggestEditWrapper.isHidden = !HCLManager.shared.isSuggestEditHCPEnable        
+        suggestEditWrapper.isHidden = !HCLManager.shared.isSuggestEditHCPEnable
         contentWrapper.isHidden = true
         loadingView.isHidden = false
         loadingIndicator.startAnimating()
-        
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            placeMapView.overrideUserInterfaceStyle = .dark
+        }
         placeMapView.delegate = self
         placeMapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-
         if let id = activityID {
             fetchActivityWith(id: id)
             rating = AppConfigure.getVoteFor(activityId: id, by: AppConfigure.deviceId)
         } else {
             fatalError("Missing Activity ID")
         }
-        
         layoutWith(theme: theme, icons: icons)
-        
         fixWebURLViewDisplaying()
     }
     
@@ -132,13 +137,14 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     private func fetchActivityWith(id: String) {
         // Fetch activity
-        fullCardViewModel.fetchActivityDetail(activityID: id, config: HCLManager.shared) {[weak self] (activity, error) in
+        fullCardViewModel.fetchActivityDetail(activityID: id,
+                                              config: HCLManager.shared) { [weak self] (activity, error) in
             guard let strongSelf = self else {return}
             if let unwrapActivity = activity {
                 // Save last HCPs consulted
                 AppConfigure.save(activity: unwrapActivity)
                 strongSelf.activity = unwrapActivity
-                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: unwrapActivity)
+                strongSelf.fullCardViewModel.fullFill(view: strongSelf, with: strongSelf.theme, with: unwrapActivity)
                 strongSelf.animateContentDisplaying()
             } else {
                 // TODO: Handle error
@@ -151,14 +157,15 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
         fullCardViewModel.layoutViewRating(view: self, with: theme, value: rating)
     }
     
-    
     // MARK: Actions
+    
     @IBAction func onBackAction(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        let items = [activity?.shareMessageWith(appName: HCLManager.shared.appName, and: HCLManager.shared.appDownloadLink) ?? ""] as [Any]
+        let items = [activity?.shareMessageWith(appName: HCLManager.shared.appName,
+                                                and: HCLManager.shared.appDownloadLink) ?? ""] as [Any]
         let sharePanel = UIActivityViewController(activityItems: items, applicationActivities: nil)
         sharePanel.modalPresentationStyle = .overFullScreen
         present(sharePanel, animated: true, completion: nil)
@@ -173,8 +180,7 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: desLocation.lat,
                                                                                                   longitude: desLocation.lon)))
             destination.name = activity.workplace.name
-            Helper.openMapWithDirection(from: userMark,
-                                        to: destination)
+            Helper.openMapWithDirection(from: userMark, to: destination)
         }
     }
     
@@ -189,6 +195,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
     
     @IBAction func changeAddressAction(_ sender: Any) {
         performSegue(withIdentifier: "showAddressPicker", sender: activity)
+    }
+    
+    @IBAction func viewMore(_ sender: Any) {
+        fullCardViewModel.initSpecialtyDescription(self, with: theme, specialties: activity?.individual.specialties ?? [], showLess: false)
     }
     
     @IBAction func modifyAction(_ sender: Any) {
@@ -214,7 +224,6 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
                 let selected = allActivities.firstIndex(where: { (other) -> Bool in
                     return other.id == activity.id
                  })
-                
                 addressPicker.configWith(items: allActivities.map {$0.workplace.address.composedAddress},
                                          selected: selected)
             case "showMapView":
@@ -225,10 +234,10 @@ class HCPFullCardViewController: UIViewController, ViewDesign {
             }
         }
     }
-
 }
 
 extension HCPFullCardViewController: PickerListViewControllerDelegate {
+    
     func didSelect(item: String, at index: Int) {
         dismiss(animated: false) { [weak self] in
             guard let strongSelf = self,
@@ -241,11 +250,11 @@ extension HCPFullCardViewController: PickerListViewControllerDelegate {
     func backAction() {
         dismiss(animated: false, completion: nil)
     }
-
 }
 
 // MARK: Rating
 extension HCPFullCardViewController {
+    
     @IBAction func ratingYesAction(_ sender: Any) {
         rating = true
         AppConfigure.setVoteFor(activityId: activityID!, by: AppConfigure.deviceId, with: true)
@@ -262,6 +271,7 @@ extension HCPFullCardViewController {
 }
 
 extension HCPFullCardViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
           return nil

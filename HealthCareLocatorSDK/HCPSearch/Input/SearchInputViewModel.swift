@@ -13,21 +13,30 @@ class SearchInputViewModel {
         view.searchBtn.setImage(icons.searchIcon, for: .normal)
         
         // Colors
-        view.backButton.tintColor = theme.darkColor
+        view.view.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.categoryView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.specialtyView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.locationView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.searchResultTableView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.backButton.tintColor = theme.darkmode ? .white : theme.darkColor
         view.separatorView.backgroundColor = theme.greyLighterColor
         view.searchResultTableView.separatorColor = theme.greyLighterColor
         
-        view.categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "hcl_search_first_field_label".localized,
+        view.categorySearchTextField.attributedPlaceholder = NSAttributedString(string: "hcl_search_name_field_label".localized,
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
+        view.specialtySearchTextField.attributedPlaceholder = NSAttributedString(string: "hcl_search_specialty_field_label".localized,
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
         view.locationSearchTextField.attributedPlaceholder = NSAttributedString(string: "hcl_search_second_field_label".localized,
                                                                    attributes: [NSAttributedString.Key.foregroundColor : theme.greyLightColor ?? .lightGray])
-        view.categorySearchTextField.textColor = theme.darkColor
-        view.locationSearchTextField.textColor = theme.darkColor
+        view.categorySearchTextField.textColor = theme.darkmode ? .white : theme.darkColor
+        view.specialtySearchTextField.textColor = theme.darkmode ? .white : theme.darkColor
+        view.locationSearchTextField.textColor = theme.darkmode ? .white : theme.darkColor
         
         view.searchBtn.backgroundColor = theme.primaryColor
         
         // Fonts
         view.categorySearchTextField.font = theme.searchInputFont
+        view.specialtySearchTextField.font = theme.searchInputFont
         view.locationSearchTextField.font = theme.searchInputFont
     }
     

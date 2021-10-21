@@ -82,12 +82,22 @@ public struct Individual: Codable {
 
 extension Individual {
     var composedName: String {
-        return [firstName, middleName, lastName].compactMap {$0}.joined(separator: " ")
+        var temp: [String] = []
+        if let firstName = firstName, !firstName.isEmpty {
+            temp.append(firstName)
+        }
+        if let middleName = middleName, !middleName.isEmpty {
+            temp.append(middleName)
+        }
+        temp.append(lastName)
+        return temp.joined(separator: " ")
     }
 }
 
 public struct Workplace: Codable {
     public let name: String?
+    public let localPhone: String?
+    public let intlPhone: String?
     public let address: Address!
 }
 
@@ -113,14 +123,17 @@ extension Address {
             addComponents.append(longLabel)
         }
         
-        if let city = city {
-            addComponents.append(city.label)
+        var temp = ""
+        temp += postalCode ?? ""
+        temp += ((temp.isEmpty ? "" : " ") + (city.label ?? ""))
+        if !temp.isEmpty {
+            addComponents.append(temp)
         }
         return addComponents.joined(separator: ", ")
     }
 }
 
-public struct Geopoint: Codable {
+public struct Geopoint: Codable, Equatable {
     public let lat: Double!
     public let lon: Double!
 }

@@ -1,0 +1,69 @@
+/*
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "Trouver et localiser des\nprestataires de soins de santé";
+"hcl_home_feat_find_hcp_title" = "Trouver des PSS";
+"hcl_home_feat_find_hcp_text" = "Trouver des prestataires de soins de santé par lieu, nom, spécialité ou par recherche à proximité";
+"hcl_home_feat_consult_profile_title" = "Accéder aux profils des PSS";
+"hcl_home_feat_consult_profile_text" = "Examiner les profils détaillés des prestataires, y compris les spécialités, lieux et coordonnées";
+"hcl_home_feat_request_info_update_title" = "Partager des profils de PSS";
+"hcl_home_feat_request_info_update_text" = "Utiliser le texto ou le courriel pour partager des profils avec des ami-e-s ou des membres de la famille ";
+"hcl_start_new_search" = "Lancer une nouvelle recherche";
+"hcl_hcps_near_me" = "PSS près de moi";
+"hcl_last_searches" = "Plus récentes recherches";
+"hcl_view_more" = "Afficher plus";
+"hcl_view_less" = "Afficher moins";
+"hcl_last_hcps_consulted" = "Derniers PSS consultés";
+"hcl_find_healthcare_professional" = "Trouver un prestataire de soins de santé";
+"hcl_search" = "Recherche";
+"hcl_since_format" = "%@ auparavant";
+
+// Search
+"hcl_search_name_field_label" = "Nom";
+"hcl_search_specialty_field_label" = "Spécialité";
+"hcl_search_second_field_label" = "Où? (adresse, ville...)";
+"hcl_search_reset" = "Réinitialiser la recherche";
+"hcl_near_me" = "Près de moi";
+"hcl_anywhere" = "N’importe où";
+
+// Results List View
+"hcl_results_label" = "Résultats";
+"hcl_list_label" = "Liste";
+"hcl_map_label" = "Carte";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "Revenir aux résultats de recherche";
+"hcl_no_result_found" = "Aucun résultat trouvé";
+"hcl_no_result_message" = "Oups, votre recherche ne semble produire aucun résultat.";
+"hcl_relaunch" = "Relancer";
+
+// Sort
+"hcl_sort_label" = "Trier";
+"hcl_relevance_item" = "Pertinence";
+"hcl_distance_item" = "Distance";
+"hcl_name_item" = "Nom";
+"hcl_apply_button" = "Appliquer";
+"hcl_reset_button" = "Réinitialiser";
+
+// HCP profile
+"hcl_main_information_label" = "Principaux renseignements";
+"hcl_rate_refunds_label" = "Tarif et remboursements";
+"hcl_specialities_label" = "Spécialités";
+"hcl_information_label" = "Renseignements";
+"hcl_information_description" = "Les renseignements que vous avez obtenus à propos de ce PSS étaient-ils exacts?";
+"hcl_information_yes_label" = "Oui";
+"hcl_information_no_label" = "Non";
+"hcl_improve_quality_label" = "Améliorer la qualité des données";
+"hcl_improve_quality_text" = "Partager plus de renseignements avec nous à propos de ce PSS.";
+"hcl_suggess_modification_button" = "Suggérer une modification";
+"hcl_back_to_home" = "Retour à l'accueil";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";

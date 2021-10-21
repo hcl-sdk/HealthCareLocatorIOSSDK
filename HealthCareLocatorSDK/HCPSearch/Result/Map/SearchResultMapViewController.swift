@@ -24,6 +24,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
         }
     }
     var result: [ActivityResult] = []
+    var distanceFromBBox: Double = 0.0
 
     @IBOutlet weak var currentLocationBtn: BaseButton!
     @IBOutlet weak var currentLocationWrapper: BaseView!
@@ -59,6 +60,7 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
         geolocIcon.image = icons.geolocIcon
+        currentLocationWrapper.backgroundColor = theme.darkmode ? kDarkColor : .white
         currentLocationWrapper.borderWidth = 1
         currentLocationWrapper.borderColor = theme.cardBorderColor
         reLaunchWrapper.backgroundColor = theme.secondaryColor
@@ -69,10 +71,14 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     private func configure(mapView: MKMapView) {
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.delegate = self
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
-        mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(SearchResultAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     private func addMapPinFor(result: [ActivityResult]) {
@@ -89,8 +95,15 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     
     private func reloadHorizontalListWith(selectedIndexs: [Int]) {
         cardCollectionViewController.selectedIndexs = selectedIndexs
+        SearchResultListViewController.shared.selectedLocations.removeAll()
+        selectedIndexs.forEach { index in
+            if let location = result[index].activity.workplace.address.location {
+                SearchResultListViewController.shared.selectedLocations.append(location)
+            }
+        }
         if let first = selectedIndexs.first {
-            cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: first, section: 0), at: .centeredHorizontally, animated: true)
+            cardCollectionViewController.collectionView.scrollToItem(at: IndexPath(row: first, section: 0),
+                                                                     at: .centeredHorizontally, animated: true)
         }
     }
     
@@ -99,8 +112,39 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
     }
     
     @IBAction func relaunchAction(_ sender: Any) {
+        // Reset selectedIndexs
+        cardCollectionViewController.selectedIndexs = []
+        SearchResultListViewController.shared.selectedLocations = []
+        
+        //
         reLaunchWrapper.isHidden = true
-        mapDelegate?.startNewSearchWith(location: mapView.centerCoordinate, from: self)
+        OSMWebService.getBoundingbox(from: mapView.centerCoordinate, completion: { [weak self] result, error in
+            guard let strongSelf = self,
+                  let result = result else { return }
+            if let boundingbox = result.boundingbox, boundingbox.count == 4 {
+                strongSelf.distanceFromBBox = strongSelf.getDistanceFromBoundingBox(lat1: Double(boundingbox[0]) ?? 0,
+                                                                                    lon1: Double(boundingbox[1]) ?? 0,
+                                                                                    lat2: Double(boundingbox[2]) ?? 0,
+                                                                                    lon2: Double(boundingbox[3]) ?? 0)
+                strongSelf.mapDelegate?.startNewSearchWith(location: strongSelf.mapView.centerCoordinate, from: strongSelf)
+            }
+        })
+    }
+    
+    private func getDistanceFromBoundingBox(lat1: Double, lon1: Double, lat2: Double, lon2: Double) -> Double {
+        let absoluteLatDiff = abs(lat2 - lat1)
+        let latDiff = degreesToRadian(number: absoluteLatDiff)
+        let absoluteLonDiff = abs(lon2 - lon1)
+        let lngDiff = degreesToRadian(number: absoluteLonDiff)
+        let a = sin(latDiff / 2) * sin(latDiff / 2) +
+            cos(degreesToRadian(number: lat1)) * cos(degreesToRadian(number: lat2)) *
+            sin(lngDiff / 2) * sin(lngDiff / 2)
+        let c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        return EARTH_RADIUS_IN_METERS * c
+    }
+    
+    private func degreesToRadian(number: Double) -> Double {
+        return number * .pi / 180
     }
     
     func defaultZoomTo(location: CLLocationCoordinate2D, distance: CLLocationDistance = kDefaultZoomLevel) {
@@ -134,7 +178,8 @@ class SearchResultMapViewController: UIViewController, ViewDesign, ActivityListH
 extension SearchResultMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let lastCenter = lastCenter,
-           lastCenter.latitude != mapView.centerCoordinate.latitude && lastCenter.longitude != mapView.centerCoordinate.longitude {
+           lastCenter.latitude != mapView.centerCoordinate.latitude
+            && lastCenter.longitude != mapView.centerCoordinate.longitude {
             reLaunchWrapper.isHidden = false
         }
     }
@@ -144,7 +189,8 @@ extension SearchResultMapViewController: MKMapViewDelegate {
           return nil
         } else {
             var annotationView: SearchResultAnnotationView!
-            if let view = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? SearchResultAnnotationView {
+            if let view = mapView.dequeueReusableAnnotationView(
+                withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier) as? SearchResultAnnotationView {
                 annotationView = view
             } else {
                 annotationView = SearchResultAnnotationView(annotation: annotation,
@@ -177,8 +223,9 @@ extension SearchResultMapViewController: MKMapViewDelegate {
 }
 
 extension SearchResultMapViewController: SortableResultList {
+    
     func reloadWith(data: [ActivityResult]) {
-        self.result = data
+        result = data
         if isViewLoaded {
             addMapPinFor(result: data)
             cardCollectionViewController.reloadWith(data: data)

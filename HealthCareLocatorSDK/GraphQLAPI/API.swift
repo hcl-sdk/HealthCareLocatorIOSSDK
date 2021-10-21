@@ -406,6 +406,7 @@ public final class IndividualsByNameQuery: GraphQLQuery {
                   label
                 }
                 country
+                postalCode
                 location {
                   __typename
                   lat
@@ -812,6 +813,7 @@ public final class IndividualsByNameQuery: GraphQLQuery {
                   GraphQLField("county", type: .object(County.selections)),
                   GraphQLField("city", type: .nonNull(.object(City.selections))),
                   GraphQLField("country", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("postalCode", type: .nonNull(.scalar(String.self))),
                   GraphQLField("location", type: .object(Location.selections)),
                 ]
               }
@@ -1104,6 +1106,7 @@ public final class ActivitiesQuery: GraphQLQuery {
                 label
               }
               country
+              postalCode
               location {
                 __typename
                 lat
@@ -1538,6 +1541,7 @@ public final class ActivitiesQuery: GraphQLQuery {
                 GraphQLField("county", type: .object(County.selections)),
                 GraphQLField("city", type: .nonNull(.object(City.selections))),
                 GraphQLField("country", type: .nonNull(.scalar(String.self))),
+                GraphQLField("postalCode", type: .nonNull(.scalar(String.self))),
                 GraphQLField("location", type: .object(Location.selections)),
               ]
             }
@@ -1825,6 +1829,7 @@ public final class ActivityByIdQuery: GraphQLQuery {
                   label
                 }
                 country
+                postalCode
                 location {
                   __typename
                   lat
@@ -1853,6 +1858,7 @@ public final class ActivityByIdQuery: GraphQLQuery {
                   label
                 }
                 country
+                postalCode
                 location {
                   __typename
                   lat
@@ -1866,6 +1872,8 @@ public final class ActivityByIdQuery: GraphQLQuery {
           __typename
           name
           officialName
+          localPhone
+          intlPhone
           address {
             __typename
             longLabel
@@ -2403,6 +2411,7 @@ public final class ActivityByIdQuery: GraphQLQuery {
                   GraphQLField("county", type: .object(County.selections)),
                   GraphQLField("city", type: .nonNull(.object(City.selections))),
                   GraphQLField("country", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("postalCode", type: .nonNull(.scalar(String.self))),
                   GraphQLField("location", type: .object(Location.selections)),
                 ]
               }
@@ -2731,6 +2740,7 @@ public final class ActivityByIdQuery: GraphQLQuery {
                   GraphQLField("county", type: .object(County.selections)),
                   GraphQLField("city", type: .nonNull(.object(City.selections))),
                   GraphQLField("country", type: .nonNull(.scalar(String.self))),
+                  GraphQLField("postalCode", type: .nonNull(.scalar(String.self))),
                   GraphQLField("location", type: .object(Location.selections)),
                 ]
               }
@@ -2971,6 +2981,8 @@ public final class ActivityByIdQuery: GraphQLQuery {
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("name", type: .nonNull(.scalar(String.self))),
             GraphQLField("officialName", type: .scalar(String.self)),
+            GraphQLField("localPhone", type: .scalar(String.self)),
+            GraphQLField("intlPhone", type: .scalar(String.self)),
             GraphQLField("address", type: .nonNull(.object(Address.selections))),
           ]
         }

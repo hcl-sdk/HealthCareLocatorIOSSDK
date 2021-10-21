@@ -85,7 +85,7 @@ extension HomeViewController: MenuTableViewControllerDelegate {
             case kMenuHomeTitle:
                 homeNavigationController.popToRootViewController(animated: true)
             case kMenuNewSearchTitle:
-                handleStartNewSearch(config: HCLSearchConfigure(country: AppSettings.countries))
+                handleStartNewSearch(config: HCLSearchConfigure(country: AppSettings.countries, distanceDefault: AppSettings.distanceDefault, distanceUnit: AppSettings.distanceUnit))
             case kMenuFindDentistNearMeTitle:
                 startQuickDentistSearch()
             case kMenuFindCardiologistNearMeTitle:
@@ -120,11 +120,13 @@ extension HomeViewController: MenuTableViewControllerDelegate {
     }
     
     private func startQuickCardilogySearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "SP.WCA.08", country: AppSettings.countries))
+        let specialityCode = AppSettings.specialtyCode.isEmpty ? "SP.WCA.08" : AppSettings.specialtyCode
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: specialityCode, country: AppSettings.countries, specialtyLabel: AppSettings.specialtyLabel, distanceDefault: AppSettings.distanceDefault, distanceUnit: AppSettings.distanceUnit))
     }
     
     private func startQuickDentistSearch() {
-        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: "SP.WCA.75", country: AppSettings.countries))
+        let specialityCode = AppSettings.specialtyCode.isEmpty ? "SP.WCA.75" : AppSettings.specialtyCode
+        handleStartNewSearch(config: HCLSearchConfigure(entry: .nearMe, speciality: specialityCode, country: AppSettings.countries, specialtyLabel: AppSettings.specialtyLabel, distanceDefault: AppSettings.distanceDefault, distanceUnit: AppSettings.distanceUnit))
     }
     
     @IBAction func unwindToHomeViewController(_ unwindSegue: UIStoryboardSegue) {

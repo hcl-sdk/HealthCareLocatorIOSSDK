@@ -16,6 +16,9 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if #available(iOS 13.0, *), theme.darkmodeForMap {
+            mapView.overrideUserInterfaceStyle = .dark
+        }
         mapView.register(SearchResultAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.isRotateEnabled = false
         mapView.delegate = self
@@ -23,6 +26,7 @@ class ActivityMapTableViewCell: CustomBorderTableViewCell, ViewDesign {
     
     func configWith(theme: HCLThemeConfigure?, activities: [ActivityResult], center: CLLocationCoordinate2D?, isLastRow: Bool) {
         super.config(theme: theme, isLastRow: isLastRow)
+        contentView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
         let activityList = ActivityList(activities: activities)
         mapView.reload(annotations: activityList.getAnotations())
         if let location = center {

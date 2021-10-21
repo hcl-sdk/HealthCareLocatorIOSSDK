@@ -25,9 +25,10 @@ class SearchHistoryTableViewCell: CustomBorderTableViewCell {
         timeLabel.font = theme?.smallFont
         
         // Colors
+        contentView.backgroundColor = theme?.darkmode ?? false ? kDarkLightColor : .white
         closeButton.tintColor = theme?.greyDarkColor
         criteriabel.textColor = theme?.secondaryColor
-        timeLabel.textColor = theme?.darkColor
+        timeLabel.textColor = theme?.darkmode ?? false ? .white : theme?.darkColor
         addressLabel.textColor = theme?.greyDarkColor
 
         //

@@ -9,13 +9,14 @@ import UIKit
 
 class SearchResultListViewController: UITableViewController, ActivityListHandler, ViewDesign {
     
+    static let shared = SearchResultListViewController()
     weak var delegate: ActivityHandler?
-    
     var result: [ActivityResult] = []
+    var selectedLocations: [Geopoint] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = .init()
         layoutWith(theme: theme)
     }
 
@@ -24,8 +25,20 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
         tableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let first = SearchResultListViewController.shared.selectedLocations.first else { return }
+        guard let index = self.result.firstIndex(where: {$0.activity.workplace.address.location == first}) else { return }
+        tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SearchResultListViewController.shared.selectedLocations = []
+    }
+    
     func layoutWith(theme: HCLThemeConfigure) {
-        tableView.backgroundColor = theme.listBkgColor
+        tableView.backgroundColor = theme.darkmode ? kDarkColor : theme.listBkgColor
     }
     
     // MARK: - Table view data source
@@ -39,63 +52,24 @@ class SearchResultListViewController: UITableViewController, ActivityListHandler
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HCPCardTableViewCell", for: indexPath) as! HCPCardTableViewCell
-        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row])
-        
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "HCPCardTableViewCell", for: indexPath) as? HCPCardTableViewCell
+        else {
+            return .init()
+        }
+        let location = result[indexPath.row].activity.workplace.address.location ?? Geopoint(lat: 0, lon: 0)
+        cell.configWith(theme: theme, icons: icons, item: result[indexPath.row],
+                        selected: SearchResultListViewController.shared.selectedLocations.contains(location))
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(activity: result[indexPath.row])
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension SearchResultListViewController: SortableResultList {
+    
     func reloadWith(data: [ActivityResult]) {
         result = data
         if isViewLoaded {

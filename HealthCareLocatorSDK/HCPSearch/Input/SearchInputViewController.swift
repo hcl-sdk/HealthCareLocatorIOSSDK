@@ -29,6 +29,7 @@ class SearchInputViewController: UIViewController, ViewDesign {
     // Address
     var data: SearchData?
     private let searchCompleter = MKLocalSearchCompleter()
+    private var searchAddressResult: [String] = []
     private var searchResult = [SearchAutoComplete]() {
         didSet {
             if isViewLoaded {
@@ -39,7 +40,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var categoryView: BaseView!
     @IBOutlet weak var categorySearchTextField: UITextField!
+    @IBOutlet weak var specialtyView: BaseView!
+    @IBOutlet weak var specialtySearchTextField: UITextField!
+    @IBOutlet weak var locationView: BaseView!
     @IBOutlet weak var locationSearchTextField: UITextField!
     @IBOutlet weak var searchBtn: BaseButton!
     @IBOutlet weak var separatorView: UIView!
@@ -53,10 +58,11 @@ class SearchInputViewController: UIViewController, ViewDesign {
         searchCompleter.delegate = self
         categorySearchTextField.delegate = self
         categorySearchTextField.rightViewMode = .always
+        specialtySearchTextField.delegate = self
+        specialtySearchTextField.rightViewMode = .always
         locationSearchTextField.delegate = self
         locationSearchTextField.rightViewMode = .always
-
-        searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService as! HCLHCPSearchWebServices)
+        searchInputAutocompleteModelView = SearchInputAutocompleteViewModel(webServices: webService)
         
         layoutWith(theme: theme, icons: icons)
         getCountryByLocation()
@@ -93,35 +99,58 @@ class SearchInputViewController: UIViewController, ViewDesign {
     }
     
     func setupDataBinding() {
-        categorySearchTextField.rx.controlEvent([.editingChanged]).asObservable().subscribe(onNext: {[weak self] in
-            self?.searchResultTableView.reloadData()
-        })
-        .disposed(by: disposeBag)
-        /*
-         Fetch autocomplete data by creteria with debounce 300 milisecond
-         */
-        searchInputAutocompleteModelView.isFirstFieldLoading().subscribe(onNext: {[weak self] isLoading in
+        // categorySearchTextField
+        searchInputAutocompleteModelView.isLoadingIndividuals.subscribe(onNext: {[weak self] isLoading in
             guard let strongSelf = self else {return}
             strongSelf.viewModel.showLoading(isLoading: isLoading, for: strongSelf.categorySearchTextField)
         }).disposed(by: disposeBag)
         
-        let firstFieldCriteria = categorySearchTextField.rx.controlEvent([.editingChanged])
+        let categoryField = categorySearchTextField.rx.controlEvent([.editingChanged])
             .map { [weak self] in self?.categorySearchTextField.text ?? ""}
             .distinctUntilChanged()
         
-        let searchCriteria = firstFieldCriteria.debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+        let categorySearch = categoryField.debounce(.milliseconds(300), scheduler: MainScheduler.instance)
         
-        searchCriteria.bind(to: searchInputAutocompleteModelView.autocompleteCreteriaSubject).disposed(by: disposeBag)
-                
-        Observable.zip(searchInputAutocompleteModelView.codesObservable(config: HCLManager.shared),
-                       searchInputAutocompleteModelView.individualsObservable(config: HCLManager.shared))
-            .subscribe(onNext: {[weak self] (codes, individuals) in
+        categorySearch.bind(to: searchInputAutocompleteModelView.individualsCreteriaSubject).disposed(by: disposeBag)
+        
+        searchInputAutocompleteModelView.individualsObservable(config: HCLManager.shared)
+            .subscribe(onNext: {[weak self] (individuals) in
                 guard let strongSelf = self else {return}
                 var result = [SearchAutoComplete]()
-                result.append(contentsOf: codes.map {SearchAutoComplete.Code(code: $0)})
                 result.append(contentsOf: individuals.map {SearchAutoComplete.Individual(individual: $0)})
                 strongSelf.searchResult = result.count > 0 ? result : [.NearMe]
             }).disposed(by: disposeBag)
+        
+        // specialtySearchTextField
+        searchInputAutocompleteModelView.isLoadingCodes.subscribe(onNext: {[weak self] isLoading in
+            guard let strongSelf = self else {return}
+            strongSelf.viewModel.showLoading(isLoading: isLoading, for: strongSelf.specialtySearchTextField)
+        }).disposed(by: disposeBag)
+        
+        let specialtyField = specialtySearchTextField.rx.controlEvent([.editingChanged])
+            .map { [weak self] in self?.specialtySearchTextField.text ?? ""}
+            .distinctUntilChanged()
+        
+        let specialtySearch = specialtyField.debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+        
+        specialtySearch.bind(to: searchInputAutocompleteModelView.codesCreteriaSubject).disposed(by: disposeBag)
+        
+        searchInputAutocompleteModelView.codesObservable(config: HCLManager.shared)
+            .subscribe(onNext: {[weak self] (codes) in
+                guard let strongSelf = self else {return}
+                var result = [SearchAutoComplete]()
+                result.append(contentsOf: codes.map {SearchAutoComplete.Code(code: $0)})
+                strongSelf.searchResult = result.count > 0 ? result : [.NearMe]
+                // Auto complete for specialtySearchTextField when data was updated
+                strongSelf.handleDataForAutoComplete(strongSelf.specialtySearchTextField, searchResult: strongSelf.searchResult)
+            }).disposed(by: disposeBag)
+    }
+    
+    func handleDataForAutoComplete(_ textField: UITextField, searchResult: [SearchAutoComplete]) {
+        guard let string = textField.text, textField.isEditing else { return }
+        var searchResultList = [String]()
+        searchResult.forEach({ searchResultList.append($0.value) })
+        self.autoCompleteText(in: textField, searchResult: searchResultList, using: string.capitalized)
     }
     
     func layoutWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure) {
@@ -135,20 +164,35 @@ class SearchInputViewController: UIViewController, ViewDesign {
                     print("Error:", error ?? "nil")
                     return
                 }
-                self.currentCountry = placemark.postalAddressFormatted?.lowercased() ?? ""
+                self.currentCountry = placemark.postalCountryFormatted?.lowercased() ?? ""
             }
         }
     }
     
     @IBAction func onSearchAction(_ sender: Any) {
-        let validator = SearchInputValidator()
+        // Auto complete
+        if let text = categorySearchTextField.text, !text.isEmpty {
+            categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+        }
+        if let text = specialtySearchTextField.text, !text.isEmpty {
+            specialtySearchTextField.text = searchInputAutocompleteModelView.selectedCode?.longLbl ?? text
+        }
+        if let text = locationSearchTextField.text, !text.isEmpty, locationSearchTextField.isEditing {
+            locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+        }
+        
         // Search near me criteria is not mandatory
-        let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text) || searchInputAutocompleteModelView.isNearMeSearch
+        let validator = SearchInputValidator()
+        let isCriteriaValid = validator.isCriteriaValid(criteriaText: categorySearchTextField.text)
+            || validator.isCriteriaValid(criteriaText: specialtySearchTextField.text)
+            || searchInputAutocompleteModelView.isNearMeSearch
         
         if !isCriteriaValid {
             categorySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
+            specialtySearchTextField.setBorderWith(width: 2, cornerRadius: 8, borderColor: .red)
         } else {
             categorySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
+            specialtySearchTextField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
         }
         
         if isCriteriaValid {
@@ -214,8 +258,8 @@ class SearchInputViewController: UIViewController, ViewDesign {
     // MARK: - Navigation
 
     @IBAction func unwindToSearchInputViewController(_ unwindSegue: UIStoryboardSegue) {
-//        let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
+        // let sourceViewController = unwindSegue.source
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -241,24 +285,43 @@ class SearchInputViewController: UIViewController, ViewDesign {
 
 // MARK: Textfield delegate
 extension SearchInputViewController: UITextFieldDelegate {
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let searchText = textField.text.orEmpty
-        if textField == categorySearchTextField {
+        if textField == categorySearchTextField || textField == specialtySearchTextField {
             if searchText.isEmpty {
                 searchResult = [.NearMe]
             } else {
                 searchResult = []
             }
-            searchInputAutocompleteModelView.autocompleteCreteriaSubject.onNext(searchText)
+            textField == categorySearchTextField ? searchInputAutocompleteModelView.individualsCreteriaSubject.onNext(searchText) : searchInputAutocompleteModelView.codesCreteriaSubject.onNext(searchText)
         } else {
             searchResult = [.NearMe]
             searchCompleter.queryFragment = searchText
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == categorySearchTextField {
+            if let text = categorySearchTextField.text, !text.isEmpty {
+                categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+            }
+        } else if textField == specialtySearchTextField {
+            if let text = specialtySearchTextField.text, !text.isEmpty {
+                specialtySearchTextField.text = searchInputAutocompleteModelView.selectedCode?.longLbl ?? text
+            }
+        } else {
+            if let text = locationSearchTextField.text, !text.isEmpty {
+                locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         // NOTE: wont allow to edit the selected code after select, the user MUST clear the code instead
-        if textField == categorySearchTextField && searchInputAutocompleteModelView.isSelectedCode() {
+        if textField == specialtySearchTextField && searchInputAutocompleteModelView.isSelectedCode() {
             return false
         } else {
             textField.setBorderWith(width: 0, cornerRadius: 8, borderColor: .clear)
@@ -268,7 +331,7 @@ extension SearchInputViewController: UITextFieldDelegate {
                 if textField == locationSearchTextField {
                     searchInputAutocompleteModelView.set(address: searchText)
                     searchCompleter.queryFragment = searchText
-                } else {
+                } else if textField == categorySearchTextField {
                     searchInputAutocompleteModelView.set(criteria: searchText)
                     searchInput = searchText
                 }
@@ -280,12 +343,60 @@ extension SearchInputViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == categorySearchTextField {
             searchInputAutocompleteModelView.set(criteria: nil)
+        } else if textField == specialtySearchTextField {
+            searchInputAutocompleteModelView.set(code: nil)
         } else {
             selectedAddress = ""
             isSelectedAddress = false
             searchInputAutocompleteModelView.clearLocationField()
         }
         return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == categorySearchTextField {
+            specialtySearchTextField.becomeFirstResponder()
+            if let text = categorySearchTextField.text, !text.isEmpty {
+                categorySearchTextField.text = searchInputAutocompleteModelView.creteria ?? text
+            }
+        } else if textField == specialtySearchTextField {
+            locationSearchTextField.becomeFirstResponder()
+            if let text = specialtySearchTextField.text, !text.isEmpty {
+                specialtySearchTextField.text = searchInputAutocompleteModelView.selectedCode?.longLbl ?? text
+            }
+        } else {
+            if let text = locationSearchTextField.text, !text.isEmpty {
+                locationSearchTextField.text = searchInputAutocompleteModelView.address ?? text
+            }
+            onSearchAction(textField)
+        }
+        return true
+    }
+    
+    private func autoCompleteText(in textField: UITextField, searchResult arrayString: [String], using string: String) {
+        if !string.isEmpty {
+            let matches = Array(arrayString.filter({$0.lowercased().contains(string.lowercased())}))
+            if matches.count > 0 {
+                guard let text = matches.first else { return }
+                if textField == categorySearchTextField {
+                    searchInputAutocompleteModelView.set(criteria: text)
+                } else if textField == specialtySearchTextField {
+                    let itemsFiltered = searchResult.filter({$0.type == "code" && $0.value == text})
+                    guard let item = itemsFiltered.first, let code = item.getCodeType() else { return }
+                    searchInputAutocompleteModelView.set(code: code)
+                } else {
+                    isSelectedAddress = true
+                    selectedAddress = text
+                    searchInputAutocompleteModelView.set(address: text)
+                }
+            } else {
+                if textField == locationSearchTextField {
+                    isSelectedAddress = false
+                } else if textField == specialtySearchTextField {
+                    searchInputAutocompleteModelView.set(code: nil)
+                }
+            }
+        }
     }
 }
 
@@ -327,6 +438,15 @@ extension SearchInputViewController: MKLocalSearchCompleterDelegate {
             newList.append(contentsOf: completer.results.map {SearchAutoComplete.Address(address: $0)})
         }
         searchResult = newList
+        
+        // Auto complete for locationSearchTextField
+        searchAddressResult.removeAll()
+        for item in searchResult where item.type == "address" {
+            searchAddressResult.append(item.value)
+        }
+        if let string = locationSearchTextField.text, locationSearchTextField.isEditing {
+            autoCompleteText(in: locationSearchTextField, searchResult: searchAddressResult, using: string.capitalized)
+        }
     }
 
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
@@ -358,7 +478,7 @@ extension SearchInputViewController: SearchInputDataSourceDelegate {
             searchInputAutocompleteModelView.set(address: composedAdd)
             searchResult = []
         case .Code(let code):
-            categorySearchTextField.text = code.longLbl
+            specialtySearchTextField.text = code.longLbl
             searchInputAutocompleteModelView.set(code: code)
             locationSearchTextField.becomeFirstResponder()
         case .Individual(let individual):
@@ -391,7 +511,7 @@ extension CLPlacemark {
     
     /// postal address formatted
     @available(iOS 11.0, *)
-    var postalAddressFormatted: String? {
+    var postalCountryFormatted: String? {
         guard let postalAddress = postalAddress else { return nil }
         return postalAddress.country
     }

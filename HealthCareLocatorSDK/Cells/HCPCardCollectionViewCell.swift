@@ -20,7 +20,7 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
     func configWith(theme: HCLThemeConfigure, icons: HCLIconsConfigure, item: ActivityResult, selected: Bool) {
         wrapper.setBorderWith(width: selected ? 2 : 1,
                               cornerRadius: 8,
-                              borderColor: selected ? (theme.markerSelectedColor ?? UIColor.red) : (theme.cardBorderColor ?? UIColor.darkGray))
+                              borderColor: selected ? (theme.markerSelectedColor ?? .red) : (theme.cardBorderColor ?? .darkGray))
         // Icons
         moreDetailIcon.image = icons.arrowRightIcon
         
@@ -32,17 +32,23 @@ class HCPCardCollectionViewCell: UICollectionViewCell {
         distanceLabel.font = theme.defaultFont
         
         // Colors
+        wrapper.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         drLabel.textColor = theme.secondaryColor
         moreDetailIcon.tintColor = theme.secondaryColor
-        parentWorkplaceLabel.textColor = theme.darkColor
-        categoryLabel.textColor = theme.darkColor
+        parentWorkplaceLabel.textColor = theme.darkmode ? .white : theme.darkColor
+        categoryLabel.textColor = theme.darkmode ? .white : theme.darkColor
         addressLabel.textColor = theme.greyDarkColor
-        distanceLabel.textColor = theme.darkColor
+        distanceLabel.textColor = theme.darkmode ? .white : theme.darkColor
         
         drLabel.text = item.activity.individual.composedName
-        categoryLabel.text = item.activity.individual.professionalType?.label
+        categoryLabel.text = item.activity.individual.specialties.first?.label
         addressLabel.text = item.activity.workplace.address.composedAddress
-        guard let dis = item.distance else { return }
-        distanceLabel.text = dis > 0 ? String(Int(dis)) + "m" : ""
+        guard let dis = item.distance, dis > 0 else {
+            distanceLabel.text = ""
+            return
+        }
+        let disUnit = dis / kDefaultDistanceUnit.toMeter
+        let disUnitText = disUnit >= 1 ? (kDefaultDistanceUnit == .km ? "km" : "mi") : (kDefaultDistanceUnit == .km ? "m" : "ft")
+        distanceLabel.text = "\(String(format: "%.1f", disUnit >= 1 ? disUnit : dis)) \(disUnitText)"
     }
 }

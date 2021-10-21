@@ -49,17 +49,11 @@ class SearchResultViewModel: ViewLoading {
                     let street = place.thoroughfare
                     let city = place.locality
                     
-                    if street != nil {
+                    if street != nil || city != nil {
                         strongSelf.perform(action: SearchAction(isNearMeSearch: false,
                                                                 address: address,
                                                                 coordinate: place.location?.coordinate,
-                                                                distance: kDefaultSearchAddressDistance,
-                                                                country: nil))
-                    } else if city != nil {
-                        strongSelf.perform(action: SearchAction(isNearMeSearch: false,
-                                                                address: address,
-                                                                coordinate: place.location?.coordinate,
-                                                                distance: kDefaultSearchCityDistance,
+                                                                distance: kDefaultSearchNearMeDistance,
                                                                 country: nil))
                     } else {
                         if let countryCode = place.isoCountryCode {
@@ -79,9 +73,9 @@ class SearchResultViewModel: ViewLoading {
                 }
             }
         case .baseSearch(let country):
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: country))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: kDefaultSearchNearMeDistance, country: country))
         default:
-            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: nil, country: nil))
+            perform(action: SearchAction(isNearMeSearch: false, address: nil, coordinate: nil, distance: kDefaultSearchNearMeDistance, country: nil))
         }
     }
     
@@ -91,7 +85,7 @@ class SearchResultViewModel: ViewLoading {
         let info = GeneralQueryInput(first: 50,
                                      offset: 0,
                                      locale: config.lang.apiCode,
-                                     criteria: search.codes != nil ? nil : search.criteria)
+                                     criteria: search.criteria)
         fetchActivitiesWith(info: info,
                             specialties: search.codes?.map {$0.id},
                             location: coordinate,
@@ -134,17 +128,13 @@ class SearchResultViewModel: ViewLoading {
     func sortResultBy(sort: SearchResultSortViewController.SortBy, result: [ActivityResult], _ completionHandler: (([ActivityResult]) -> Void)) {
         var mutableResult = result
         switch sort {
-        case .name:
+        case .lastName:
             mutableResult.sort { (lhs, rhs) -> Bool in
                 return lhs.activity.individual.lastName < rhs.activity.individual.lastName
             }
         case .distance:
             mutableResult.sort { (lhs, rhs) -> Bool in
                 return lhs.distance ?? 0 < rhs.distance ?? 0
-            }
-        case .relevance:
-            mutableResult.sort { (lhs, rhs) -> Bool in
-                return lhs.relevance ?? 0 < rhs.relevance ?? 0
             }
         }
         completionHandler(mutableResult)
@@ -167,16 +157,18 @@ class SearchResultViewModel: ViewLoading {
         view.topInputTextField.font = theme.searchInputFont
         
         // Colors
+        view.view.backgroundColor = theme.darkmode ? kDarkLightColor : .white
+        view.topInputView.backgroundColor = theme.darkmode ? kDarkLightColor : .white
         view.searchButton.backgroundColor = theme.primaryColor
-        view.resultsLabel.textColor = theme.darkColor
+        view.resultsLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.sortButtonBackground.backgroundColor = theme.secondaryColor
         view.activityCountLabel.textColor = theme.primaryColor
-        view.criteriaLabel.textColor = theme.darkColor
+        view.criteriaLabel.textColor = theme.darkmode ? .white : theme.darkColor
         view.addressLabel.textColor = theme.greyColor
-        view.backButton.tintColor = theme.darkColor
+        view.backButton.tintColor = theme.darkmode ? .white : theme.darkColor
         view.firstSeparatorView.backgroundColor = theme.greyLighterColor
         view.secondSeparatorView.backgroundColor = theme.greyLighterColor
-        view.topInputTextField.textColor = theme.darkColor
+        view.topInputTextField.textColor = theme.darkmode ? .white : theme.darkColor
         view.topInputTextField.attributedPlaceholder = NSAttributedString(string: "hcl_find_healthcare_professional".localized,
                                                                      attributes: [NSAttributedString.Key.foregroundColor: theme.greyLightColor ?? .lightGray])
         layout(view: view, theme: theme, mode: .list)
@@ -190,8 +182,8 @@ class SearchResultViewModel: ViewLoading {
             view.listIcon.tintColor = .white
             
             view.selectedMapViewBackgroundView.backgroundColor = .clear
-            view.mapLabel.textColor = theme.darkColor
-            view.mapIcon.tintColor = theme.darkColor
+            view.mapLabel.textColor = theme.greyColor
+            view.mapIcon.tintColor = theme.greyColor
             
         case .map:
             view.selectedMapViewBackgroundView.backgroundColor = theme.primaryColor
@@ -199,41 +191,44 @@ class SearchResultViewModel: ViewLoading {
             view.mapIcon.tintColor = .white
             
             view.selectedListViewBackgroundView.backgroundColor = .clear
-            view.listLabel.textColor = theme.darkColor
-            view.listIcon.tintColor = theme.darkColor
+            view.listLabel.textColor = theme.greyColor
+            view.listIcon.tintColor = theme.greyColor
         }
     }
     
     func layoutWith(view: SearchResultViewController, searchData: SearchData) {
         view.addressLabel.text = " "// use space char to keep the line height
-        view.criteriaLabel.text = searchData.codes?.first?.longLbl ?? searchData.criteria ?? " "
+        var searchInput = ""
+        searchInput += searchData.criteria ?? ""
+        if let codes = searchData.codes, let code = codes.first {
+            searchInput += ((searchInput.isEmpty ? "" : ", ") + (code.longLbl ?? ""))
+        }
+        view.criteriaLabel.text = searchInput
         switch searchData.mode {
         case .baseSearch:
             view.addressLabel.text = kNoAddressTitle
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .list
+            view.sort = .lastName
         case .quickNearMeSearch:
             view.addressLabel.text = kNearMeTitle
             view.topInputWrapper.isHidden = false
             view.topLabelsWrapper.isHidden = true
             view.mode = .map
+            view.sort = .distance
         case .addressSearch(let address):
             view.addressLabel.text = address
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .list
+            view.sort = .lastName
         default:
             view.addressLabel.text = kNearMeTitle
             view.topInputWrapper.isHidden = true
             view.topLabelsWrapper.isHidden = false
             view.mode = .map
-        }
-        // Try to fetch label for code
-        if let code = searchData.codes?.first {
-            fetchLabelFor(code: code.id) {[weak view] (codeObj, error) in
-                view?.criteriaLabel.text = codeObj?.longLbl ?? code.id
-            }
+            view.sort = .distance
         }
     }
 }
@@ -273,8 +268,8 @@ extension SearchResultViewModel {
                 strongSelf.performSearchWith(config: config,
                                              coordinate: coordinate,
                                              completionHandler: { (result, error) in
-                                                            single(.success(result ?? []))
-                                                         })
+                                                single(.success(result ?? []))
+                                             })
             } else {
                 single(.success([]))
             }

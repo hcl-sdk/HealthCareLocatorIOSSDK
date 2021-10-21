@@ -1,0 +1,69 @@
+/* 
+  Localize.strings
+  HealthCareLocatorSDK
+
+  Created by Truong Le on 12/23/20.
+  
+*/
+
+// Home page
+"hcl_home_title" = "Zorgverleners\nzoeken";
+"hcl_home_feat_find_hcp_title" = "Zorgverleners zoeken";
+"hcl_home_feat_find_hcp_text" = "Zoek naar zorgverleners op locatie, naam of specialisatie, of zoek naar zorgverleners bij u in de buurt";
+"hcl_home_feat_consult_profile_title" = "Toegang tot profielen van zorgverleners";
+"hcl_home_feat_consult_profile_text" = "Bekijk uitgebreide profielen van zorgverleners, inclusief specialisaties, locatie en contactgegevens";
+"hcl_home_feat_request_info_update_title" = "Zorgverleners delen";
+"hcl_home_feat_request_info_update_text" = "Gebruik sms of e-mail om profielen te delen met vrienden en familie ";
+"hcl_start_new_search" = "Nieuwe zoekopdracht starten";
+"hcl_hcps_near_me" = "Zorgverleners bij mij in de buurt";
+"hcl_last_searches" = "Vorige zoekopdrachten";
+"hcl_view_more" = "Meer tonen";
+"hcl_view_less" = "Minder tonen";
+"hcl_last_hcps_consulted" = "Laatst geraadpleegde zorgverlener";
+"hcl_find_healthcare_professional" = "Zorgverlener zoeken";
+"hcl_search" = "Zoeken";
+"hcl_since_format" = "%@ geleden";
+
+// Search
+"hcl_search_name_field_label" = "Naam";
+"hcl_search_specialty_field_label" = "Specialisatie";
+"hcl_search_second_field_label" = "Waar? (adres, plaats...)";
+"hcl_search_reset" = "Zoekopdracht resetten";
+"hcl_near_me" = "Bij mij in de buurt";
+"hcl_anywhere" = "Overal";
+
+// Results List View
+"hcl_results_label" = "Resultaten";
+"hcl_list_label" = "Lijst";
+"hcl_map_label" = "Kaart";
+"hcl_distance_unit" = "%dm";
+"hcl_back_to_search_results" = "Terug naar zoekresultaten";
+"hcl_no_result_found" = "Geen resultaten gevonden";
+"hcl_no_result_message" = "Oeps, het lijkt erop dat uw zoekopdracht geen resultaten heeft opgeleverd.";
+"hcl_relaunch" = "Opnieuw zoeken";
+
+// Sort
+"hcl_sort_label" = "Sorteren";
+"hcl_relevance_item" = "Relevantie";
+"hcl_distance_item" = "Afstand";
+"hcl_name_item" = "Naam";
+"hcl_apply_button" = "Toepassen";
+"hcl_reset_button" = "Resetten";
+
+// HCP profile
+"hcl_main_information_label" = "Belangrijkste informatie";
+"hcl_rate_refunds_label" = "Tarief en vergoedingen";
+"hcl_specialities_label" = "Specialisaties";
+"hcl_information_label" = "Informatie";
+"hcl_information_description" = "Klopt de informatie die u heeft gekregen over deze zorgverlener?";
+"hcl_information_yes_label" = "Ja";
+"hcl_information_no_label" = "Nee";
+"hcl_improve_quality_label" = "Verbeter de kwaliteit van de gegevens";
+"hcl_improve_quality_text" = "Geef ons meer informatie over deze zorgverlener.";
+"hcl_suggess_modification_button" = "Stel een wijziging voor";
+"hcl_back_to_home" = "Terug naar homepagina";
+
+//
+"hcl_share_template_full" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@ - %@";
+"hcl_share_template_without_parent_url" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@\n\nI found it on %@";
+"hcl_share_template_without_parent_info" = "Here is a healthcare professional that I recommend:\n\n%@\n%@\n\nSpecialties: %@\n\n%@";
