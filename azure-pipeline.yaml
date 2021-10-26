@@ -40,37 +40,12 @@ stages:
         path: s/onekey-sdk-ios-lib
 
       - task: ios-bundle-version@1
-        displayName: "Compute version numnber"
         inputs:
           sourcePath: "Example/HealthCareLocatorSDKDemo/HCLDemo-Info.plist"
           versionCodeOption: "buildid"
           versionCode: "$(Build.BuildId)"
           versionCodeOffset: "0"
           printFile: true
-
-      - task: XplatGenerateReleaseNotes@3
-        displayName: "Generare Release notes"
-        inputs:
-          outputfile: 'release.txt'
-          templateLocation: 'InLine'
-          inlinetemplate: |
-            #Release notes for build $defname  
-            **Build Number**  : $($build.BuildId)    
-            **Build started** : $("{0:dd/MM/yy HH:mm:ss}" -f [datetime]$build.startTime)     
-            **Source Branch** : $($build.sourceBranch)  
-            
-            ###Associated change sets/commits  
-            @@CSLOOP@@  
-            * **ID $($csdetail.changesetid)$($csdetail.commitid)** $($csdetail.comment)    
-            @@CSLOOP@@
-          dumpPayloadToConsole: true
-          dumpPayloadToFile: false
-          replaceFile: true
-          getParentsAndChildren: False
-          getAllParents: False
-          getIndirectPullRequests: False
-          stopOnError: False
-          considerPartiallySuccessfulReleases: False
 
       - task: InstallAppleCertificate@2
         inputs:
@@ -111,13 +86,6 @@ stages:
           overWrite: true
           flattenFolders: true
 
-      - task: CopyFiles@2
-        inputs:
-          contents: "**/release.txt"
-          targetFolder: "$(build.artifactStagingDirectory)"
-          overWrite: true
-          flattenFolders: true
-          
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: "$(build.artifactStagingDirectory)"
