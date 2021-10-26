@@ -100,6 +100,7 @@
 		58F5EE07255BA5BA0029B0B4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F5EE06255BA5BA0029B0B4 /* SearchViewController.swift */; };
 		96EE192527144D320097FCFE /* DistanceUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE192427144D320097FCFE /* DistanceUnitViewController.swift */; };
 		ACB6555E60F1E204F09763ED /* Pods_HCLDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D112836053049D056422B6 /* Pods_HCLDemo.framework */; };
+		F077D68527219CAB0019C771 /* DistanceUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EE192427144D320097FCFE /* DistanceUnitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -578,6 +579,7 @@
 				58F32B3325CA631F006C6F8A /* ToogleMenuTableViewCell.swift in Sources */,
 				58F32B3425CA631F006C6F8A /* InputMenuTableViewCell.swift in Sources */,
 				58F32B3525CA631F006C6F8A /* FontFamilyTableViewCell.swift in Sources */,
+				F077D68527219CAB0019C771 /* DistanceUnitViewController.swift in Sources */,
 				58F32B3625CA631F006C6F8A /* Keys.swift in Sources */,
 				58F32B3725CA631F006C6F8A /* BaseView.swift in Sources */,
 				58F32B3825CA631F006C6F8A /* Menu.swift in Sources */,
