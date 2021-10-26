@@ -8,7 +8,7 @@ trigger:
    - '*'
 
 pool:
-  vmImage: "macOS-11"
+  vmImage: "macos-latest"
 
 variables:
   p12Password: $(p12Secret)
