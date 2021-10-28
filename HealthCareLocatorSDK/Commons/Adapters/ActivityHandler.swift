@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ActivityHandler: class {
+protocol ActivityHandler: AnyObject {
     func didSelect(activity: ActivityResult)
 }

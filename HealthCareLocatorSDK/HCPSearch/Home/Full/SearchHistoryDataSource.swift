@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol SearchHistoryCellDelegate: class {
+protocol SearchHistoryCellDelegate: AnyObject {
     func shouldRemoveActivityAt(indexPath: IndexPath)
     func shouldRemoveSearchAt(indexPath: IndexPath)
 }
 
-protocol SearchHistoryDataSourceDelegate: class {
+protocol SearchHistoryDataSourceDelegate: AnyObject {
     func didSelectNearMeSearch()
     func didSelect(activity: Activity)
     func didSelect(search: LastSearch)

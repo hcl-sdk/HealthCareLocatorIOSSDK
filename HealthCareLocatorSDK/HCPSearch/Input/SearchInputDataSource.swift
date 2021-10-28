@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol SearchInputDataSourceDelegate: class {
+protocol SearchInputDataSourceDelegate: AnyObject {
     func didSelect(result: SearchAutoComplete)
 }
 
