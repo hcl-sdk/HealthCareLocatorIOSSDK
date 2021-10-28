@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PickerListViewControllerDelegate: class {
+protocol PickerListViewControllerDelegate: AnyObject {
     func didSelect(item: String, at index: Int)
     func backAction()
 }
