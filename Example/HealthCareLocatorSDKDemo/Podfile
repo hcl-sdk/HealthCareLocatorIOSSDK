@@ -17,8 +17,8 @@ target 'HealthCareLocatorSDKDemo' do
 
   # Pods for HealthCareLocatorSDKDemo
   pod 'HealthCareLocatorSDK', :path => '../../'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+  pod 'RxSwift', '~> 6'
+  pod 'RxCocoa', '~> 6'
   pod 'lottie-ios'
   pod 'FlexColorPicker'
   pod 'IQKeyboardManagerSwift'
@@ -32,8 +32,8 @@ target 'HCLDemo' do
 
   # Pods for HealthCareLocatorSDKDemo
   pod 'HealthCareLocatorSDK', :path => '../../'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+  pod 'RxSwift', '~> 6'
+  pod 'RxCocoa', '~> 6'
   pod 'lottie-ios'
   pod 'FlexColorPicker'
   pod 'IQKeyboardManagerSwift'

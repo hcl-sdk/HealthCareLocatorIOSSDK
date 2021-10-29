@@ -78,7 +78,7 @@ Pod::Spec.new do |spec|
   #
 
 # spec.source       =  { :http => 'file://localhost/Users/evalentin/Documents/Development/onekey-sdk-ios-lib/' }
-  spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => '1.2.7'}
+  spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => '1.2.7', :tag => '1.2.7'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
