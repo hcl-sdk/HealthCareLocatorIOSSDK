@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HeaderViewMoreTableViewCellDelegate: class {
+protocol HeaderViewMoreTableViewCellDelegate: AnyObject {
     func onAction(indexPath: IndexPath)
 }
 
