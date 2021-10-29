@@ -18,13 +18,6 @@ stages:
   - stage: BuildNumberGenerator  
     displayName: Build Version Tag
     jobs:
-    - job: GenerateReleaseVersionTag
-      condition: startsWith(variables['build.sourceBranch'], 'refs/heads/release/')
-      variables: 
-        revision: $[counter(variables['build.sourcebranchname'], 0)]
-      steps:
-      - bash: echo '##vso[build.updatebuildnumber]r$(build.sourcebranchname)-$(revision)'
-
     - job: GenerateMasterVersionTag
       condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
       variables: 
@@ -35,7 +28,7 @@ stages:
   - stage: BuildSteps
     jobs:
     - job: Build 
-      condition: or(startsWith(variables['build.sourceBranch'], 'refs/heads/release/'), startsWith(variables['build.sourceBranch'], 'refs/tags/')) 
+      condition: startsWith(variables['build.sourceBranch'], 'refs/tags/')
       steps:
       - checkout: self
         path: s/onekey-sdk-ios-lib
@@ -67,6 +60,8 @@ stages:
           xcodeVersion: "default"
           signingOption: "manual"
           packageApp: false
+          useXcpretty: false
+
 
       - task: PublishBuildArtifacts@1
         inputs:
