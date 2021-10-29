@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "HealthCareLocatorSDK"
-  spec.version      = "1.0.0"
+  spec.version      = "1.2.7"
   spec.summary      = "HealthCareLocatorSDK from IQVIA"
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.source       = { :path => "." }
-  spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => '1.0.0'}
+  spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => '1.2.7'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
