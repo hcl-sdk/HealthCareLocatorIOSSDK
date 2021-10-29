@@ -7,9 +7,7 @@ target 'HealthCareLocatorSDK' do
   
   # Pods for HealthCareLocatorSDK
   pod 'Apollo', '~> 0.36.0'
-  pod 'RxSwift', '~> 5.1.1'
-  pod 'RxCocoa', '~> 5.1.1'
-  pod 'RxSwiftExt', '~> 5.2.0'
+  pod 'RxSwiftExt', '~> 6.0.0'
   
   target 'HealthCareLocatorSDKTests' do
     # Pods for testing

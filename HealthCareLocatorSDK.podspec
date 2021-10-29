@@ -77,7 +77,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # spec.source       = { :path => "." }
+# spec.source       =  { :http => 'file://localhost/Users/evalentin/Documents/Development/onekey-sdk-ios-lib/' }
   spec.source  = { :git => 'https://github.com/hcl-sdk/HealthCareLocatorIOSSDK.git', :branch => '1.2.7'}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

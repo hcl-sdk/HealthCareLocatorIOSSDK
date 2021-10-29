@@ -41,7 +41,7 @@ class SearchHomeFullViewController: UIViewController, ViewDesign {
             switch result {
             case .success(let sections):
                 strongSelf.tableViewDataSource.reloadWith(data: sections)
-            case .error(let error):
+            case .failure(let error):
                 // TODO: Handle error
                 print(error)
             }

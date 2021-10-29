@@ -65,7 +65,7 @@ class SearchHistoryViewModel: ViewLoading {
         return getCurrentLocation().flatMap {[weak self] (coordinate) -> Single<[ActivityResult]> in
             guard let strongSelf = self else {
                 return Single.create { single in
-                    single(.error(HCLError.noResult))
+                    single(.failure(HCLError.noResult))
                     return Disposables.create {}
                 }
             }
@@ -128,7 +128,7 @@ class SearchHistoryViewModel: ViewLoading {
                 if let result = result {
                     single(.success(result))
                 } else if let error = error {
-                    single(.error(error))
+                    single(.failure(error))
                 } else {
                     single(.success([]))
                 }
